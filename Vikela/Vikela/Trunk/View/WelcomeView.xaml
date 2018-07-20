@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base:ProjectBaseContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:Vikela.Root.View"
+    xmlns:m="clr-namespace:Vikela.Implementation.ViewModel"
+    xmlns:p="clr-namespace:Vikela.Implementation.ViewController"
+    xmlns:b="clr-namespace:Vikela.Implementation.View"
+    xmlns:svg="clr-namespace:TwinTechsForms.NControl;assembly=TwinTechsForms.NControl.SvgImageView"
+    xmlns:image="clr-namespace:MobileBonsai.View"
+    x:Class="Vikela.Implementation.View.WelcomeView" 
+    x:TypeArguments="p:WelcomeViewController, m:WelcomeViewModel" 
+    BackgroundColor="#6ba3ff"
+    Title="Login">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HeightRequest="40"></StackLayout>
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <StackLayout BackgroundColor="Blue" HorizontalOptions="FillAndExpand" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                    <Label Font="Verdana" FontSize="10" TextColor="White" Text="ENG"></Label>
+                    <Label Text="^" />
+                </StackLayout>
+                <StackLayout WidthRequest="40" HorizontalOptions="End" />
+            </StackLayout>
+            <StackLayout HeightRequest="200">
+                
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center">
+                <Label Font="Verdana" FontSize="30" TextColor="White" Text="Welcome to Vikela." />
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand" />
+            <StackLayout VerticalOptions="Fill">
+                <Button Text="Start" BackgroundColor="White" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</base:ProjectBaseContentPage>

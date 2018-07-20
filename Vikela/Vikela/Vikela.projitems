@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{3cdc0aae-d441-402f-b0a1-f4b2555f919f}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Vikela</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\WelcomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Root\Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\MasterModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\MasterRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IMasterRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Root\ProjectBaseContentPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Root\ProjectBaseContentScrollView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Root\ProjectBaseContentView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Root\ProjectBaseRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Root\ProjectBaseStackContentView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Root\ProjectBaseViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Root\ProjectBaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Root\ByteArrayToImageSourceConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Root\SVGBindingProperty.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\WelcomeViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\WelcomeView.xaml.cs">
+      <DependentUpon>WelcomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IWelcomeViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\WelcomeViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IWelcomeRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\WelcomeRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IWelcomeService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\WelcomeService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Root\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\Service\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewController\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\" />
+  </ItemGroup>
+</Project>
