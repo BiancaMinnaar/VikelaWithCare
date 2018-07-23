@@ -52,7 +52,7 @@ namespace Vikela.Implementation.Repository
             }
         }
 
-        private async Task<bool> CheckUserRecord()
+        public async Task<bool> CheckUserRecord()
         {
             var returnVal = await OfflineStorageRepo.Connection.ExecuteScalarAsync<int>("SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = 'User'");
             return returnVal > 0;

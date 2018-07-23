@@ -9,5 +9,6 @@ namespace Vikela.Interface.Repository
         where T : BaseViewModel
     {
         Task Register(RegisterViewModel model, Action<T> completeAction);
+        Task<bool> CheckUserRecord();
     }
 }

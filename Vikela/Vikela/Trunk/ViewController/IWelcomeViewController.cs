@@ -1,7 +1,9 @@
+using System.Threading.Tasks;
+
 namespace Vikela.Interface.ViewController
 {
     public interface IWelcomeViewController
     {
-        void Load();
+        Task Load();
     }
 }
