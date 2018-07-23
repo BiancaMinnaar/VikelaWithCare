@@ -10,7 +10,7 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.CongratulationsView" 
     x:TypeArguments="p:CongratulationsViewController, m:CongratulationsViewModel" 
-    BackgroundColor="#565E60"
+    BackgroundColor="#47B3E4"
     Title="Login">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -18,6 +18,9 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Label FontSize="18" Text="Congratulations!"></Label>
+            <Label FontSize="6" Text="Thank you for signing up with Vikela with care." />
+        </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>

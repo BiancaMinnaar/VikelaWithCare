@@ -19,9 +19,9 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public async void On_Register_Event(object sender, EventArgs e)
+        public void On_Register_Event(object sender, EventArgs e)
         {
-            await _ViewController.Register();
+            _ViewController.Register();
         }
     }
 }

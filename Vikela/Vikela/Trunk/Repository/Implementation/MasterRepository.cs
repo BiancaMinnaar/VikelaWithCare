@@ -91,6 +91,11 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _Navigation.PushAsync(new RegisterView());
         }
+
+        public void PushCongratulationsView()
+        {
+            _Navigation.PushAsync(new CongratulationsView());
+        }
     }
 }
 

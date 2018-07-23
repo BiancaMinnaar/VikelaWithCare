@@ -27,7 +27,7 @@
             <StackLayout>
                 <Button MinimumWidthRequest="50" Text="Continue with Facebook" BackgroundColor="White" />
                 <Button MinimumWidthRequest="50" Text="Continue with Instagram" BackgroundColor="White" />
-                <Button MinimumWidthRequest="50" Text="Create an Account" BackgroundColor="White" />
+                <Button MinimumWidthRequest="50" Text="Create an Account" BackgroundColor="White" Clicked="On_Register_Event" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="by tapping start I agree to Vikela " />

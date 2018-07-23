@@ -17,6 +17,7 @@ namespace Vikela.Interface.Repository
         void PushHomeView();
         void PushLoginView();
         void PushRegistrationView();
+        void PushCongratulationsView();
     }
 }
 
