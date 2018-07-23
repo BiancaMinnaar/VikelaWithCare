@@ -16,6 +16,9 @@ namespace Vikela.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             UserDialogs.Init(this);
             LoadApplication(new App());
+            var x = typeof(Xamarin.Forms.Themes.DarkThemeResources);
+            x = typeof(Xamarin.Forms.Themes.LightThemeResources);
+            x = typeof(Xamarin.Forms.Themes.Android.UnderlineEffect);
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)

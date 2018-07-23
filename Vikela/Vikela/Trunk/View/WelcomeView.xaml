@@ -38,6 +38,12 @@
             <StackLayout VerticalOptions="Fill">
                 <Button Text="Start" BackgroundColor="White" />
             </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="by tapping start I agree to Vikela " />
+                <Button StyleClass = "Link" Text="Terms of Service" />
+                <Label Text=" and " />
+                <Label Text="Privacy Policy" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>
