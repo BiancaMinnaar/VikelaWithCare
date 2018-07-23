@@ -25,9 +25,9 @@
                 <Label Font="Verdana" FontSize="30" TextColor="White" Text="Register with Vikela" />
             </StackLayout>
             <StackLayout>
-                <Button MinimumWidthRequest="100" Text="Continue with Facebook" />
-                <Button MinimumWidthRequest="100" Text="Continue with Instagram" />
-                <Button MinimumWidthRequest="100" Text="Create an Account" />
+                <Button MinimumWidthRequest="50" Text="Continue with Facebook" BackgroundColor="White" />
+                <Button MinimumWidthRequest="50" Text="Continue with Instagram" BackgroundColor="White" />
+                <Button MinimumWidthRequest="50" Text="Create an Account" BackgroundColor="White" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="by tapping start I agree to Vikela " />
