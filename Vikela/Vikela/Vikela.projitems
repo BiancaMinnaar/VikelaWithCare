@@ -85,6 +85,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\CongratulationsView.xaml.cs">
       <DependentUpon>CongratulationsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Offline\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
@@ -98,5 +99,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Offline\" />
   </ItemGroup>
 </Project>

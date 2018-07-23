@@ -20,9 +20,10 @@ namespace Vikela.Implementation.ViewController
             _Reposetory = new RegisterRepository<RegisterViewModel>(_MasterRepo, _Service);
         }
 
-        public void Register()
+        public async void Register()
         {
-            _MasterRepo.PushCongratulationsView();
+            await _Reposetory.Register(InputObject, 
+                                 (model) => _MasterRepo.PushCongratulationsView());
         }
     }
 }
