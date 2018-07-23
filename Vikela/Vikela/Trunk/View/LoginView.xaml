@@ -37,8 +37,9 @@
                 <StackLayout HeightRequest="20" />
                 <Button Text="log in" BackgroundColor="White" />
                 <StackLayout HeightRequest="20" />
-                <StackLayout>
-                    <StackLayout>
+                <StackLayout HorizontalOptions="Center">
+                    <Label Text="Log in with social media" />
+                    <StackLayout Orientation="Horizontal">
                         <Button Text="Facebook" />
                         <Button Text="Instagram" />
                     </StackLayout>
