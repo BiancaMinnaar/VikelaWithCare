@@ -6,9 +6,9 @@ using Xamarin.Forms;
 
 namespace Vikela.Implementation.View
 {
-    public partial class WelcomeView : ProjectBaseContentPage<WelcomeViewController, WelcomeViewModel>
+    public partial class LoginView : ProjectBaseContentPage<LoginViewController, LoginViewModel>
     {
-        public WelcomeView()
+        public LoginView()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
@@ -19,9 +19,9 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public async void On_Start_Clicked(object sender, EventArgs e)
+        public async void On_Login_Event(object sender, EventArgs e)
         {
-            await _ViewController.Load();
+            await _ViewController.Login();
         }
     }
 }

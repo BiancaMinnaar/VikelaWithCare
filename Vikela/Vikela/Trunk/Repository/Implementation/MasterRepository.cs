@@ -9,6 +9,7 @@ using Vikela.Root.Repository;
 using Vikela.Root.ViewModel;
 using Newtonsoft.Json;
 using Xamarin.Forms;
+using Vikela.Implementation.View;
 
 namespace Vikela.Trunk.Repository.Implementation
 {
@@ -80,6 +81,11 @@ namespace Vikela.Trunk.Repository.Implementation
         public void PushHomeView()
         {
            // _Navigation.PushAsync(new HomeView());
+        }
+
+        public void PushLoginView()
+        {
+            _Navigation.PushAsync(new LoginView());
         }
     }
 }

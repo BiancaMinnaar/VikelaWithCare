@@ -23,7 +23,7 @@ namespace Vikela.Implementation.ViewController
 
         public async Task Load()
         {
-            
+            await Task.Run(() => _MasterRepo.PushLoginView());
         }
     }
 }

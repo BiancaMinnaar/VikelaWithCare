@@ -13,6 +13,7 @@ namespace Vikela.Interface.Repository
         void HideLoading();
         void DumpJson<T>(string heading, T objectToDump);
         void PushHomeView();
+        void PushLoginView();
     }
 }
 

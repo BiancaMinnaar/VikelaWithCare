@@ -14,6 +14,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -43,6 +47,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\WelcomeRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IWelcomeService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\WelcomeService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\LoginViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ILoginViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\LoginViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ILoginRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\LoginRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ILoginService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\LoginService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
