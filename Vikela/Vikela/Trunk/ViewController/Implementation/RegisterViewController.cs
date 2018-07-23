@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Vikela.Implementation.Repository;
 using Vikela.Implementation.Service;
 using Vikela.Implementation.ViewModel;
@@ -20,7 +21,7 @@ namespace Vikela.Implementation.ViewController
             _Reposetory = new RegisterRepository<RegisterViewModel>(_MasterRepo, _Service);
         }
 
-        public async void Register()
+        public async Task Register()
         {
             await _Reposetory.Register(InputObject, 
                                  (model) => _MasterRepo.PushCongratulationsView());
