@@ -10,7 +10,7 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.RegisterView" 
     x:TypeArguments="p:RegisterViewController, m:RegisterViewModel" 
-    BackgroundColor="#565E60"
+    BackgroundColor="#47B3E4"
     Title="Login">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -18,6 +18,23 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
+        <StackLayout>
+            <StackLayout HeightRequest="40" />
+            <StackLayout HeightRequest="60"></StackLayout>
+            <StackLayout>
+                <Label Font="Verdana" FontSize="30" TextColor="White" Text="Register with Vikela" />
+            </StackLayout>
+            <StackLayout>
+                <Button MinimumWidthRequest="100" Text="Continue with Facebook" />
+                <Button MinimumWidthRequest="100" Text="Continue with Instagram" />
+                <Button MinimumWidthRequest="100" Text="Create an Account" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="by tapping start I agree to Vikela " />
+                <Button StyleClass = "Link" Text="Terms of Service" />
+                <Label Text=" and " />
+                <Label Text="Privacy Policy" />
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>
