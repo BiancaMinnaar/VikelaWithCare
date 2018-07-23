@@ -1,9 +1,11 @@
+using Vikela.Root.ViewModel;
 using Xamarin.Forms;
 
 namespace Vikela.Interface.Repository
 {
     public interface IMasterRepository
     {
+        MasterModel DataSource { get; set; }
         void SetRootView(Page rootView);
         Page GetRootView();
         void PushLogOut();
@@ -14,6 +16,7 @@ namespace Vikela.Interface.Repository
         void DumpJson<T>(string heading, T objectToDump);
         void PushHomeView();
         void PushLoginView();
+        void PushRegistrationView();
     }
 }
 

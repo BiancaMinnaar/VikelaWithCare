@@ -22,7 +22,17 @@ namespace Vikela.Implementation.ViewController
 
         public void Load()
         {
-            _MasterRepo.PushLoginView();
+            //override
+            _MasterRepo.DataSource.IsExistingClient = false;
+
+            if (_MasterRepo.DataSource.IsExistingClient)
+            {
+                _MasterRepo.PushLoginView();
+            }
+            else
+            {
+                _MasterRepo.PushRegistrationView();
+            }
         }
     }
 }

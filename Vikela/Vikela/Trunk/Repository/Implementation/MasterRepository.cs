@@ -17,7 +17,7 @@ namespace Vikela.Trunk.Repository.Implementation
     {
         private static MasterRepository _Reposetory = new MasterRepository();
         private static readonly object syncronisationLock = new object();
-        public MasterModel DataSorce { get; set; }
+        public MasterModel DataSource { get; set; }
         private INavigation _Navigation;
         private Page _RootView;
         public Func<string, Dictionary<string, object>, BaseNetworkAccessEnum, Task> NetworkInterface { get; set; }
@@ -26,7 +26,7 @@ namespace Vikela.Trunk.Repository.Implementation
         MasterRepository()
             : base(null)
         {
-            DataSorce = new MasterModel();
+            DataSource = new MasterModel();
         }
 
         public static MasterRepository MasterRepo
@@ -38,7 +38,7 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _RootView = rootView;
             _Navigation = rootView.Navigation;
-            
+
         }
 
         public Page GetRootView()
@@ -48,7 +48,7 @@ namespace Vikela.Trunk.Repository.Implementation
 
         public void PushLogOut()
         {
-            DataSorce.Authenticated = false;
+            DataSource.Authenticated = false;
             _Navigation.PopToRootAsync();
         }
 
@@ -80,12 +80,16 @@ namespace Vikela.Trunk.Repository.Implementation
 
         public void PushHomeView()
         {
-           // _Navigation.PushAsync(new HomeView());
+            // _Navigation.PushAsync(new HomeView());
         }
 
         public void PushLoginView()
         {
             _Navigation.PushAsync(new LoginView());
+        }
+        public void PushRegistrationView()
+        {
+            _Navigation.PushAsync(new RegisterView());
         }
     }
 }
