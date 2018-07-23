@@ -35,7 +35,7 @@
                 </StackLayout>
                 <Label Text="forgot Password" />
                 <StackLayout HeightRequest="20" />
-                <Button Text="log in" />
+                <Button Text="log in" BackgroundColor="White" />
                 <StackLayout HeightRequest="20" />
                 <StackLayout>
                     <StackLayout>
