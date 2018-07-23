@@ -22,6 +22,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\CongratulationsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -71,6 +75,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\RegisterRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IRegisterService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\RegisterService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\CongratulationsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ICongratulationsViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\CongratulationsViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ICongratulationsRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\CongratulationsRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ICongratulationsService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\CongratulationsService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\CongratulationsView.xaml.cs">
+      <DependentUpon>CongratulationsView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
@@ -83,5 +97,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\" />
   </ItemGroup>
 </Project>
