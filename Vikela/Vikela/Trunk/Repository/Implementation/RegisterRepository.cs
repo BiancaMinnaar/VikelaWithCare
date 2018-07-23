@@ -46,6 +46,16 @@ namespace Vikela.Implementation.Repository
                     UserPicture = model.UserPicture
                 });
             }
+            else
+            {
+                var s = await OfflineStorageRepo.Connection.UpdateAsync(new User()
+                {
+                    FirstName = model.FisrtName,
+                    LastName = model.LastName,
+                    MobileNumber = model.MobileNumber,
+                    UserPicture = model.UserPicture
+                });
+            }
         }
 
         private async Task<bool> CheckUserRecord()
