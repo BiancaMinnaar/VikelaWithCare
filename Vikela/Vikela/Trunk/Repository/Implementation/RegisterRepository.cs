@@ -28,33 +28,27 @@ namespace Vikela.Implementation.Repository
 
         public async Task Register(RegisterViewModel model, Action<T> completeAction)
         {
-            //var serviceReturnModel = await _Service.Register(model);
-            //completeAction(serviceReturnModel);
-            await SetUserRecord(model);
+            var serviceReturnModel = await _Service.Register(model);
+            completeAction(serviceReturnModel);
+            await SetUserRecord(new User()
+            {
+                FirstName = model.FisrtName,
+                LastName = model.LastName,
+                MobileNumber = model.MobileNumber,
+                UserPicture = model.UserPicture
+            });
         }
 
-        public async Task SetUserRecord(RegisterViewModel model)
+        public async Task SetUserRecord(User model)
         {
             if (!await CheckUserRecord())
             {
                 await OfflineStorageRepo.Connection.CreateTableAsync<User>();
-                var s = await OfflineStorageRepo.Connection.InsertAsync(new User()
-                {
-                    FirstName = model.FisrtName,
-                    LastName = model.LastName,
-                    MobileNumber = model.MobileNumber,
-                    UserPicture = model.UserPicture
-                });
+                var s = await OfflineStorageRepo.Connection.InsertAsync(model);
             }
             else
             {
-                var s = await OfflineStorageRepo.Connection.UpdateAsync(new User()
-                {
-                    FirstName = model.FisrtName,
-                    LastName = model.LastName,
-                    MobileNumber = model.MobileNumber,
-                    UserPicture = model.UserPicture
-                });
+                var s = await OfflineStorageRepo.Connection.UpdateAsync(model);
             }
         }
 
