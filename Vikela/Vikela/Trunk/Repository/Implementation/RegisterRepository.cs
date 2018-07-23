@@ -8,6 +8,8 @@ using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Root.Repository;
 using Vikela.Trunk.ViewModel.Offline;
+using Vikela.Trunk.Repository;
+using Vikela.Trunk.Repository.Implementation;
 
 namespace Vikela.Implementation.Repository
 {
@@ -15,11 +17,13 @@ namespace Vikela.Implementation.Repository
         where T : BaseViewModel
     {
         IRegisterService<T> _Service;
+        IOfflineStorageRepository OfflineStorageRepo;
 
         public RegisterRepository(IMasterRepository masterRepository, IRegisterService<T> service)
             : base(masterRepository)
         {
             _Service = service;
+            OfflineStorageRepo = OfflineStorageRepository.Instance;
         }
 
         public async Task Register(RegisterViewModel model, Action<T> completeAction)
@@ -31,13 +35,10 @@ namespace Vikela.Implementation.Repository
 
         public async Task SetUserRecord(RegisterViewModel model)
         {
-            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MyData.db");
-
-            var conn = new SQLiteAsyncConnection(databasePath);
             if (!await CheckUserRecord())
             {
-                await conn.CreateTableAsync<User>();
-                var s = await conn.InsertAsync(new User()
+                await OfflineStorageRepo.Connection.CreateTableAsync<User>();
+                var s = await OfflineStorageRepo.Connection.InsertAsync(new User()
                 {
                     FirstName = model.FisrtName,
                     LastName = model.LastName,
@@ -49,11 +50,7 @@ namespace Vikela.Implementation.Repository
 
         private async Task<bool> CheckUserRecord()
         {
-            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MyData.db");
-
-            var conn = new SQLiteAsyncConnection(databasePath);
-
-            var returnVal = await conn.ExecuteScalarAsync<int>("SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = 'User'");
+            var returnVal = await OfflineStorageRepo.Connection.ExecuteScalarAsync<int>("SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = 'User'");
             return returnVal > 0;
         }
     }
