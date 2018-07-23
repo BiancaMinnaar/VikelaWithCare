@@ -10,7 +10,7 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.LoginView" 
     x:TypeArguments="p:LoginViewController, m:LoginViewModel" 
-    BackgroundColor="#565E60"
+    BackgroundColor="#47B3E4"
     Title="Login">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -18,6 +18,32 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
+        <StackLayout>
+            <StackLayout HeightRequest="40" />
+            <StackLayout HeightRequest="60"></StackLayout>
+            <StackLayout>
+                <Label Font="Verdana" FontSize="30" TextColor="White" Text="Welcome to Vikela." />
+            </StackLayout>
+            <StackLayout>
+                <StackLayout>
+                    <Label Text="Mobile number" />
+                    <Entry />
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Password" />
+                    <Entry />
+                </StackLayout>
+                <Label Text="forgot Password" />
+                <StackLayout HeightRequest="20" />
+                <Button Text="log in" />
+                <StackLayout HeightRequest="20" />
+                <StackLayout>
+                    <StackLayout>
+                        <Button Text="Facebook" />
+                        <Button Text="Instagram" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>

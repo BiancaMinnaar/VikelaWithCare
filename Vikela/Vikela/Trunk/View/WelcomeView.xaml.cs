@@ -19,9 +19,9 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public async void On_Start_Clicked(object sender, EventArgs e)
+        public void On_Start_Clicked(object sender, EventArgs e)
         {
-            await _ViewController.Load();
+            _ViewController.Load();
         }
     }
 }

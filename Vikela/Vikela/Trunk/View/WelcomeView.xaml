@@ -10,7 +10,7 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.WelcomeView" 
     x:TypeArguments="p:WelcomeViewController, m:WelcomeViewModel" 
-    BackgroundColor="#6ba3ff"
+    BackgroundColor="#47B3E4"
     Title="Login">
     <ContentPage.Resources>
         <ResourceDictionary>
