@@ -36,7 +36,7 @@
             </StackLayout>
             <StackLayout VerticalOptions="FillAndExpand" />
             <StackLayout VerticalOptions="Fill">
-                <Button Text="Start" BackgroundColor="White" Clicked="On_Start_Clicked" />
+                <Button Text="Start" BackgroundColor="White" TextColor="#47B3E4" Clicked="On_Start_Clicked" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="by tapping start I agree to Vikela " />
