@@ -18,6 +18,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\RegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -57,6 +61,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\LoginRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ILoginService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\LoginService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\RegisterViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\RegisterView.xaml.cs">
+      <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IRegisterViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\RegisterViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IRegisterRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\RegisterRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IRegisterService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\RegisterService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
