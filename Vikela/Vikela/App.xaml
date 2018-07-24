@@ -13,6 +13,11 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource ControlWhite }" />
                 <Setter Property="TextColor" Value="{StaticResource ControlBlue }" />
             </Style>
+            <Style TargetType="Button" Class="PictureButton">
+                <Setter Property="TextColor" Value="{StaticResource ControlWhite }" />
+                <Setter Property="Font" Value="Verdana" />
+                <Setter Property="FontSize" Value="11" />
+            </Style>
             <Style TargetType="Label" Class="DefaultLabel">
                 <Setter Property="Font" Value="Verdana" />
                 <Setter Property="FontSize" Value="10" />
@@ -27,6 +32,12 @@
                 <Setter Property="Font" Value="Verdana" />
                 <Setter Property="FontSize" Value="30" />
                 <Setter Property="TextColor" Value="{StaticResource ControlWhite}" />
+            </Style>
+            <Style TargetType="Label" Class="SmallCursiveLabel">
+                <Setter Property="Font" Value="Verdana" />
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="TextColor" Value="{StaticResource ControlWhite}" />
+                <Setter Property="FontAttributes" Value="Italic" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

@@ -22,7 +22,7 @@
             <StackLayout HeightRequest="40" />
             <StackLayout HeightRequest="60"></StackLayout>
             <StackLayout>
-                <Label Font="Verdana" FontSize="30" TextColor="White" Text="Welcome to Vikela." />
+                <Label StyleClass="LargeLabel" Text="Welcome to Vikela." HorizontalOptions="Center" MinimumWidthRequest="50" />
             </StackLayout>
             <StackLayout>
                 <StackLayout>
@@ -33,15 +33,16 @@
                     <Label Text="Password" />
                     <Entry />
                 </StackLayout>
-                <Label Text="forgot Password" />
+                <Label StyleClass="SmallCursiveLabel" Text="forgot Password" HorizontalOptions="End"/>
                 <StackLayout HeightRequest="20" />
-                <Button Text="log in" />
+                    <Button StyleClass="DefaultButton" Text="log in" />
                 <StackLayout HeightRequest="20" />
                 <StackLayout HorizontalOptions="Center">
-                    <Label Text="Log in with social media" />
+                    <Label StyleClass="SmallLabel" Text="Log in with social media" HorizontalOptions="Center" />
                     <StackLayout Orientation="Horizontal">
-                        <Button Text="Facebook" />
-                        <Button Text="Instagram" />
+                        <Button StyleClass="PictureButton" Text="Facebook" />
+                        <Button StyleClass="PictureButton" Text="Instagram" />
+                        <Button StyleClass="PictureButton" Text="Google" />
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
