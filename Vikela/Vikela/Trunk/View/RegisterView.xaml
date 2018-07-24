@@ -22,18 +22,13 @@
             <StackLayout HeightRequest="40" />
             <StackLayout HeightRequest="60"></StackLayout>
             <StackLayout>
-                <Label Font="Verdana" FontSize="30" TextColor="White" Text="Register with Vikela" />
+                <Label StyleClass="LargeLabel" Text="Register with Vikela" HorizontalOptions="Center" />
             </StackLayout>
             <StackLayout>
-                <Button MinimumWidthRequest="50" Text="Continue with Facebook" BackgroundColor="White" TextColor="#47B3E4" Clicked="On_Register_Event" />
-                <Button MinimumWidthRequest="50" Text="Continue with Instagram" BackgroundColor="White" TextColor="#47B3E4" Clicked="On_Register_Event" />
-                <Button MinimumWidthRequest="50" Text="Create an Account" BackgroundColor="White" TextColor="#47B3E4" Clicked="On_Register_Event" />
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="by tapping start I agree to Vikela " />
-                <Button StyleClass = "Link" Text="Terms of Service" />
-                <Label Text=" and " />
-                <Label Text="Privacy Policy" />
+                <Button StyleClass="PictureButtonWhiteBK" MinimumWidthRequest="50" Text="Continue with Facebook" Clicked="On_Register_Event" />
+                <Button StyleClass="PictureButtonWhiteBK" MinimumWidthRequest="50" Text="Continue with Instagram" Clicked="On_Register_Event" />
+                <Button StyleClass="PictureButtonWhiteBK" MinimumWidthRequest="50" Text="Continue with Google" Clicked="On_Register_Event" />
+                <Button StyleClass="PictureButtonWhiteBK" MinimumWidthRequest="50" Text="Create an Account" Clicked="On_Register_Event" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
