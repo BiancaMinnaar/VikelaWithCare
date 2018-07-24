@@ -85,9 +85,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\CongratulationsView.xaml.cs">
       <DependentUpon>CongratulationsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Offline\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Offline\UserModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IOfflineStorageRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\OfflineStorageRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\FacebookGraphRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IFacebookGraphRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />

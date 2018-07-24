@@ -2,6 +2,8 @@ using System;
 using System.Threading.Tasks;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
+using Vikela.Trunk.Repository;
+using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Interface.Repository
 {
@@ -9,5 +11,6 @@ namespace Vikela.Interface.Repository
         where T : BaseViewModel
     {
         Task Login(LoginViewModel model, Action<T> completeAction);
+        void AuthenticateFaceBook(IFacebookGraphRepository<T> graphRepo, Action<UserModel> completeAction);
     }
 }

@@ -30,7 +30,7 @@ namespace Vikela.Implementation.Repository
         {
             var serviceReturnModel = await _Service.Register(model);
             completeAction(serviceReturnModel);
-            await SetUserRecord(new User()
+            await SetUserRecord(new UserModel()
             {
                 FirstName = model.FisrtName,
                 LastName = model.LastName,
@@ -39,11 +39,11 @@ namespace Vikela.Implementation.Repository
             });
         }
 
-        public async Task SetUserRecord(User model)
+        public async Task SetUserRecord(UserModel model)
         {
             if (!await CheckUserRecord())
             {
-                await OfflineStorageRepo.Connection.CreateTableAsync<User>();
+                await OfflineStorageRepo.Connection.CreateTableAsync<UserModel>();
                 var s = await OfflineStorageRepo.Connection.InsertAsync(model);
             }
             else
