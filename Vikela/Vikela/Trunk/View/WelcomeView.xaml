@@ -23,8 +23,8 @@
             <StackLayout HorizontalOptions="FillAndExpand">
                 <StackLayout BackgroundColor="Blue" HorizontalOptions="FillAndExpand" />
                 <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-                    <Label Font="Verdana" FontSize="10" TextColor="White" Text="ENG"></Label>
-                    <Label Text="^" />
+                    <Label StyleClass="SmallLabel" Text="ENG"></Label>
+                    <Label StyleClass="SmallLabel" Text="^" />
                 </StackLayout>
                 <StackLayout WidthRequest="40" HorizontalOptions="End" />
             </StackLayout>
@@ -32,17 +32,17 @@
                 
             </StackLayout>
             <StackLayout HorizontalOptions="Center">
-                <Label Font="Verdana" FontSize="30" TextColor="White" Text="Welcome to Vikela." />
+                <Label StyleClass="LargeLabel" Text="Welcome to Vikela." />
             </StackLayout>
             <StackLayout VerticalOptions="FillAndExpand" />
             <StackLayout VerticalOptions="Fill">
-                <Button Text="Start" BackgroundColor="White" TextColor="#47B3E4" Clicked="On_Start_Clicked" />
+                <Button StyleClass="DefaultButton" Text="Start" Clicked="On_Start_Clicked" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="by tapping start I agree to Vikela " />
-                <Button StyleClass = "Link" Text="Terms of Service" />
-                <Label Text=" and " />
-                <Label Text="Privacy Policy" />
+                <Label StyleClass="SmallLabel" Text="by tapping start I agree to Vikela " />
+                <Button StyleClass="Link" Text="Terms of Service" />
+                <Label StyleClass="SmallLabel" Text=" and " />
+                <Label StyleClass="SmallLabel" Text="Privacy Policy" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
