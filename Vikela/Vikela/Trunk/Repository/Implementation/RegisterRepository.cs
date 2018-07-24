@@ -28,8 +28,8 @@ namespace Vikela.Implementation.Repository
 
         public async Task Register(RegisterViewModel model, Action<T> completeAction)
         {
-            var serviceReturnModel = await _Service.Register(model);
-            completeAction(serviceReturnModel);
+            //var serviceReturnModel = await _Service.Register(model);
+            //completeAction(serviceReturnModel);
             await SetUserRecord(new UserModel()
             {
                 FirstName = model.FisrtName,
@@ -54,7 +54,7 @@ namespace Vikela.Implementation.Repository
 
         public async Task<bool> CheckUserRecord()
         {
-            var returnVal = await OfflineStorageRepo.Connection.ExecuteScalarAsync<int>("SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = 'User'");
+            var returnVal = await OfflineStorageRepo.Connection.ExecuteScalarAsync<int>("SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = 'UserModel'");
             return returnVal > 0;
         }
     }

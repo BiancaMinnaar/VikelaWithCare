@@ -3,7 +3,7 @@ using Vikela.Root.ViewModel;
 
 namespace Vikela.Trunk.ViewModel.Offline
 {
-    public class UserModel : ProjectBaseViewModel
+    public class UserModel
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
