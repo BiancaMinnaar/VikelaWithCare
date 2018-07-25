@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using Vikela.Root.ViewModel;
+using Vikela.Trunk.Injection.Base;
 using Xamarin.Forms;
 
 namespace Vikela.Interface.Repository
@@ -14,10 +17,13 @@ namespace Vikela.Interface.Repository
         void ShowLoading();
         void HideLoading();
         void DumpJson<T>(string heading, T objectToDump);
+        void ReportToAllListeners(string serviceKey, IPlatformModelBase model);
         void PushHomeView();
         void PushLoginView();
         void PushRegistrationView();
         void PushCongratulationsView();
+        Action<string[]> OnError { get; set; }
+        List<Action<string, IPlatformModelBase>> OnPlatformServiceCallBack { get; set; }
     }
 }
 

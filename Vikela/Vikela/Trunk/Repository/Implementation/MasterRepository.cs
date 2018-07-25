@@ -10,6 +10,7 @@ using Vikela.Root.ViewModel;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using Vikela.Implementation.View;
+using Vikela.Trunk.Injection.Base;
 
 namespace Vikela.Trunk.Repository.Implementation
 {
@@ -22,11 +23,14 @@ namespace Vikela.Trunk.Repository.Implementation
         private Page _RootView;
         public Func<string, Dictionary<string, object>, BaseNetworkAccessEnum, Task> NetworkInterface { get; set; }
         public Func<string, Dictionary<string, ParameterTypedValue>, BaseNetworkAccessEnum, Task> NetworkInterfaceWithTypedParameters { get; set; }
+        public List<Action<string, IPlatformModelBase>> OnPlatformServiceCallBack { get; set; }
 
         MasterRepository()
             : base(null)
         {
             DataSource = new MasterModel();
+			OnPlatformServiceCallBack =
+                new List<Action<string, IPlatformModelBase>>();
         }
 
         public static MasterRepository MasterRepo
@@ -38,7 +42,6 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _RootView = rootView;
             _Navigation = rootView.Navigation;
-
         }
 
         public Page GetRootView()
@@ -76,6 +79,14 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             Debug.WriteLine(heading);
             Debug.WriteLine(JsonConvert.SerializeObject(objectToDump));
+        }
+
+		public void ReportToAllListeners(string serviceKey, IPlatformModelBase model)
+        {
+            foreach (var listener in OnPlatformServiceCallBack)
+            {
+                listener?.Invoke(serviceKey, model);
+            }
         }
 
         public void PushHomeView()

@@ -99,6 +99,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\PlatformModelBonsai.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\PlatformServiceBonsai.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\PlatformSingleton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IPlatformRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\PlatformRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
