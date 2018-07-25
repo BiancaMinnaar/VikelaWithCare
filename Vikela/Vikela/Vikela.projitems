@@ -90,6 +90,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\OfflineStorageRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\FacebookGraphRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IFacebookGraphRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\BonsaiPlatformServiceRegistrationStruct.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\IPlatformBonsai.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\IPlatformModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\IPlatformModelBonsai.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\IPlatformService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\PlatformBonsai.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\PlatformModelBonsai.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\PlatformServiceBonsai.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\PlatformSingleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
@@ -104,5 +113,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Offline\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\" />
   </ItemGroup>
 </Project>
