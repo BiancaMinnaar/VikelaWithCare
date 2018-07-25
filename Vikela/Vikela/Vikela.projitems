@@ -101,6 +101,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\PlatformSingleton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IPlatformRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\PlatformRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Facebook\IFacebookModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Facebook\IFacebookService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
@@ -117,5 +119,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Offline\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Facebook\" />
   </ItemGroup>
 </Project>
