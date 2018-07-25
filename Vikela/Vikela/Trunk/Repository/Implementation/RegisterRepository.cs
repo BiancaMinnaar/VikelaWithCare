@@ -10,6 +10,7 @@ using Vikela.Root.Repository;
 using Vikela.Trunk.ViewModel.Offline;
 using Vikela.Trunk.Repository;
 using Vikela.Trunk.Repository.Implementation;
+using Vikela.Trunk.Injection.Base;
 
 namespace Vikela.Implementation.Repository
 {
@@ -18,18 +19,34 @@ namespace Vikela.Implementation.Repository
     {
         IRegisterService<T> _Service;
         IOfflineStorageRepository OfflineStorageRepo;
+        IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
 
         public RegisterRepository(IMasterRepository masterRepository, IRegisterService<T> service)
             : base(masterRepository)
         {
             _Service = service;
             OfflineStorageRepo = OfflineStorageRepository.Instance;
+
+            _PlatformBonsai = new PlatformBonsai();
+            var platform = new PlatformRepository<RegisterViewModel>(masterRepository, _PlatformBonsai)
+            {
+                OnError = (errs) =>
+                {
+                    OnError?.Invoke(errs);
+                }
+            };
         }
 
         public async Task Register(RegisterViewModel model, Action<T> completeAction)
         {
             //var serviceReturnModel = await _Service.Register(model);
             //completeAction(serviceReturnModel);
+            foreach (var service in _PlatformBonsai.GetBonsaiServices)
+            {
+                if (service.PlatformHarness.ServiceKey == "FacebookService")
+                    service.PlatformHarness.Activate();
+            }
+
             await SetUserRecord(new UserModel()
             {
                 FirstName = model.FisrtName,

@@ -11,6 +11,5 @@ namespace Vikela.Interface.Repository
         where T : BaseViewModel
     {
         Task Login(LoginViewModel model, Action<T> completeAction);
-        void AuthenticateFaceBook(IFacebookGraphRepository<T> graphRepo, Action<UserModel> completeAction);
     }
 }

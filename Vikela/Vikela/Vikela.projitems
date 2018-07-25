@@ -103,6 +103,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\PlatformRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Facebook\IFacebookModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Facebook\IFacebookService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Facebook\FacebookAuthenticator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Facebook\IFacebookAuthenticationDelegate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Facebook\FacebookOAuthToken.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />

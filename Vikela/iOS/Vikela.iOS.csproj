@@ -126,6 +126,8 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Injection\RestServiceIOS.cs" />
+    <Compile Include="Injection\Facebook\FacebookModel.cs" />
+    <Compile Include="Injection\Facebook\FacebookService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -145,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Injection\" />
+    <Folder Include="Injection\Facebook\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

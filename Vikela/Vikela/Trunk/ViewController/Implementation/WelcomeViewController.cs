@@ -25,7 +25,7 @@ namespace Vikela.Implementation.ViewController
 
         public async Task Load()
         {
-            var isRegistered = await _RegistratioRepo.CheckUserRecord();
+            var isRegistered = false;//await _RegistratioRepo.CheckUserRecord();
             if (isRegistered)
             {
                 _MasterRepo.PushLoginView();
