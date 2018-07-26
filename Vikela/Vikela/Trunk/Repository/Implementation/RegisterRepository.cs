@@ -17,6 +17,8 @@ namespace Vikela.Implementation.Repository
     public class RegisterRepository<T> : ProjectBaseRepository, IRegisterRepository<T>
         where T : BaseViewModel
     {
+        private const string SelectTableCount = "SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = 'UserModel'";
+        private const string SelectUserWithID = "SELECT count(1) FROM UserModel WHERE Id = @ID";
         IRegisterService<T> _Service;
         IOfflineStorageRepository OfflineStorageRepo;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
@@ -37,36 +39,19 @@ namespace Vikela.Implementation.Repository
             };
         }
 
-        public async Task Register(RegisterViewModel model, Action<T> completeAction)
+        public async Task Register(RegisterViewModel model, Action<UserModel> completeAction)
         {
-            //var serviceReturnModel = await _Service.Register(model);
-            //completeAction(serviceReturnModel);
-            await SetUserRecord(new UserModel()
+            var serviceReturnModel = await _Service.Register(model);
+            var actionModel = new UserModel()
             {
                 FirstName = model.FisrtName,
                 LastName = model.LastName,
                 MobileNumber = model.MobileNumber,
                 UserPicture = model.UserPicture
-            });
-        }
-
-        public async Task SetUserRecord(UserModel model)
-        {
-            if (!await CheckUserRecord())
-            {
-                await OfflineStorageRepo.Connection.CreateTableAsync<UserModel>();
-                var s = await OfflineStorageRepo.Connection.InsertAsync(model);
-            }
-            else
-            {
-                var s = await OfflineStorageRepo.Connection.UpdateAsync(model);
-            }
-        }
-
-        public async Task<bool> CheckUserRecord()
-        {
-            var returnVal = await OfflineStorageRepo.Connection.ExecuteScalarAsync<int>("SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = 'UserModel'");
-            return returnVal > 0;
+                ///TODO: Add MoreFields
+            };
+            await SetUserRecord(actionModel);
+            completeAction(actionModel);
         }
 
         public void OAuthFacebook(RegisterViewModel model, Action<T> completeAction)
@@ -95,6 +80,40 @@ namespace Vikela.Implementation.Repository
         public void OAuthGoogle(RegisterViewModel model, Action<T> completeAction)
         {
             throw new NotImplementedException();
+        }
+
+        private async Task SetUserRecord(UserModel model)
+        {
+            if (! await CheckUserModelTable())
+            {
+                await CreateUserModelTabel();
+
+            }
+            if (!await CheckUserRecord())
+            {
+                model.Id = await OfflineStorageRepo.Connection.InsertAsync(model);
+            }
+            else
+            {
+                var s = await OfflineStorageRepo.Connection.UpdateAsync(model);
+            }
+        }
+
+        private async Task<bool> CheckUserModelTable()
+        {
+            return await OfflineStorageRepo.Connection.ExecuteScalarAsync<int>(
+                SelectTableCount) < 1;
+        }
+
+        private async Task CreateUserModelTabel()
+        {
+            await OfflineStorageRepo.Connection.CreateTableAsync<UserModel>();
+        }
+
+        private async Task<bool> CheckUserRecord()
+        {
+            return await OfflineStorageRepo.Connection.ExecuteScalarAsync<int>(
+                SelectUserWithID) > 0;
         }
     }
 }
