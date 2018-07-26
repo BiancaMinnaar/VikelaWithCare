@@ -1,5 +1,4 @@
 ﻿using SQLite;
-using Vikela.Root.ViewModel;
 
 namespace Vikela.Trunk.ViewModel.Offline
 {

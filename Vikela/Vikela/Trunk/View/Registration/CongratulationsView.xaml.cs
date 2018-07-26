@@ -19,9 +19,9 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public async void On_Done_Event(object sender, EventArgs e)
+        public void On_LogoutClicked(object sender, EventArgs e)
         {
-            await _ViewController.Done();
+            _ViewController.Done();
         }
     }
 }

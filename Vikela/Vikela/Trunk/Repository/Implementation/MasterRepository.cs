@@ -11,6 +11,8 @@ using Newtonsoft.Json;
 using Xamarin.Forms;
 using Vikela.Implementation.View;
 using Vikela.Trunk.Injection.Base;
+using Vikela.Implementation.Repository;
+using Vikela.Implementation.ViewModel;
 
 namespace Vikela.Trunk.Repository.Implementation
 {
@@ -31,6 +33,11 @@ namespace Vikela.Trunk.Repository.Implementation
             DataSource = new MasterModel();
 			OnPlatformServiceCallBack =
                 new List<Action<string, IPlatformModelBase>>();
+            var repo = new RegisterRepository<RegisterViewModel>(this, null);
+            Task.Run(async () =>
+            {
+                DataSource.User = await repo.GetUserModelFromOffline();
+            });
         }
 
         public static MasterRepository MasterRepo
@@ -51,7 +58,9 @@ namespace Vikela.Trunk.Repository.Implementation
 
         public void PushLogOut()
         {
-            DataSource.Authenticated = false;
+            DataSource.User = null;
+            var repo = new RegisterRepository<RegisterViewModel>(this, null);
+            Task.Run(async()=>await repo.RemoveUserRecord(DataSource.User));
             _Navigation.PopToRootAsync();
         }
 

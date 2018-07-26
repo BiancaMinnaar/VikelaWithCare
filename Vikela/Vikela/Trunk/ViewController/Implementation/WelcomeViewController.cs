@@ -23,10 +23,9 @@ namespace Vikela.Implementation.ViewController
             _RegistratioRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, null);
         }
 
-        public async Task Load()
+        public void Load()
         {
-            var isRegistered = false;//await _RegistratioRepo.CheckUserRecord();
-            if (isRegistered)
+            if (_MasterRepo.DataSource.Authenticated)
             {
                 _MasterRepo.PushLoginView();
             }

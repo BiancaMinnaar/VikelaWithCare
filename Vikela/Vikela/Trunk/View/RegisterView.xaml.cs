@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Vikela.Implementation.ViewController;
 using Vikela.Implementation.ViewModel;
 using Vikela.Root.View;
@@ -21,22 +22,22 @@ namespace Vikela.Implementation.View
 
         public void On_Facebook_Register_Event(object sender, EventArgs e)
         {
-            _ViewController.Register();
+            _ViewController.OAuthFacebook();
         }
 
         public void On_Instagram_Register_Event(object sender, EventArgs e)
         {
-            _ViewController.Register();
+            _ViewController.OAuthInstagram();
         }
 
         public void On_Google_Register_Event(object sender, EventArgs e)
         {
-            _ViewController.Register();
+            _ViewController.OAuthGoogle();
         }
 
-        public void On_Register_Event(object sender, EventArgs e)
+        public async void On_CreateAccount_Event(object sender, EventArgs e)
         {
-            _ViewController.Register();
+            await _ViewController.Register();
         }
     }
 }

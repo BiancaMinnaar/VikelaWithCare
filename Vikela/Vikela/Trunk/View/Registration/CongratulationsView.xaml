@@ -21,6 +21,7 @@
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
             <Label FontSize="18" Text="Congratulations!"></Label>
             <Label FontSize="6" Text="Thank you for signing up with Vikela with care." />
+            <Button Text="logout" Clicked="On_LogoutClicked" />
         </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>

@@ -1,8 +1,6 @@
 using System;
-using System.IO;
 using System.Threading.Tasks;
 using CorePCL;
-using SQLite;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
@@ -18,7 +16,7 @@ namespace Vikela.Implementation.Repository
         where T : BaseViewModel
     {
         private const string SelectTableCount = "SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = 'UserModel'";
-        private const string SelectUserWithID = "SELECT count(1) FROM UserModel WHERE Id = @ID";
+        private const string SelectTopUser = "SELECT * FROM UserModel";
         IRegisterService<T> _Service;
         IOfflineStorageRepository OfflineStorageRepo;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
@@ -89,14 +87,24 @@ namespace Vikela.Implementation.Repository
                 await CreateUserModelTabel();
 
             }
-            if (!await CheckUserRecord())
-            {
-                model.Id = await OfflineStorageRepo.Connection.InsertAsync(model);
-            }
-            else
+            if (await GetUserRecord() != null)
             {
                 var s = await OfflineStorageRepo.Connection.UpdateAsync(model);
             }
+            else
+            {
+                model.Id = await OfflineStorageRepo.Connection.InsertAsync(model);
+            }
+        }
+
+        public async Task<UserModel> GetUserModelFromOffline()
+        {
+            var hasUserModelTable = await CheckUserModelTable();
+            if (hasUserModelTable)
+            {
+                return await GetUserRecord();
+            }
+            return null;
         }
 
         private async Task<bool> CheckUserModelTable()
@@ -110,10 +118,18 @@ namespace Vikela.Implementation.Repository
             await OfflineStorageRepo.Connection.CreateTableAsync<UserModel>();
         }
 
-        private async Task<bool> CheckUserRecord()
+        private async Task<UserModel> GetUserRecord()
         {
-            return await OfflineStorageRepo.Connection.ExecuteScalarAsync<int>(
-                SelectUserWithID) > 0;
+            var list = await OfflineStorageRepo.Connection.QueryAsync<UserModel>(
+                SelectTopUser);
+            if (list != null && list.Count > 0)
+                return list[0];
+            return null;
+        }
+
+        public async Task RemoveUserRecord(UserModel model)
+        {
+            await OfflineStorageRepo.Connection.DeleteAsync(model);
         }
     }
 }
