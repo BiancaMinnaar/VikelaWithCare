@@ -41,12 +41,6 @@ namespace Vikela.Implementation.Repository
         {
             //var serviceReturnModel = await _Service.Register(model);
             //completeAction(serviceReturnModel);
-            foreach (var service in _PlatformBonsai.GetBonsaiServices)
-            {
-                if (service.PlatformHarness.ServiceKey == "FacebookService")
-                    service.PlatformHarness.Activate();
-            }
-
             await SetUserRecord(new UserModel()
             {
                 FirstName = model.FisrtName,
@@ -73,6 +67,34 @@ namespace Vikela.Implementation.Repository
         {
             var returnVal = await OfflineStorageRepo.Connection.ExecuteScalarAsync<int>("SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = 'UserModel'");
             return returnVal > 0;
+        }
+
+        public void OAuthFacebook(RegisterViewModel model, Action<T> completeAction)
+        {
+            foreach (var service in _PlatformBonsai.GetBonsaiServices)
+            {
+                if (service.PlatformHarness.ServiceKey == "FacebookService")
+                {
+                    _MasterRepo.OnPlatformServiceCallBack.Add((serviceKey, locationM) =>
+                    {
+                        if (serviceKey.Equals("FacebookService"))
+                        {
+                            ///TODO:Implement model update
+                        }
+                    });
+                    service.PlatformHarness.Activate();
+                }
+            }
+        }
+
+        public void OAuthInstagram(RegisterViewModel model, Action<T> completeAction)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OAuthGoogle(RegisterViewModel model, Action<T> completeAction)
+        {
+            throw new NotImplementedException();
         }
     }
 }

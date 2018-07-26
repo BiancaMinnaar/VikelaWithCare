@@ -26,5 +26,20 @@ namespace Vikela.Implementation.ViewController
             await _Reposetory.Register(InputObject, 
                                  (model) => _MasterRepo.PushCongratulationsView());
         }
+
+        public void OAuthFacebook()
+        {
+            _Reposetory.OAuthFacebook(InputObject, null);
+        }
+
+        public void OAuthInstagram()
+        {
+            _Reposetory.OAuthFacebook(InputObject, null);
+        }
+
+        public void OAuthGoogle()
+        {
+            _Reposetory.OAuthFacebook(InputObject, null);
+        }
     }
 }
