@@ -15,18 +15,18 @@ namespace Vikela.Implementation.Service
             {
             }
 
-        public async Task<T> Register(RegisterViewModel model)
-        {
-            string requestURL = "/register";
-            var httpMethod = BaseNetworkAccessEnum.Post;
-            var parameters = new Dictionary<string, ParameterTypedValue>()
+            public async Task<T> Register(RegisterViewModel model)
             {
-                {"FisrtName", new ParameterTypedValue(model.FisrtName)},
-                {"LastName", new ParameterTypedValue(model.LastName)},
-                {"MobileNumber", new ParameterTypedValue(model.MobileNumber)},
-                {"UserPicture", new ParameterTypedValue(model.UserPicture)}
-            };
-            return await _NetworkInterface(requestURL, parameters, null, httpMethod);
-        }
+                string requestURL = "/register";
+                var httpMethod = BaseNetworkAccessEnum.Post;
+                var parameters = new Dictionary<string, ParameterTypedValue>()
+                {
+                    {"FisrtName", new ParameterTypedValue(model.FisrtName)},
+                    {"LastName", new ParameterTypedValue(model.LastName)},
+                    {"MobileNumber", new ParameterTypedValue(model.MobileNumber)},
+                    {"UserPicture", new ParameterTypedValue(model.UserPicture)}
+                };
+                return await _NetworkInterface(requestURL, parameters, null, httpMethod);
+            }
     }
 }
