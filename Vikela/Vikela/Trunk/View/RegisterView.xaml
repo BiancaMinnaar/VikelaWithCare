@@ -25,10 +25,10 @@
                 <Label StyleClass="LargeLabel" Text="Register with Vikela" HorizontalOptions="Center" />
             </StackLayout>
             <StackLayout>
-                <Button StyleClass="PictureButtonWhiteBK" MinimumWidthRequest="50" Text="Continue with Facebook" Clicked="On_Register_Event" />
-                <Button StyleClass="PictureButtonWhiteBK" MinimumWidthRequest="50" Text="Continue with Instagram" Clicked="On_Register_Event" />
-                <Button StyleClass="PictureButtonWhiteBK" MinimumWidthRequest="50" Text="Continue with Google" Clicked="On_Register_Event" />
-                <Button StyleClass="PictureButtonWhiteBK" MinimumWidthRequest="50" Text="Create an Account" Clicked="On_Register_Event" />
+                <Button StyleClass="PictureButtonWhiteBK" MinimumWidthRequest="50" Text="Continue with Facebook" Clicked="On_Facebook_Register_Event" />
+                <Button StyleClass="PictureButtonWhiteBK" MinimumWidthRequest="50" Text="Continue with Instagram" Clicked="On_Instagram_Register_Event" />
+                <Button StyleClass="PictureButtonWhiteBK" MinimumWidthRequest="50" Text="Continue with Google" Clicked="On_Google_Register_Event" />
+                <Button StyleClass="PictureButtonWhiteBK" MinimumWidthRequest="50" Text="Create an Account" Clicked="On_CreateAccount_Event" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
