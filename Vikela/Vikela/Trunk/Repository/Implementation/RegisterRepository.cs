@@ -100,17 +100,22 @@ namespace Vikela.Implementation.Repository
         public async Task<UserModel> GetUserModelFromOffline()
         {
             var hasUserModelTable = await CheckUserModelTable();
+
             if (hasUserModelTable)
             {
                 return await GetUserRecord();
             }
-            return null;
+            else
+            {
+                await CreateUserModelTabel();
+                return null;
+            }
         }
 
         private async Task<bool> CheckUserModelTable()
         {
             return await OfflineStorageRepo.Connection.ExecuteScalarAsync<int>(
-                SelectTableCount) < 1;
+                SelectTableCount) != 0;
         }
 
         private async Task CreateUserModelTabel()

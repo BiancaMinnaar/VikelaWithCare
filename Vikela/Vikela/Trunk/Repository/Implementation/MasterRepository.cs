@@ -36,7 +36,7 @@ namespace Vikela.Trunk.Repository.Implementation
             var repo = new RegisterRepository<RegisterViewModel>(this, null);
             Task.Run(async () =>
             {
-                DataSource.User = await repo.GetUserModelFromOffline();
+                MasterRepo.DataSource.User = await repo.GetUserModelFromOffline();
             });
         }
 
