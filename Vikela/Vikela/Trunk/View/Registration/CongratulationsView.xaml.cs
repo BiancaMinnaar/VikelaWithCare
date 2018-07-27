@@ -19,7 +19,7 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public void On_LogoutClicked(object sender, EventArgs e)
+        public void On_Done_Clicked(object sender, EventArgs e)
         {
             _ViewController.Done();
         }
