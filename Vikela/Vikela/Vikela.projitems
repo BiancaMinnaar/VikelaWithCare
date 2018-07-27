@@ -26,6 +26,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\MyCoverView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -106,6 +110,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Facebook\FacebookAuthenticator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Facebook\IFacebookAuthenticationDelegate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Facebook\FacebookOAuthToken.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\MyCoverViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\MyCoverView.xaml.cs">
+      <DependentUpon>MyCoverView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IMyCoverViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\MyCoverViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IMyCoverRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\MyCoverRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IMyCoverService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\MyCoverService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
