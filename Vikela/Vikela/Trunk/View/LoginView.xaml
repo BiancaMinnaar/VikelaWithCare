@@ -35,7 +35,7 @@
                 </StackLayout>
                 <Label StyleClass="SmallCursiveLabel" Text="forgot Password" HorizontalOptions="End"/>
                 <StackLayout HeightRequest="20" />
-                    <Button StyleClass="DefaultButton" Text="log in" />
+                    <Button StyleClass="DefaultButton" Text="log in" Clicked="On_Login_Event" />
                 <StackLayout HeightRequest="20" />
                 <StackLayout HorizontalOptions="Center">
                     <Label StyleClass="SmallLabel" Text="Log in with social media" HorizontalOptions="Center" />

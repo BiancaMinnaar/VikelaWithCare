@@ -18,12 +18,13 @@ namespace Vikela.Interface.Repository
         void HideLoading();
         void DumpJson<T>(string heading, T objectToDump);
         void ReportToAllListeners(string serviceKey, IPlatformModelBase model);
+        Action<string[]> OnError { get; set; }
+        List<Action<string, IPlatformModelBase>> OnPlatformServiceCallBack { get; set; }
         void PushHomeView();
         void PushLoginView();
         void PushRegistrationView();
         void PushCongratulationsView();
-        Action<string[]> OnError { get; set; }
-        List<Action<string, IPlatformModelBase>> OnPlatformServiceCallBack { get; set; }
+        void PushMyCoverView();
     }
 }
 

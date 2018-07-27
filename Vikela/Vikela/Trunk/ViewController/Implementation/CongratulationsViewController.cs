@@ -22,7 +22,7 @@ namespace Vikela.Implementation.ViewController
 
         public void Done()
         {
-            _MasterRepo.PushLogOut();
+            _MasterRepo.PushMyCoverView();
         }
     }
 }

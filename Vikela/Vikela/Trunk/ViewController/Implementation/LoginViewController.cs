@@ -23,7 +23,9 @@ namespace Vikela.Implementation.ViewController
 
         public async Task Login()
         {
-            
+            //Authenticate
+            //navigate
+            _MasterRepo.PushMyCoverView();
         }
     }
 }

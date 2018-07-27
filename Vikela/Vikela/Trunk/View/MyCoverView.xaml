@@ -18,6 +18,13 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
+        <StackLayout>
+            <StackLayout HeightRequest="30"></StackLayout>
+            <StackLayout>
+                <Image WidthRequest="100" HeightRequest="100"/>
+                <Label Text="Name"></Label>
+                <Button Text="logout" Clicked="On_LogoutClicked" />
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>
