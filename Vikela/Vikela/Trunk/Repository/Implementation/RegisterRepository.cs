@@ -89,11 +89,11 @@ namespace Vikela.Implementation.Repository
             }
             if (await GetUserRecord() != null)
             {
-                var s = await OfflineStorageRepo.Connection.UpdateAsync(model);
+                var s = await OfflineStorageRepo.UpdateRecord(model);
             }
             else
             {
-                model.Id = await OfflineStorageRepo.Connection.InsertAsync(model);
+                model.Id = await OfflineStorageRepo.InsertRecord(model);
             }
         }
 
@@ -114,18 +114,18 @@ namespace Vikela.Implementation.Repository
 
         private async Task<bool> CheckUserModelTable()
         {
-            return await OfflineStorageRepo.Connection.ExecuteScalarAsync<int>(
+            return await OfflineStorageRepo.SelectScalar(
                 SelectTableCount) != 0;
         }
 
         private async Task CreateUserModelTabel()
         {
-            await OfflineStorageRepo.Connection.CreateTableAsync<UserModel>();
+            await OfflineStorageRepo.CreateTable<UserModel>();
         }
 
         private async Task<UserModel> GetUserRecord()
         {
-            var list = await OfflineStorageRepo.Connection.QueryAsync<UserModel>(
+            var list = await OfflineStorageRepo.QueryTable<UserModel>(
                 SelectTopUser);
             if (list != null && list.Count > 0)
                 return list[0];
@@ -134,7 +134,7 @@ namespace Vikela.Implementation.Repository
 
         public async Task RemoveUserRecord(UserModel model)
         {
-            await OfflineStorageRepo.Connection.DeleteAsync(model);
+            await OfflineStorageRepo.DeleteRecord(model);
         }
     }
 }

@@ -24,7 +24,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Image x:Name="PhotoImage" />
+            <Image x:Name="PhotoImage" Source="{Binding Selfie}" />
             <Button x:Name="CameraButton" Text="Take Photo" Clicked="On_Capture_Event" Grid.Row="1" />
         </Grid>
     </ContentPage.Content>
