@@ -124,6 +124,11 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _Navigation.PushAsync(new MyCoverView());
         }
+
+        public void PushSelfieView()
+        {
+            _Navigation.PushAsync(new SelfieView());
+        }
     }
 }
 

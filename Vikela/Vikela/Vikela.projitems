@@ -39,7 +39,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Root\Constants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\MasterModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\MasterRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IMasterRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Root\ProjectBaseContentPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Root\ProjectBaseContentScrollView.cs" />
@@ -77,14 +76,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IRegisterViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\RegisterViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IRegisterRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\RegisterRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IRegisterService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\RegisterService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\CongratulationsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ICongratulationsViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\CongratulationsViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ICongratulationsRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\CongratulationsRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ICongratulationsService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\CongratulationsService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\CongratulationsView.xaml.cs">
@@ -125,7 +122,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ISelfieViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\SelfieViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ISelfieRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\SelfieRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ISelfieService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\SelfieService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegisterView.xaml.cs">
@@ -134,6 +130,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\SelfieView.xaml.cs">
       <DependentUpon>SelfieView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\CongratulationsRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Master\MasterRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\RegisterRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\SelfieRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
@@ -151,5 +151,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Base\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Facebook\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Master\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\" />
   </ItemGroup>
 </Project>
