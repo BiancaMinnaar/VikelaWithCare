@@ -23,7 +23,7 @@ namespace Vikela.Implementation.ViewController
 
         public async Task Capture()
         {
-            
+            await _Reposetory.Capture(InputObject, null);
         }
     }
 }

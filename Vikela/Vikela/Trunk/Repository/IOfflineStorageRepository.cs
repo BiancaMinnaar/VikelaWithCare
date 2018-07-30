@@ -4,7 +4,6 @@ namespace Vikela.Trunk.Repository
 {
     public interface IOfflineStorageRepository
     {
-        SQLiteAsyncConnection Connection
-        { get; }
+        SQLiteAsyncConnection Connection { get; }
     }
 }

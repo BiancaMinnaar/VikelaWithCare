@@ -21,8 +21,8 @@ namespace Vikela.Implementation.Repository
 
         public async Task Capture(SelfieViewModel model, Action<T> completeAction)
         {
-            var serviceReturnModel = await _Service.Capture(model);
-            completeAction(serviceReturnModel);
+            //var serviceReturnModel = await _Service.Capture(model);
+            //completeAction(serviceReturnModel);
         }
     }
 }

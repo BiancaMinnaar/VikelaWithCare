@@ -18,6 +18,14 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Image x:Name="PhotoImage" />
+            <Button x:Name="CameraButton" Text="Take Photo" Clicked="On_Capture_Event" Grid.Row="1" />
+        </Grid>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>
