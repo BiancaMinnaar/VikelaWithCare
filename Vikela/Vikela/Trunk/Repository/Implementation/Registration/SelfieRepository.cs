@@ -5,6 +5,9 @@ using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Root.Repository;
+using Vikela.Trunk.Repository;
+using Vikela.Trunk.Repository.Implementation;
+using Xamarin.Forms;
 
 namespace Vikela.Implementation.Repository
 {
@@ -12,17 +15,23 @@ namespace Vikela.Implementation.Repository
         where T : BaseViewModel
     {
         ISelfieService<T> _Service;
+        IImageRepository _ImageRepo;
 
         public SelfieRepository(IMasterRepository masterRepository, ISelfieService<T> service)
             : base(masterRepository)
         {
             _Service = service;
+            _ImageRepo = new ImageRepository(_MasterRepo);
         }
 
         public async Task Capture(SelfieViewModel model, Action<T> completeAction)
         {
             //var serviceReturnModel = await _Service.Capture(model);
             //completeAction(serviceReturnModel);
+            var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
+
+            if (photo != null)
+                model.Selfie = await _ImageRepo.GetPhotoBinary(photo.GetStream());
         }
     }
 }

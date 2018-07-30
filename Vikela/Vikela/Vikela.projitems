@@ -134,6 +134,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Master\MasterRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\RegisterRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\SelfieRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\ImageRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IImageRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
