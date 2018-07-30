@@ -18,14 +18,12 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-            <Image x:Name="PhotoImage" Source="{Binding Selfie}" />
-            <Button x:Name="CameraButton" Text="Take Photo" Clicked="On_Capture_Event" Grid.Row="1" />
-        </Grid>
+        <StackLayout>
+            <StackLayout HeightRequest="30" />
+            <StackLayout>
+                <Image x:Name="PhotoImage" Source="{Binding Selfie, Converter={StaticResource ByteArrayToImage}}" />
+                <Button x:Name="CameraButton" Text="Take Photo" Clicked="On_Capture_Event" Grid.Row="1" />
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>

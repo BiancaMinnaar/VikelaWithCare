@@ -23,7 +23,11 @@ namespace Vikela.Implementation.ViewController
 
         public async Task Capture()
         {
-            await _Reposetory.Capture(InputObject, null);
+            await _Reposetory.Capture(InputObject, 
+                                      (model) => 
+            { 
+                //_MasterRepo.DataSource.User.UserPicture = model.Selfie;
+            });
         }
     }
 }

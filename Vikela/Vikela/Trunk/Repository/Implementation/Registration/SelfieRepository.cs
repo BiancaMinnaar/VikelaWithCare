@@ -24,14 +24,15 @@ namespace Vikela.Implementation.Repository
             _ImageRepo = new ImageRepository(_MasterRepo);
         }
 
-        public async Task Capture(SelfieViewModel model, Action<T> completeAction)
+        public async Task Capture(SelfieViewModel model, Action<SelfieViewModel> completeAction)
         {
-            //var serviceReturnModel = await _Service.Capture(model);
-            //completeAction(serviceReturnModel);
             var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
 
             if (photo != null)
+            {
                 model.Selfie = await _ImageRepo.GetPhotoBinary(photo.GetStream());
+                completeAction(model);
+            }
         }
     }
 }

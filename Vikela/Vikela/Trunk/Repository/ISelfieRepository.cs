@@ -8,6 +8,6 @@ namespace Vikela.Interface.Repository
     public interface ISelfieRepository<T>
         where T : BaseViewModel
     {
-        Task Capture(SelfieViewModel model, Action<T> completeAction);
+        Task Capture(SelfieViewModel model, Action<SelfieViewModel> completeAction);
     }
 }
