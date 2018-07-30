@@ -24,7 +24,7 @@ namespace Vikela.Implementation.ViewController
 
         public void Load()
         {
-            if (_MasterRepo.DataSource.Authenticated)
+            if (_MasterRepo.DataSource.IsRegistered)
             {
                 _MasterRepo.PushLoginView();
             }

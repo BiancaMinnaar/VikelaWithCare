@@ -18,15 +18,19 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\RegisterView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>Generator</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\CongratulationsView.xaml">
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\MyCoverView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\SelfieView.xaml">
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
@@ -70,9 +74,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ILoginService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\LoginService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\RegisterViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\RegisterView.xaml.cs">
-      <DependentUpon>RegisterView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IRegisterViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\RegisterViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IRegisterRepository.cs" />
@@ -120,6 +121,19 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\MyCoverRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IMyCoverService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\MyCoverService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\SelfieViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ISelfieViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\SelfieViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ISelfieRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\SelfieRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ISelfieService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\SelfieService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegisterView.xaml.cs">
+      <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\SelfieView.xaml.cs">
+      <DependentUpon>SelfieView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />

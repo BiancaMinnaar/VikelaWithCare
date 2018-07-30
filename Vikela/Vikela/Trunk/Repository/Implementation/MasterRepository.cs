@@ -58,9 +58,12 @@ namespace Vikela.Trunk.Repository.Implementation
 
         public void PushLogOut()
         {
-            DataSource.User = null;
             var repo = new RegisterRepository<RegisterViewModel>(this, null);
-            Task.Run(async()=>await repo.RemoveUserRecord(DataSource.User));
+            Task.Run(async () =>
+            {
+                await repo.RemoveUserRecord(DataSource.User);
+                DataSource.User = null;
+            });
             _Navigation.PopToRootAsync();
         }
 
