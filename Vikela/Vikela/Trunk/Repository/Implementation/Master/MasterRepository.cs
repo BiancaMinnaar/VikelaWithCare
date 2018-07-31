@@ -193,6 +193,11 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _Navigation.PushAsync(new RegistrationCellphoneView());
         }
+
+        public void PushRegistrationOTP()
+        {
+            _Navigation.PushAsync(new RegistrationVerifyMobileView());
+        }
     }
 }
 

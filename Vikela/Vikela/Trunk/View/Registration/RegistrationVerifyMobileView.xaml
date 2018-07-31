@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base:ProjectBaseContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:Vikela.Root.View"
+    xmlns:m="clr-namespace:Vikela.Implementation.ViewModel"
+    xmlns:p="clr-namespace:Vikela.Implementation.ViewController"
+    xmlns:b="clr-namespace:Vikela.Implementation.View"
+    xmlns:svg="clr-namespace:TwinTechsForms.NControl;assembly=TwinTechsForms.NControl.SvgImageView"
+    xmlns:image="clr-namespace:MobileBonsai.View"
+    x:Class="Vikela.Implementation.View.RegistrationVerifyMobileView" 
+    x:TypeArguments="p:RegistrationVerifyMobileViewController, m:RegistrationVerifyMobileViewModel" 
+    BackgroundColor="#565E60"
+    Title="Login">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HeightRequest="30" />
+            <StackLayout HeightRequest="40">
+                <Label Text="Step 1" />
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Verify Mobile Number" />
+                <Label Text="Enter in the OTP number that was SMS'd to you to verify your mobile number" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Entry Text="{Binding OTP1}" WidthRequest="30"/>
+                <Entry Text="{Binding OTP2}" WidthRequest="30"/>
+                <Entry Text="{Binding OTP3}" WidthRequest="30"/>
+            </StackLayout>
+            <StackLayout>
+                <Button Text="Next" Clicked="On_UpdateOTP_Event" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</base:ProjectBaseContentPage>
