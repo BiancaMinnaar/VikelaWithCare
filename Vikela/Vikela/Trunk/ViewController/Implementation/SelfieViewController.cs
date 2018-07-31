@@ -26,7 +26,7 @@ namespace Vikela.Implementation.ViewController
             await _Reposetory.Capture(InputObject, 
                                       (model) => 
             {
-                _Reposetory.UpdateMasterDataWithUserImage(model.Selfie);
+                _MasterRepo.PushRegistrationName();
             });
         }
     }

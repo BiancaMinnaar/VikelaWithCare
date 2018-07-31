@@ -20,9 +20,9 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout HeightRequest="30"></StackLayout>
-            <StackLayout>
-                <Image WidthRequest="100" HeightRequest="100"/>
-                <Label Text="Name"></Label>
+            <StackLayout Orientation="Horizontal">
+                <Image WidthRequest="100" HeightRequest="100" Source="{Binding UserImage, Converter={StaticResource ByteArrayToImage}}"/>
+                <Label Text="{Binding FirstName}"></Label>
                 <Button Text="logout" Clicked="On_LogoutClicked" />
             </StackLayout>
         </StackLayout>

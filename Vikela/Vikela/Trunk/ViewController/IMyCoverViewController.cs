@@ -1,9 +1,9 @@
-using System.Threading.Tasks;
+using Vikela.Implementation.ViewModel;
 
 namespace Vikela.Interface.ViewController
 {
     public interface IMyCoverViewController
     {
-        Task Load();
+        void Load();
     }
 }

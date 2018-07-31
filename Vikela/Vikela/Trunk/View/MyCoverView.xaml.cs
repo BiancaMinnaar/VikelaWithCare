@@ -12,6 +12,7 @@ namespace Vikela.Implementation.View
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            _ViewController.Load();
             BindingContext = _ViewController.InputObject;
         }
 
@@ -21,7 +22,6 @@ namespace Vikela.Implementation.View
 
         public async void On_Load_Event(object sender, EventArgs e)
         {
-            await _ViewController.Load();
         }
 
         public void On_LogoutClicked(object sender, EventArgs e)

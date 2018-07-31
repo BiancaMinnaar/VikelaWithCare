@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
@@ -19,10 +17,10 @@ namespace Vikela.Implementation.Repository
             _Service = service;
         }
 
-        public async Task Load(MyCoverViewModel model, Action<T> completeAction)
+        public void Load(MyCoverViewModel model)
         {
-            var serviceReturnModel = await _Service.Load(model);
-            completeAction(serviceReturnModel);
+            model.FirstName = _MasterRepo.DataSource.User.FirstName;
+            model.UserImage = _MasterRepo.DataSource.User.UserPicture;
         }
     }
 }

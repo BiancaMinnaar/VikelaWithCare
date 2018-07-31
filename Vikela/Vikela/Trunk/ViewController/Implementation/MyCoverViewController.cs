@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Vikela.Implementation.Repository;
 using Vikela.Implementation.Service;
 using Vikela.Implementation.ViewModel;
@@ -21,9 +20,9 @@ namespace Vikela.Implementation.ViewController
             _Reposetory = new MyCoverRepository<MyCoverViewModel>(_MasterRepo, _Service);
         }
 
-        public async Task Load()
+        public void Load()
         {
-            
+            _Reposetory.Load(InputObject);
         }
     }
 }

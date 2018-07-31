@@ -25,32 +25,17 @@ namespace Vikela.Implementation.Repository
             _ImageRepo = new ImageRepository(_MasterRepo);
         }
 
-        public async Task Capture(SelfieViewModel model, Action<SelfieViewModel> completeAction)
+        public async Task Capture(SelfieViewModel model, Action<UserModel> completeAction)
         {
             var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
 
             if (photo != null)
             {
                 model.Selfie = await _ImageRepo.GetPhotoBinary(photo.GetStream());
-                completeAction(model);
+                _MasterRepo.DataSource.User.UserPicture = model.Selfie;
+                await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
+                completeAction(_MasterRepo.DataSource.User);
             }
-        }
-
-        public async Task UpdateMasterDataWithUserImage(byte[] image)
-        {
-            var isInsert = false;
-            int id = 0;
-            if (_MasterRepo.DataSource.User == null)
-            {
-                _MasterRepo.DataSource.User = new UserModel();
-                isInsert = true;
-            }
-            _MasterRepo.DataSource.User.UserPicture = image;
-            if (isInsert)
-                await OfflineStorageRepository.Instance.InsertRecord(_MasterRepo.DataSource.User);
-            else
-                id = await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
-            var dd = id;
         }
     }
 }

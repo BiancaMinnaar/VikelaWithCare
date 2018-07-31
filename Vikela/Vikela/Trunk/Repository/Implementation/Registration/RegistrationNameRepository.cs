@@ -25,8 +25,7 @@ namespace Vikela.Implementation.Repository
         {
             _MasterRepo.DataSource.User.FirstName = model.FirstName;
             await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
-            ///TODO:Next Step
-            //completeAction(_MasterRepo.DataSource.User);
+            completeAction(_MasterRepo.DataSource.User);
         }
     }
 }
