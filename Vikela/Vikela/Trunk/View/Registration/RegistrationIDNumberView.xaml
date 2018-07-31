@@ -18,6 +18,21 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
+        <StackLayout>
+            <StackLayout HeightRequest="30" />
+            <StackLayout HeightRequest="40">
+                <Label Text="Step 1" />
+            </StackLayout>
+            <StackLayout>
+                <Label Text="What is your ID number?" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="ID Number" />
+                <Entry Text="{Binding IDNumber}" WidthRequest="100"/>
+            </StackLayout>
+            <StackLayout>
+                <Button Text="Next" Clicked="On_UpdateIDNumber_Event" />
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>

@@ -35,6 +35,7 @@ namespace Vikela.Interface.Repository
         void PushRegistrationName();
         void PushRegistrationCellphone();
         void PushRegistrationOTP();
+        void PushRegistrationIDNumber();
     }
 }
 

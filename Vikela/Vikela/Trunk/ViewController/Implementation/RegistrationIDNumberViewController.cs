@@ -23,7 +23,8 @@ namespace Vikela.Implementation.ViewController
 
         public async Task UpdateIDNumber()
         {
-            
+            await _Reposetory.UpdateIDNumber(InputObject, (ModelIO) =>
+                                             _MasterRepo.PushCongratulationsView());
         }
     }
 }

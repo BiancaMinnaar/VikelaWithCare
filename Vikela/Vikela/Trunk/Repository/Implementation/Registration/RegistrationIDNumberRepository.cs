@@ -5,6 +5,8 @@ using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Root.Repository;
+using Vikela.Trunk.Repository.Implementation;
+using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Implementation.Repository
 {
@@ -19,10 +21,11 @@ namespace Vikela.Implementation.Repository
             _Service = service;
         }
 
-        public async Task UpdateIDNumber(RegistrationIDNumberViewModel model, Action<T> completeAction)
+        public async Task UpdateIDNumber(RegistrationIDNumberViewModel model, Action<UserModel> completeAction)
         {
-            var serviceReturnModel = await _Service.UpdateIDNumber(model);
-            completeAction(serviceReturnModel);
+            _MasterRepo.DataSource.User.IDNumber = model.IDNumber;
+            await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
+            completeAction(_MasterRepo.DataSource.User);
         }
     }
 }

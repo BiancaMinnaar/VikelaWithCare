@@ -46,7 +46,7 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\RegistrationIDNumberView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegistrationIDNumberView.xaml">
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
@@ -183,15 +183,15 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\RegistrationVerifyMobileRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\RegistrationIDNumberViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\RegistrationIDNumberView.xaml.cs">
-      <DependentUpon>RegistrationIDNumberView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IRegistrationIDNumberViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\RegistrationIDNumberViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IRegistrationIDNumberRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\RegistrationIDNumberRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IRegistrationIDNumberService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\RegistrationIDNumberService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegistrationIDNumberView.xaml.cs">
+      <DependentUpon>RegistrationIDNumberView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\RegistrationIDNumberRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />

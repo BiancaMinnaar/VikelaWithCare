@@ -198,6 +198,11 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _Navigation.PushAsync(new RegistrationVerifyMobileView());
         }
+
+        public void PushRegistrationIDNumber()
+        {
+            _Navigation.PushAsync(new RegistrationIDNumberView());
+        }
     }
 }
 
