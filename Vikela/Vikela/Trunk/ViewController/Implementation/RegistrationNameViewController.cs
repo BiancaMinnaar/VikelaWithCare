@@ -23,7 +23,8 @@ namespace Vikela.Implementation.ViewController
 
         public async Task UpdateName()
         {
-            await _Reposetory.UpdateName(InputObject, (ModelIO) => _MasterRepo.PushMyCoverView());
+            await _Reposetory.UpdateName(InputObject, 
+                                         (ModelIO) => _MasterRepo.PushRegistrationCellphone());
         }
     }
 }

@@ -188,6 +188,11 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _Navigation.PushAsync(new RegistrationNameView());
         }
+
+        public void PushRegistrationCellphone()
+        {
+            _Navigation.PushAsync(new RegistrationCellphoneView());
+        }
     }
 }
 
