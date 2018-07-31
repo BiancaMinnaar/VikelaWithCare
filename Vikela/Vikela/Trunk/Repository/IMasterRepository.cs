@@ -27,12 +27,12 @@ namespace Vikela.Interface.Repository
         Task SetUserRecord(UserModel model);
         Task RemoveUserRecord(UserModel model);
         //Navigation
-        void PushHomeView();
         void PushLoginView();
         void PushRegistrationView();
         void PushCongratulationsView();
         void PushMyCoverView();
         void PushSelfieView();
+        void PushRegistrationName();
     }
 }
 

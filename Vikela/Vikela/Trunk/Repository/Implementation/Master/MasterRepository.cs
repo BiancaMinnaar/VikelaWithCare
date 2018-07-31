@@ -4,16 +4,14 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 using CorePCL;
+using Newtonsoft.Json;
+using Vikela.Implementation.View;
 using Vikela.Interface.Repository;
 using Vikela.Root.Repository;
 using Vikela.Root.ViewModel;
-using Newtonsoft.Json;
-using Xamarin.Forms;
-using Vikela.Implementation.View;
 using Vikela.Trunk.Injection.Base;
-using Vikela.Implementation.Repository;
-using Vikela.Implementation.ViewModel;
 using Vikela.Trunk.ViewModel.Offline;
+using Xamarin.Forms;
 
 namespace Vikela.Trunk.Repository.Implementation
 {
@@ -113,13 +111,13 @@ namespace Vikela.Trunk.Repository.Implementation
             }
             if (await GetUserRecord() != null)
             {
-                var s = await OfflineStorageRepo.UpdateRecord(model);
+                await OfflineStorageRepo.UpdateRecord(model);
             }
             else
             {
-                model.Id = await OfflineStorageRepo.InsertRecord(model);
+                await OfflineStorageRepo.InsertRecord(model);
             }
-            DataSource.User = model;
+            DataSource.User = await GetUserModelFromOffline();
         }
 
         public async Task<UserModel> GetUserModelFromOffline()
@@ -162,11 +160,6 @@ namespace Vikela.Trunk.Repository.Implementation
             await OfflineStorageRepo.DeleteRecord(model);
         }
 
-        public void PushHomeView()
-        {
-            // _Navigation.PushAsync(new HomeView());
-        }
-
         public void PushLoginView()
         {
             _Navigation.PushAsync(new LoginView());
@@ -189,6 +182,11 @@ namespace Vikela.Trunk.Repository.Implementation
         public void PushSelfieView()
         {
             _Navigation.PushAsync(new SelfieView());
+        }
+
+        public void PushRegistrationName()
+        {
+            _Navigation.PushAsync(new RegistrationNameView());
         }
     }
 }
