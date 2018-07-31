@@ -14,5 +14,16 @@ namespace Vikela.Implementation.ViewModel
                 OnPropertyChanged("FirstName");
             }
         }
+
+        private string lastName;
+        public string LastName
+        {
+            get { return lastName; }
+            set
+            {
+                lastName = value;
+                OnPropertyChanged("LastName");
+            }
+        }
     }
 }

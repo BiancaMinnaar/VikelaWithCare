@@ -27,8 +27,12 @@
                 <Label Text="What is your name" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="FirstName" />
+                <Label Text="First Name" />
                 <Entry Text="{Binding FirstName}" WidthRequest="100"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Last Name" />
+                <Entry Text="{Binding LastName}" WidthRequest="100"/>
             </StackLayout>
             <StackLayout>
                 <Button Text="Next" Clicked="On_UpdateName_Event" />

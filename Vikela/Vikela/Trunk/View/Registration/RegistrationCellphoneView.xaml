@@ -18,6 +18,21 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
+        <StackLayout>
+            <StackLayout HeightRequest="30" />
+            <StackLayout HeightRequest="40">
+                <Label Text="Step 1" />
+            </StackLayout>
+            <StackLayout>
+                <Label Text="{Binding Greeting}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Cellphone" />
+                <Entry Text="{Binding CellPhoneNumber}" WidthRequest="100"/>
+            </StackLayout>
+            <StackLayout>
+                <Button Text="Next" Clicked="On_UpdateName_Event" />
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>

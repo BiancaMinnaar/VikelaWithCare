@@ -38,7 +38,7 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\RegistrationCellphoneView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegistrationCellphoneView.xaml">
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
@@ -155,15 +155,15 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\RegistrationNameRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\RegistrationCellphoneViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\RegistrationCellphoneView.xaml.cs">
-      <DependentUpon>RegistrationCellphoneView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IRegistrationCellphoneViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\RegistrationCellphoneViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IRegistrationCellphoneRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\RegistrationCellphoneRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IRegistrationCellphoneService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\RegistrationCellphoneService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegistrationCellphoneView.xaml.cs">
+      <DependentUpon>RegistrationCellphoneView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
