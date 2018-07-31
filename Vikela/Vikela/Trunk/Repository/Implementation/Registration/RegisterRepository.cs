@@ -39,7 +39,6 @@ namespace Vikela.Implementation.Repository
 
         public async Task Register(RegisterViewModel model, Action<UserModel> completeAction)
         {
-            var serviceReturnModel = await _Service.Register(model);
             var actionModel = new UserModel()
             {
                 FirstName = model.FisrtName,

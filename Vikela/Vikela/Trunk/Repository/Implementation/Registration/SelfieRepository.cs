@@ -7,6 +7,7 @@ using Vikela.Interface.Service;
 using Vikela.Root.Repository;
 using Vikela.Trunk.Repository;
 using Vikela.Trunk.Repository.Implementation;
+using Vikela.Trunk.ViewModel.Offline;
 using Xamarin.Forms;
 
 namespace Vikela.Implementation.Repository
@@ -33,6 +34,16 @@ namespace Vikela.Implementation.Repository
                 model.Selfie = await _ImageRepo.GetPhotoBinary(photo.GetStream());
                 completeAction(model);
             }
+        }
+
+        public void UpdateMasterDataWithUserImage(byte[] image)
+        {
+            if (_MasterRepo.DataSource.User == null)
+            {
+                _MasterRepo.DataSource.User = new UserModel();
+            }
+            _MasterRepo.DataSource.User.UserPicture = image;
+            OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
         }
     }
 }

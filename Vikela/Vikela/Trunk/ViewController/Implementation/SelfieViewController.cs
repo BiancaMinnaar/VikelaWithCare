@@ -25,8 +25,8 @@ namespace Vikela.Implementation.ViewController
         {
             await _Reposetory.Capture(InputObject, 
                                       (model) => 
-            { 
-                //_MasterRepo.DataSource.User.UserPicture = model.Selfie;
+            {
+                _Reposetory.UpdateMasterDataWithUserImage(model.Selfie);
             });
         }
     }

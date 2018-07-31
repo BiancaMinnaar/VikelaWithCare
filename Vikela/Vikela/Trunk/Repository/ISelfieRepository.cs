@@ -9,5 +9,6 @@ namespace Vikela.Interface.Repository
         where T : BaseViewModel
     {
         Task Capture(SelfieViewModel model, Action<SelfieViewModel> completeAction);
+        void UpdateMasterDataWithUserImage(byte[] image);
     }
 }
