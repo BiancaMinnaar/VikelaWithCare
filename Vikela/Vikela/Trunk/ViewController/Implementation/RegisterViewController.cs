@@ -26,6 +26,7 @@ namespace Vikela.Implementation.ViewController
             await _Reposetory.Register(InputObject,
                                        (model) =>
             {
+                ///TODO:Fix to SelfieView
                 _MasterRepo.PushRegistrationName();
             });
         }

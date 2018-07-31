@@ -172,12 +172,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IRegistrationVerifyMobileViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\RegistrationVerifyMobileViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IRegistrationVerifyMobileRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\RegistrationVerifyMobileRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IRegistrationVerifyMobileService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\RegistrationVerifyMobileService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegistrationVerifyMobileView.xaml.cs">
       <DependentUpon>RegistrationVerifyMobileView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\RegistrationVerifyMobileRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />

@@ -23,7 +23,8 @@ namespace Vikela.Implementation.ViewController
 
         public async Task UpdateOTP()
         {
-            
+            await _Reposetory.UpdateOTP(InputObject, (ModelIO) =>
+                                        _MasterRepo.PushMyCoverView());
         }
     }
 }

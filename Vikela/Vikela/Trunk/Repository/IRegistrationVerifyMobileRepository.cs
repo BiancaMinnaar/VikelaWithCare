@@ -8,6 +8,6 @@ namespace Vikela.Interface.Repository
     public interface IRegistrationVerifyMobileRepository<T>
         where T : BaseViewModel
     {
-        Task UpdateOTP(RegistrationVerifyMobileViewModel model, Action<T> completeAction);
+        Task UpdateOTP(RegistrationVerifyMobileViewModel model, Action<RegistrationVerifyMobileViewModel> completeAction);
     }
 }
