@@ -24,6 +24,7 @@ namespace Vikela.Implementation.Repository
         public async Task UpdateName(RegistrationNameViewModel model, Action<UserModel> completeAction)
         {
             _MasterRepo.DataSource.User.FirstName = model.FirstName;
+            _MasterRepo.DataSource.User.LastName = model.LastName;
             await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
             completeAction(_MasterRepo.DataSource.User);
         }

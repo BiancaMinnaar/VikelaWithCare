@@ -22,7 +22,10 @@
             <StackLayout HeightRequest="30"></StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image WidthRequest="100" HeightRequest="100" Source="{Binding UserImage, Converter={StaticResource ByteArrayToImage}}"/>
-                <Label Text="{Binding FirstName}"></Label>
+                <Label Text="{Binding FirstName}" />
+                <Label Text="{Binding LastName}" />
+            </StackLayout>
+            <StackLayout>
                 <Button Text="logout" Clicked="On_LogoutClicked" />
             </StackLayout>
         </StackLayout>

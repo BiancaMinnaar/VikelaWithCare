@@ -21,6 +21,7 @@ namespace Vikela.Implementation.Repository
         {
             model.FirstName = _MasterRepo.DataSource.User.FirstName;
             model.UserImage = _MasterRepo.DataSource.User.UserPicture;
+            model.LastName = _MasterRepo.DataSource.User.LastName;
         }
     }
 }

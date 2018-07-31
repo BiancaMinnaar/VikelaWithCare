@@ -31,7 +31,7 @@
                 <Entry Text="{Binding CellPhoneNumber}" WidthRequest="100"/>
             </StackLayout>
             <StackLayout>
-                <Button Text="Next" Clicked="On_UpdateName_Event" />
+                <Button Text="Next" Clicked="On_UpdateCellPhone_Event" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -15,6 +15,17 @@ namespace Vikela.Implementation.ViewModel
             }
         }
 
+        private string lastName;
+        public string LastName
+        {
+            get { return lastName; }
+            set
+            {
+                lastName = value;
+                OnPropertyChanged("LastName");
+            }
+        }
+
         private byte[] userImage;
         public byte[] UserImage
         {
