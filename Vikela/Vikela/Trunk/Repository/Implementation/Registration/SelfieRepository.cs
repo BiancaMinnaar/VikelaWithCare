@@ -36,14 +36,21 @@ namespace Vikela.Implementation.Repository
             }
         }
 
-        public void UpdateMasterDataWithUserImage(byte[] image)
+        public async Task UpdateMasterDataWithUserImage(byte[] image)
         {
+            var isInsert = false;
+            int id = 0;
             if (_MasterRepo.DataSource.User == null)
             {
                 _MasterRepo.DataSource.User = new UserModel();
+                isInsert = true;
             }
             _MasterRepo.DataSource.User.UserPicture = image;
-            OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
+            if (isInsert)
+                await OfflineStorageRepository.Instance.InsertRecord(_MasterRepo.DataSource.User);
+            else
+                id = await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
+            var dd = id;
         }
     }
 }

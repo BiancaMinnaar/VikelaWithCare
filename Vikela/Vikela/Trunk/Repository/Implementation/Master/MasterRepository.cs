@@ -13,6 +13,7 @@ using Vikela.Implementation.View;
 using Vikela.Trunk.Injection.Base;
 using Vikela.Implementation.Repository;
 using Vikela.Implementation.ViewModel;
+using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Trunk.Repository.Implementation
 {
@@ -26,6 +27,9 @@ namespace Vikela.Trunk.Repository.Implementation
         public Func<string, Dictionary<string, object>, BaseNetworkAccessEnum, Task> NetworkInterface { get; set; }
         public Func<string, Dictionary<string, ParameterTypedValue>, BaseNetworkAccessEnum, Task> NetworkInterfaceWithTypedParameters { get; set; }
         public List<Action<string, IPlatformModelBase>> OnPlatformServiceCallBack { get; set; }
+        private IOfflineStorageRepository OfflineStorageRepo;
+        private const string SelectTableCount = "SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = 'UserModel'";
+        private const string SelectTopUser = "SELECT * FROM UserModel";
 
         MasterRepository()
             : base(null)
@@ -33,10 +37,10 @@ namespace Vikela.Trunk.Repository.Implementation
             DataSource = new MasterModel();
 			OnPlatformServiceCallBack =
                 new List<Action<string, IPlatformModelBase>>();
-            var repo = new RegisterRepository<RegisterViewModel>(this, null);
             Task.Run(async () =>
             {
-                MasterRepo.DataSource.User = await repo.GetUserModelFromOffline();
+                OfflineStorageRepo = OfflineStorageRepository.Instance;
+                MasterRepo.DataSource.User = await GetUserModelFromOffline();
             });
         }
 
@@ -58,10 +62,9 @@ namespace Vikela.Trunk.Repository.Implementation
 
         public void PushLogOut()
         {
-            var repo = new RegisterRepository<RegisterViewModel>(this, null);
             Task.Run(async () =>
             {
-                await repo.RemoveUserRecord(DataSource.User);
+                await RemoveUserRecord(DataSource.User);
                 DataSource.User = null;
             });
             _Navigation.PopToRootAsync();
@@ -99,6 +102,64 @@ namespace Vikela.Trunk.Repository.Implementation
             {
                 listener?.Invoke(serviceKey, model);
             }
+        }
+
+        public async Task SetUserRecord(UserModel model)
+        {
+            if (!await CheckUserModelTable())
+            {
+                await CreateUserModelTabel();
+
+            }
+            if (await GetUserRecord() != null)
+            {
+                var s = await OfflineStorageRepo.UpdateRecord(model);
+            }
+            else
+            {
+                model.Id = await OfflineStorageRepo.InsertRecord(model);
+            }
+            DataSource.User = model;
+        }
+
+        public async Task<UserModel> GetUserModelFromOffline()
+        {
+            var hasUserModelTable = await CheckUserModelTable();
+
+            if (hasUserModelTable)
+            {
+                return await GetUserRecord();
+            }
+            else
+            {
+                await CreateUserModelTabel();
+                return null;
+            }
+        }
+
+        private async Task<bool> CheckUserModelTable()
+        {
+            return await OfflineStorageRepo.SelectScalar(
+                SelectTableCount) != 0;
+        }
+
+        private async Task CreateUserModelTabel()
+        {
+            await OfflineStorageRepo.CreateTable<UserModel>();
+        }
+
+        private async Task<UserModel> GetUserRecord()
+        {
+            var list = await OfflineStorageRepo.QueryTable<UserModel>(
+                SelectTopUser);
+            if (list != null && list.Count > 0)
+                return list[0];
+            return null;
+        }
+
+        public async Task RemoveUserRecord(UserModel model)
+        {
+            await OfflineStorageRepo.DeleteRecord(model);
         }
 
         public void PushHomeView()

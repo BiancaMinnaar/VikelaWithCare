@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Vikela.Root.ViewModel;
 using Vikela.Trunk.Injection.Base;
+using Vikela.Trunk.ViewModel.Offline;
 using Xamarin.Forms;
 
 namespace Vikela.Interface.Repository
@@ -20,6 +22,11 @@ namespace Vikela.Interface.Repository
         void ReportToAllListeners(string serviceKey, IPlatformModelBase model);
         Action<string[]> OnError { get; set; }
         List<Action<string, IPlatformModelBase>> OnPlatformServiceCallBack { get; set; }
+        //Offline
+        Task<UserModel> GetUserModelFromOffline();
+        Task SetUserRecord(UserModel model);
+        Task RemoveUserRecord(UserModel model);
+        //Navigation
         void PushHomeView();
         void PushLoginView();
         void PushRegistrationView();
