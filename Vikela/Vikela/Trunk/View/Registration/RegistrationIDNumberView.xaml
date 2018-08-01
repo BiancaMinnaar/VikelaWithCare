@@ -10,8 +10,7 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.RegistrationIDNumberView" 
     x:TypeArguments="p:RegistrationIDNumberViewController, m:RegistrationIDNumberViewModel" 
-    BackgroundColor="#565E60"
-    Title="Login">
+    BackgroundColor="White" Title="Register">
     <ContentPage.Resources>
         <ResourceDictionary>
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
@@ -20,18 +19,18 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout HeightRequest="30" />
-            <StackLayout HeightRequest="40">
-                <Label Text="Step 1" />
+            <StackLayout HeightRequest="40" HorizontalOptions="Center">
+                <Label StyleClass="DarkDefaultLabel" Text="Step 3" VerticalOptions="Center" />
             </StackLayout>
             <StackLayout>
-                <Label Text="What is your ID number?" />
+                <Label StyleClass="DarkLargeLabel" Text="What is your ID number?" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="ID Number" />
-                <Entry Text="{Binding IDNumber}" WidthRequest="100"/>
+                <Label StyleClass="DarkDefaultLabel" Text="ID Number" VerticalOptions="Center" />
+                <Entry Text="{Binding IDNumber}" WidthRequest="250"/>
             </StackLayout>
             <StackLayout>
-                <Button Text="Next" Clicked="On_UpdateIDNumber_Event" />
+                <Button StyleClass="DarkDefaultButton" Text="Next" Clicked="On_UpdateIDNumber_Event" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

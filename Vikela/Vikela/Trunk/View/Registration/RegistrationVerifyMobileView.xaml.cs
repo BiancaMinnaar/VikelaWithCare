@@ -2,7 +2,6 @@ using System;
 using Vikela.Implementation.ViewController;
 using Vikela.Implementation.ViewModel;
 using Vikela.Root.View;
-using Xamarin.Forms;
 
 namespace Vikela.Implementation.View
 {
@@ -11,7 +10,6 @@ namespace Vikela.Implementation.View
         public RegistrationVerifyMobileView()
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = _ViewController.InputObject;
         }
 
@@ -22,6 +20,10 @@ namespace Vikela.Implementation.View
         public async void On_UpdateOTP_Event(object sender, EventArgs e)
         {
             await _ViewController.UpdateOTP();
+        }
+
+        void On_Resend_Event(object sender, System.EventArgs e)
+        {
         }
     }
 }

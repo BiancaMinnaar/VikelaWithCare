@@ -10,7 +10,7 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.RegistrationCellphoneView" 
     x:TypeArguments="p:RegistrationCellphoneViewController, m:RegistrationCellphoneViewModel" 
-    BackgroundColor="#47B3E4">
+    BackgroundColor="White" Title="Register">
     <ContentPage.Resources>
         <ResourceDictionary>
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
@@ -19,18 +19,18 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout HeightRequest="30" />
-            <StackLayout HeightRequest="40">
-                <Label StyleClass="DefaultLabel" Text="Step 2" />
+            <StackLayout HeightRequest="40" HorizontalOptions="Center">
+                <Label StyleClass="DarkDefaultLabel" Text="Step 2" VerticalOptions="Center" />
             </StackLayout>
             <StackLayout>
-                <Label StyleClass="LargeLabel" Text="{Binding Greeting}" />
+                <Label StyleClass="DarkLargeLabel" Text="{Binding Greeting}" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label StyleClass="DefaultLabel" Text="Cellphone" />
+                <Label StyleClass="DarkDefaultLabel" Text="Cellphone" VerticalOptions="Center" />
                 <Entry Text="{Binding CellPhoneNumber}" WidthRequest="200"/>
             </StackLayout>
             <StackLayout>
-                <Button StyleClass="DefaultButton" Text="Next" Clicked="On_UpdateCellPhone_Event" />
+                <Button StyleClass="DarkDefaultButton" Text="Next" Clicked="On_UpdateCellPhone_Event" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

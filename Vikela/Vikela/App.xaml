@@ -9,6 +9,7 @@
         <ResourceDictionary>
             <Color x:Key="ControlWhite">#FFFFFF</Color>
             <Color x:Key="ControlBlue">#45B1E3</Color>
+            <Color x:Key="ControlBlack">Black</Color>
             <Style TargetType="Button" Class="DefaultButton">
                 <Setter Property="BackgroundColor" Value="{StaticResource ControlWhite }" />
                 <Setter Property="TextColor" Value="{StaticResource ControlBlue }" />
@@ -24,6 +25,17 @@
                 <Setter Property="Font" Value="Verdana" />
                 <Setter Property="FontSize" Value="11" />
             </Style>
+
+            <Style TargetType="Button" Class="DarkDefaultButton">
+                <Setter Property="BackgroundColor" Value="{StaticResource ControlBlue }" />
+                <Setter Property="TextColor" Value="{StaticResource ControlWhite }" />
+            </Style>
+            <Style TargetType="Button" Class="DarkPictureButton">
+                <Setter Property="TextColor" Value="{StaticResource ControlBlue }" />
+                <Setter Property="Font" Value="Verdana" />
+                <Setter Property="FontSize" Value="11" />
+            </Style>
+            
             <Style TargetType="Label" Class="DefaultLabel">
                 <Setter Property="Font" Value="Verdana" />
                 <Setter Property="FontSize" Value="10" />
@@ -43,6 +55,28 @@
                 <Setter Property="Font" Value="Verdana" />
                 <Setter Property="FontSize" Value="10" />
                 <Setter Property="TextColor" Value="{StaticResource ControlWhite}" />
+                <Setter Property="FontAttributes" Value="Italic" />
+            </Style>
+
+            <Style TargetType="Label" Class="DarkDefaultLabel">
+                <Setter Property="Font" Value="Verdana" />
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="TextColor" Value="{StaticResource ControlBlack}" />
+            </Style>
+            <Style TargetType="Label" Class="DarkSmallLabel">
+                <Setter Property="Font" Value="Verdana" />
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="TextColor" Value="{StaticResource ControlBlack}" />
+            </Style>
+            <Style TargetType="Label" Class="DarkLargeLabel">
+                <Setter Property="Font" Value="Verdana" />
+                <Setter Property="FontSize" Value="30" />
+                <Setter Property="TextColor" Value="{StaticResource ControlBlack}" />
+            </Style>
+            <Style TargetType="Label" Class="DarkSmallCursiveLabel">
+                <Setter Property="Font" Value="Verdana" />
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="TextColor" Value="{StaticResource ControlBlack}" />
                 <Setter Property="FontAttributes" Value="Italic" />
             </Style>
         </ResourceDictionary>

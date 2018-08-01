@@ -10,7 +10,7 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.RegistrationNameView" 
     x:TypeArguments="p:RegistrationNameViewController, m:RegistrationNameViewModel" 
-    BackgroundColor="#47B3E4">
+    BackgroundColor="#White" Title="Register">
     <ContentPage.Resources>
         <ResourceDictionary>
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
@@ -19,22 +19,22 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout HeightRequest="30" />
-            <StackLayout HeightRequest="40">
-                <Label StyleClass="DefaultLabel" Text="Step 1" />
+            <StackLayout HeightRequest="40" HorizontalOptions="Center">
+                <Label StyleClass="DarkDefaultLabel" Text="Step 1" VerticalOptions="Center" />
             </StackLayout>
             <StackLayout>
-                <Label StyleClass="LargeLabel" Text="What is your name?" />
+                <Label StyleClass="DarkLargeLabel" Text="What is your name?" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label StyleClass="DefaultLabel" Text="First Name" />
+                <Label StyleClass="DarkDefaultLabel" Text="First Name" VerticalOptions="Center" />
                 <Entry Text="{Binding FirstName}" WidthRequest="200"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label StyleClass="DefaultLabel" Text="Last Name" />
+                <Label StyleClass="DarkDefaultLabel" Text="Last Name" VerticalOptions="Center" />
                 <Entry Text="{Binding LastName}" WidthRequest="200"/>
             </StackLayout>
             <StackLayout>
-                <Button StyleClass="DefaultButton" Text="Next" Clicked="On_UpdateName_Event" />
+                <Button StyleClass="DarkDefaultButton" Text="Next" Clicked="On_UpdateName_Event" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
