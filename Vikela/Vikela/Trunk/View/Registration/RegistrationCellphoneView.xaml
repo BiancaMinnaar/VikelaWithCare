@@ -20,17 +20,17 @@
         <StackLayout>
             <StackLayout HeightRequest="30" />
             <StackLayout HeightRequest="40">
-                <Label Text="Step 1" />
+                <Label StyleClass="DefaultLabel" Text="Step 2" />
             </StackLayout>
             <StackLayout>
-                <Label Text="{Binding Greeting}" />
+                <Label StyleClass="LargeLabel" Text="{Binding Greeting}" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Cellphone" />
-                <Entry Text="{Binding CellPhoneNumber}" WidthRequest="100"/>
+                <Label StyleClass="DefaultLabel" Text="Cellphone" />
+                <Entry Text="{Binding CellPhoneNumber}" WidthRequest="200"/>
             </StackLayout>
             <StackLayout>
-                <Button Text="Next" Clicked="On_UpdateCellPhone_Event" />
+                <Button StyleClass="DefaultButton" Text="Next" Clicked="On_UpdateCellPhone_Event" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

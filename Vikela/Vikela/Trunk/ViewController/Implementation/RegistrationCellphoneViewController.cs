@@ -19,6 +19,9 @@ namespace Vikela.Implementation.ViewController
             _Service = new RegistrationCellphoneService<RegistrationCellphoneViewModel>((U, P, C, A) => 
                                                            ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegistrationCellphoneViewModel>(U, P, C, A));
             _Reposetory = new RegistrationCellphoneRepository<RegistrationCellphoneViewModel>(_MasterRepo, _Service);
+
+            InputObject.Greeting = "Hi " + _MasterRepo.DataSource.User.FirstName +
+                ", what is your cellphone number?";
         }
 
         public async Task UpdateCellPhone()

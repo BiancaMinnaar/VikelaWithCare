@@ -23,15 +23,15 @@
                 <Label StyleClass="DefaultLabel" Text="Step 1" />
             </StackLayout>
             <StackLayout>
-                <Label StyleClass="LargeLabel" Text="What is your name" />
+                <Label StyleClass="LargeLabel" Text="What is your name?" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label StyleClass="DefaultLabel" Text="First Name" />
-                <Entry Text="{Binding FirstName}" WidthRequest="100"/>
+                <Entry Text="{Binding FirstName}" WidthRequest="200"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label StyleClass="DefaultLabel" Text="Last Name" />
-                <Entry Text="{Binding LastName}" WidthRequest="100"/>
+                <Entry Text="{Binding LastName}" WidthRequest="200"/>
             </StackLayout>
             <StackLayout>
                 <Button StyleClass="DefaultButton" Text="Next" Clicked="On_UpdateName_Event" />
