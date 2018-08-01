@@ -10,8 +10,7 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.RegisterView" 
     x:TypeArguments="p:RegisterViewController, m:RegisterViewModel" 
-    BackgroundColor="#47B3E4"
-    Title="Login">
+    BackgroundColor="#47B3E4">
     <ContentPage.Resources>
         <ResourceDictionary>
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
