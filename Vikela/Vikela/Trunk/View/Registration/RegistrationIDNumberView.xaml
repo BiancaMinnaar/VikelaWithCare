@@ -27,7 +27,7 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label StyleClass="DarkDefaultLabel" Text="ID Number" VerticalOptions="Center" />
-                <Entry Text="{Binding IDNumber}" WidthRequest="250"/>
+                <Entry Keyboard="Numeric" Text="{Binding IDNumber}" WidthRequest="250"/>
             </StackLayout>
             <StackLayout>
                 <Button StyleClass="DarkDefaultButton" Text="Next" Clicked="On_UpdateIDNumber_Event" />

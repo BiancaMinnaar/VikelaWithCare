@@ -27,10 +27,10 @@
                 <Label StyleClass="DarkDefaultLabel" Text="Enter in the OTP number that was SMS'd to you to verify your mobile number" />
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Entry Text="{Binding OTP1}" WidthRequest="30"/>
-                <Entry Text="{Binding OTP2}" WidthRequest="30"/>
-                <Entry Text="{Binding OTP3}" WidthRequest="30"/>
-                <Entry Text="{Binding OTP4}" WidthRequest="30"/>
+                <Entry Keyboard="Numeric" MaxLength="1" Text="{Binding OTP1}" WidthRequest="30"/>
+                <Entry Keyboard="Numeric" MaxLength="1" Text="{Binding OTP2}" WidthRequest="30"/>
+                <Entry Keyboard="Numeric" MaxLength="1" Text="{Binding OTP3}" WidthRequest="30"/>
+                <Entry Keyboard="Numeric" MaxLength="1" Text="{Binding OTP4}" WidthRequest="30"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                 <Label StyleClass="DarkDefaultLabel" Text="Did not recieve OTP?" VerticalOptions="Center" />

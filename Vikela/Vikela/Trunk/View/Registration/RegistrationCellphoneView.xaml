@@ -27,7 +27,7 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label StyleClass="DarkDefaultLabel" Text="Cellphone" VerticalOptions="Center" />
-                <Entry Text="{Binding CellPhoneNumber}" WidthRequest="200"/>
+                <Entry Keyboard="Numeric" Text="{Binding CellPhoneNumber}" WidthRequest="200"/>
             </StackLayout>
             <StackLayout>
                 <Button StyleClass="DarkDefaultButton" Text="Next" Clicked="On_UpdateCellPhone_Event" />

@@ -28,6 +28,10 @@ namespace Vikela.Implementation.View
         {
             _ViewController._MasterRepo.PushLogOut();
         }
+
+        void Handle_Clicked(object sender, System.EventArgs e)
+        {
+        }
     }
 }
 

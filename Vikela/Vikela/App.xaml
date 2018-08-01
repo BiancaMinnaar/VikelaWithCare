@@ -41,6 +41,11 @@
                 <Setter Property="FontSize" Value="10" />
                 <Setter Property="TextColor" Value="{StaticResource ControlWhite}" />
             </Style>
+            <Style TargetType="Label" Class="LargerLabel">
+                <Setter Property="Font" Value="Verdana" />
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="TextColor" Value="{StaticResource ControlWhite}" />
+            </Style>
             <Style TargetType="Label" Class="SmallLabel">
                 <Setter Property="Font" Value="Verdana" />
                 <Setter Property="FontSize" Value="10" />
@@ -61,6 +66,11 @@
             <Style TargetType="Label" Class="DarkDefaultLabel">
                 <Setter Property="Font" Value="Verdana" />
                 <Setter Property="FontSize" Value="10" />
+                <Setter Property="TextColor" Value="{StaticResource ControlBlack}" />
+            </Style>
+            <Style TargetType="Label" Class="DarkLargerLabel">
+                <Setter Property="Font" Value="Verdana" />
+                <Setter Property="FontSize" Value="12" />
                 <Setter Property="TextColor" Value="{StaticResource ControlBlack}" />
             </Style>
             <Style TargetType="Label" Class="DarkSmallLabel">
