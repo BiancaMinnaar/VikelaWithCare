@@ -18,6 +18,14 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Spacing="0">
+            <StackLayout HeightRequest="30" BackgroundColor="#47B3E4" />
+            <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Text="B" FontSize="8" />
+                    <Label StyleClass="LargerLabel" Text="Edit Profile" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Button Text="Set" FontSize="8" />
+                </StackLayout>
+            </StackLayout>
             <StackLayout>
                 <Image WidthRequest="80" HeightRequest="80" Source="{Binding UserProfile.UserImage, Converter={StaticResource ByteArrayToImage}}" />
                 <Button StyleClass="DefaultButton" Text="Change Picture" />

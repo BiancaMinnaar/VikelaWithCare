@@ -10,7 +10,7 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.MyCoverView" 
     x:TypeArguments="p:MyCoverViewController, m:MyCoverViewModel" 
-    BackgroundColor="White">
+    BackgroundColor="White" Title="My Cover">
     <ContentPage.Resources>
         <ResourceDictionary>
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />

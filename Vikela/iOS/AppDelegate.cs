@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Foundation;
+using Microsoft.Identity.Client;
 using UIKit;
 using Vikela.iOS.Injection.Facebook;
 using Vikela.Trunk.Injection.Base;
@@ -22,6 +23,13 @@ namespace Vikela.iOS
             x = typeof(Xamarin.Forms.Themes.LightThemeResources);
             x = typeof(Xamarin.Forms.Themes.iOS.UnderlineEffect);
             return base.FinishedLaunching(app, options);
+        }
+
+
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url);
+            return true;
         }
     }
 }

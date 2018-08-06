@@ -27,7 +27,7 @@ namespace Vikela.Implementation.View
 
         public void OnEditProfile(object sender, System.EventArgs e)
         {
-            _ViewController.Load();
+            _ViewController.PushEditProfile();
         }
     }
 }

@@ -38,6 +38,19 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.yourcompany.UserDetailsClient</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>msal8c1f7220-1cbd-45ad-b5e5-b1cfdfcbb33d</string>
+			</array>
+		</dict>
+	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>UIStatusBarStyle</key>

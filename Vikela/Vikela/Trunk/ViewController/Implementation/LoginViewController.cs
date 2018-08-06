@@ -25,8 +25,8 @@ namespace Vikela.Implementation.ViewController
         {
             //Authenticate
             //navigate
-            //_MasterRepo.PushMyCoverView();
-            _MasterRepo.PushEditProfile();
+            _MasterRepo.PushMyCoverView();
+            //_MasterRepo.PushEditProfile();
         }
     }
 }
