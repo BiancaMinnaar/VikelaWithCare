@@ -19,9 +19,12 @@ namespace Vikela.Implementation.Repository
 
         public void Load(MyCoverViewModel model)
         {
-            model.FirstName = _MasterRepo.DataSource.User.FirstName;
-            model.UserImage = _MasterRepo.DataSource.User.UserPicture;
-            model.LastName = _MasterRepo.DataSource.User.LastName;
+            model.UserProfile = new Trunk.ViewModel.ProfileModel()
+            {
+                FirstName = _MasterRepo.DataSource.User.FirstName,
+                UserImage = _MasterRepo.DataSource.User.UserPicture,
+                LastName = _MasterRepo.DataSource.User.LastName
+            };
         }
     }
 }

@@ -22,13 +22,18 @@
             <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <Label StyleClass="LargerLabel" Text="My Cover" VerticalOptions="Center" HorizontalOptions="Center" />
-                    <Button Text="Camera" FontSize="8" Clicked="Handle_Clicked" WidthRequest="40" HorizontalOptions="End" />
+                    <Button Text="Camera" FontSize="8" WidthRequest="40" HorizontalOptions="End" />
                 </StackLayout>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Image WidthRequest="80" HeightRequest="80" Source="{Binding UserImage, Converter={StaticResource ByteArrayToImage}}"/>
-                <Label Text="{Binding FirstName}" HorizontalOptions="Center" />
-                <Label Text="{Binding LastName}" HorizontalOptions="Center" />
+                <Image WidthRequest="80" HeightRequest="80" Source="{Binding UserProfile.UserImage, Converter={StaticResource ByteArrayToImage}}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                                Tapped="OnEditProfile" />
+                      </Image.GestureRecognizers>
+                    </Image>
+                <Label Text="{Binding UserProfile.FirstName}" HorizontalOptions="Center" />
+                <Label Text="{Binding UserProfile.LastName}" HorizontalOptions="Center" />
             </StackLayout>
             <StackLayout VerticalOptions="End">
                 <Button StyleClass="DarkDefaultButton" Text="logout" Clicked="On_LogoutClicked" />

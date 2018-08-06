@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base:ProjectBaseContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:Vikela.Root.View"
+    xmlns:m="clr-namespace:Vikela.Implementation.ViewModel"
+    xmlns:p="clr-namespace:Vikela.Implementation.ViewController"
+    xmlns:b="clr-namespace:Vikela.Implementation.View"
+    xmlns:svg="clr-namespace:TwinTechsForms.NControl;assembly=TwinTechsForms.NControl.SvgImageView"
+    xmlns:image="clr-namespace:MobileBonsai.View"
+    x:Class="Vikela.Implementation.View.EditProfileView" 
+    x:TypeArguments="p:EditProfileViewController, m:EditProfileViewModel" 
+    BackgroundColor="#565E60">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <StackLayout>
+                <Image WidthRequest="80" HeightRequest="80" Source="{Binding UserProfile.UserImage, Converter={StaticResource ByteArrayToImage}}" />
+                <Button StyleClass="DefaultButton" Text="Change Picture" />
+            </StackLayout>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="First name" />
+                    <Entry Text="{Binding UserProfile.FirstName}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Last name" />
+                    <Entry Text="{Binding UserProfile.LastName}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="ID Number" />
+                    <Entry Text="{Binding UserProfile.IDNumber}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Cell Number" />
+                    <Entry Text="{Binding UserProfile.CellPhoneNumber}" />
+                </StackLayout>
+            </StackLayout>
+            <Button Text="Save" Clicked="On_Edit_Event" />
+        </StackLayout>
+    </ContentPage.Content>
+</base:ProjectBaseContentPage>

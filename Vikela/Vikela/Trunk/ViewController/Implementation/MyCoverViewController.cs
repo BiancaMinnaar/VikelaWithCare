@@ -24,5 +24,10 @@ namespace Vikela.Implementation.ViewController
         {
             _Reposetory.Load(InputObject);
         }
+
+        public void PushEditProfile()
+        {
+            _MasterRepo.PushEditProfile();
+        }
     }
 }

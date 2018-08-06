@@ -20,17 +20,14 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public async void On_Load_Event(object sender, EventArgs e)
-        {
-        }
-
         public void On_LogoutClicked(object sender, EventArgs e)
         {
             _ViewController._MasterRepo.PushLogOut();
         }
 
-        void Handle_Clicked(object sender, System.EventArgs e)
+        public void OnEditProfile(object sender, System.EventArgs e)
         {
+            _ViewController.Load();
         }
     }
 }

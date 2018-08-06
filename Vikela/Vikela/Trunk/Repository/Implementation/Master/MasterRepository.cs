@@ -203,6 +203,11 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _Navigation.PushAsync(new RegistrationIDNumberView());
         }
+
+        public void PushEditProfile()
+        {
+            _Navigation.PushAsync(new EditProfileView());
+        }
     }
 }
 

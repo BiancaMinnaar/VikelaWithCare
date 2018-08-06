@@ -29,7 +29,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <DeviceSpecificBuild>false</DeviceSpecificBuild>
     <MtouchVerbosity></MtouchVerbosity>
-    <CodesignProvision>iOS Team Provisioning Profile: Bonsai.Vikela</CodesignProvision>
+    <CodesignProvision>iOS Team Provisioning Profile: Vikela.iOS</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
@@ -80,7 +80,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchVerbosity></MtouchVerbosity>
-    <CodesignProvision>iOS Team Provisioning Profile: Bonsai.Vikela</CodesignProvision>
+    <CodesignProvision>iOS Team Provisioning Profile: Vikela.iOS</CodesignProvision>
   </PropertyGroup>
     <ItemGroup>
 

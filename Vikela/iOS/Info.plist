@@ -6,8 +6,6 @@
 	<string>Vikela</string>
 	<key>CFBundleName</key>
 	<string>Vikela</string>
-	<key>CFBundleIdentifier</key>
-	<string>Bonsai.Vikela</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -48,5 +46,7 @@
 	<false/>
 	<key>NSCameraUsageDescription</key>
 	<string>This app needs access to the camera to take photos.</string>
+	<key>CFBundleIdentifier</key>
+	<string>Vikela.iOS</string>
 </dict>
 </plist>
