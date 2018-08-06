@@ -23,7 +23,7 @@
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <Button Text="B" FontSize="8" />
                     <Label StyleClass="LargerLabel" Text="Edit Profile" VerticalOptions="Center" HorizontalOptions="Center" />
-                    <Button Text="Set" FontSize="8" />
+                    <Button Text="Set" FontSize="8" Clicked="On_Settings_Clicked" />
                 </StackLayout>
             </StackLayout>
             <StackLayout>

@@ -6,12 +6,11 @@ using Xamarin.Forms;
 
 namespace Vikela.Implementation.View
 {
-    public partial class EditProfileView : ProjectBaseContentPage<EditProfileViewController, EditProfileViewModel>
+    public partial class SettingsView : ProjectBaseContentPage<SettingsViewController, SettingsViewModel>
     {
-        public EditProfileView()
+        public SettingsView()
         {
             InitializeComponent();
-            _ViewController.Load();
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = _ViewController.InputObject;
         }
@@ -20,14 +19,14 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public async void On_Edit_Event(object sender, EventArgs e)
+        public async void On_Show_Event(object sender, EventArgs e)
         {
-            await _ViewController.Edit();
+            await _ViewController.Show();
         }
 
-        void On_Settings_Clicked(object sender, System.EventArgs e)
+        void On_Logout_Clicked(object sender, System.EventArgs e)
         {
-            _ViewController.PushSettings();
+            _ViewController._MasterRepo.PushLogOut();
         }
     }
 }

@@ -208,6 +208,10 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _Navigation.PushAsync(new EditProfileView());
         }
+
+        public void PushSettings()
+        {
+            _Navigation.PushAsync(new SettingsView());
+        }
     }
 }
-

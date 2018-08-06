@@ -26,6 +26,11 @@ namespace Vikela.Implementation.ViewController
             InputObject.UserProfile = _Reposetory.Load();
         }
 
+        public void PushSettings()
+        {
+            _MasterRepo.PushSettings();
+        }
+
         public async Task Edit()
         {
             
