@@ -48,7 +48,7 @@ namespace Vikela
 
             PCA = new PublicClientApplication(ClientId, Authority)
             {
-                RedirectUri = $"msal{ClientId}://auth"
+                RedirectUri = $"ms-app://s-1-15-2-900855338-3878894867-131759193-1908462474-3693400123-604986878-4034806201/"
             };
 
             var _MasterRepo = MasterRepository.MasterRepo;
