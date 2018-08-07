@@ -16,12 +16,14 @@ namespace Vikela.iOS
         {
             
             global::Xamarin.Forms.Forms.Init();
+            //Vikela.App.PCA.RedirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
             LoadApplication(new App());
             PlatformSingleton.Instance.PlatformServiceList.Add<FacebookService>(
                 this);
             var x = typeof(Xamarin.Forms.Themes.DarkThemeResources);
             x = typeof(Xamarin.Forms.Themes.LightThemeResources);
             x = typeof(Xamarin.Forms.Themes.iOS.UnderlineEffect);
+            App.UiParent = new UIParent();
             return base.FinishedLaunching(app, options);
         }
 
