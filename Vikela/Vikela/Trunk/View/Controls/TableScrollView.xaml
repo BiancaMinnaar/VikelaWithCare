@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base:ProjectBaseContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:Vikela.Root.View"
+    xmlns:m="clr-namespace:Vikela.Implementation.ViewModel"
+    xmlns:p="clr-namespace:Vikela.Implementation.ViewController"
+    xmlns:b="clr-namespace:Vikela.Implementation.View"
+    xmlns:svg="clr-namespace:TwinTechsForms.NControl;assembly=TwinTechsForms.NControl.SvgImageView"
+    xmlns:image="clr-namespace:MobileBonsai.View"
+    x:Class="Vikela.Implementation.View.TableScrollView" 
+    x:TypeArguments="p:TableScrollViewController, m:TableScrollViewModel" 
+    BackgroundColor="#565E60">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout x:Name="Menu" Spacing="1"></StackLayout>
+</base:ProjectBaseContentView>

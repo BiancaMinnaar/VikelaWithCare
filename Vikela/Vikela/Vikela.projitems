@@ -58,6 +58,14 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\TableScrollView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\TableScrollItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -221,6 +229,26 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\TableScrollViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ITableScrollViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\TableScrollViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ITableScrollRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\TableScrollRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ITableScrollService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\TableScrollService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\TableScrollView.xaml.cs">
+      <DependentUpon>TableScrollView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\TableScrollItemViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ITableScrollItemViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\TableScrollItemViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ITableScrollItemRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\TableScrollItemRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ITableScrollItemService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\TableScrollItemService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\TableScrollItemView.xaml.cs">
+      <DependentUpon>TableScrollItemView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
@@ -241,5 +269,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Master\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\" />
   </ItemGroup>
 </Project>
