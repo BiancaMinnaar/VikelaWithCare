@@ -6,7 +6,8 @@
     xmlns:m="clr-namespace:Vikela.Implementation.ViewModel"
     xmlns:p="clr-namespace:Vikela.Implementation.ViewController"
     xmlns:b="clr-namespace:Vikela.Implementation.View"
-    xmlns:svg="clr-namespace:TwinTechsForms.NControl;assembly=TwinTechsForms.NControl.SvgImageView"
+    xmlns:svg="clr-namespace:TwinTechsForms.NControl"
+    xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.MyCoverView" 
     x:TypeArguments="p:MyCoverViewController, m:MyCoverViewModel" 
@@ -26,12 +27,32 @@
                 </StackLayout>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Image WidthRequest="80" HeightRequest="80" Source="{Binding UserProfile.UserImage, Converter={StaticResource ByteArrayToImage}}">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Tapped="OnEditProfile" />
+                </StackLayout.GestureRecognizers>
+            <controls:CircleImage Source="{Binding UserProfile.UserImage, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
+              <controls:CircleImage.WidthRequest>
+                <OnPlatform x:TypeArguments="x:Double">
+                  <On Platform="Android, iOS">55</On>
+                  <On Platform="WinPhone">75</On>
+                </OnPlatform>
+              </controls:CircleImage.WidthRequest>
+              <controls:CircleImage.HeightRequest>
+                <OnPlatform x:TypeArguments="x:Double">
+                  <On Platform="Android, iOS">55</On>
+                  <On Platform="WinPhone">75</On>
+                </OnPlatform>
+              </controls:CircleImage.HeightRequest>
+            </controls:CircleImage>
+                
+                
+                <!--<Image MinimumWidthRequest="80" MinimumHeightRequest="80" Source="{Binding UserProfile.UserImage, Converter={StaticResource ByteArrayToImage}}">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer
                                 Tapped="OnEditProfile" />
                       </Image.GestureRecognizers>
-                    </Image>
+                    </Image>-->
                 <Label Text="{Binding UserProfile.FirstName}" HorizontalOptions="Center" />
                 <Label Text="{Binding UserProfile.LastName}" HorizontalOptions="Center" />
             </StackLayout>
