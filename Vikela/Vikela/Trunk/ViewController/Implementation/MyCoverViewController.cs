@@ -1,3 +1,4 @@
+using System;
 using Vikela.Implementation.Repository;
 using Vikela.Implementation.Service;
 using Vikela.Implementation.ViewModel;
@@ -28,6 +29,11 @@ namespace Vikela.Implementation.ViewController
         public void PushEditProfile()
         {
             _MasterRepo.PushEditProfile();
+        }
+
+        public TableScrollItemViewModel GetPersonalDetailTile(Action OnClick)
+        {
+            return _Reposetory.GetPersonalDetailTile(OnClick);
         }
     }
 }

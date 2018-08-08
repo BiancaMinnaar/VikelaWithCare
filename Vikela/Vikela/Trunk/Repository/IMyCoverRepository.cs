@@ -1,3 +1,4 @@
+using System;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
 
@@ -7,5 +8,6 @@ namespace Vikela.Interface.Repository
         where T : BaseViewModel
     {
         void Load(MyCoverViewModel model);
+        TableScrollItemViewModel GetPersonalDetailTile(Action OnClick);
     }
 }

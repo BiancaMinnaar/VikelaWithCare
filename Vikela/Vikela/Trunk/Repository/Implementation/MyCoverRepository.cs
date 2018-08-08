@@ -1,8 +1,10 @@
+using System;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Root.Repository;
+using Xamarin.Forms;
 
 namespace Vikela.Implementation.Repository
 {
@@ -24,6 +26,21 @@ namespace Vikela.Implementation.Repository
                 FirstName = _MasterRepo.DataSource.User.FirstName,
                 UserImage = _MasterRepo.DataSource.User.UserPicture,
                 LastName = _MasterRepo.DataSource.User.LastName
+            };
+        }
+
+        public TableScrollItemViewModel GetPersonalDetailTile(Action OnCLick)
+        {
+            return new TableScrollItemViewModel()
+            {
+                ListIndex = 0,
+                Profile = new Trunk.ViewModel.ProfileModel
+                {
+                    UserImage = _MasterRepo.DataSource.User.UserPicture,
+                    FirstName = _MasterRepo.DataSource.User.FirstName,
+                    LastName = _MasterRepo.DataSource.User.LastName
+                },
+                MenuClickedCommand = new Command(OnCLick)
             };
         }
     }

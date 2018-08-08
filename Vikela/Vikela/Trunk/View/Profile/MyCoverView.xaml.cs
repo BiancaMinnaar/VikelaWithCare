@@ -24,18 +24,19 @@ namespace Vikela.Implementation.View
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var menu = new TableScrollItemViewModel()
-            {
-                ListIndex = 0,
-                Profile = new Trunk.ViewModel.ProfileModel
-                {
-                    UserImage = _ViewController._MasterRepo.DataSource.User.UserPicture,
-                    FirstName = _ViewController._MasterRepo.DataSource.User.FirstName,
-                    LastName = _ViewController._MasterRepo.DataSource.User.LastName
-                },
-                MenuClickedCommand = new Command(MenuClick)
-            };
-            var menuList = new List<TableScrollItemViewModel> { menu };
+            //
+            //var menu = new TableScrollItemViewModel()
+            //{
+            //    ListIndex = 0,
+            //    Profile = new Trunk.ViewModel.ProfileModel
+            //    {
+            //        UserImage = _ViewController._MasterRepo.DataSource.User.UserPicture,
+            //        FirstName = _ViewController._MasterRepo.DataSource.User.FirstName,
+            //        LastName = _ViewController._MasterRepo.DataSource.User.LastName
+            //    },
+            //    MenuClickedCommand = new Command(MenuClick)
+            //};
+            var menuList = new List<TableScrollItemViewModel> { _ViewController.GetPersonalDetailTile(() => MenuClick(0)) };
             CoverTiles.SetMenuWithItems(menuList, MenuClick);
         }
 
