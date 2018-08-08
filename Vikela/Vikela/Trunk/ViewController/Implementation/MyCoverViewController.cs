@@ -31,7 +31,7 @@ namespace Vikela.Implementation.ViewController
             _MasterRepo.PushEditProfile();
         }
 
-        public TableScrollItemViewModel GetPersonalDetailTile(Action OnClick)
+        public PersonalDetailViewModel GetPersonalDetailTile(Action OnClick)
         {
             return _Reposetory.GetPersonalDetailTile(OnClick);
         }

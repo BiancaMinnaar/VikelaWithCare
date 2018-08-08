@@ -9,8 +9,8 @@
     xmlns:svg="clr-namespace:TwinTechsForms.NControl;assembly=TwinTechsForms.NControl.SvgImageView"
     xmlns:image="clr-namespace:MobileBonsai.View"
     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
-    x:Class="Vikela.Implementation.View.TableScrollItemView" 
-    x:TypeArguments="p:TableScrollItemViewController, m:TableScrollItemViewModel">
+    x:Class="Vikela.Implementation.View.PersonalDetailsTile" 
+    x:TypeArguments="p:TableScrollItemViewController, m:PersonalDetailViewModel">
     <ContentPage.Resources>
         <ResourceDictionary>
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />

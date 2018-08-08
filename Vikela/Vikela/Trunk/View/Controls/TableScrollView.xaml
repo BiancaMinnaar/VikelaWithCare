@@ -15,5 +15,5 @@
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    <StackLayout x:Name="Menu" Spacing="1"></StackLayout>
+    <StackLayout x:Name="Table" Spacing="1"></StackLayout>
 </base:ProjectBaseContentView>

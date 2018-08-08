@@ -29,9 +29,9 @@ namespace Vikela.Implementation.Repository
             };
         }
 
-        public TableScrollItemViewModel GetPersonalDetailTile(Action OnCLick)
+        public PersonalDetailViewModel GetPersonalDetailTile(Action OnCLick)
         {
-            return new TableScrollItemViewModel()
+            return new PersonalDetailViewModel()
             {
                 Index = 0,
                 Profile = new Trunk.ViewModel.ProfileModel

@@ -46,10 +46,6 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCoverView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>Generator</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\EditProfileView.xaml">
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
@@ -62,7 +58,11 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\TableScrollItemView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\MyCoverView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\PersonalDetailsTile.xaml">
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
@@ -205,9 +205,6 @@
       <DependentUpon>RegistrationIDNumberView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\RegistrationIDNumberRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCoverView.xaml.cs">
-      <DependentUpon>MyCoverView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\EditProfileViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IEditProfileViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\EditProfileViewController.cs" />
@@ -233,8 +230,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\TableScrollViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ITableScrollRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\TableScrollRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ITableScrollService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\TableScrollService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\TableScrollView.xaml.cs">
       <DependentUpon>TableScrollView.xaml</DependentUpon>
     </Compile>
@@ -242,16 +237,18 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\TableScrollItemViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ITableScrollItemRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\TableScrollItemRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ITableScrollItemService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\TableScrollItemService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\TableScrollItemView.xaml.cs">
-      <DependentUpon>TableScrollItemView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Photo\IPhotoPicturePicker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Photo\IPhotoPicturePickerModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\TableScrollItemViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\PersonalDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\TableScrollViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\ITableScrollItemModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\MyCoverView.xaml.cs">
+      <DependentUpon>MyCoverView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\PersonalDetailsTile.xaml.cs">
+      <DependentUpon>PersonalDetailsTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\Factory\TileViewFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
@@ -275,5 +272,8 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Photo\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\Factory\" />
   </ItemGroup>
 </Project>

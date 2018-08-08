@@ -11,18 +11,10 @@ namespace Vikela.Implementation.Repository
     public class TableScrollRepository<T> : ProjectBaseRepository, ITableScrollRepository<T>
         where T : BaseViewModel
     {
-        ITableScrollService<T> _Service;
 
-        public TableScrollRepository(IMasterRepository masterRepository, ITableScrollService<T> service)
+        public TableScrollRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
-            _Service = service;
-        }
-
-        public async Task Load(TableScrollViewModel model, Action<T> completeAction)
-        {
-            var serviceReturnModel = await _Service.Load(model);
-            completeAction(serviceReturnModel);
         }
     }
 }

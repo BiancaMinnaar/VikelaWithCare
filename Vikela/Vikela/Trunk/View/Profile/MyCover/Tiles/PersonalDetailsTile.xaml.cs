@@ -6,9 +6,9 @@ using Xamarin.Forms;
 
 namespace Vikela.Implementation.View
 {
-    public partial class TableScrollItemView : ProjectBaseContentView<TableScrollItemViewController, TableScrollItemViewModel>
+    public partial class PersonalDetailsTile : ProjectBaseContentView<TableScrollItemViewController, PersonalDetailViewModel>
     {
-        public TableScrollItemView()
+        public PersonalDetailsTile()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
@@ -19,7 +19,7 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public TableScrollItemView(TableScrollItemViewModel model) : this()
+        public PersonalDetailsTile(PersonalDetailViewModel model) : this()
         {
             _ViewController.InputObject = model;
             BindingContext = _ViewController.InputObject;

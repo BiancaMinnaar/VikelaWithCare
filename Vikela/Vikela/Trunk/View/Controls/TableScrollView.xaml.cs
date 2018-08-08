@@ -20,19 +20,14 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public void SetMenuWithItems(List<TableScrollItemViewModel> dataSource, Action<object> clickEvent)
+        public void SetTableWithItems(List<PersonalDetailViewModel> dataSource, Action<object> clickEvent)
         {
-            Menu.Children.Clear();
+            Table.Children.Clear();
             foreach(var item in dataSource)
             {
-                var menuItem = new TableScrollItemView(item);
-                Menu.Children.Add(menuItem);
+                var tableItem = new PersonalDetailsTile(item);
+                Table.Children.Add(tableItem);
             }
-        }
-
-        public async void On_Load_Event(object sender, EventArgs e)
-        {
-            await _ViewController.Load();
         }
     }
 }

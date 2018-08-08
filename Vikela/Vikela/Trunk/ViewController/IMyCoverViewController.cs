@@ -7,6 +7,6 @@ namespace Vikela.Interface.ViewController
     {
         void Load();
         void PushEditProfile();
-        TableScrollItemViewModel GetPersonalDetailTile(Action OnClick); 
+        PersonalDetailViewModel GetPersonalDetailTile(Action OnClick); 
     }
 }

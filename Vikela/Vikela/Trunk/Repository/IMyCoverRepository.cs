@@ -8,6 +8,6 @@ namespace Vikela.Interface.Repository
         where T : BaseViewModel
     {
         void Load(MyCoverViewModel model);
-        TableScrollItemViewModel GetPersonalDetailTile(Action OnClick);
+        PersonalDetailViewModel GetPersonalDetailTile(Action OnClick);
     }
 }

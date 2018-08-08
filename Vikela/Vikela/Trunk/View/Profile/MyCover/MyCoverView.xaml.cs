@@ -24,11 +24,11 @@ namespace Vikela.Implementation.View
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var menuList = new List<TableScrollItemViewModel> 
+            var menuList = new List<PersonalDetailViewModel> 
             { 
                 _ViewController.GetPersonalDetailTile(() => MenuClick(0)) 
             };
-            CoverTiles.SetMenuWithItems(menuList, MenuClick);
+            CoverTiles.SetTableWithItems(menuList, MenuClick);
         }
 
         void MenuClick(object index)
