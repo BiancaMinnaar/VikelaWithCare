@@ -1,8 +1,9 @@
-using System;
 using System.Collections.Generic;
 using Vikela.Implementation.ViewController;
 using Vikela.Implementation.ViewModel;
 using Vikela.Root.View;
+using Vikela.Trunk.View.Controls.Factory;
+using Vikela.Trunk.ViewModel.Controlls;
 using Xamarin.Forms;
 
 namespace Vikela.Implementation.View
@@ -20,12 +21,15 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public void SetTableWithItems(List<PersonalDetailViewModel> dataSource, Action<object> clickEvent)
+        public void SetTableWithItems<M>(List<M> dataSource)
+            where M : ITableScrollItemModel
         {
             Table.Children.Clear();
             foreach(var item in dataSource)
             {
-                var tableItem = new PersonalDetailsTile(item);
+                var factory = new TileViewFactory();
+                var tableItem = factory.GetView(item);
+                   
                 Table.Children.Add(tableItem);
             }
         }

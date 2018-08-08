@@ -2,6 +2,7 @@ using System;
 using Vikela.Implementation.ViewController;
 using Vikela.Implementation.ViewModel;
 using Vikela.Root.View;
+using Vikela.Trunk.ViewModel.Controlls;
 using Xamarin.Forms;
 
 namespace Vikela.Implementation.View
@@ -19,9 +20,9 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public PersonalDetailsTile(PersonalDetailViewModel model) : this()
+        public PersonalDetailsTile(ITableScrollItemModel model) : this()
         {
-            _ViewController.InputObject = model;
+            _ViewController.InputObject = (PersonalDetailViewModel)model;
             BindingContext = _ViewController.InputObject;
         }
     }

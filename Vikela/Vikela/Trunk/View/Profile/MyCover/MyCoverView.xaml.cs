@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Vikela.Implementation.ViewController;
 using Vikela.Implementation.ViewModel;
 using Vikela.Root.View;
+using Vikela.Trunk.ViewModel.Controlls;
 using Xamarin.Forms;
 
 namespace Vikela.Implementation.View
@@ -24,14 +25,14 @@ namespace Vikela.Implementation.View
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var menuList = new List<PersonalDetailViewModel> 
+            var menuList = new List<ITableScrollItemModel> 
             { 
-                _ViewController.GetPersonalDetailTile(() => MenuClick(0)) 
+                _ViewController.GetPersonalDetailTile(() => MenuClick()) 
             };
-            CoverTiles.SetTableWithItems(menuList, MenuClick);
+            CoverTiles.SetTableWithItems(menuList);
         }
 
-        void MenuClick(object index)
+        void MenuClick()
         {
             _ViewController.PushEditProfile();
         }
