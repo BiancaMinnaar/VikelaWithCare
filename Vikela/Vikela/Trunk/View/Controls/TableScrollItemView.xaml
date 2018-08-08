@@ -10,14 +10,13 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     x:Class="Vikela.Implementation.View.TableScrollItemView" 
-    x:TypeArguments="p:TableScrollItemViewController, m:TableScrollItemViewModel" 
-    BackgroundColor="White">
+    x:TypeArguments="p:TableScrollItemViewController, m:TableScrollItemViewModel">
     <ContentPage.Resources>
         <ResourceDictionary>
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    <StackLayout BackgroundColor="Gray" Orientation="Horizontal">
+    <StackLayout Orientation="Horizontal">
         <StackLayout.GestureRecognizers>
               <TapGestureRecognizer Command="{Binding MenuClickedCommand}" CommandParameter="{Binding ListIndex}"/>
         </StackLayout.GestureRecognizers>

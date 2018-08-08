@@ -9,8 +9,7 @@
     xmlns:svg="clr-namespace:TwinTechsForms.NControl;assembly=TwinTechsForms.NControl.SvgImageView"
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.TableScrollView" 
-    x:TypeArguments="p:TableScrollViewController, m:TableScrollViewModel" 
-    BackgroundColor="White">
+    x:TypeArguments="p:TableScrollViewController, m:TableScrollViewModel">
     <ContentPage.Resources>
         <ResourceDictionary>
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
