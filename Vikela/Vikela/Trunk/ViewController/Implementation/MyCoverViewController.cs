@@ -6,6 +6,7 @@ using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Interface.ViewController;
 using Vikela.Root.ViewController;
+using Vikela.Trunk.ViewModel.Controlls;
 
 namespace Vikela.Implementation.ViewController
 {
@@ -34,6 +35,11 @@ namespace Vikela.Implementation.ViewController
         public PersonalDetailViewModel GetPersonalDetailTile(Action OnClick)
         {
             return _Reposetory.GetPersonalDetailTile(OnClick);
+        }
+
+        public TrustedSourcesViewModel GetTrustedSourcesTile(Action OnClick)
+        {
+            return _Reposetory.GetTrustedSourcesTile(OnClick);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Vikela.Implementation.View;
 using Vikela.Implementation.ViewModel;
+using Vikela.Trunk.View.Profile.MyCover.Tiles;
 using Vikela.Trunk.ViewModel.Controlls;
 
 namespace Vikela.Trunk.View.Controls.Factory
@@ -15,7 +16,8 @@ namespace Vikela.Trunk.View.Controls.Factory
             var type = typeof(PersonalDetailViewModel);
             supportedInterfaces = 
                 new Dictionary<Type, Func<ITableScrollItemModel, Xamarin.Forms.View>>
-            {{type, (model) => new PersonalDetailsTile(model)}};
+            {{type, (model) => new PersonalDetailsTile(model)},
+                {typeof(TrustedSourcesViewModel), (m) => new TrustedSourcesTile(m)}};
         }
 
         public Xamarin.Forms.View GetView(ITableScrollItemModel model)

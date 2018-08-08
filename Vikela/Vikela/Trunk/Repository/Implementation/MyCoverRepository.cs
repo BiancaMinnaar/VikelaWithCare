@@ -4,6 +4,7 @@ using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Root.Repository;
+using Vikela.Trunk.ViewModel.Controlls;
 using Xamarin.Forms;
 
 namespace Vikela.Implementation.Repository
@@ -41,6 +42,16 @@ namespace Vikela.Implementation.Repository
                     LastName = _MasterRepo.DataSource.User.LastName
                 },
                 ItemClickedCommand = new Command(OnCLick)
+            };
+        }
+
+        public TrustedSourcesViewModel GetTrustedSourcesTile(Action OnClick)
+        {
+            return new TrustedSourcesViewModel()
+            {
+                Index = 0,
+
+                ItemClickedCommand = new Command(OnClick)
             };
         }
     }

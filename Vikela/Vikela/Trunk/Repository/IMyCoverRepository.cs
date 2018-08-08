@@ -1,6 +1,7 @@
 using System;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
+using Vikela.Trunk.ViewModel.Controlls;
 
 namespace Vikela.Interface.Repository
 {
@@ -9,5 +10,6 @@ namespace Vikela.Interface.Repository
     {
         void Load(MyCoverViewModel model);
         PersonalDetailViewModel GetPersonalDetailTile(Action OnClick);
+        TrustedSourcesViewModel GetTrustedSourcesTile(Action OnClick);
     }
 }

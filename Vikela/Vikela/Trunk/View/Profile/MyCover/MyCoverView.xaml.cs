@@ -27,7 +27,8 @@ namespace Vikela.Implementation.View
             base.OnAppearing();
             var TileList = new List<ITableScrollItemModel> 
             { 
-                _ViewController.GetPersonalDetailTile(() => MenuClick()) 
+                _ViewController.GetPersonalDetailTile(() => MenuClick()),
+                _ViewController.GetTrustedSourcesTile(() => MenuClick())
             };
             CoverTiles.SetTableWithItems(TileList);
         }
