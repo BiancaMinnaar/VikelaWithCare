@@ -24,6 +24,11 @@ namespace Vikela.Implementation.View
             await _ViewController.Capture();
         }
 
+        void On_Select_Event(object sender, EventArgs e)
+        {
+            _ViewController.Select();
+        }
+
         void On_Continue_Event(object sender, System.EventArgs e)
         {
             _ViewController.UpdateSelfie();

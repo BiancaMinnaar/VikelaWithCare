@@ -139,6 +139,8 @@
     <Compile Include="Injection\RestServiceIOS.cs" />
     <Compile Include="Injection\Facebook\FacebookModel.cs" />
     <Compile Include="Injection\Facebook\FacebookService.cs" />
+    <Compile Include="Injection\Photo\PhotoPicturePicker.cs" />
+    <Compile Include="Injection\Photo\PhotoPicturePickerModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -159,6 +161,7 @@
   <ItemGroup>
     <Folder Include="Injection\" />
     <Folder Include="Injection\Facebook\" />
+    <Folder Include="Injection\Photo\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

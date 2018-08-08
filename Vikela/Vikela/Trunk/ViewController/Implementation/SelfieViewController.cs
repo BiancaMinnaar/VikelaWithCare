@@ -29,6 +29,11 @@ namespace Vikela.Implementation.ViewController
             });
         }
 
+        public void Select()
+        {
+            _Reposetory.Select(InputObject);
+        }
+
         public void UpdateSelfie()
         {
             _MasterRepo.PushRegistrationName();

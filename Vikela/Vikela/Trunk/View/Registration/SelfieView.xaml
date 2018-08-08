@@ -22,6 +22,7 @@
             <StackLayout>
                 <Image x:Name="PhotoImage" HeightRequest="200" Source="{Binding Selfie, Converter={StaticResource ByteArrayToImage}}" />
                 <Button x:Name="CameraButton" StyleClass="PictureButton" Text="Take Photo" Clicked="On_Capture_Event" />
+                <Button x:Name="GaleryButton" StyleClass="PictureButton" Text="Select Photo" Clicked="On_Select_Event" />
                 <Button x:Name="ContinueButton" StyleClass="PictureButton" Text="Continue" Clicked="On_Continue_Event" />
             </StackLayout>
         </StackLayout>

@@ -6,6 +6,7 @@ using ImageCircle.Forms.Plugin.iOS;
 using Microsoft.Identity.Client;
 using UIKit;
 using Vikela.iOS.Injection.Facebook;
+using Vikela.iOS.Injection.Photo;
 using Vikela.Trunk.Injection.Base;
 
 namespace Vikela.iOS
@@ -20,7 +21,7 @@ namespace Vikela.iOS
             ImageCircleRenderer.Init();
             //Vikela.App.PCA.RedirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
             LoadApplication(new App());
-            PlatformSingleton.Instance.PlatformServiceList.Add<FacebookService>(
+            PlatformSingleton.Instance.PlatformServiceList.Add<PhotoPicturePicker>(
                 this);
             var x = typeof(Xamarin.Forms.Themes.DarkThemeResources);
             x = typeof(Xamarin.Forms.Themes.LightThemeResources);

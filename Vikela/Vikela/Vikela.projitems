@@ -249,6 +249,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\TableScrollItemView.xaml.cs">
       <DependentUpon>TableScrollItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Photo\IPhotoPicturePicker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Photo\IPhotoPicturePickerModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
@@ -270,5 +272,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Photo\" />
   </ItemGroup>
 </Project>

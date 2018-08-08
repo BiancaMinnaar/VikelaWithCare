@@ -10,5 +10,6 @@ namespace Vikela.Interface.Repository
         where T : BaseViewModel
     {
         Task Capture(SelfieViewModel model, Action<UserModel> completeAction);
+        void Select(SelfieViewModel model);
     }
 }
