@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base:ProjectBaseContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:Vikela.Root.View"
+    xmlns:m="clr-namespace:Vikela.Root.ViewModel"
+    xmlns:p="clr-namespace:Vikela.Implementation.ViewController"
+    xmlns:b="clr-namespace:Vikela.Implementation.View"
+    xmlns:svg="clr-namespace:TwinTechsForms.NControl;assembly=TwinTechsForms.NControl.SvgImageView"
+    xmlns:image="clr-namespace:MobileBonsai.View"
+    xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    x:Class="Vikela.Trunk.View.Profile.MyCover.Tiles.TrustedSourcesTile" 
+    x:TypeArguments="p:TableScrollItemViewController, m:ProjectBaseViewModel">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+</base:ProjectBaseContentView>
