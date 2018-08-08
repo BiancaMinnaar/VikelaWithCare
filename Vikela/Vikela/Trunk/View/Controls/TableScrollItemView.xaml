@@ -11,32 +11,31 @@
     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     x:Class="Vikela.Implementation.View.TableScrollItemView" 
     x:TypeArguments="p:TableScrollItemViewController, m:TableScrollItemViewModel" 
-    BackgroundColor="#565E60">
+    BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    <StackLayout BackgroundColor="Gray">
+    <StackLayout BackgroundColor="Gray" Orientation="Horizontal">
         <StackLayout.GestureRecognizers>
               <TapGestureRecognizer Command="{Binding MenuClickedCommand}" CommandParameter="{Binding ListIndex}"/>
         </StackLayout.GestureRecognizers>
-
         <controls:CircleImage Source="{Binding Profile.UserImage, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
-              <controls:CircleImage.WidthRequest>
+            <controls:CircleImage.WidthRequest>
                 <OnPlatform x:TypeArguments="x:Double">
-                  <On Platform="Android, iOS">55</On>
-                  <On Platform="WinPhone">75</On>
+                    <On Platform="Android, iOS">55</On>
+                    <On Platform="WinPhone">75</On>
                 </OnPlatform>
-              </controls:CircleImage.WidthRequest>
-              <controls:CircleImage.HeightRequest>
+            </controls:CircleImage.WidthRequest>
+            <controls:CircleImage.HeightRequest>
                 <OnPlatform x:TypeArguments="x:Double">
-                  <On Platform="Android, iOS">55</On>
-                  <On Platform="WinPhone">75</On>
+                    <On Platform="Android, iOS">55</On>
+                    <On Platform="WinPhone">75</On>
                 </OnPlatform>
-              </controls:CircleImage.HeightRequest>
-            </controls:CircleImage>
-        
-        <Label Text="{Binding ItemDescription}" TextColor="Black" />
+            </controls:CircleImage.HeightRequest>
+        </controls:CircleImage>
+        <Label Text="{Binding Profile.FirstName}" TextColor="Black" VerticalOptions="Center" />
+        <Label Text="{Binding Profile.LastName}" VerticalOptions="Center" />
     </StackLayout>
 </base:ProjectBaseContentView>

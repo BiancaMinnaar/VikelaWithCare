@@ -27,16 +27,6 @@
                 </StackLayout>
             </StackLayout>
             <b:TableScrollView x:Name="CoverTiles" />
-                
-                
-                <!--<Image MinimumWidthRequest="80" MinimumHeightRequest="80" Source="{Binding UserProfile.UserImage, Converter={StaticResource ByteArrayToImage}}">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer
-                                Tapped="OnEditProfile" />
-                      </Image.GestureRecognizers>
-                    </Image>-->
-                <Label Text="{Binding UserProfile.FirstName}" HorizontalOptions="Center" />
-                <Label Text="{Binding UserProfile.LastName}" HorizontalOptions="Center" />
             </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>

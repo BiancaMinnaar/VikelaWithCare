@@ -10,7 +10,7 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.TableScrollView" 
     x:TypeArguments="p:TableScrollViewController, m:TableScrollViewModel" 
-    BackgroundColor="#565E60">
+    BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
