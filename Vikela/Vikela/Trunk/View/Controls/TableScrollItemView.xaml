@@ -18,7 +18,7 @@
     </ContentPage.Resources>
     <StackLayout Orientation="Horizontal">
         <StackLayout.GestureRecognizers>
-              <TapGestureRecognizer Command="{Binding MenuClickedCommand}" CommandParameter="{Binding ListIndex}"/>
+              <TapGestureRecognizer Command="{Binding ItemClickedCommand}" CommandParameter="{Binding ListIndex}"/>
         </StackLayout.GestureRecognizers>
         <controls:CircleImage Source="{Binding Profile.UserImage, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
             <controls:CircleImage.WidthRequest>
