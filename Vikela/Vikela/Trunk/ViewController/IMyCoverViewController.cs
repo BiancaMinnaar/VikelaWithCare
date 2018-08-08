@@ -1,5 +1,6 @@
 using System;
 using Vikela.Implementation.ViewModel;
+using Vikela.Trunk.ViewModel.Controlls;
 
 namespace Vikela.Interface.ViewController
 {
@@ -7,6 +8,7 @@ namespace Vikela.Interface.ViewController
     {
         void Load();
         void PushEditProfile();
-        PersonalDetailViewModel GetPersonalDetailTile(Action OnClick); 
+        PersonalDetailViewModel GetPersonalDetailTile(Action OnClick);
+        SiyabongaViewModel GetSiyabongaTile(Action OnClick);
     }
 }

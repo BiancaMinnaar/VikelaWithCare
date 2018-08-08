@@ -16,8 +16,11 @@ namespace Vikela.Trunk.View.Controls.Factory
             var type = typeof(PersonalDetailViewModel);
             supportedInterfaces = 
                 new Dictionary<Type, Func<ITableScrollItemModel, Xamarin.Forms.View>>
-            {{type, (model) => new PersonalDetailsTile(model)},
-                {typeof(TrustedSourcesViewModel), (m) => new TrustedSourcesTile(m)}};
+            {
+                {type, (model) => new PersonalDetailsTile(model)},
+                {typeof(TrustedSourcesViewModel), (m) => new TrustedSourcesTile(m)},
+                {typeof(SiyabongaViewModel), (m) => new SiyabongaTile(m)}
+            };
         }
 
         public Xamarin.Forms.View GetView(ITableScrollItemModel model)

@@ -11,5 +11,6 @@ namespace Vikela.Interface.Repository
         void Load(MyCoverViewModel model);
         PersonalDetailViewModel GetPersonalDetailTile(Action OnClick);
         TrustedSourcesViewModel GetTrustedSourcesTile(Action OnClick);
+        SiyabongaViewModel GetSiyabongaTile(Action OnClick);
     }
 }

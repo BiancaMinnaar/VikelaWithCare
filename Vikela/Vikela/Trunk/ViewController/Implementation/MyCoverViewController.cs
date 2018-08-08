@@ -41,5 +41,10 @@ namespace Vikela.Implementation.ViewController
         {
             return _Reposetory.GetTrustedSourcesTile(OnClick);
         }
+
+        public SiyabongaViewModel GetSiyabongaTile(Action OnClick)
+        {
+            return _Reposetory.GetSiyabongaTile(OnClick);
+        }
     }
 }

@@ -27,6 +27,8 @@
                 </StackLayout>
             </StackLayout>
             <b:TableScrollView x:Name="CoverTiles" />
+            <Label Text="Siyabonga" />
+            <b:TableScrollView x:Name="SiyabongaTiles" />
             </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>

@@ -31,6 +31,12 @@ namespace Vikela.Implementation.View
                 _ViewController.GetTrustedSourcesTile(() => MenuClick())
             };
             CoverTiles.SetTableWithItems(TileList);
+
+            var SiyabongaModels = new List<ITableScrollItemModel>
+            {
+                _ViewController.GetSiyabongaTile(() => {})
+            };
+            SiyabongaTiles.SetTableWithItems(SiyabongaModels);
         }
 
         void MenuClick()

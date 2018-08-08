@@ -74,6 +74,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\SiyabongaTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -271,6 +275,10 @@
       <DependentUpon>TrustedSourcesTile.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\TrustedSourcesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\SiyabongaTile.xaml.cs">
+      <DependentUpon>SiyabongaTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\SiyabongaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />

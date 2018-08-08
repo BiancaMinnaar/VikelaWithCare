@@ -54,5 +54,15 @@ namespace Vikela.Implementation.Repository
                 ItemClickedCommand = new Command(OnClick)
             };
         }
+
+        public SiyabongaViewModel GetSiyabongaTile(Action OnClick)
+        {
+            return new SiyabongaViewModel()
+            {
+                Index = 0,
+
+                ItemClickedCommand = new Command(OnClick)
+            };
+        }
     }
 }
