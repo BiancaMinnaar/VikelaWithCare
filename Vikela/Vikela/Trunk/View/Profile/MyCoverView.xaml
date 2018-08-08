@@ -26,25 +26,7 @@
                     <Button Text="Camera" FontSize="8" WidthRequest="40" HorizontalOptions="End" />
                 </StackLayout>
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer 
-                        Tapped="OnEditProfile" />
-                </StackLayout.GestureRecognizers>
-            <controls:CircleImage Source="{Binding UserProfile.UserImage, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
-              <controls:CircleImage.WidthRequest>
-                <OnPlatform x:TypeArguments="x:Double">
-                  <On Platform="Android, iOS">55</On>
-                  <On Platform="WinPhone">75</On>
-                </OnPlatform>
-              </controls:CircleImage.WidthRequest>
-              <controls:CircleImage.HeightRequest>
-                <OnPlatform x:TypeArguments="x:Double">
-                  <On Platform="Android, iOS">55</On>
-                  <On Platform="WinPhone">75</On>
-                </OnPlatform>
-              </controls:CircleImage.HeightRequest>
-            </controls:CircleImage>
+            <b:TableScrollView x:Name="CoverTiles" />
                 
                 
                 <!--<Image MinimumWidthRequest="80" MinimumHeightRequest="80" Source="{Binding UserProfile.UserImage, Converter={StaticResource ByteArrayToImage}}">
@@ -56,6 +38,5 @@
                 <Label Text="{Binding UserProfile.FirstName}" HorizontalOptions="Center" />
                 <Label Text="{Binding UserProfile.LastName}" HorizontalOptions="Center" />
             </StackLayout>
-        </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>

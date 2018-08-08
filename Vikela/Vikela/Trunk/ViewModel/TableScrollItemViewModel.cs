@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Input;
 using Newtonsoft.Json;
 using Vikela.Root.ViewModel;
+using Vikela.Trunk.ViewModel;
 
 namespace Vikela.Implementation.ViewModel
 {
@@ -11,7 +12,7 @@ namespace Vikela.Implementation.ViewModel
     {
         [JsonIgnore]
         public int ListIndex { get; set; }
-        public string ItemDescription { get; set; }
+        public ProfileModel Profile { get; set; }
         [JsonIgnore]
         public ICommand MenuClickedCommand { get; set; }
     }

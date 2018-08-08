@@ -23,22 +23,11 @@ namespace Vikela.Implementation.View
         public void SetMenuWithItems(List<TableScrollItemViewModel> dataSource, Action<object> clickEvent)
         {
             Menu.Children.Clear();
-            for (var count = 0; count < dataSource.Count; count++)
+            foreach(var item in dataSource)
             {
-                var item = new TableScrollItemViewModel()
-                {
-                    ListIndex = count,
-                    ItemDescription = dataSource[count].ItemDescription,
-                    MenuClickedCommand = new Command(clickEvent)
-                };
                 var menuItem = new TableScrollItemView(item);
                 Menu.Children.Add(menuItem);
             }
-        }
-
-        void Handle_Tapped(object sender, System.EventArgs e)
-        {
-            _ViewController.ShowMessage("here");
         }
 
         public async void On_Load_Event(object sender, EventArgs e)

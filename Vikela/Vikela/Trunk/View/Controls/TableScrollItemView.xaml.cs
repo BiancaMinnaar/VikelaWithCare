@@ -24,11 +24,6 @@ namespace Vikela.Implementation.View
             _ViewController.InputObject = model;
             BindingContext = _ViewController.InputObject;
         }
-
-        public async void On_Load_Event(object sender, EventArgs e)
-        {
-            await _ViewController.Load();
-        }
     }
 }
 

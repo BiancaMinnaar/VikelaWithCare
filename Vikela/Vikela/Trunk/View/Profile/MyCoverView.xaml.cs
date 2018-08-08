@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Vikela.Implementation.ViewController;
 using Vikela.Implementation.ViewModel;
 using Vikela.Root.View;
@@ -18,6 +19,29 @@ namespace Vikela.Implementation.View
 
         protected override void SetSVGCollection()
         {
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var menu = new TableScrollItemViewModel()
+            {
+                ListIndex = 0,
+                Profile = new Trunk.ViewModel.ProfileModel
+                {
+                    UserImage = _ViewController._MasterRepo.DataSource.User.UserPicture,
+                    FirstName = _ViewController._MasterRepo.DataSource.User.FirstName,
+                    LastName = _ViewController._MasterRepo.DataSource.User.LastName
+                },
+                MenuClickedCommand = new Command(MenuClick)
+            };
+            var menuList = new List<TableScrollItemViewModel> { menu };
+            CoverTiles.SetMenuWithItems(menuList, MenuClick);
+        }
+
+        void MenuClick(object index)
+        {
+            _ViewController.PushEditProfile();
         }
 
         public void On_LogoutClicked(object sender, EventArgs e)
