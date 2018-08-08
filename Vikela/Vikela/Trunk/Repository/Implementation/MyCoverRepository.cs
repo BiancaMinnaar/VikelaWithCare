@@ -33,14 +33,14 @@ namespace Vikela.Implementation.Repository
         {
             return new TableScrollItemViewModel()
             {
-                ListIndex = 0,
+                Index = 0,
                 Profile = new Trunk.ViewModel.ProfileModel
                 {
                     UserImage = _MasterRepo.DataSource.User.UserPicture,
                     FirstName = _MasterRepo.DataSource.User.FirstName,
                     LastName = _MasterRepo.DataSource.User.LastName
                 },
-                MenuClickedCommand = new Command(OnCLick)
+                ItemClickedCommand = new Command(OnCLick)
             };
         }
     }

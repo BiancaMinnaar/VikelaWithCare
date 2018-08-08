@@ -229,7 +229,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\TableScrollViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ITableScrollViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\TableScrollViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ITableScrollRepository.cs" />
@@ -239,7 +238,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\TableScrollView.xaml.cs">
       <DependentUpon>TableScrollView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\TableScrollItemViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ITableScrollItemViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\TableScrollItemViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ITableScrollItemRepository.cs" />
@@ -251,6 +249,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Photo\IPhotoPicturePicker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Photo\IPhotoPicturePickerModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\TableScrollItemViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\TableScrollViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\ITableScrollItemModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
@@ -273,5 +274,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\PlatformBonsai\Photo\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\" />
   </ItemGroup>
 </Project>

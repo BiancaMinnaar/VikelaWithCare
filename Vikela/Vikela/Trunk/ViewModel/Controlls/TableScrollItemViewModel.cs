@@ -5,16 +5,15 @@ using System.Windows.Input;
 using Newtonsoft.Json;
 using Vikela.Root.ViewModel;
 using Vikela.Trunk.ViewModel;
+using Vikela.Trunk.ViewModel.Controlls;
 
 namespace Vikela.Implementation.ViewModel
 {
-    public class TableScrollItemViewModel : ProjectBaseViewModel
+    public class TableScrollItemViewModel : ProjectBaseViewModel, ITableScrollItemModel
     {
-        [JsonIgnore]
-        public int ListIndex { get; set; }
+        public int Index { get; set; }
         public ProfileModel Profile { get; set; }
-        [JsonIgnore]
-        public ICommand MenuClickedCommand { get; set; }
+        public ICommand ItemClickedCommand { get; set; }
     }
 
     public class SmallTableMenuItemViewModelList : ProjectBaseViewModel, IEnumerable<TableScrollItemViewModel>
