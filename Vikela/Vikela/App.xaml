@@ -25,6 +25,12 @@
                 <Setter Property="Font" Value="Verdana" />
                 <Setter Property="FontSize" Value="11" />
             </Style>
+            <Style TargetType="Button" Class="PictureButtonSmallTextWhiteBK">
+                <Setter Property="BackgroundColor" Value="{StaticResource ControlWhite }" />
+                <Setter Property="TextColor" Value="{StaticResource ControlBlue }" />
+                <Setter Property="Font" Value="Verdana" />
+                <Setter Property="FontSize" Value="9" />
+            </Style>
 
             <Style TargetType="Button" Class="DarkDefaultButton">
                 <Setter Property="BackgroundColor" Value="{StaticResource ControlBlue }" />

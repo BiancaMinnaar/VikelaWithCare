@@ -33,12 +33,12 @@
                 <Label Text="Active Covers" />
                 <b:TableScrollView x:Name="ActiveCovers" />
             </StackLayout>
-            <StackLayout VerticalOptions="End" HeightRequest="100" Orientation="Horizontal">
-                <Button Text="My Cover"></Button>
-                <Button Text="My Cash"></Button>
-                <Button Text="Siyabonga"></Button>
-                <Button Text="Circle"></Button>
-                <Button Text="Notifications"></Button>
+            <StackLayout VerticalOptions="End" HorizontalOptions="Center" HeightRequest="100" Orientation="Horizontal">
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="My Cover"></Button>
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="My Cash"></Button>
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="Siyabonga"></Button>
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="Circle"></Button>
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="Notifications"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
