@@ -16,18 +16,13 @@ namespace Vikela.Implementation.View
             NavigationPage.SetHasNavigationBar(this, false);
             _ViewController.Load();
             BindingContext = _ViewController.InputObject;
+            SetDetailTiles();
+            SetSiyabongaTiles();
+            SetActiveCoverTiles();
         }
 
         protected override void SetSVGCollection()
         {
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            SetDetailTiles();
-            SetSiyabongaTiles();
-            SetActiveCoverTiles();
         }
 
         private void SetActiveCoverTiles()

@@ -26,11 +26,20 @@
                     <Button Text="Camera" FontSize="8" WidthRequest="40" HorizontalOptions="End" />
                 </StackLayout>
             </StackLayout>
-            <b:TableScrollView x:Name="DetailTiles" />
-            <Label Text="Siyabonga" />
-            <b:TableScrollView x:Name="SiyabongaTiles" />
-            <Label Text="Active Covers" />
-            <b:TableScrollView x:Name="ActiveCovers" />
+            <StackLayout VerticalOptions="FillAndExpand">
+                <b:TableScrollView x:Name="DetailTiles" />
+                <Label Text="Siyabonga" />
+                <b:TableScrollView x:Name="SiyabongaTiles" />
+                <Label Text="Active Covers" />
+                <b:TableScrollView x:Name="ActiveCovers" />
+            </StackLayout>
+            <StackLayout VerticalOptions="End" HeightRequest="100" Orientation="Horizontal">
+                <Button Text="My Cover"></Button>
+                <Button Text="My Cash"></Button>
+                <Button Text="Siyabonga"></Button>
+                <Button Text="Circle"></Button>
+                <Button Text="Notifications"></Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>
