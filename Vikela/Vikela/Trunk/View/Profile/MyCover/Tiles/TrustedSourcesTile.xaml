@@ -16,13 +16,15 @@
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    <StackLayout>
-        <Label Text="Add 3 Trusted Sources"/>
-        <Label Text="We will contact these sources in case of a clame"/>
-        <StackLayout Orientation="Horizontal">
-            <Button Text="+" />
-            <Button Text="+" />
-            <Button Text="+" />
+    <Frame>
+        <StackLayout>
+            <Label Text="Add 3 Trusted Sources"/>
+            <Label Text="We will contact these sources in case of a claim"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="+" />
+                <Button Text="+" />
+                <Button Text="+" />
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
+    </Frame>
 </base:ProjectBaseContentView>

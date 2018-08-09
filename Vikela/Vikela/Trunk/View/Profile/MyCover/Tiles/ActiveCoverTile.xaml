@@ -16,7 +16,9 @@
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    <StackLayout>
-        <Label Text="Spend with Care" />
-    </StackLayout>
+    <Frame>
+        <StackLayout>
+            <Label Text="Spend with Care" />
+        </StackLayout>
+    </Frame>
 </base:ProjectBaseContentView>

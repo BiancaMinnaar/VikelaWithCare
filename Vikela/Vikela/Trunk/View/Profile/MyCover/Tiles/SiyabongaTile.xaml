@@ -16,7 +16,9 @@
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    <StackLayout>
-        <Label Text="Total Benifits" />
-    </StackLayout>
+    <Frame>
+        <StackLayout>
+            <Label Text="Total Benifits" />
+        </StackLayout>
+    </Frame>
 </base:ProjectBaseContentView>
