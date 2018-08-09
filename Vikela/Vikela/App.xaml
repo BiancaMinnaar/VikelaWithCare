@@ -3,13 +3,30 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="Vikela.App"
-    xmlns:light="clr-namespace:Xamarin.Forms.Themes;assembly=Xamarin.Forms.Theme.Light">
+    xmlns:light="clr-namespace:Xamarin.Forms.Themes;assembly=Xamarin.Forms.Theme.Light"
+    xmlns:image="clr-namespace:MobileBonsai.View">
     <Application.Resources>
         <ResourceDictionary MergedWith="light:LightThemeResources" />
         <ResourceDictionary>
+            <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
             <Color x:Key="ControlWhite">#FFFFFF</Color>
             <Color x:Key="ControlBlue">#45B1E3</Color>
             <Color x:Key="ControlBlack">Black</Color>
+            <Color x:Key="ControlOrange">#F09952</Color>
+
+            <Style x:Key="BaseLabel" TargetType="Label">
+                <Setter Property="Font" Value="Verdana" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="{StaticResource ControlWhite}" />
+            </Style>
+            <Style x:Key="BlackLabel"  TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="TextColor" Value="{StaticResource ControlBlack}" />
+            </Style>
+            <Style x:Key="LargeOrangeLabel"  TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="FontSize" Value="30" />
+                <Setter Property="TextColor" Value="{StaticResource ControlOrange}" />
+            </Style>
+            
             <Style TargetType="Button" Class="DefaultButton">
                 <Setter Property="BackgroundColor" Value="{StaticResource ControlWhite }" />
                 <Setter Property="TextColor" Value="{StaticResource ControlBlue }" />

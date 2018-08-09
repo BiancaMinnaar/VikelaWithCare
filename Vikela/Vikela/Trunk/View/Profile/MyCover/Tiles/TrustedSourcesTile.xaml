@@ -11,16 +11,13 @@
     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     x:Class="Vikela.Trunk.View.Profile.MyCover.Tiles.TrustedSourcesTile" 
     x:TypeArguments="p:TableScrollItemViewController, m:ProjectBaseViewModel">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
-        </ResourceDictionary>
-    </ContentPage.Resources>
     <Frame>
-        <StackLayout>
-            <Label Text="Add 3 Trusted Sources"/>
-            <Label Text="We will contact these sources in case of a claim"/>
-            <StackLayout Orientation="Horizontal">
+        <StackLayout HorizontalOptions="FillAndExpand">
+            <StackLayout Spacing="1">
+                <Label Text="Add 3 Trusted Sources" Style="{DynamicResource LargeOrangeLabel}"/>
+                <Label Text="We will contact these sources in case of a claim" Style="{DynamicResource BlackLabel}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Button Text="+" />
                 <Button Text="+" />
                 <Button Text="+" />
