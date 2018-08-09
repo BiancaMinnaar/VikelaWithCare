@@ -26,9 +26,11 @@
                     <Button Text="Camera" FontSize="8" WidthRequest="40" HorizontalOptions="End" />
                 </StackLayout>
             </StackLayout>
-            <b:TableScrollView x:Name="CoverTiles" />
+            <b:TableScrollView x:Name="DetailTiles" />
             <Label Text="Siyabonga" />
             <b:TableScrollView x:Name="SiyabongaTiles" />
-            </StackLayout>
+            <Label Text="Active Covers" />
+            <b:TableScrollView x:Name="ActiveCovers" />
+        </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>

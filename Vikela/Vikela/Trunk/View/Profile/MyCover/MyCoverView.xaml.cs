@@ -25,19 +25,37 @@ namespace Vikela.Implementation.View
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var TileList = new List<ITableScrollItemModel> 
-            { 
-                _ViewController.GetPersonalDetailTileViewModel(() => MenuClick()),
-                _ViewController.GetTrustedSourcesTileViewModel(() => MenuClick()),
+            SetDetailTiles();
+            SetSiyabongaTiles();
+            SetActiveCoverTiles();
+        }
 
+        private void SetActiveCoverTiles()
+        {
+            var ActiveCoverModels = new List<ITableScrollItemModel>
+            {
+                _ViewController.GetActiveCoverTileViewModel(() => {})
             };
-            CoverTiles.SetTableWithItems(TileList);
+            ActiveCovers.SetTableWithItems(ActiveCoverModels);
+        }
 
+        private void SetSiyabongaTiles()
+        {
             var SiyabongaModels = new List<ITableScrollItemModel>
             {
                 _ViewController.GetSiyabongaTileViewModel(() => {})
             };
             SiyabongaTiles.SetTableWithItems(SiyabongaModels);
+        }
+
+        private void SetDetailTiles()
+        {
+            var TileList = new List<ITableScrollItemModel>
+            {
+                _ViewController.GetPersonalDetailTileViewModel(() => MenuClick()),
+                _ViewController.GetTrustedSourcesTileViewModel(() => {})
+            };
+            DetailTiles.SetTableWithItems(TileList);
         }
 
         void MenuClick()
