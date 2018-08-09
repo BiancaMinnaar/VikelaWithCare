@@ -30,7 +30,7 @@ namespace Vikela.Implementation.Repository
             };
         }
 
-        public PersonalDetailViewModel GetPersonalDetailTile(Action OnCLick)
+        public PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnCLick)
         {
             return new PersonalDetailViewModel()
             {
@@ -45,7 +45,7 @@ namespace Vikela.Implementation.Repository
             };
         }
 
-        public TrustedSourcesViewModel GetTrustedSourcesTile(Action OnClick)
+        public TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action OnClick)
         {
             return new TrustedSourcesViewModel()
             {
@@ -55,9 +55,19 @@ namespace Vikela.Implementation.Repository
             };
         }
 
-        public SiyabongaViewModel GetSiyabongaTile(Action OnClick)
+        public SiyabongaViewModel GetSiyabongaTileViewModel(Action OnClick)
         {
             return new SiyabongaViewModel()
+            {
+                Index = 0,
+
+                ItemClickedCommand = new Command(OnClick)
+            };
+        }
+
+        public ActiveCoverViewModel GetActiveCoverTileViewModel(Action OnClick)
+        {
+            return new ActiveCoverViewModel()
             {
                 Index = 0,
 

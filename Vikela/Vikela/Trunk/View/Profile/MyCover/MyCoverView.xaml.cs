@@ -27,14 +27,15 @@ namespace Vikela.Implementation.View
             base.OnAppearing();
             var TileList = new List<ITableScrollItemModel> 
             { 
-                _ViewController.GetPersonalDetailTile(() => MenuClick()),
-                _ViewController.GetTrustedSourcesTile(() => MenuClick())
+                _ViewController.GetPersonalDetailTileViewModel(() => MenuClick()),
+                _ViewController.GetTrustedSourcesTileViewModel(() => MenuClick()),
+
             };
             CoverTiles.SetTableWithItems(TileList);
 
             var SiyabongaModels = new List<ITableScrollItemModel>
             {
-                _ViewController.GetSiyabongaTile(() => {})
+                _ViewController.GetSiyabongaTileViewModel(() => {})
             };
             SiyabongaTiles.SetTableWithItems(SiyabongaModels);
         }

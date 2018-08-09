@@ -9,8 +9,9 @@ namespace Vikela.Interface.Repository
         where T : BaseViewModel
     {
         void Load(MyCoverViewModel model);
-        PersonalDetailViewModel GetPersonalDetailTile(Action OnClick);
-        TrustedSourcesViewModel GetTrustedSourcesTile(Action OnClick);
-        SiyabongaViewModel GetSiyabongaTile(Action OnClick);
+        PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnClick);
+        TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action OnClick);
+        SiyabongaViewModel GetSiyabongaTileViewModel(Action OnClick);
+        ActiveCoverViewModel GetActiveCoverTileViewModel(Action OnLick);
     }
 }

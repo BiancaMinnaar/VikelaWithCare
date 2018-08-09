@@ -32,19 +32,24 @@ namespace Vikela.Implementation.ViewController
             _MasterRepo.PushEditProfile();
         }
 
-        public PersonalDetailViewModel GetPersonalDetailTile(Action OnClick)
+        public PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnClick)
         {
-            return _Reposetory.GetPersonalDetailTile(OnClick);
+            return _Reposetory.GetPersonalDetailTileViewModel(OnClick);
         }
 
-        public TrustedSourcesViewModel GetTrustedSourcesTile(Action OnClick)
+        public TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action OnClick)
         {
-            return _Reposetory.GetTrustedSourcesTile(OnClick);
+            return _Reposetory.GetTrustedSourcesTileViewModel(OnClick);
         }
 
-        public SiyabongaViewModel GetSiyabongaTile(Action OnClick)
+        public SiyabongaViewModel GetSiyabongaTileViewModel(Action OnClick)
         {
-            return _Reposetory.GetSiyabongaTile(OnClick);
+            return _Reposetory.GetSiyabongaTileViewModel(OnClick);
+        }
+
+        public ActiveCoverViewModel GetActiveCoverTileViewModel(Action OnLick)
+        {
+            return _Reposetory.GetActiveCoverTileViewModel(OnLick);
         }
     }
 }
