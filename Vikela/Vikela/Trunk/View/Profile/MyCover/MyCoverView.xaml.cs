@@ -27,9 +27,13 @@ namespace Vikela.Implementation.View
 
         private void SetActiveCoverTiles()
         {
+            var secondModel = _ViewController.GetActiveCoverTileViewModel(() => { });
+            secondModel.CareAmount = "R250";
+            secondModel.TileColor = Color.FromHex("#F09952");
             var ActiveCoverModels = new List<ITableScrollItemModel>
             {
-                _ViewController.GetActiveCoverTileViewModel(() => {})
+                _ViewController.GetActiveCoverTileViewModel(() => {}),
+                secondModel
             };
             ActiveCovers.SetTableWithItems(ActiveCoverModels);
         }

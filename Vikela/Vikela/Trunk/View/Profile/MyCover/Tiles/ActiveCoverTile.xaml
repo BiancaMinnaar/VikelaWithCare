@@ -11,14 +11,31 @@
     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     x:Class="Vikela.Trunk.View.Profile.MyCover.Tiles.ActiveCoverTile" 
     x:TypeArguments="p:TableScrollItemViewController, m:ProjectBaseViewModel">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
-        </ResourceDictionary>
-    </ContentPage.Resources>
     <Frame>
-        <StackLayout>
-            <Label Text="Spend with Care" />
+        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+            <StackLayout Spacing="1">
+                <Label Text="Spend with Care" Style="{DynamicResource BlackLabel}" />
+                <Label Text="{Binding CareAmount}" Style="{DynamicResource LargeLabel}" TextColor="{Binding TileColor}" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                <Label Text="Graph" />
+            </StackLayout>
+            <StackLayout>
+                <controls:CircleImage Source="{Binding BeneficiaryImage, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
+                <controls:CircleImage.WidthRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="Android, iOS">55</On>
+                        <On Platform="WinPhone">75</On>
+                    </OnPlatform>
+                </controls:CircleImage.WidthRequest>
+                <controls:CircleImage.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="Android, iOS">55</On>
+                        <On Platform="WinPhone">75</On>
+                    </OnPlatform>
+                </controls:CircleImage.HeightRequest>
+            </controls:CircleImage>
+            </StackLayout>
         </StackLayout>
     </Frame>
 </base:ProjectBaseContentView>

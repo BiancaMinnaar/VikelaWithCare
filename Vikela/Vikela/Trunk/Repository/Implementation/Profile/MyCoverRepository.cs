@@ -71,7 +71,9 @@ namespace Vikela.Implementation.Repository
             return new ActiveCoverViewModel()
             {
                 Index = 0,
-
+                TileColor=Color.FromHex("#BBDE6B"),
+                CareAmount="R1500",
+                BeneficiaryImage=_MasterRepo.DataSource.User.UserPicture,
                 ItemClickedCommand = new Command(OnClick)
             };
         }
