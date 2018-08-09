@@ -60,7 +60,8 @@ namespace Vikela.Implementation.Repository
             return new SiyabongaViewModel()
             {
                 Index = 0,
-
+                TotalBenefits="R750",
+                ClaimFreePeriod="9",
                 ItemClickedCommand = new Command(OnClick)
             };
         }

@@ -11,14 +11,22 @@
     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     x:Class="Vikela.Trunk.View.Profile.MyCover.Tiles.SiyabongaTile" 
     x:TypeArguments="p:TableScrollItemViewController, m:ProjectBaseViewModel">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
-        </ResourceDictionary>
-    </ContentPage.Resources>
     <Frame>
-        <StackLayout>
-            <Label Text="Total Benifits" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <StackLayout>
+                <Label Text="Total Benifits" Style="{DynamicResource BlackLabel}" />
+                <Label Text="{Binding TotalBenefits}" Style="{DynamicResource LargeOrangeLabel}" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                <Label Text="Graph" />
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Claim Free" Style="{DynamicResource BlackLabel}" />
+                <StackLayout Spacing="1" Orientation="Horizontal">
+                    <Label Text="{Binding ClaimFreePeriod}" Style="{DynamicResource LargeOrangeLabel}" />
+                    <Label Text="Months" Style="{DynamicResource OrangeLabel}" VerticalOptions="End"/>
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </Frame>
 </base:ProjectBaseContentView>

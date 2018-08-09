@@ -13,6 +13,7 @@
             <Color x:Key="ControlBlue">#45B1E3</Color>
             <Color x:Key="ControlBlack">Black</Color>
             <Color x:Key="ControlOrange">#F09952</Color>
+            <Color x:Key="ControlGreen">#BBDE6B</Color>
 
             <Style x:Key="BaseLabel" TargetType="Label">
                 <Setter Property="Font" Value="Verdana" />
@@ -21,6 +22,9 @@
             </Style>
             <Style x:Key="BlackLabel"  TargetType="Label" BasedOn="{StaticResource BaseLabel}">
                 <Setter Property="TextColor" Value="{StaticResource ControlBlack}" />
+            </Style>
+            <Style x:Key="OrangeLabel"  TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="TextColor" Value="{StaticResource ControlOrange}" />
             </Style>
             <Style x:Key="LargeOrangeLabel"  TargetType="Label" BasedOn="{StaticResource BaseLabel}">
                 <Setter Property="FontSize" Value="30" />
