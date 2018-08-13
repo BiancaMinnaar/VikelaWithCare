@@ -47,7 +47,7 @@
 			<string>Vikela.iOS</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>msal8c1f7220-1cbd-45ad-b5e5-b1cfdfcbb33d</string>
+				<string>com.onmicrosoft.vikelaproductsdev.Vikela.iOS</string>
 			</array>
 		</dict>
 	</array>
