@@ -29,6 +29,28 @@ namespace Vikela.Implementation.Repository
             _PlatformBonsai = new PlatformBonsai();
         }
 
+        private Action<IPlatformModelBase> addPlatformAction(SelfieViewModel model)
+        {
+            Action<IPlatformModelBase> modelAction = async (photo) => 
+            {
+                var stream = ((IPhotoPicturePickerModel)photo).ImageStream;
+                model.Selfie = await _ImageRepo.GetPhotoBinary(stream);
+                _MasterRepo.DataSource.User.UserPicture = model.Selfie;
+                await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
+            };
+
+            Action<string, IPlatformModelBase> pr = async (serviceKey, photo) =>
+            {
+                if (serviceKey.Equals("PhotoPicturePicker"))
+                {
+                    modelAction(photo);
+                }
+            };
+            Action<string, IPlatformModelBase> PlatformAction = pr;
+            _MasterRepo.OnPlatformServiceCallBack.Add(PlatformAction);
+            return modelAction;
+        }
+
         public async Task Capture(SelfieViewModel model, Action<UserModel> completeAction)
         {
             var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
@@ -48,17 +70,7 @@ namespace Vikela.Implementation.Repository
             {
                 if (service.PlatformHarness.ServiceKey == "PhotoPicturePicker")
                 {
-                    Action<string, IPlatformModelBase> PlatformAction = async (serviceKey, photo) =>
-                        {
-                            if (serviceKey.Equals("PhotoPicturePicker"))
-                            {
-                                var stream = ((IPhotoPicturePickerModel)photo).ImageStream;
-                                model.Selfie = await _ImageRepo.GetPhotoBinary(stream);
-                                _MasterRepo.DataSource.User.UserPicture = model.Selfie;
-                                await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
-                            }
-                        };
-                    _MasterRepo.OnPlatformServiceCallBack.Add(PlatformAction);
+                    service.PlatformHarness.ServiceCallBack = addPlatformAction(model);
                     service.PlatformHarness.Activate();
                 }
             }

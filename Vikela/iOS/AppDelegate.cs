@@ -19,7 +19,6 @@ namespace Vikela.iOS
             
             global::Xamarin.Forms.Forms.Init();
             ImageCircleRenderer.Init();
-            //Vikela.App.PCA.RedirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
             LoadApplication(new App());
             PlatformSingleton.Instance.PlatformServiceList.Add<PhotoPicturePicker>(
                 this);
