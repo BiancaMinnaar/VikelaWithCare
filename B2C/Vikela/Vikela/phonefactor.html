@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign up</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- TODO: favicon -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://localhost/wingtip/css/global.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="api" data-name="Phonefactor">
+      <div id="phonefactor_initial">
+        <div class="intro">
+          <p>Enter a number below that we can send a code via SMS or phone to authenticate you.</p>
+        </div>
+        <div class="errorText" id="errorMessage" style="display:none"></div>
+        <div class="phoneEntry" id="phoneEntry">
+          <div class="phoneNumber">
+            <select id="countryCode" style="display:inline-block">
+              <option value="+93">Afghanistan (+93)</option>
+              <!-- Not all country codes listed -->
+              <option value="+44">United Kingdom (+44)</option>
+              <option value="+1" selected="">United States (+1)</option>
+              <!-- Not all country codes listed -->
+            </select>
+          </div>
+          <div class="phoneNumber">
+            <input type="text" id="localNumber" style="display:inline-block" placeholder="Phone number">
+          </div>
+        </div>
+        <div id="codeVerification" style="display:none">
+          <div>
+            <p>Enter your verification code below, or
+              <button id="retryCode" class="textButton">send a new code</button>
+            </p>
+            <input type="text" id="verificationCode" placeholder="Verification code">
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="verifyCode" class="sendInitialCodeButton">Send Code</button>
+          <button id="verifyPhone" style="display:inline-block">Call Me</button>
+          <button id="cancel" style="display:inline-block">Cancel</button>
+        </div>
+      </div>
+      <div class="dialing-modal">
+        <div class="preloader">
+          <img src="https://login.microsoftonline.com/static/img/win8loader.gif" alt="Please wait">
+        </div>
+        <div id="dialing_blurb"></div>
+        <div id="dialing_number"></div>
+      </div>
+    </div>
+  </body>
+</html>
