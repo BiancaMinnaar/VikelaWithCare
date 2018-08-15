@@ -16,29 +16,13 @@ namespace Vikela
         public static string PolicyEditProfile = "B2C_1_vikela_edit_profile";
         public static string PolicyResetPassword = "B2C_1_vikela_reset";
 
-        //public static string[] ApiScopes = { "https://vikelaproductsdev.onmicrosoft.com/demoapi/demo.read" };
-        //public static string ApiEndpoint = "https://vikelaproductsdev.azurewebsites.net/hello";
+        public static string[] ApiScopes = { "" };
+        public static string ApiEndpoint = "";
 
-
-
-
-        //public static string Tenant = "fabrikamb2c.onmicrosoft.com";
-        //public static string ClientId = "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6";
-        //public static string PolicySignUpSignIn = "b2c_1_susi";
-        //public static string PolicyEditProfile = "b2c_1_edit_profile";
-        //public static string PolicyResetPassword = "b2c_1_reset";
-
-        public static string[] ApiScopes = { "https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read" };
-        public static string ApiEndpoint = "https://fabrikamb2chello.azurewebsites.net/hello";
-
-        public static string AuthorityBase = "https://login.microsoftonline.com/tfp/vikelaproductsdev.onmicrosoft.com/B2C_1_vikela_sign_up_in/oauth2/v2.0/authorize";
-        //public static string Authority = BaseAuthority.Replace("{Tenant}", Tenant).Replace("{policy}", PolicySignUpSignIn);
-        //public static string AuthorityEditProfile = BaseAuthority.Replace("{Tenant}", Tenant).Replace("{policy}", PolicyEditProfile);
-        //public static string AuthorityResetPassword = BaseAuthority.Replace("{Tenant}", Tenant).Replace("{policy}", PolicyResetPassword);
-        //public static string AuthorityBase = $"https://login.microsoftonline.com/tfp/{Tenant}/";
-        public static string Authority = $"{AuthorityBase}{PolicySignUpSignIn}";
-        public static string AuthorityEditProfile = $"{AuthorityBase}{PolicyEditProfile}";
-        public static string AuthorityResetPassword = $"{AuthorityBase}{PolicyResetPassword}";
+        public static string AuthorityBase = "https://login.microsoftonline.com/tfp/{tenant}/{policy}/oauth2/v2.0/authorize";
+        public static string Authority = AuthorityBase.Replace("{tenant}", Tenant).Replace("{policy}", PolicySignUpSignIn);
+        public static string AuthorityEditProfile = AuthorityBase.Replace("{tenant}", Tenant).Replace("{policy}", PolicyEditProfile);
+        public static string AuthorityResetPassword = AuthorityBase.Replace("{tenant}", Tenant).Replace("{policy}", PolicyResetPassword);
 
         public static UIParent UiParent = null;
 
@@ -48,8 +32,6 @@ namespace Vikela
 
             PCA = new PublicClientApplication(ClientId, Authority)
             {
-                //RedirectUri = $"ms-app://s-1-15-2-900855338-3878894867-131759193-1908462474-3693400123-604986878-4034806201"
-                //RedirectUri = $"msal{ClientId}://auth"
                 RedirectUri = $"com.onmicrosoft.vikelaproductsdev.Vikela.iOS://oauth/redirect"
             };
 

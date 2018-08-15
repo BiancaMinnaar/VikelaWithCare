@@ -36,7 +36,7 @@ namespace Vikela.Implementation.ViewController
 
         public void UpdateSelfie()
         {
-            _MasterRepo.PushRegistrationName();
+            _MasterRepo.PushRegistrationCellphone();
         }
     }
 }

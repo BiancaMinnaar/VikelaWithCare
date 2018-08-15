@@ -51,5 +51,16 @@ namespace Vikela.Implementation.ViewModel
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("UserPicture"));
             }
         }
+
+        private string oID;
+        public string OID
+        {
+            get { return oID; }
+            set
+            {
+                oID = value;
+                OnPropertyChanged("OID");
+            }
+        }
     }
 }
