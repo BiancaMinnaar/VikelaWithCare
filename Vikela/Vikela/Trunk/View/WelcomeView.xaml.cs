@@ -20,6 +20,7 @@ namespace Vikela.Implementation.View
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = _ViewController.InputObject;
         }
+           
 
         protected override void SetSVGCollection()
         {
@@ -27,7 +28,18 @@ namespace Vikela.Implementation.View
 
         public async void On_Start_Clicked(object sender, EventArgs e)
         {
-            AuthenticationResult ar = await App.PCA.AcquireTokenAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
+            _ViewController._MasterRepo.ShowLoading();
+            AuthenticationResult ar;
+            if (App.PCA.Users.Count() > 0)
+            {
+                ar = await App.PCA.AcquireTokenSilentAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.Authority, false);
+                _ViewController._MasterRepo.HideLoading();
+            }
+            else
+            {
+                _ViewController._MasterRepo.HideLoading();
+                ar = await App.PCA.AcquireTokenAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
+            }
             await _ViewController.SetUser(ar);
         }
 
