@@ -51,10 +51,12 @@ namespace Vikela.Implementation.ViewController
             }
             else
             {
-                await _RegistratioRepo.Register(registration, (model) =>
+                await _RegistratioRepo.Register(registration, null);
+                await _RegistratioRepo.SetImageBlobStorageSASAsync(registration, (ModelIO) => 
                 {
-                    _MasterRepo.PushSelfieView();
+                    
                 });
+                _MasterRepo.PushSelfieView();
             }
         }
 

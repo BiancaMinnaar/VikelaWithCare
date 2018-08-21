@@ -75,7 +75,7 @@ namespace Vikela.Implementation.Repository
             throw new NotImplementedException();
         }
 
-        public async Task SetImageBlobStorageSASAsync(RegisterViewModel model)
+        public async Task SetImageBlobStorageSASAsync(RegisterViewModel model, Action<T> completeAction)
         {
             //activate regester service for token
             await _RegisterService.RegisterForSASAsync(model);
