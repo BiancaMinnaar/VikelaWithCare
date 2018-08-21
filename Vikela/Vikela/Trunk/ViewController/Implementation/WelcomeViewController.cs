@@ -19,17 +19,17 @@ namespace Vikela.Implementation.ViewController
     {
         IWelcomeRepository<WelcomeViewModel> _Reposetory;
         IWelcomeService<WelcomeViewModel> _Service;
-        IRegisterService<RegisterViewModel> _RegisterService;
+        IRegisterService _RegisterService;
         IRegisterRepository<RegisterViewModel> _RegistratioRepo;
 
         public override void SetRepositories()
         {
             _Service = new WelcomeService<WelcomeViewModel>((U, P, C, A) => 
                                                            ExecuteQueryWithReturnTypeAndNetworkAccessAsync<WelcomeViewModel>(U, P, C, A));
-            _RegisterService = new RegisterService<RegisterViewModel> ((U, P, C, A) =>
-                                                                       ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegisterViewModel>(U, P, C, A));
+            _RegisterService = new RegisterService ((U, P, A) =>
+                                                    ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
             _Reposetory = new WelcomeRepository<WelcomeViewModel>(_MasterRepo, _Service);
-            _RegistratioRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, null, _RegisterService);
+            _RegistratioRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, _RegisterService);
         }
 
         public async Task SetUserAsync(AuthenticationResult ar)
@@ -51,10 +51,10 @@ namespace Vikela.Implementation.ViewController
             }
             else
             {
-                await _RegistratioRepo.SetImageBlobStorageSASAsync(registration, async (ModelIO) => 
+                await _RegistratioRepo.SetImageBlobStorageSASAsync(registration, async () => 
                 {
-                    registration = ModelIO;
-                    await _RegistratioRepo.SetUserRecordWithRegisterViewModel(ModelIO);
+                    registration.PictureStorageSASToken = _ResponseContent;
+                    await _RegistratioRepo.SetUserRecordWithRegisterViewModel(registration);
                 });
                 _MasterRepo.PushSelfieView();
             }

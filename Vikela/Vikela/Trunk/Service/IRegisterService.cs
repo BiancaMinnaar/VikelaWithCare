@@ -1,14 +1,12 @@
 using System.Threading.Tasks;
-using CorePCL;
 using Vikela.Implementation.ViewModel;
 
 namespace Vikela.Interface.Service
 {
-    public interface IRegisterService<T>
-        where T : BaseViewModel
+    public interface IRegisterService
     {
-        Task<T> Register(RegisterViewModel model);
-        Task<T> RegisterForSASAsync(RegisterViewModel model);
+        Task Register(RegisterViewModel model);
+        Task RegisterForSASAsync(RegisterViewModel model);
     }
 }
 

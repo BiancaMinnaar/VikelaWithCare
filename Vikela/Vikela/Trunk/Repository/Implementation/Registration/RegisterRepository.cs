@@ -14,15 +14,13 @@ namespace Vikela.Implementation.Repository
     public class RegisterRepository<T> : ProjectBaseRepository, IRegisterRepository<T>
         where T : BaseViewModel
     {
-        IRegisterService<T> _Service;
-        IRegisterService<T> _RegisterService;
+        IRegisterService _Service;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
 
-        public RegisterRepository(IMasterRepository masterRepository, IRegisterService<T> service, IRegisterService<T> registerService)
+        public RegisterRepository(IMasterRepository masterRepository, IRegisterService service)
             : base(masterRepository)
         {
             _Service = service;
-            _RegisterService = registerService;
             _PlatformBonsai = new PlatformBonsai();
             var platform = new PlatformRepository<RegisterViewModel>(masterRepository, _PlatformBonsai)
             {
@@ -75,11 +73,11 @@ namespace Vikela.Implementation.Repository
             throw new NotImplementedException();
         }
 
-        public async Task SetImageBlobStorageSASAsync(RegisterViewModel model, Action<T> completeAction)
+        public async Task SetImageBlobStorageSASAsync(RegisterViewModel model, Action completeAction)
         {
             //activate regester service for token
-            var newModel = await _RegisterService.RegisterForSASAsync(model);
-            completeAction?.Invoke(newModel);
+            await _Service.RegisterForSASAsync(model);
+            completeAction?.Invoke();
         }
 
     }
