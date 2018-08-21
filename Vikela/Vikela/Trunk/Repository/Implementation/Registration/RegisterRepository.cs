@@ -39,8 +39,8 @@ namespace Vikela.Implementation.Repository
                 FirstName = model.FisrtName,
                 LastName = model.LastName,
                 MobileNumber = model.MobileNumber,
-                UserPicture = model.UserPicture
-                ///TODO: Add MoreFields
+                UserPicture = model.UserPicture,
+                TokenID = model.TokenID
             };
             await _MasterRepo.SetUserRecord(actionModel);
             completeAction(actionModel);

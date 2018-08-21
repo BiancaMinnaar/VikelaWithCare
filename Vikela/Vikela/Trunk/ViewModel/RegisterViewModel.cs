@@ -62,5 +62,16 @@ namespace Vikela.Implementation.ViewModel
                 OnPropertyChanged("OID");
             }
         }
+
+        private string tokenID;
+        public string TokenID
+        {
+            get { return tokenID; }
+            set
+            {
+                tokenID = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TokenID"));
+            }
+        }
     }
 }

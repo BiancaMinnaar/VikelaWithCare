@@ -13,6 +13,7 @@ namespace Vikela.Trunk.ViewModel.Offline
         public string IDNumber { get; set; }
         public string EmailAddress { get; set; }
         public string OID { get; set; }
+        public string TokenID { get; set; }
         public byte[] UserPicture { get; set; }
     }
 }

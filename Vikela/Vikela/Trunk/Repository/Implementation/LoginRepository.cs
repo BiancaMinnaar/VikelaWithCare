@@ -5,9 +5,6 @@ using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Root.Repository;
-using Vikela.Trunk.Repository;
-using Vikela.Trunk.ViewModel.Offline;
-using Xamarin.Auth;
 
 namespace Vikela.Implementation.Repository
 {

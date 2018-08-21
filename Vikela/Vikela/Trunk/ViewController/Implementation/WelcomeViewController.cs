@@ -37,7 +37,8 @@ namespace Vikela.Implementation.ViewController
             var registration = new RegisterViewModel()
             {
                 FisrtName = name,
-                OID = oID
+                OID = oID,
+                TokenID = ar.IdToken
             };
             if (_MasterRepo.DataSource.IsRegistered)
             {
