@@ -32,7 +32,7 @@ namespace Vikela.Implementation.ViewController
             _RegistratioRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, null, _RegisterService);
         }
 
-        public async Task SetUser(AuthenticationResult ar)
+        public async Task SetUserAsync(AuthenticationResult ar)
         {
             JObject user = ParseIdToken(ar.IdToken);
             var name = user["name"]?.ToString();
@@ -43,23 +43,24 @@ namespace Vikela.Implementation.ViewController
                 OID = oID,
                 TokenID = ar.IdToken
             };
-            if (_MasterRepo.DataSource.IsRegistered)
+            var newUser = false;//TODO:AAA-FIX_MasterRepo.DataSource.IsRegistered;
+
+            if (newUser)
             {
-                _MasterRepo.DataSource.User.OID = oID;
-                await _MasterRepo.SetUserRecord(_MasterRepo.DataSource.User);
                 _MasterRepo.PushMyCoverView();
             }
             else
             {
-                await _RegistratioRepo.Register(registration, null);
-                await _RegistratioRepo.SetImageBlobStorageSASAsync(registration, (ModelIO) => 
+                await _RegistratioRepo.SetImageBlobStorageSASAsync(registration, async (ModelIO) => 
                 {
-                    
+                    registration = ModelIO;
+                    await _RegistratioRepo.SetUserRecordWithRegisterViewModel(ModelIO);
                 });
                 _MasterRepo.PushSelfieView();
             }
         }
 
+        //TODO: refactor
         JObject ParseIdToken(string idToken)
         {
             // Get the piece with actual user info
@@ -67,7 +68,7 @@ namespace Vikela.Implementation.ViewController
             idToken = Base64UrlDecode(idToken);
             return JObject.Parse(idToken);
         }
-
+        //TODO: refactor
         private string Base64UrlDecode(string s)
         {
             s = s.Replace('-', '+').Replace('_', '/');

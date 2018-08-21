@@ -37,7 +37,7 @@ namespace Vikela.Implementation.View
 
         public async void On_CreateAccount_Event(object sender, EventArgs e)
         {
-            await _ViewController.Register();
+            await _ViewController.RegisterAsync();
         }
     }
 }

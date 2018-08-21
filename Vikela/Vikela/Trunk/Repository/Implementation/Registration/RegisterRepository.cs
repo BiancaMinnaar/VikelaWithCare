@@ -33,7 +33,7 @@ namespace Vikela.Implementation.Repository
             };
         }
 
-        public async Task Register(RegisterViewModel model, Action<UserModel> completeAction)
+        public async Task SetUserRecordWithRegisterViewModel(RegisterViewModel model)
         {
             var actionModel = new UserModel()
             {
@@ -41,10 +41,10 @@ namespace Vikela.Implementation.Repository
                 LastName = model.LastName,
                 MobileNumber = model.MobileNumber,
                 UserPicture = model.UserPicture,
-                TokenID = model.TokenID
+                TokenID = model.TokenID,
+                PictureStorageSASToken = model.PictureStorageSASToken
             };
             await _MasterRepo.SetUserRecord(actionModel);
-            completeAction(actionModel);
         }
 
         public void OAuthFacebook(RegisterViewModel model, Action<T> completeAction)
@@ -78,7 +78,8 @@ namespace Vikela.Implementation.Repository
         public async Task SetImageBlobStorageSASAsync(RegisterViewModel model, Action<T> completeAction)
         {
             //activate regester service for token
-            await _RegisterService.RegisterForSASAsync(model);
+            var newModel = await _RegisterService.RegisterForSASAsync(model);
+            completeAction?.Invoke(newModel);
         }
 
     }

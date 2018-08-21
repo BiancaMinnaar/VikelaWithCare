@@ -40,7 +40,7 @@ namespace Vikela.Implementation.View
                 _ViewController._MasterRepo.HideLoading();
                 ar = await App.PCA.AcquireTokenAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
             }
-            await _ViewController.SetUser(ar);
+            await _ViewController.SetUserAsync(ar);
         }
 
         private IUser GetUserByPolicy(IEnumerable<IUser> users, string policy)

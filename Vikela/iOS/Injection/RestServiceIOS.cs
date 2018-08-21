@@ -6,6 +6,7 @@ using BasePCL.Networking;
 using System.Net;
 using Vikela.iOS.Injection;
 using Vikela.Root;
+using System;
 
 [assembly: Dependency(typeof(RestServiceIOS))]
 namespace Vikela.iOS.Injection
@@ -100,8 +101,16 @@ namespace Vikela.iOS.Injection
         public async Task<INetworkResponse<T>> ExecuteTaskAsync<T>(INetworkRequest req) where T : BaseViewModel
         {
             var client = new RestClient(Constants.BASE_URL);
-            var response = await client.ExecuteTaskAsync<T>((IRestRequest)req);
-            return new RestRspns<T>(response);
+            try
+            {
+                var response = await client.ExecuteTaskAsync<T>((IRestRequest)req);
+                return new RestRspns<T>(response);
+            }
+            catch(Exception excp)
+            {
+                var hh = excp.Message;
+                throw excp;
+            }
         }
     }
 }

@@ -24,13 +24,10 @@ namespace Vikela.Implementation.ViewController
             _Reposetory = new RegisterRepository<RegisterViewModel>(_MasterRepo, _Service, _RegisterService);
         }
 
-        public async Task Register()
+        public async Task RegisterAsync()
         {
-            await _Reposetory.Register(InputObject,
-                                       (model) =>
-            {
-                _MasterRepo.PushSelfieView();
-            });
+            await _Reposetory.SetUserRecordWithRegisterViewModel(InputObject);
+            _MasterRepo.PushSelfieView();
         }
 
         public void OAuthFacebook()

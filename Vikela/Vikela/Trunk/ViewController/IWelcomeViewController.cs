@@ -5,6 +5,6 @@ namespace Vikela.Interface.ViewController
 {
     public interface IWelcomeViewController
     {
-        Task SetUser(AuthenticationResult ar);
+        Task SetUserAsync(AuthenticationResult ar);
     }
 }

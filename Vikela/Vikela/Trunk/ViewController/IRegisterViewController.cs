@@ -4,7 +4,7 @@ namespace Vikela.Interface.ViewController
 {
     public interface IRegisterViewController
     {
-        Task Register();
+        Task RegisterAsync();
         void OAuthFacebook();
         void OAuthInstagram();
         void OAuthGoogle();

@@ -73,5 +73,16 @@ namespace Vikela.Implementation.ViewModel
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TokenID"));
             }
         }
+
+        private string pictureStorageSASToken;
+        public string PictureStorageSASToken
+        {
+            get { return pictureStorageSASToken; }
+            set
+            {
+                pictureStorageSASToken = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PictureStorageSASToken"));
+            }
+        }
     }
 }
