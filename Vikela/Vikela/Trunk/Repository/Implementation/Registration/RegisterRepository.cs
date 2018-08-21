@@ -6,7 +6,6 @@ using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Root.Repository;
 using Vikela.Trunk.ViewModel.Offline;
-using Vikela.Trunk.Repository;
 using Vikela.Trunk.Repository.Implementation;
 using Vikela.Trunk.Injection.Base;
 
@@ -16,12 +15,14 @@ namespace Vikela.Implementation.Repository
         where T : BaseViewModel
     {
         IRegisterService<T> _Service;
+        IRegisterService<T> _RegisterService;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
 
-        public RegisterRepository(IMasterRepository masterRepository, IRegisterService<T> service)
+        public RegisterRepository(IMasterRepository masterRepository, IRegisterService<T> service, IRegisterService<T> registerService)
             : base(masterRepository)
         {
             _Service = service;
+            _RegisterService = registerService;
             _PlatformBonsai = new PlatformBonsai();
             var platform = new PlatformRepository<RegisterViewModel>(masterRepository, _PlatformBonsai)
             {
@@ -73,5 +74,12 @@ namespace Vikela.Implementation.Repository
         {
             throw new NotImplementedException();
         }
+
+        public async Task SetImageBlobStorageSASAsync(RegisterViewModel model)
+        {
+            //activate regester service for token
+            await _RegisterService.RegisterForSASAsync(model);
+        }
+
     }
 }

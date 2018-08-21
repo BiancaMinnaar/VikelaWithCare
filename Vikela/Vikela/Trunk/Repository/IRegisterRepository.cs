@@ -13,5 +13,6 @@ namespace Vikela.Interface.Repository
         void OAuthFacebook(RegisterViewModel model, Action<T> completeAction);
         void OAuthInstagram(RegisterViewModel model, Action<T> completeAction);
         void OAuthGoogle(RegisterViewModel model, Action<T> completeAction);
+        Task SetImageBlobStorageSASAsync(RegisterViewModel model);
     }
 }

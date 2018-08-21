@@ -19,14 +19,17 @@ namespace Vikela.Implementation.ViewController
     {
         IWelcomeRepository<WelcomeViewModel> _Reposetory;
         IWelcomeService<WelcomeViewModel> _Service;
+        IRegisterService<RegisterViewModel> _RegisterService;
         IRegisterRepository<RegisterViewModel> _RegistratioRepo;
 
         public override void SetRepositories()
         {
             _Service = new WelcomeService<WelcomeViewModel>((U, P, C, A) => 
                                                            ExecuteQueryWithReturnTypeAndNetworkAccessAsync<WelcomeViewModel>(U, P, C, A));
+            _RegisterService = new RegisterService<RegisterViewModel> ((U, P, C, A) =>
+                                                                       ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegisterViewModel>(U, P, C, A));
             _Reposetory = new WelcomeRepository<WelcomeViewModel>(_MasterRepo, _Service);
-            _RegistratioRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, null);
+            _RegistratioRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, null, _RegisterService);
         }
 
         public async Task SetUser(AuthenticationResult ar)

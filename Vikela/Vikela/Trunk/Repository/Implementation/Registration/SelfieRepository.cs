@@ -10,7 +10,6 @@ using Vikela.Trunk.PlatformBonsai.Photo;
 using Vikela.Trunk.Repository;
 using Vikela.Trunk.Repository.Implementation;
 using Vikela.Trunk.ViewModel.Offline;
-using Xamarin.Forms;
 
 namespace Vikela.Implementation.Repository
 {
@@ -39,7 +38,7 @@ namespace Vikela.Implementation.Repository
                 await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
             };
 
-            Action<string, IPlatformModelBase> pr = async (serviceKey, photo) =>
+            Action<string, IPlatformModelBase> pr = (serviceKey, photo) =>
             {
                 if (serviceKey.Equals("PhotoPicturePicker"))
                 {
@@ -74,6 +73,12 @@ namespace Vikela.Implementation.Repository
                     service.PlatformHarness.Activate();
                 }
             }
+        }
+
+        public Task StoreSelfieAsync(SelfieViewModel model)
+        {
+            throw new NotImplementedException();
+            //add image to storage
         }
     }
 }

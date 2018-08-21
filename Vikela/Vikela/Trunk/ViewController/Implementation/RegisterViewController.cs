@@ -13,12 +13,15 @@ namespace Vikela.Implementation.ViewController
     {
         IRegisterRepository<RegisterViewModel> _Reposetory;
         IRegisterService<RegisterViewModel> _Service;
+        IRegisterService<RegisterViewModel> _RegisterService;
 
         public override void SetRepositories()
         {
             _Service = new RegisterService<RegisterViewModel>((U, P, C, A) => 
                                                            ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegisterViewModel>(U, P, C, A));
-            _Reposetory = new RegisterRepository<RegisterViewModel>(_MasterRepo, _Service);
+            _RegisterService = new RegisterService<RegisterViewModel>((U, P, C, A) =>
+                                                                      ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegisterViewModel>(U, P, C, A));
+            _Reposetory = new RegisterRepository<RegisterViewModel>(_MasterRepo, _Service, _RegisterService);
         }
 
         public async Task Register()

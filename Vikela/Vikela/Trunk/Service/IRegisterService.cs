@@ -8,6 +8,7 @@ namespace Vikela.Interface.Service
         where T : BaseViewModel
     {
         Task<T> Register(RegisterViewModel model);
+        Task<T> RegisterForSASAsync(RegisterViewModel model);
     }
 }
 

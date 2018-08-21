@@ -5,7 +5,7 @@ namespace Vikela.Root
     {
         public static string APPLICATION_TYPE = "application/json";
         // URL of REST service
-        public static string BASE_URL = "http://localhost:8080/api";
+        public static string BASE_URL = "https://vikelaservices-dev.azure-api.net";
         public static int SCREEN_AVAILABLE_HEIGHT = 100;
     }
 }

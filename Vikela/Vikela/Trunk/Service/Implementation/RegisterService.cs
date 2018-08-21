@@ -28,5 +28,17 @@ namespace Vikela.Implementation.Service
                 };
                 return await _NetworkInterface(requestURL, parameters, null, httpMethod);
             }
+
+        public async Task<T> RegisterForSASAsync(RegisterViewModel model)
+        {
+            string requestURL = "/tokens/api/v1.0/Tokens/register";
+            var httpMethod = BaseNetworkAccessEnum.Post;
+            var parameters = new Dictionary<string, ParameterTypedValue>()
+            {
+                {"Ocp-Apim-Subscription-Key", new ParameterTypedValue("a77f84e222b54957a9c946b99347c1f1", ParameterTypeEnum.HeaderParameter)},
+                {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)}
+            };
+            return await _NetworkInterface(requestURL, parameters, null, httpMethod);
+        }
     }
 }
