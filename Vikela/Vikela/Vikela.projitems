@@ -287,6 +287,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\ActiveCoverViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Profile\MyCoverRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\StoragePictureModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />

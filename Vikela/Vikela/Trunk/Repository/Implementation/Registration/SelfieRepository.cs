@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using CorePCL;
+using Microsoft.WindowsAzure.Storage.Blob;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
@@ -9,6 +10,7 @@ using Vikela.Trunk.Injection.Base;
 using Vikela.Trunk.PlatformBonsai.Photo;
 using Vikela.Trunk.Repository;
 using Vikela.Trunk.Repository.Implementation;
+using Vikela.Trunk.ViewModel;
 using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Implementation.Repository
@@ -75,11 +77,13 @@ namespace Vikela.Implementation.Repository
             }
         }
 
-        public Task StoreSelfieAsync(SelfieViewModel model)
+        public void StoreSelfie(StoragePictureModel model)
         {
-            
+            CloudBlockBlob blob = new CloudBlockBlob(new Uri(model.PictureStorageSASToken));
+            blob.UploadFromByteArrayAsync(model.UserPicture, 0, model.UserPicture.Length);
+
             //add image to storage
-            var 
+             
         }
     }
 }
