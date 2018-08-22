@@ -50,7 +50,7 @@ namespace Vikela.Implementation.Repository
             return modelAction;
         }
 
-        public async Task Capture(SelfieViewModel model, Action<UserModel> completeAction)
+        public async Task CapturePhotoAsync(SelfieViewModel model, Action<UserModel> completeAction)
         {
             var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
 
@@ -63,7 +63,7 @@ namespace Vikela.Implementation.Repository
             }
         }
 
-        public void Select(SelfieViewModel model)
+        public void SelectPictureFromGallery(SelfieViewModel model)
         {
             foreach (var service in _PlatformBonsai.GetBonsaiServices)
             {

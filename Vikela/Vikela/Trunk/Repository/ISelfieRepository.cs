@@ -9,8 +9,8 @@ namespace Vikela.Interface.Repository
     public interface ISelfieRepository<T>
         where T : BaseViewModel
     {
-        Task Capture(SelfieViewModel model, Action<UserModel> completeAction);
-        void Select(SelfieViewModel model);
+        Task CapturePhotoAsync(SelfieViewModel model, Action<UserModel> completeAction);
+        void SelectPictureFromGallery(SelfieViewModel model);
         Task StoreSelfieAsync(SelfieViewModel model);
     }
 }

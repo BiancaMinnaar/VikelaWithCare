@@ -23,7 +23,7 @@ namespace Vikela.Implementation.ViewController
 
         public async Task Capture()
         {
-            await _Reposetory.Capture(InputObject, 
+            await _Reposetory.CapturePhotoAsync(InputObject, 
                                       (model) => 
             {
             });
@@ -31,7 +31,7 @@ namespace Vikela.Implementation.ViewController
 
         public void Select()
         {
-            _Reposetory.Select(InputObject);
+            _Reposetory.SelectPictureFromGallery(InputObject);
         }
 
         public void UpdateSelfie()
