@@ -41,9 +41,10 @@ namespace Vikela.Implementation.Repository
         {
             var actionModel = new UserModel()
             {
-                FirstName = model.FisrtName,
+                FirstName = model.FirstName,
                 LastName = model.LastName,
                 MobileNumber = model.MobileNumber,
+                OID = model.OID,
                 UserPicture = model.UserPicture,
                 TokenID = model.TokenID,
                 PictureStorageSASToken = model.PictureStorageSASToken
@@ -79,9 +80,8 @@ namespace Vikela.Implementation.Repository
             throw new NotImplementedException();
         }
 
-        public async Task SetImageBlobStorageSASAsync(RegisterViewModel model, Action completeAction)
+        public async Task CallForImageBlobStorageSASAsync(RegisterViewModel model, Action completeAction)
         {
-            //activate regester service for token
             await _Service.RegisterForSASAsync(model);
             completeAction?.Invoke();
         }

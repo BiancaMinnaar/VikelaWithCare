@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using CorePCL;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -83,13 +84,30 @@ namespace Vikela.Implementation.Repository
             {
                 var uri = new Uri(model.PictureStorageSASToken.Trim('\"'));
                 CloudBlobContainer container = new CloudBlobContainer(uri);
-                var userID = _MasterRepo.DataSource.User.Id;
-                CloudBlockBlob blob = container.GetBlockBlobReference(userID + ".jpg");
+                CloudBlockBlob blob = container.GetBlockBlobReference(model.UserID + ".jpg");
                 blob.UploadFromByteArrayAsync(model.UserPicture, 0, model.UserPicture.Length);
             }
             catch(Exception excp)
             {
                 OnError?.Invoke(new string[] { excp.Message });
+            }
+        }
+
+        public async Task GetSelfieAsync(StoragePictureModel model)
+        {
+            var uri = new Uri(model.PictureStorageSASToken.Trim('\"'));
+            CloudBlobContainer container = new CloudBlobContainer(uri);
+            CloudBlockBlob blob = container.GetBlockBlobReference(model.UserID + ".jpg");
+
+            using(var msRead = new MemoryStream())
+            {
+                msRead.Position = 0;
+                using (msRead)
+                {
+                    await blob.DownloadToStreamAsync(msRead);
+                }
+                msRead.Flush();
+                model.UserPicture = msRead.GetBuffer();
             }
         }
     }

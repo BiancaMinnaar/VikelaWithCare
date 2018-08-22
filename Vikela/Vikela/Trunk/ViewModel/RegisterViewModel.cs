@@ -9,7 +9,7 @@ namespace Vikela.Implementation.ViewModel
         public new event PropertyChangedEventHandler PropertyChanged;
 
         string firstName;
-        public string FisrtName 
+        public string FirstName 
         {
             get { return firstName; }
             set 

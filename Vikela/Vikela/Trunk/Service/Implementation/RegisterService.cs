@@ -20,7 +20,7 @@ namespace Vikela.Implementation.Service
                 var httpMethod = BaseNetworkAccessEnum.Post;
                 var parameters = new Dictionary<string, ParameterTypedValue>()
                 {
-                    {"FisrtName", new ParameterTypedValue(model.FisrtName)},
+                    {"FisrtName", new ParameterTypedValue(model.FirstName)},
                     {"LastName", new ParameterTypedValue(model.LastName)},
                     {"MobileNumber", new ParameterTypedValue(model.MobileNumber)},
                     {"UserPicture", new ParameterTypedValue(model.UserPicture)}
