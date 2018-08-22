@@ -51,11 +51,8 @@ namespace Vikela.Implementation.ViewController
             }
             else
             {
-                await _RegistratioRepo.SetImageBlobStorageSASAsync(registration, async () => 
-                {
-                    registration.PictureStorageSASToken = _ResponseContent;
-                    await _RegistratioRepo.SetUserRecordWithRegisterViewModel(registration);
-                });
+                await _RegistratioRepo.SetImageBlobStorageSASAsync(registration, 
+                                                                   () => _RegistratioRepo.SetPictureStorageSasTokenAsync(registration, _ResponseContent));
                 _MasterRepo.PushSelfieView();
             }
         }

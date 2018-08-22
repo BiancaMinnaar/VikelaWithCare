@@ -31,7 +31,13 @@ namespace Vikela.Implementation.Repository
             };
         }
 
-        public async Task SetUserRecordWithRegisterViewModel(RegisterViewModel model)
+        public async Task SetPictureStorageSasTokenAsync(RegisterViewModel model, string sasToken)
+        {
+            model.PictureStorageSASToken = sasToken;
+            await SetUserRecordWithRegisterViewModelAsync(model);
+        }
+
+        public async Task SetUserRecordWithRegisterViewModelAsync(RegisterViewModel model)
         {
             var actionModel = new UserModel()
             {

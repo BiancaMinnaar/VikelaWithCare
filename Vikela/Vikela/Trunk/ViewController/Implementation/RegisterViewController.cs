@@ -23,7 +23,7 @@ namespace Vikela.Implementation.ViewController
 
         public async Task RegisterAsync()
         {
-            await _Reposetory.SetUserRecordWithRegisterViewModel(InputObject);
+            await _Reposetory.SetUserRecordWithRegisterViewModelAsync(InputObject);
             _MasterRepo.PushSelfieView();
         }
 
