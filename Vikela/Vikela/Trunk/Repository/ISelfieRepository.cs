@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
+using Vikela.Trunk.ViewModel;
 using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Interface.Repository
@@ -11,6 +12,6 @@ namespace Vikela.Interface.Repository
     {
         Task CapturePhotoAsync(SelfieViewModel model, Action<UserModel> completeAction);
         void SelectPictureFromGallery(SelfieViewModel model);
-        Task StoreSelfieAsync(SelfieViewModel model);
+        void StoreSelfie(StoragePictureModel model);
     }
 }
