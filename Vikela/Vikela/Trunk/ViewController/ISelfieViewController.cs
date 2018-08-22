@@ -4,7 +4,7 @@ namespace Vikela.Interface.ViewController
 {
     public interface ISelfieViewController
     {
-        Task Capture();
+        Task CapturePhotoAsync();
         void Select();
         void UpdateSelfie();
     }

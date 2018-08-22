@@ -77,8 +77,9 @@ namespace Vikela.Implementation.Repository
 
         public Task StoreSelfieAsync(SelfieViewModel model)
         {
-            throw new NotImplementedException();
+            
             //add image to storage
+            var 
         }
     }
 }

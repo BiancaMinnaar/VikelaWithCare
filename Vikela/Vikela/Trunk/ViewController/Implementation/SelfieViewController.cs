@@ -21,7 +21,7 @@ namespace Vikela.Implementation.ViewController
             _Reposetory = new SelfieRepository<SelfieViewModel>(_MasterRepo, _Service);
         }
 
-        public async Task Capture()
+        public async Task CapturePhotoAsync()
         {
             await _Reposetory.CapturePhotoAsync(InputObject, 
                                       (model) => 

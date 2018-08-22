@@ -21,7 +21,7 @@ namespace Vikela.Implementation.View
 
         public async void On_Capture_Event(object sender, EventArgs e)
         {
-            await _ViewController.Capture();
+            await _ViewController.CapturePhotoAsync();
         }
 
         void On_Select_Event(object sender, EventArgs e)
