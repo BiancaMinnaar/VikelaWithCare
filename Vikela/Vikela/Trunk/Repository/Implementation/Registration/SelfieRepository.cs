@@ -81,8 +81,10 @@ namespace Vikela.Implementation.Repository
         {
             try
             {
-                CloudBlobContainer container = new CloudBlobContainer(new Uri(model.PictureStorageSASToken));
-                CloudBlockBlob blob = new CloudBlockBlob(new Uri(model.PictureStorageSASToken));
+                var uri = new Uri(model.PictureStorageSASToken.Trim('\"'));
+                CloudBlobContainer container = new CloudBlobContainer(uri);
+                var userID = _MasterRepo.DataSource.User.Id;
+                CloudBlockBlob blob = container.GetBlockBlobReference(userID + ".jpg");
                 blob.UploadFromByteArrayAsync(model.UserPicture, 0, model.UserPicture.Length);
             }
             catch(Exception excp)
