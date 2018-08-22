@@ -36,6 +36,9 @@ namespace Vikela.Implementation.ViewController
 
         public void UpdateSelfie()
         {
+            _Reposetory.StoreSelfie(new Trunk.ViewModel.StoragePictureModel() { 
+                PictureStorageSASToken=_MasterRepo.DataSource.User.PictureStorageSASToken,
+                UserPicture=InputObject.Selfie});
             _MasterRepo.PushRegistrationCellphone();
         }
     }

@@ -79,11 +79,16 @@ namespace Vikela.Implementation.Repository
 
         public void StoreSelfie(StoragePictureModel model)
         {
-            CloudBlockBlob blob = new CloudBlockBlob(new Uri(model.PictureStorageSASToken));
-            blob.UploadFromByteArrayAsync(model.UserPicture, 0, model.UserPicture.Length);
-
-            //add image to storage
-             
+            try
+            {
+                CloudBlobContainer container = new CloudBlobContainer(new Uri(model.PictureStorageSASToken));
+                CloudBlockBlob blob = new CloudBlockBlob(new Uri(model.PictureStorageSASToken));
+                blob.UploadFromByteArrayAsync(model.UserPicture, 0, model.UserPicture.Length);
+            }
+            catch(Exception excp)
+            {
+                OnError?.Invoke(new string[] { excp.Message });
+            }
         }
     }
 }
