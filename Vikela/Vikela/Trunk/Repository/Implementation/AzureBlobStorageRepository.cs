@@ -25,7 +25,7 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             var uri = new Uri(model.PictureStorageSASToken.Trim('\"'));
             CloudBlobContainer container = new CloudBlobContainer(uri);
-            CloudBlockBlob blob = container.GetBlockBlobReference("Picture1.jpg");
+            CloudBlockBlob blob = container.GetBlockBlobReference(model.UserID + ".jpg");
 
             using (var msRead = new MemoryStream())
             {
@@ -53,7 +53,7 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             var uri = new Uri(model.PictureStorageSASToken.Trim('\"'));
             CloudBlobContainer container = new CloudBlobContainer(uri);
-            CloudBlockBlob blob = container.GetBlockBlobReference("Picture1.jpg");
+            CloudBlockBlob blob = container.GetBlockBlobReference(model.UserID + ".jpg");
             await blob.UploadFromByteArrayAsync(model.UserPicture, 0, model.UserPicture.Length);
         }
 

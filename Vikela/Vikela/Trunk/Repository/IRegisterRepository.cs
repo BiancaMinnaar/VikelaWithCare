@@ -10,6 +10,7 @@ namespace Vikela.Interface.Repository
         where T : BaseViewModel
     {
         Task SetUserRecordWithRegisterViewModelAsync(RegisterViewModel model);
+        Task SetUserRecordWithRegisterViewModelAsync(UserModel model);
         void OAuthFacebook(RegisterViewModel model, Action<T> completeAction);
         void OAuthInstagram(RegisterViewModel model, Action<T> completeAction);
         void OAuthGoogle(RegisterViewModel model, Action<T> completeAction);

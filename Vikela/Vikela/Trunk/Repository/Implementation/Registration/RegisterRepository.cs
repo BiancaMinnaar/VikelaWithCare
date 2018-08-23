@@ -52,6 +52,11 @@ namespace Vikela.Implementation.Repository
             await _MasterRepo.SetUserRecord(actionModel);
         }
 
+        public async Task SetUserRecordWithRegisterViewModelAsync(UserModel model)
+        {
+            await _MasterRepo.SetUserRecord(model);
+        }
+
         public void OAuthFacebook(RegisterViewModel model, Action<T> completeAction)
         {
             foreach (var service in _PlatformBonsai.GetBonsaiServices)

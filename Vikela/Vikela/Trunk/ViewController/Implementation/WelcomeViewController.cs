@@ -20,7 +20,7 @@ namespace Vikela.Implementation.ViewController
         IWelcomeRepository<WelcomeViewModel> _Reposetory;
         IWelcomeService<WelcomeViewModel> _Service;
         IRegisterService _RegisterService;
-        IRegisterRepository<RegisterViewModel> _RegistratioRepo;
+        IRegisterRepository<RegisterViewModel> _RegisterRepo;
         ISelfieRepository<RegisterViewModel> _SelfieRepo;
 
         public override void SetRepositories()
@@ -30,7 +30,7 @@ namespace Vikela.Implementation.ViewController
             _RegisterService = new RegisterService ((U, P, A) =>
                                                     ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
             _Reposetory = new WelcomeRepository<WelcomeViewModel>(_MasterRepo, _Service);
-            _RegistratioRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, _RegisterService);
+            _RegisterRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, _RegisterService);
             _SelfieRepo = new SelfieRepository<RegisterViewModel>(_MasterRepo, null);
         }
 
@@ -48,19 +48,21 @@ namespace Vikela.Implementation.ViewController
 
             if (_MasterRepo.DataSource.IsRegistered)
             {
-                _MasterRepo.DataSource.User.UserPicture = null;
-                await _SelfieRepo.GetSelfieAsync(new Trunk.ViewModel.StoragePictureModel()
+                var model = new Trunk.ViewModel.StoragePictureModel()
                 {
                     UserID = _MasterRepo.DataSource.User.OID,
                     PictureStorageSASToken = _MasterRepo.DataSource.User.PictureStorageSASToken,
                     UserPicture = _MasterRepo.DataSource.User.UserPicture
-                });
+                };
+                await _SelfieRepo.GetSelfieAsync(model);
+                _MasterRepo.DataSource.User.UserPicture = model.UserPicture;
+                await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(_MasterRepo.DataSource.User);
                 _MasterRepo.PushMyCoverView();
             }
             else
             {
-                await _RegistratioRepo.CallForImageBlobStorageSASAsync(registration, 
-                                                                   () => _RegistratioRepo.SetPictureStorageSasTokenAsync(registration, _ResponseContent));
+                await _RegisterRepo.CallForImageBlobStorageSASAsync(registration, 
+                                                                   () => _RegisterRepo.SetPictureStorageSasTokenAsync(registration, _ResponseContent));
                 _MasterRepo.PushSelfieView();
             }
         }
