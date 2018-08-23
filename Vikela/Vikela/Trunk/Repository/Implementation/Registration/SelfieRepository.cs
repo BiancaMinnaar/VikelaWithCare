@@ -22,6 +22,7 @@ namespace Vikela.Implementation.Repository
         ISelfieService<T> _Service;
         IImageRepository _ImageRepo;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
+        IAzureBlobStorageRepository _StorageRepository;
 
         public SelfieRepository(IMasterRepository masterRepository, ISelfieService<T> service)
             : base(masterRepository)
@@ -29,6 +30,7 @@ namespace Vikela.Implementation.Repository
             _Service = service;
             _ImageRepo = new ImageRepository(_MasterRepo);
             _PlatformBonsai = new PlatformBonsai();
+            _StorageRepository = new AzureBlobStorageRepository(_MasterRepo);
         }
 
         private Action<IPlatformModelBase> addPlatformAction(SelfieViewModel model)
@@ -78,14 +80,11 @@ namespace Vikela.Implementation.Repository
             }
         }
 
-        public void StoreSelfie(StoragePictureModel model)
+        public async Task StoreSelfie(StoragePictureModel model)
         {
             try
             {
-                var uri = new Uri(model.PictureStorageSASToken.Trim('\"'));
-                CloudBlobContainer container = new CloudBlobContainer(uri);
-                CloudBlockBlob blob = container.GetBlockBlobReference(model.UserID + ".jpg");
-                blob.UploadFromByteArrayAsync(model.UserPicture, 0, model.UserPicture.Length);
+                await _StorageRepository.SaveBlobImageAsync(model);
             }
             catch(Exception excp)
             {
@@ -95,20 +94,7 @@ namespace Vikela.Implementation.Repository
 
         public async Task GetSelfieAsync(StoragePictureModel model)
         {
-            var uri = new Uri(model.PictureStorageSASToken.Trim('\"'));
-            CloudBlobContainer container = new CloudBlobContainer(uri);
-            CloudBlockBlob blob = container.GetBlockBlobReference(model.UserID + ".jpg");
-
-            using(var msRead = new MemoryStream())
-            {
-                msRead.Position = 0;
-                using (msRead)
-                {
-                    await blob.DownloadToStreamAsync(msRead);
-                }
-                msRead.Flush();
-                model.UserPicture = msRead.GetBuffer();
-            }
+            await _StorageRepository.GetBlobImageAsync(model);
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using CorePCL;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Vikela.Interface.Repository;
 using Vikela.Root.Repository;
@@ -10,8 +9,7 @@ using Vikela.Trunk.ViewModel;
 
 namespace Vikela.Trunk.Repository.Implementation
 {
-    public class AzureBlobStorageRepository<T> : ProjectBaseRepository, IAzureBlobStorageRepository
-        where T : BaseViewModel
+    public class AzureBlobStorageRepository : ProjectBaseRepository, IAzureBlobStorageRepository
     {
         public AzureBlobStorageRepository(IMasterRepository masterRepository)
             : base(masterRepository)
