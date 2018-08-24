@@ -5,8 +5,9 @@ namespace Vikela.Interface.Service
 {
     public interface IRegisterService
     {
-        Task Register(RegisterViewModel model);
+        Task RegisterEnvironmentUserAsync(RegisterViewModel model);
         Task RegisterForSASAsync(RegisterViewModel model);
+        Task Register365UserAsync(RegisterViewModel model);
     }
 }
 

@@ -30,6 +30,17 @@ namespace Vikela.Implementation.ViewModel
             }
         }
 
+        string idNumber;
+        public string IDNumber
+        {
+            get { return idNumber; }
+            set
+            {
+                idNumber = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IDNumber"));
+            }
+        }
+
         string mobileNumber;
         public string MobileNumber
         {
@@ -38,6 +49,28 @@ namespace Vikela.Implementation.ViewModel
             {
                 mobileNumber = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MobileNumber"));
+            }
+        }
+
+        string emailAddress;
+        public string EmailAddress
+        {
+            get { return emailAddress; }
+            set
+            {
+                emailAddress = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("EmailAddress"));
+            }
+        }
+
+        string userPictureURL;
+        public string UserPictureURL
+        {
+            get { return userPictureURL; }
+            set
+            {
+                userPictureURL = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("UserPictureURL"));
             }
         }
 
