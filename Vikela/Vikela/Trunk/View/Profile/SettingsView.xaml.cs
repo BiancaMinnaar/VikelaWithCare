@@ -26,8 +26,9 @@ namespace Vikela.Implementation.View
 
         void On_Logout_Clicked(object sender, System.EventArgs e)
         {
-            _ViewController._MasterRepo.PushLogOut();
+            _ViewController._MasterRepo.DataSource.User.OID = "";
             foreach (var user in App.PCA.Users) { App.PCA.Remove(user); }
+            _ViewController._MasterRepo.PushLogOut();
         }
     }
 }

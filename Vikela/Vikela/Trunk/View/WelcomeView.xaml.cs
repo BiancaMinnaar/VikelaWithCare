@@ -33,14 +33,13 @@ namespace Vikela.Implementation.View
             if (App.PCA.Users.Count() > 0)
             {
                 ar = await App.PCA.AcquireTokenSilentAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.Authority, false);
-                _ViewController._MasterRepo.HideLoading();
             }
             else
             {
-                _ViewController._MasterRepo.HideLoading();
                 ar = await App.PCA.AcquireTokenAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
             }
             await _ViewController.SetUserAsync(ar);
+            _ViewController._MasterRepo.HideLoading();
         }
 
         private IUser GetUserByPolicy(IEnumerable<IUser> users, string policy)

@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Identity.Client;
-using Newtonsoft.Json.Linq;
 using Vikela.Implementation.Repository;
 using Vikela.Implementation.Service;
 using Vikela.Implementation.ViewModel;
@@ -29,7 +24,7 @@ namespace Vikela.Implementation.ViewController
                                                            ExecuteQueryWithReturnTypeAndNetworkAccessAsync<WelcomeViewModel>(U, P, C, A));
             _RegisterService = new RegisterService ((U, P, A) =>
                                                     ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
-            _Reposetory = new WelcomeRepository<WelcomeViewModel>(_MasterRepo, _Service);
+            _Reposetory = new WelcomeRepository<WelcomeViewModel>(_MasterRepo, _Service, _RegisterRepo, _SelfieRepo);
             _RegisterRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, _RegisterService);
             _SelfieRepo = new SelfieRepository<RegisterViewModel>(_MasterRepo, null);
         }
@@ -37,64 +32,21 @@ namespace Vikela.Implementation.ViewController
         public async Task SetUserAsync(AuthenticationResult ar)
         {
             //TODO:Refactor
-            JObject user = ParseIdToken(ar.IdToken);
-            var name = user["name"]?.ToString();
-            var oID = user["oid"]?.ToString();
-            var registration = new RegisterViewModel()
-            {
-                FirstName = name,
-                OID = oID,
-                TokenID = ar.IdToken
-            };
 
-            await _RegisterRepo.CallForImageBlobStorageSASAsync(registration);
-            await _RegisterRepo.SetPictureStorageSasTokenAsync(registration, _ResponseContent);
+            //Get User from ARToken
+            var registration = _Reposetory.GetUserFromARToken(ar);
+            //SetAzureCredentials
+            await _Reposetory.SetAzureCredentialsAsync(registration, _ResponseContent);
 
-            if (_MasterRepo.DataSource.IsRegistered)
-            {
-                var model = new Trunk.ViewModel.StoragePictureModel()
-                {
-                    UserID = _MasterRepo.DataSource.User.OID,
-                    PictureStorageSASToken = _MasterRepo.DataSource.User.PictureStorageSASToken,
-                    UserPicture = _MasterRepo.DataSource.User.UserPicture
-                };
-                await _SelfieRepo.GetSelfieAsync(model);
-                _MasterRepo.DataSource.User.UserPicture = model.UserPicture;
-                await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(_MasterRepo.DataSource.User);
+            //TODO:Check if User Image exist.
+            //GetUserSelfieFromStorage
+            await _Reposetory.GetUserSelfieFromStorageAsync();
+            //TODO:Check if 365 has user
+            //RegisterUser
+            await _Reposetory.RegisterUserOn365Async(registration);
 
-                registration.EmailAddress = "Edit";
-                registration.FirstName = _MasterRepo.DataSource.User.FirstName;
-                registration.IDNumber = "Edit";
-                registration.LastName = "Edit";
-                registration.MobileNumber = _MasterRepo.DataSource.User.MobileNumber;
-                registration.OID = _MasterRepo.DataSource.User.OID;
-                registration.UserPictureURL = "Edit";
-
-                await _RegisterRepo.RegisterWithD365Async(registration);
-                _MasterRepo.PushMyCoverView();
-            }
-            else
-            {
-                _MasterRepo.PushSelfieView();
-            }
-        }
-
-        //TODO: refactor
-        JObject ParseIdToken(string idToken)
-        {
-            // Get the piece with actual user info
-            idToken = idToken.Split('.')[1];
-            idToken = Base64UrlDecode(idToken);
-            return JObject.Parse(idToken);
-        }
-        //TODO: refactor
-        private string Base64UrlDecode(string s)
-        {
-            s = s.Replace('-', '+').Replace('_', '/');
-            s = s.PadRight(s.Length + (4 - s.Length % 4) % 4, '=');
-            var byteArray = Convert.FromBase64String(s);
-            var decoded = Encoding.UTF8.GetString(byteArray, 0, byteArray.Count());
-            return decoded;
+            //Register or showProfile
+            _Reposetory.RegisterOrShowProfile(_Reposetory.IsUserImageOnLocalStorage());
         }
     }
 }

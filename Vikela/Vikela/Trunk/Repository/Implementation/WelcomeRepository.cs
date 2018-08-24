@@ -1,6 +1,10 @@
 using System;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using CorePCL;
+using Microsoft.Identity.Client;
+using Newtonsoft.Json.Linq;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
@@ -12,17 +16,94 @@ namespace Vikela.Implementation.Repository
         where T : BaseViewModel
     {
         IWelcomeService<T> _Service;
+        IRegisterRepository<RegisterViewModel> _RegisterRepo;
+        ISelfieRepository<RegisterViewModel> _SelfieRepo;
 
-        public WelcomeRepository(IMasterRepository masterRepository, IWelcomeService<T> service)
+        public WelcomeRepository(IMasterRepository masterRepository, IWelcomeService<T> service, 
+                                 IRegisterRepository<RegisterViewModel> registerRepo,
+                                ISelfieRepository<RegisterViewModel> selfieRepo)
             : base(masterRepository)
         {
             _Service = service;
+            _RegisterRepo = registerRepo;
+            _SelfieRepo = selfieRepo;
         }
 
-        public async Task Load(WelcomeViewModel model, Action<T> completeAction)
+        public RegisterViewModel GetUserFromARToken(AuthenticationResult ar)
         {
-            var serviceReturnModel = await _Service.Load(model);
-            completeAction(serviceReturnModel);
+            JObject user = ParseIdToken(ar.IdToken);
+            var name = user["name"]?.ToString();
+            var oID = user["oid"]?.ToString();
+            return new RegisterViewModel()
+            {
+                FirstName = name,
+                OID = oID,
+                TokenID = ar.IdToken
+            };
+        }
+
+        public async Task GetUserSelfieFromStorageAsync()
+        {
+            var model = new Trunk.ViewModel.StoragePictureModel()
+            {
+                UserID = _MasterRepo.DataSource.User.OID,
+                PictureStorageSASToken = _MasterRepo.DataSource.User.PictureStorageSASToken,
+                UserPicture = _MasterRepo.DataSource.User.UserPicture
+            };
+            await _SelfieRepo.GetSelfieAsync(model);
+            _MasterRepo.DataSource.User.UserPicture = model.UserPicture;
+            await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(_MasterRepo.DataSource.User);
+        }
+
+        public bool IsUserImageOnLocalStorage()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RegisterOrShowProfile(bool isRegistered)
+        {
+            if (isRegistered)
+                _MasterRepo.PushMyCoverView();
+            else
+                _MasterRepo.PushSelfieView();
+        }
+
+        public async Task RegisterUserOn365Async(RegisterViewModel model)
+        {
+            model.EmailAddress = "Edit";
+            model.FirstName = _MasterRepo.DataSource.User.FirstName;
+            model.IDNumber = "Edit";
+            model.LastName = "Edit";
+            model.MobileNumber = _MasterRepo.DataSource.User.MobileNumber;
+            model.OID = _MasterRepo.DataSource.User.OID;
+            model.UserPictureURL = "Edit";
+
+            await _RegisterRepo.RegisterWithD365Async(model);
+        }
+
+        public async Task SetAzureCredentialsAsync(RegisterViewModel model, string responseContent)
+        {
+            await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(model);
+            await _RegisterRepo.CallForImageBlobStorageSASAsync(model);
+            await _RegisterRepo.SetPictureStorageSasTokenAsync(model, responseContent);
+        }
+
+        //TODO: refactor
+        JObject ParseIdToken(string idToken)
+        {
+            // Get the piece with actual user info
+            idToken = idToken.Split('.')[1];
+            idToken = Base64UrlDecode(idToken);
+            return JObject.Parse(idToken);
+        }
+        //TODO: refactor
+        private string Base64UrlDecode(string s)
+        {
+            s = s.Replace('-', '+').Replace('_', '/');
+            s = s.PadRight(s.Length + (4 - s.Length % 4) % 4, '=');
+            var byteArray = Convert.FromBase64String(s);
+            var decoded = Encoding.UTF8.GetString(byteArray, 0, byteArray.Count());
+            return decoded;
         }
     }
 }
