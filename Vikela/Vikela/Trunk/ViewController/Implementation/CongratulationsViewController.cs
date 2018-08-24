@@ -36,7 +36,8 @@ namespace Vikela.Implementation.ViewController
                 LastName = "Edit",
                 MobileNumber = _MasterRepo.DataSource.User.MobileNumber,
                 OID = _MasterRepo.DataSource.User.OID,
-                UserPictureURL = "Edit"
+                UserPictureURL = "Edit",
+                TokenID = _MasterRepo.DataSource.User.TokenID
             });
             _MasterRepo.PushMyCoverView();
         }

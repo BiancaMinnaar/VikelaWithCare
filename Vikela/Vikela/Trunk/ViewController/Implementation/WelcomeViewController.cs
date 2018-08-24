@@ -36,6 +36,7 @@ namespace Vikela.Implementation.ViewController
 
         public async Task SetUserAsync(AuthenticationResult ar)
         {
+            //TODO:Refactor
             JObject user = ParseIdToken(ar.IdToken);
             var name = user["name"]?.ToString();
             var oID = user["oid"]?.ToString();
@@ -46,8 +47,8 @@ namespace Vikela.Implementation.ViewController
                 TokenID = ar.IdToken
             };
 
-            await _RegisterRepo.CallForImageBlobStorageSASAsync(registration,
-                                                                   () => _RegisterRepo.SetPictureStorageSasTokenAsync(registration, _ResponseContent));
+            await _RegisterRepo.CallForImageBlobStorageSASAsync(registration);
+            await _RegisterRepo.SetPictureStorageSasTokenAsync(registration, _ResponseContent);
 
             if (_MasterRepo.DataSource.IsRegistered)
             {
@@ -60,16 +61,16 @@ namespace Vikela.Implementation.ViewController
                 await _SelfieRepo.GetSelfieAsync(model);
                 _MasterRepo.DataSource.User.UserPicture = model.UserPicture;
                 await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(_MasterRepo.DataSource.User);
-                await _RegisterRepo.RegisterWithD365Async(new RegisterViewModel()
-                {
-                    EmailAddress = "Edit",
-                    FirstName = _MasterRepo.DataSource.User.FirstName,
-                    IDNumber = "Edit",
-                    LastName = "Edit",
-                    MobileNumber = _MasterRepo.DataSource.User.MobileNumber,
-                    OID = _MasterRepo.DataSource.User.OID,
-                    UserPictureURL = "Edit"
-                });
+
+                registration.EmailAddress = "Edit";
+                registration.FirstName = _MasterRepo.DataSource.User.FirstName;
+                registration.IDNumber = "Edit";
+                registration.LastName = "Edit";
+                registration.MobileNumber = _MasterRepo.DataSource.User.MobileNumber;
+                registration.OID = _MasterRepo.DataSource.User.OID;
+                registration.UserPictureURL = "Edit";
+
+                await _RegisterRepo.RegisterWithD365Async(registration);
                 _MasterRepo.PushMyCoverView();
             }
             else

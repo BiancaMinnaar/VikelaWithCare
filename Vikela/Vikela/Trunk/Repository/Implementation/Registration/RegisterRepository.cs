@@ -85,10 +85,9 @@ namespace Vikela.Implementation.Repository
             throw new NotImplementedException();
         }
 
-        public async Task CallForImageBlobStorageSASAsync(RegisterViewModel model, Action completeAction)
+        public async Task CallForImageBlobStorageSASAsync(RegisterViewModel model)
         {
             await _Service.RegisterForSASAsync(model);
-            completeAction?.Invoke();
         }
 
         public async Task RegisterWithD365Async(RegisterViewModel model)
