@@ -20,6 +20,7 @@ namespace Vikela.Implementation.Service
             var httpMethod = BaseNetworkAccessEnum.Put;
             var parameters = new Dictionary<string, ParameterTypedValue>()
             {
+                //TODO: Extract to constants
                 {"Ocp-Apim-Subscription-Key", new ParameterTypedValue("a77f84e222b54957a9c946b99347c1f1", ParameterTypeEnum.HeaderParameter)},
                 {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
                 {"userId", new ParameterTypedValue(model.OID)},

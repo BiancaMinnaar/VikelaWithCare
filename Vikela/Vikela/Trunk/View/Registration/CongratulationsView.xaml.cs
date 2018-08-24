@@ -21,7 +21,7 @@ namespace Vikela.Implementation.View
 
         public void On_Done_Clicked(object sender, EventArgs e)
         {
-            _ViewController.Done();
+            _ViewController.CompleteRegistrationAsync();
         }
     }
 }

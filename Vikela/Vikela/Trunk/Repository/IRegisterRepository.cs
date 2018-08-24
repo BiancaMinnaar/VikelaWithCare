@@ -16,6 +16,6 @@ namespace Vikela.Interface.Repository
         void OAuthGoogle(RegisterViewModel model, Action<T> completeAction);
         Task SetPictureStorageSasTokenAsync(RegisterViewModel model, string sasToken);
         Task CallForImageBlobStorageSASAsync(RegisterViewModel model, Action completeAction);
-        Task RegisterWithD365Async(RegisterViewModel model, Action completeAction);
+        Task RegisterWithD365Async(RegisterViewModel model);
     }
 }

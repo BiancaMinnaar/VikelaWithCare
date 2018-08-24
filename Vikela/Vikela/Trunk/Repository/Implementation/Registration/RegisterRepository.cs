@@ -91,10 +91,9 @@ namespace Vikela.Implementation.Repository
             completeAction?.Invoke();
         }
 
-        public async Task RegisterWithD365Async(RegisterViewModel model, Action completeAction)
+        public async Task RegisterWithD365Async(RegisterViewModel model)
         {
             await _Service.Register365UserAsync(model);
-            completeAction?.Invoke();
         }
     }
 }

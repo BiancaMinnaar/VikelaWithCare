@@ -16,5 +16,6 @@ namespace Vikela.Trunk.ViewModel.Offline
         public string TokenID { get; set; }
         public string PictureStorageSASToken { get; set; }
         public byte[] UserPicture { get; set; }
+        public string PictureURL { get; set; }
     }
 }
