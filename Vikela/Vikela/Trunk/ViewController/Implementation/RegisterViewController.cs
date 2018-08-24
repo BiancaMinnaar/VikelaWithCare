@@ -24,6 +24,16 @@ namespace Vikela.Implementation.ViewController
         public async Task RegisterAsync()
         {
             await _Reposetory.SetUserRecordWithRegisterViewModelAsync(InputObject);
+            await _Reposetory.RegisterWithD365Async(new RegisterViewModel()
+            {
+                EmailAddress = "Edit",
+                FirstName = _MasterRepo.DataSource.User.FirstName,
+                IDNumber = "Edit",
+                LastName = "Edit",
+                MobileNumber = _MasterRepo.DataSource.User.MobileNumber,
+                OID = _MasterRepo.DataSource.User.OID,
+                UserPictureURL = "Edit"
+            });
             _MasterRepo.PushSelfieView();
         }
 

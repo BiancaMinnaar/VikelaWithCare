@@ -46,6 +46,9 @@ namespace Vikela.Implementation.ViewController
                 TokenID = ar.IdToken
             };
 
+            await _RegisterRepo.CallForImageBlobStorageSASAsync(registration,
+                                                                   () => _RegisterRepo.SetPictureStorageSasTokenAsync(registration, _ResponseContent));
+
             if (_MasterRepo.DataSource.IsRegistered)
             {
                 var model = new Trunk.ViewModel.StoragePictureModel()
@@ -57,12 +60,20 @@ namespace Vikela.Implementation.ViewController
                 await _SelfieRepo.GetSelfieAsync(model);
                 _MasterRepo.DataSource.User.UserPicture = model.UserPicture;
                 await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(_MasterRepo.DataSource.User);
+                await _RegisterRepo.RegisterWithD365Async(new RegisterViewModel()
+                {
+                    EmailAddress = "Edit",
+                    FirstName = _MasterRepo.DataSource.User.FirstName,
+                    IDNumber = "Edit",
+                    LastName = "Edit",
+                    MobileNumber = _MasterRepo.DataSource.User.MobileNumber,
+                    OID = _MasterRepo.DataSource.User.OID,
+                    UserPictureURL = "Edit"
+                });
                 _MasterRepo.PushMyCoverView();
             }
             else
             {
-                await _RegisterRepo.CallForImageBlobStorageSASAsync(registration, 
-                                                                   () => _RegisterRepo.SetPictureStorageSasTokenAsync(registration, _ResponseContent));
                 _MasterRepo.PushSelfieView();
             }
         }

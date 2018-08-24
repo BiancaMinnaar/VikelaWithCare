@@ -30,13 +30,13 @@ namespace Vikela.Implementation.ViewController
         {
             await RegisterRepository.RegisterWithD365Async(new RegisterViewModel()
             {
-                EmailAddress = _MasterRepo.DataSource.User.EmailAddress,
+                EmailAddress = "Edit",
                 FirstName = _MasterRepo.DataSource.User.FirstName,
-                IDNumber = _MasterRepo.DataSource.User.IDNumber,
-                LastName = _MasterRepo.DataSource.User.LastName,
+                IDNumber = "Edit",
+                LastName = "Edit",
                 MobileNumber = _MasterRepo.DataSource.User.MobileNumber,
                 OID = _MasterRepo.DataSource.User.OID,
-                UserPictureURL = _MasterRepo.DataSource.User.PictureURL
+                UserPictureURL = "Edit"
             });
             _MasterRepo.PushMyCoverView();
         }

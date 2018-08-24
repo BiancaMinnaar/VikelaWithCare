@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Vikela.Implementation.ViewController;
 using Vikela.Implementation.ViewModel;
 using Vikela.Root.View;
@@ -19,9 +20,9 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public void On_Done_Clicked(object sender, EventArgs e)
+        public async void On_CompleteRegistration_Clicked(object sender, EventArgs e)
         {
-            _ViewController.CompleteRegistrationAsync();
+            await _ViewController.CompleteRegistrationAsync();
         }
     }
 }
