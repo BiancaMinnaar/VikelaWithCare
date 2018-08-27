@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Vikela.Implementation.Repository;
 using Vikela.Implementation.Service;
 using Vikela.Implementation.ViewModel;
@@ -14,12 +15,17 @@ namespace Vikela.Implementation.ViewController
     {
         IMyCoverRepository<MyCoverViewModel> _Reposetory;
         IMyCoverService<MyCoverViewModel> _Service;
+        IRegisterService<RegisterViewModel> _RegisterService;
+        IRegisterRepository<RegisterViewModel> _RegisterRepo;
 
         public override void SetRepositories()
         {
             _Service = new MyCoverService<MyCoverViewModel>((U, P, C, A) => 
                                                            ExecuteQueryWithReturnTypeAndNetworkAccessAsync<MyCoverViewModel>(U, P, C, A));
             _Reposetory = new MyCoverRepository<MyCoverViewModel>(_MasterRepo, _Service);
+            _RegisterService = new RegisterService<RegisterViewModel>((U, P, C, A) =>
+                                                                     ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegisterViewModel>(U, P, C, A));
+            _RegisterRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, _RegisterService);
         }
 
         public void Load()
@@ -51,5 +57,21 @@ namespace Vikela.Implementation.ViewController
         {
             return _Reposetory.GetActiveCoverTileViewModel(OnLick);
         }
+
+		public async Task RegisterAsync()
+		{
+            await _RegisterRepo.RegisterWithD365Async(new RegisterViewModel()
+            {
+                UniqueIdentifier = _MasterRepo.DataSource.User.UniqueIdentifier,
+                EmailAddress = "Edit@email.com",
+                FirstName = _MasterRepo.DataSource.User.FirstName,
+                IDNumber = "Edit",
+                LastName = "Edit",
+                MobileNumber = _MasterRepo.DataSource.User.MobileNumber,
+                OID = _MasterRepo.DataSource.User.OID,
+                UserPictureURL = "Edit",
+                TokenID = _MasterRepo.DataSource.User.TokenID
+            });
+		}
     }
 }

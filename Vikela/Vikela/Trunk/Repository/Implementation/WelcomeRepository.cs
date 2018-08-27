@@ -63,8 +63,7 @@ namespace Vikela.Implementation.Repository
         public void RegisterOrShowProfile(bool isRegistered)
         {
             if (isRegistered)
-                //_MasterRepo.PushMyCoverView();
-                _MasterRepo.PushCongratulationsView();
+                _MasterRepo.PushMyCoverView();
             else
                 _MasterRepo.PushSelfieView();
 
