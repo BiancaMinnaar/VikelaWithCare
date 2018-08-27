@@ -83,7 +83,6 @@ namespace Vikela.Implementation.Repository
 
         public async Task SetAzureCredentialsAsync(RegisterViewModel model, string responseContent)
         {
-            await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(model);
             await _RegisterRepo.CallForImageBlobStorageSASAsync(model);
             await _RegisterRepo.SetPictureStorageSasTokenAsync(model, responseContent);
         }

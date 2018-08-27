@@ -110,8 +110,9 @@ namespace Vikela.Trunk.Repository.Implementation
 
             }
             var localUser = await GetUserRecordAsync();
-            if (localUser != null && localUser.UniqueIdentifier == model.UniqueIdentifier)
+            if (localUser != null)
             {
+                model.UniqueIdentifier = localUser.UniqueIdentifier;
                 await OfflineStorageRepo.UpdateRecord(model);
             }
             else
@@ -158,7 +159,12 @@ namespace Vikela.Trunk.Repository.Implementation
 
         public async Task RemoveUserRecordAsync(UserModel model)
         {
-            await OfflineStorageRepo.DeleteRecord(model);
+            var list = await OfflineStorageRepo.QueryTable<UserModel>(
+                SelectTopUser);
+            foreach(var allModel in list)
+            {
+                await OfflineStorageRepo.DeleteRecord(allModel);
+            }
         }
 
         public void PushLoginView()

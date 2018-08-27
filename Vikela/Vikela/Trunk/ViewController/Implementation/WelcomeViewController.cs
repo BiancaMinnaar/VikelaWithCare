@@ -31,22 +31,11 @@ namespace Vikela.Implementation.ViewController
 
         public async Task SetUserAsync(AuthenticationResult ar)
         {
-            //TODO:Refactor
-
-            //Get User from ARToken
             var registration = _Reposetory.GetUserFromARToken(ar);
+            await _RegisterRepo.CallForImageBlobStorageSASAsync(registration);
+            registration.PictureStorageSASToken = _ResponseContent;
             await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(registration);
-            //SetAzureCredentials
-            await _Reposetory.SetAzureCredentialsAsync(registration, _ResponseContent);
-
-            //TODO:Check if User Image exist.
-            //GetUserSelfieFromStorage
             await _Reposetory.GetUserSelfieFromStorageAsync();
-            //TODO:Check if 365 has user
-            //RegisterUser
-            await _Reposetory.RegisterUserOn365Async(registration);
-
-            //Register or showProfile
             _Reposetory.RegisterOrShowProfile(_Reposetory.IsUserImageOnLocalStorage());
         }
     }
