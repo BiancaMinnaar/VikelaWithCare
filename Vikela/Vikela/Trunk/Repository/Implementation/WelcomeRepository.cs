@@ -63,9 +63,11 @@ namespace Vikela.Implementation.Repository
         public void RegisterOrShowProfile(bool isRegistered)
         {
             if (isRegistered)
-                _MasterRepo.PushMyCoverView();
+                //_MasterRepo.PushMyCoverView();
+                _MasterRepo.PushCongratulationsView();
             else
                 _MasterRepo.PushSelfieView();
+
         }
 
         public async Task RegisterUserOn365Async(RegisterViewModel model)
@@ -84,7 +86,6 @@ namespace Vikela.Implementation.Repository
         public async Task SetAzureCredentialsAsync(RegisterViewModel model, string responseContent)
         {
             await _RegisterRepo.CallForImageBlobStorageSASAsync(model);
-            await _RegisterRepo.SetPictureStorageSasTokenAsync(model, responseContent);
         }
 
         //TODO: refactor

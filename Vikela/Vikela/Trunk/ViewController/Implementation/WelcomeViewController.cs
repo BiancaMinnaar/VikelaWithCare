@@ -14,7 +14,7 @@ namespace Vikela.Implementation.ViewController
     {
         IWelcomeRepository<WelcomeViewModel> _Reposetory;
         IWelcomeService<WelcomeViewModel> _Service;
-        IRegisterService _RegisterService;
+        IRegisterService<RegisterViewModel> _RegisterService;
         IRegisterRepository<RegisterViewModel> _RegisterRepo;
         ISelfieRepository<RegisterViewModel> _SelfieRepo;
 
@@ -22,8 +22,8 @@ namespace Vikela.Implementation.ViewController
         {
             _Service = new WelcomeService<WelcomeViewModel>((U, P, C, A) => 
                                                            ExecuteQueryWithReturnTypeAndNetworkAccessAsync<WelcomeViewModel>(U, P, C, A));
-            _RegisterService = new RegisterService ((U, P, A) =>
-                                                    ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
+            _RegisterService = new RegisterService<RegisterViewModel>((U, P, C, A) =>
+                                                                     ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegisterViewModel>(U, P, C, A));
             _RegisterRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, _RegisterService);
             _SelfieRepo = new SelfieRepository<RegisterViewModel>(_MasterRepo, null);
             _Reposetory = new WelcomeRepository<WelcomeViewModel>(_MasterRepo, _Service, _RegisterRepo, _SelfieRepo);

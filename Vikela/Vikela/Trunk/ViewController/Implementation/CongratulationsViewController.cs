@@ -14,15 +14,15 @@ namespace Vikela.Implementation.ViewController
         ICongratulationsRepository<CongratulationsViewModel> _Reposetory;
         IRegisterRepository<RegisterViewModel> RegisterRepository;
         ICongratulationsService<CongratulationsViewModel> _Service;
-        IRegisterService RegisterService;
+        IRegisterService<RegisterViewModel> RegisterService;
 
         public override void SetRepositories()
         {
             _Service = new CongratulationsService<CongratulationsViewModel>((U, P, C, A) => 
                                                            ExecuteQueryWithReturnTypeAndNetworkAccessAsync<CongratulationsViewModel>(U, P, C, A));
             _Reposetory = new CongratulationsRepository<CongratulationsViewModel>(_MasterRepo, _Service);
-            RegisterService = new RegisterService((U, P, A) =>
-                                                           ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
+            RegisterService = new RegisterService<RegisterViewModel>((U, P, C, A) =>
+                                                                     ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegisterViewModel>(U, P, C, A));
             RegisterRepository = new RegisterRepository<RegisterViewModel>(_MasterRepo, RegisterService);
         }
 
@@ -30,7 +30,8 @@ namespace Vikela.Implementation.ViewController
         {
             await RegisterRepository.RegisterWithD365Async(new RegisterViewModel()
             {
-                EmailAddress = "Edit",
+                UniqueIdentifier = _MasterRepo.DataSource.User.UniqueIdentifier,
+                EmailAddress = "Edit@email.com",
                 FirstName = _MasterRepo.DataSource.User.FirstName,
                 IDNumber = "Edit",
                 LastName = "Edit",

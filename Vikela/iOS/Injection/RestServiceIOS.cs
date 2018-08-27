@@ -43,7 +43,7 @@ namespace Vikela.iOS.Injection
 
         public void AddJsonBody(BaseViewModel body)
         {
-            base.AddJsonBody(body);
+            base.AddJsonBody(body.SerializeObject());
         }
 
         void INetworkRequest.AddParameter(string name, object value)

@@ -14,10 +14,10 @@ namespace Vikela.Implementation.Repository
     public class RegisterRepository<T> : ProjectBaseRepository, IRegisterRepository<T>
         where T : BaseViewModel
     {
-        IRegisterService _Service;
+        IRegisterService<RegisterViewModel> _Service;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
 
-        public RegisterRepository(IMasterRepository masterRepository, IRegisterService service)
+        public RegisterRepository(IMasterRepository masterRepository, IRegisterService<RegisterViewModel> service)
             : base(masterRepository)
         {
             _Service = service;
@@ -29,11 +29,6 @@ namespace Vikela.Implementation.Repository
                     OnError?.Invoke(errs);
                 }
             };
-        }
-
-        public async Task SetPictureStorageSasTokenAsync(RegisterViewModel model, string sasToken)
-        {
-            model.PictureStorageSASToken = sasToken;
         }
 
         public async Task SetUserRecordWithRegisterViewModelAsync(RegisterViewModel model)

@@ -3,15 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using CorePCL;
+using Newtonsoft.Json;
 
 namespace Vikela.Root.ViewModel
 {
     public abstract class ProjectBaseViewModel : BaseViewModel, INotifyPropertyChanged, INotifyDataErrorInfo
     {
+        [JsonIgnore]
         public IDictionary<string, SVGBindingProperty> SvgCollection { get; set; }
-
+        [JsonIgnore]
         public bool HasErrors { get; set; }
-
+        [JsonIgnore]
         public IDictionary<string, string[]> LookupLists;
 
         public ProjectBaseViewModel()
