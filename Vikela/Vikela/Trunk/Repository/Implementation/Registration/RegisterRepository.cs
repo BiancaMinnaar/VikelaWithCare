@@ -39,6 +39,8 @@ namespace Vikela.Implementation.Repository
 
         public async Task SetUserRecordWithRegisterViewModelAsync(RegisterViewModel model)
         {
+            if (model.UniqueIdentifier == Guid.Empty)
+                model.UniqueIdentifier = Guid.NewGuid();
             var actionModel = new UserModel()
             {
                 UniqueIdentifier = model.UniqueIdentifier,
