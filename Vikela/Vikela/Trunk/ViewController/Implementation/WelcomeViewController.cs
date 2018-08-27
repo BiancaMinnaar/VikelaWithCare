@@ -24,9 +24,9 @@ namespace Vikela.Implementation.ViewController
                                                            ExecuteQueryWithReturnTypeAndNetworkAccessAsync<WelcomeViewModel>(U, P, C, A));
             _RegisterService = new RegisterService ((U, P, A) =>
                                                     ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
-            _Reposetory = new WelcomeRepository<WelcomeViewModel>(_MasterRepo, _Service, _RegisterRepo, _SelfieRepo);
             _RegisterRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, _RegisterService);
             _SelfieRepo = new SelfieRepository<RegisterViewModel>(_MasterRepo, null);
+            _Reposetory = new WelcomeRepository<WelcomeViewModel>(_MasterRepo, _Service, _RegisterRepo, _SelfieRepo);
         }
 
         public async Task SetUserAsync(AuthenticationResult ar)
@@ -35,6 +35,7 @@ namespace Vikela.Implementation.ViewController
 
             //Get User from ARToken
             var registration = _Reposetory.GetUserFromARToken(ar);
+            await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(registration);
             //SetAzureCredentials
             await _Reposetory.SetAzureCredentialsAsync(registration, _ResponseContent);
 

@@ -46,7 +46,7 @@ namespace Vikela.Implementation.Repository
         {
             var model = new Trunk.ViewModel.StoragePictureModel()
             {
-                UserID = _MasterRepo.DataSource.User.OID,
+                UserID = _MasterRepo.DataSource.User.UniqueIdentifier.ToString(),
                 PictureStorageSASToken = _MasterRepo.DataSource.User.PictureStorageSASToken,
                 UserPicture = _MasterRepo.DataSource.User.UserPicture
             };
@@ -57,7 +57,7 @@ namespace Vikela.Implementation.Repository
 
         public bool IsUserImageOnLocalStorage()
         {
-            throw new NotImplementedException();
+            return _MasterRepo.DataSource.User.UserPicture != null && _MasterRepo.DataSource.User.UserPicture.Length > 0;
         }
 
         public void RegisterOrShowProfile(bool isRegistered)

@@ -80,7 +80,7 @@ namespace Vikela.Implementation.Repository
             }
         }
 
-        public async Task StoreSelfie(StoragePictureModel model)
+        public async Task StoreSelfieAsync(StoragePictureModel model)
         {
             try
             {

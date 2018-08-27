@@ -28,18 +28,10 @@ namespace Vikela.Implementation.View
 
         public async void On_Start_Clicked(object sender, EventArgs e)
         {
-            _ViewController._MasterRepo.ShowLoading();
-            AuthenticationResult ar;
-            if (App.PCA.Users.Count() > 0)
-            {
-                ar = await App.PCA.AcquireTokenSilentAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.Authority, false);
-            }
-            else
-            {
-                ar = await App.PCA.AcquireTokenAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
-            }
+            AuthenticationResult ar = App.PCA.Users.Any()
+                ? await App.PCA.AcquireTokenSilentAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.Authority, false)
+                : await App.PCA.AcquireTokenAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
             await _ViewController.SetUserAsync(ar);
-            _ViewController._MasterRepo.HideLoading();
         }
 
         private IUser GetUserByPolicy(IEnumerable<IUser> users, string policy)

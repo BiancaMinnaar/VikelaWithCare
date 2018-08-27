@@ -4,6 +4,6 @@ namespace Vikela.Interface.ViewController
 {
     public interface ISettingsViewController
     {
-        Task Show();
+        Task LogoutAsync();
     }
 }

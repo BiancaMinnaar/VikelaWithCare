@@ -8,6 +8,16 @@ namespace Vikela.Implementation.ViewModel
     {
         public new event PropertyChangedEventHandler PropertyChanged;
 
+        private Guid uniqueIdentifier;
+        public Guid UniqueIdentifier
+        {
+            get { return uniqueIdentifier; }
+            set
+            {
+                uniqueIdentifier = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("UniqueIdentifier"));
+            }
+        }
         string firstName;
         public string FirstName 
         {

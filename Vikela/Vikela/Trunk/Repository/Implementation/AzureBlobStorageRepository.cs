@@ -23,19 +23,27 @@ namespace Vikela.Trunk.Repository.Implementation
 
         public async Task GetBlobImageAsync(StoragePictureModel model)
         {
-            var uri = new Uri(model.PictureStorageSASToken.Trim('\"'));
-            CloudBlobContainer container = new CloudBlobContainer(uri);
-            CloudBlockBlob blob = container.GetBlockBlobReference(model.UserID + ".jpg");
-
-            using (var msRead = new MemoryStream())
+            try
             {
-                msRead.Position = 0;
-                using (msRead)
+                var uri = new Uri(model.PictureStorageSASToken.Trim('\"'));
+                CloudBlobContainer container = new CloudBlobContainer(uri);
+                CloudBlockBlob blob = container.GetBlockBlobReference(model.UserID + ".jpg");
+                
+                using (var msRead = new MemoryStream())
                 {
-                    await blob.DownloadToStreamAsync(msRead);
+                    msRead.Position = 0;
+                    using (msRead)
+                    {
+                        await blob.DownloadToStreamAsync(msRead);
+                    }
+                    msRead.Flush();
+                    model.UserPicture = msRead.GetBuffer();
                 }
-                msRead.Flush();
-                model.UserPicture = msRead.GetBuffer();
+            }
+            //TODO:Catch Specific
+            catch(Exception excp)
+            {
+                OnError?.Invoke(new string[] { excp.Message });
             }
         }
 

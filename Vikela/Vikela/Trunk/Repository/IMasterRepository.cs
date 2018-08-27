@@ -23,9 +23,9 @@ namespace Vikela.Interface.Repository
         Action<string[]> OnError { get; set; }
         List<Action<string, IPlatformModelBase>> OnPlatformServiceCallBack { get; set; }
         //Offline
-        Task<UserModel> GetUserModelFromOffline();
-        Task SetUserRecord(UserModel model);
-        Task RemoveUserRecord(UserModel model);
+        Task<UserModel> GetUserModelFromOfflineAsync();
+        Task SetUserRecordAsync(UserModel model);
+        Task RemoveUserRecordAsync(UserModel model);
         //Navigation
         void PushLoginView();
         void PushRegistrationView();

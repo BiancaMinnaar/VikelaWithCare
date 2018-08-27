@@ -19,11 +19,6 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public async void On_Show_Event(object sender, EventArgs e)
-        {
-            await _ViewController.Show();
-        }
-
         void On_Logout_Clicked(object sender, System.EventArgs e)
         {
             _ViewController._MasterRepo.DataSource.User.OID = "";

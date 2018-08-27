@@ -41,6 +41,7 @@ namespace Vikela.Implementation.Repository
         {
             var actionModel = new UserModel()
             {
+                UniqueIdentifier = model.UniqueIdentifier,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 MobileNumber = model.MobileNumber,
@@ -49,12 +50,12 @@ namespace Vikela.Implementation.Repository
                 TokenID = model.TokenID,
                 PictureStorageSASToken = model.PictureStorageSASToken
             };
-            await _MasterRepo.SetUserRecord(actionModel);
+            await _MasterRepo.SetUserRecordAsync(actionModel);
         }
 
         public async Task SetUserRecordWithRegisterViewModelAsync(UserModel model)
         {
-            await _MasterRepo.SetUserRecord(model);
+            await _MasterRepo.SetUserRecordAsync(model);
         }
 
         public void OAuthFacebook(RegisterViewModel model, Action<T> completeAction)
