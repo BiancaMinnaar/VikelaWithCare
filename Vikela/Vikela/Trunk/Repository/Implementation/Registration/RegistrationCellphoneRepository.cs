@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
@@ -6,7 +5,6 @@ using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Root.Repository;
 using Vikela.Trunk.Repository.Implementation;
-using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Implementation.Repository
 {
@@ -21,11 +19,10 @@ namespace Vikela.Implementation.Repository
             _Service = service;
         }
 
-        public async Task UpdateCellPhone(RegistrationCellphoneViewModel model, Action<UserModel> completeAction)
+        public async Task UpdateCellPhoneAsync(RegistrationCellphoneViewModel model)
         {
             _MasterRepo.DataSource.User.MobileNumber = model.CellPhoneNumber;
             await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
-            completeAction(_MasterRepo.DataSource.User);
         }
     }
 }

@@ -31,17 +31,7 @@ namespace Vikela.Implementation.ViewController
 
         public async Task CompleteRegistrationAsync()
         {
-            var registerData = new RegisterViewModel
-            {
-                EmailAddress = _MasterRepo.DataSource.User.EmailAddress,
-                FirstName = _MasterRepo.DataSource.User.FirstName,
-                IDNumber = _MasterRepo.DataSource.User.IDNumber,
-                LastName = _MasterRepo.DataSource.User.LastName,
-                MobileNumber = _MasterRepo.DataSource.User.MobileNumber,
-                OID = _MasterRepo.DataSource.User.OID,
-                UserPictureURL = "Edit",
-                TokenID = _MasterRepo.DataSource.User.TokenID
-            };
+            var registerData = RegisterRepository.GetDyn365RegisterViewModel();
             var errors = await RegisterRepository.RegisterWithD365Async(registerData);
             if (errors[0] != "Success")
             {

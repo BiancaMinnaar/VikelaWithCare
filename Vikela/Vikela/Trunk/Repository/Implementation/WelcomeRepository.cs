@@ -1,10 +1,6 @@
 using System;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using CorePCL;
-using Microsoft.Identity.Client;
-using Newtonsoft.Json.Linq;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
@@ -29,19 +25,6 @@ namespace Vikela.Implementation.Repository
             _SelfieRepo = selfieRepo;
         }
 
-        public RegisterViewModel GetUserFromARToken(AuthenticationResult ar)
-        {
-            JObject user = ParseIdToken(ar.IdToken);
-            var name = user["name"]?.ToString();
-            var oID = user["oid"]?.ToString();
-            return new RegisterViewModel()
-            {
-                FirstName = name,
-                OID = oID,
-                TokenID = ar.IdToken
-            };
-        }
-
         public async Task GetUserSelfieFromStorageAsync()
         {
             var model = new Trunk.ViewModel.StoragePictureModel()
@@ -60,36 +43,22 @@ namespace Vikela.Implementation.Repository
             return _MasterRepo.DataSource.User.UserPicture != null && _MasterRepo.DataSource.User.UserPicture.Length > 0;
         }
 
+        public bool IsRegisteredUser()
+        {
+            throw new NotImplementedException();
+        }
+
         public void RegisterOrShowProfile(bool isRegistered)
         {
             if (isRegistered)
                 _MasterRepo.PushMyCoverView();
             else
                 _MasterRepo.PushSelfieView();
-
         }
 
         public async Task SetAzureCredentialsAsync(RegisterViewModel model, string responseContent)
         {
             await _RegisterRepo.CallForImageBlobStorageSASAsync(model);
-        }
-
-        //TODO: refactor
-        JObject ParseIdToken(string idToken)
-        {
-            // Get the piece with actual user info
-            idToken = idToken.Split('.')[1];
-            idToken = Base64UrlDecode(idToken);
-            return JObject.Parse(idToken);
-        }
-        //TODO: refactor
-        private string Base64UrlDecode(string s)
-        {
-            s = s.Replace('-', '+').Replace('_', '/');
-            s = s.PadRight(s.Length + (4 - s.Length % 4) % 4, '=');
-            var byteArray = Convert.FromBase64String(s);
-            var decoded = Encoding.UTF8.GetString(byteArray, 0, byteArray.Count());
-            return decoded;
         }
     }
 }

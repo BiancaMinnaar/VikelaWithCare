@@ -31,12 +31,12 @@ namespace Vikela.Implementation.ViewController
 
         public async Task SetUserAsync(AuthenticationResult ar)
         {
-            var registration = _Reposetory.GetUserFromARToken(ar);
+            var registration = _RegisterRepo.GetUserFromARToken(ar);
             await _RegisterRepo.CallForImageBlobStorageSASAsync(registration);
             registration.PictureStorageSASToken = _ResponseContent;
             await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(registration);
             await _Reposetory.GetUserSelfieFromStorageAsync();
-            _Reposetory.RegisterOrShowProfile(_Reposetory.IsUserImageOnLocalStorage());
+            _Reposetory.RegisterOrShowProfile(_Reposetory.IsRegisteredUser());
         }
     }
 }

@@ -9,6 +9,10 @@ using Vikela.Trunk.ViewModel.Offline;
 using Vikela.Trunk.Repository.Implementation;
 using Vikela.Trunk.Injection.Base;
 using Vikela.Trunk.Service;
+using Microsoft.Identity.Client;
+using Newtonsoft.Json.Linq;
+using System.Text;
+using System.Linq;
 
 namespace Vikela.Implementation.Repository
 {
@@ -98,6 +102,50 @@ namespace Vikela.Implementation.Repository
 			{
 				return model.ErrorList;
 			}
+        }
+
+        public RegisterViewModel GetUserFromARToken(AuthenticationResult ar)
+        {
+            JObject user = ParseIdToken(ar.IdToken);
+            var name = user["name"]?.ToString();
+            var oID = user["oid"]?.ToString();
+            return new RegisterViewModel()
+            {
+                FirstName = name,
+                OID = oID,
+                TokenID = ar.IdToken
+            };
+        }
+
+        public RegisterViewModel GetDyn365RegisterViewModel()
+        {
+            return new RegisterViewModel()
+            {
+                EmailAddress = _MasterRepo.DataSource.User.EmailAddress,
+                FirstName = _MasterRepo.DataSource.User.FirstName,
+                IDNumber = _MasterRepo.DataSource.User.IDNumber,
+                LastName = _MasterRepo.DataSource.User.LastName,
+                MobileNumber = _MasterRepo.DataSource.User.MobileNumber,
+                OID = _MasterRepo.DataSource.User.OID,
+                UserPictureURL = "Edit",
+                TokenID = _MasterRepo.DataSource.User.TokenID
+            };
+        }
+
+        JObject ParseIdToken(string idToken)
+        {
+            // Get the piece with actual user info
+            idToken = idToken.Split('.')[1];
+            idToken = Base64UrlDecode(idToken);
+            return JObject.Parse(idToken);
+        }
+        private string Base64UrlDecode(string s)
+        {
+            s = s.Replace('-', '+').Replace('_', '/');
+            s = s.PadRight(s.Length + (4 - s.Length % 4) % 4, '=');
+            var byteArray = Convert.FromBase64String(s);
+            var decoded = Encoding.UTF8.GetString(byteArray, 0, byteArray.Count());
+            return decoded;
         }
     }
 }

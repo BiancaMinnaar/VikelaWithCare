@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using CorePCL;
+using Microsoft.Identity.Client;
 using Vikela.Implementation.ViewModel;
 using Vikela.Trunk.ViewModel.Offline;
 
@@ -16,5 +17,7 @@ namespace Vikela.Interface.Repository
         void OAuthGoogle(RegisterViewModel model, Action<T> completeAction);
         Task CallForImageBlobStorageSASAsync(RegisterViewModel model);
         Task<string[]> RegisterWithD365Async(RegisterViewModel model);
+        RegisterViewModel GetUserFromARToken(AuthenticationResult ar);
+        RegisterViewModel GetDyn365RegisterViewModel();
     }
 }

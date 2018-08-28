@@ -19,7 +19,7 @@ namespace Vikela.Implementation.View
 
         public async void On_UpdateCellPhone_Event(object sender, EventArgs e)
         {
-            await _ViewController.UpdateCellPhone();
+            await _ViewController.UpdateCellPhoneAsync();
         }
     }
 }

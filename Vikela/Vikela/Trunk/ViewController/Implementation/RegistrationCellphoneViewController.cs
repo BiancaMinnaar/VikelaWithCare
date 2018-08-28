@@ -24,10 +24,10 @@ namespace Vikela.Implementation.ViewController
                 ", what is your cellphone number?";
         }
 
-        public async Task UpdateCellPhone()
+        public async Task UpdateCellPhoneAsync()
         {
-            await _Reposetory.UpdateCellPhone(InputObject, (ModelIO) =>
-                                              _MasterRepo.PushRegistrationOTP());
+            await _Reposetory.UpdateCellPhoneAsync(InputObject);
+            _MasterRepo.PushRegistrationOTP();
         }
     }
 }

@@ -4,6 +4,6 @@ namespace Vikela.Interface.ViewController
 {
     public interface IRegistrationCellphoneViewController
     {
-        Task UpdateCellPhone();
+        Task UpdateCellPhoneAsync();
     }
 }
