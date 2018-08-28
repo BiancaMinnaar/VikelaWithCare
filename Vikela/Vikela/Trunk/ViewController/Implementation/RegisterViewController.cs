@@ -6,6 +6,8 @@ using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Interface.ViewController;
 using Vikela.Root.ViewController;
+using Vikela.Trunk.Service;
+using Vikela.Trunk.Service.Implementation;
 
 namespace Vikela.Implementation.ViewController
 {
@@ -13,12 +15,15 @@ namespace Vikela.Implementation.ViewController
     {
         IRegisterRepository<RegisterViewModel> _Reposetory;
         IRegisterService<RegisterViewModel> _Service;
+        IDynamixService _DynamixService;
 
         public override void SetRepositories()
         {
             _Service = new RegisterService<RegisterViewModel>((U, P, C, A) =>
                                                                      ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegisterViewModel>(U, P, C, A));
             _Reposetory = new RegisterRepository<RegisterViewModel>(_MasterRepo, _Service);
+            _DynamixService = new DynamixService((U, P, A) =>
+                                                 ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
         }
 
         public async Task RegisterAsync()

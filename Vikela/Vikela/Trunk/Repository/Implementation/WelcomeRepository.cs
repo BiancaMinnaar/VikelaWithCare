@@ -46,7 +46,7 @@ namespace Vikela.Implementation.Repository
         {
             var model = new Trunk.ViewModel.StoragePictureModel()
             {
-                UserID = _MasterRepo.DataSource.User.UniqueIdentifier.ToString(),
+                UserID = _MasterRepo.DataSource.User.OID,
                 PictureStorageSASToken = _MasterRepo.DataSource.User.PictureStorageSASToken,
                 UserPicture = _MasterRepo.DataSource.User.UserPicture
             };
@@ -67,19 +67,6 @@ namespace Vikela.Implementation.Repository
             else
                 _MasterRepo.PushSelfieView();
 
-        }
-
-        public async Task RegisterUserOn365Async(RegisterViewModel model)
-        {
-            model.EmailAddress = "Edit";
-            model.FirstName = _MasterRepo.DataSource.User.FirstName;
-            model.IDNumber = "Edit";
-            model.LastName = "Edit";
-            model.MobileNumber = _MasterRepo.DataSource.User.MobileNumber;
-            model.OID = _MasterRepo.DataSource.User.OID;
-            model.UserPictureURL = "Edit";
-
-            await _RegisterRepo.RegisterWithD365Async(model);
         }
 
         public async Task SetAzureCredentialsAsync(RegisterViewModel model, string responseContent)

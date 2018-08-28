@@ -8,6 +8,8 @@ using Vikela.Interface.Service;
 using Vikela.Interface.ViewController;
 using Vikela.Root.ViewController;
 using Vikela.Trunk.ViewModel.Controlls;
+using Vikela.Trunk.Service;
+using Vikela.Trunk.Service.Implementation;
 
 namespace Vikela.Implementation.ViewController
 {
@@ -17,6 +19,7 @@ namespace Vikela.Implementation.ViewController
         IMyCoverService<MyCoverViewModel> _Service;
         IRegisterService<RegisterViewModel> _RegisterService;
         IRegisterRepository<RegisterViewModel> _RegisterRepo;
+		IDynamixService _DynamixService;
 
         public override void SetRepositories()
         {
@@ -25,7 +28,9 @@ namespace Vikela.Implementation.ViewController
             _Reposetory = new MyCoverRepository<MyCoverViewModel>(_MasterRepo, _Service);
             _RegisterService = new RegisterService<RegisterViewModel>((U, P, C, A) =>
                                                                      ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegisterViewModel>(U, P, C, A));
-            _RegisterRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, _RegisterService);
+            _DynamixService = new DynamixService((U, P, A) =>
+                                                 ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
+            _RegisterRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, _RegisterService, _DynamixService);
         }
 
         public void Load()
@@ -62,7 +67,6 @@ namespace Vikela.Implementation.ViewController
 		{
             await _RegisterRepo.RegisterWithD365Async(new RegisterViewModel()
             {
-                UniqueIdentifier = _MasterRepo.DataSource.User.UniqueIdentifier,
                 EmailAddress = "Edit@email.com",
                 FirstName = _MasterRepo.DataSource.User.FirstName,
                 IDNumber = "Edit",

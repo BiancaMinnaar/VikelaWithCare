@@ -1,5 +1,4 @@
-﻿using System;
-using SQLite;
+﻿using SQLite;
 
 namespace Vikela.Trunk.ViewModel.Offline
 {
@@ -7,7 +6,6 @@ namespace Vikela.Trunk.ViewModel.Offline
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public Guid UniqueIdentifier { get; set; }
         public string FacebookToken { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

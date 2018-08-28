@@ -9,7 +9,6 @@ namespace Vikela.Interface.Service
     {
         Task RegisterEnvironmentUserAsync(RegisterViewModel model);
         Task RegisterForSASAsync(RegisterViewModel model);
-        Task Register365UserAsync(RegisterViewModel model);
     }
 }
 

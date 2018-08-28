@@ -1,6 +1,4 @@
-using System;
 using System.ComponentModel;
-using Newtonsoft.Json;
 using Vikela.Root.ViewModel;
 
 namespace Vikela.Implementation.ViewModel
@@ -9,19 +7,7 @@ namespace Vikela.Implementation.ViewModel
     {
         public new event PropertyChangedEventHandler PropertyChanged;
 
-        private Guid uniqueIdentifier;
-        [JsonProperty("userId")]
-        public Guid UniqueIdentifier
-        {
-            get { return uniqueIdentifier; }
-            set
-            {
-                uniqueIdentifier = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("UniqueIdentifier"));
-            }
-        }
         string firstName;
-        [JsonProperty("firstName")]
         public string FirstName 
         {
             get { return firstName; }
@@ -33,7 +19,6 @@ namespace Vikela.Implementation.ViewModel
         }
 
         string lastName;
-        [JsonProperty("lastName")]
         public string LastName
         {
             get { return lastName; }
@@ -45,7 +30,6 @@ namespace Vikela.Implementation.ViewModel
         }
 
         string idNumber;
-        [JsonProperty("idNumber")]
         public string IDNumber
         {
             get { return idNumber; }
@@ -57,7 +41,6 @@ namespace Vikela.Implementation.ViewModel
         }
 
         string mobileNumber;
-        [JsonProperty("mobileNumber")]
         public string MobileNumber
         {
             get { return mobileNumber; }
@@ -69,7 +52,6 @@ namespace Vikela.Implementation.ViewModel
         }
 
         string emailAddress;
-        [JsonProperty("eMail")]
         public string EmailAddress
         {
             get { return emailAddress; }
@@ -81,7 +63,6 @@ namespace Vikela.Implementation.ViewModel
         }
 
         string userPictureURL;
-        [JsonProperty("profileImageUrl")]
         public string UserPictureURL
         {
             get { return userPictureURL; }
@@ -93,7 +74,6 @@ namespace Vikela.Implementation.ViewModel
         }
 
         byte[] userPicture;
-        [JsonIgnore]
         public byte[] UserPicture
         {
             get { return userPicture; }
@@ -105,7 +85,6 @@ namespace Vikela.Implementation.ViewModel
         }
 
         private string oID;
-        [JsonIgnore]
         public string OID
         {
             get { return oID; }
@@ -117,7 +96,6 @@ namespace Vikela.Implementation.ViewModel
         }
 
         private string tokenID;
-        [JsonIgnore]
         public string TokenID
         {
             get { return tokenID; }
@@ -129,7 +107,6 @@ namespace Vikela.Implementation.ViewModel
         }
 
         private string pictureStorageSASToken;
-        [JsonIgnore]
         public string PictureStorageSASToken
         {
             get { return pictureStorageSASToken; }

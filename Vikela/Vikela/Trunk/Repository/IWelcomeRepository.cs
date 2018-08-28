@@ -12,7 +12,6 @@ namespace Vikela.Interface.Repository
         RegisterViewModel GetUserFromARToken(AuthenticationResult ar);
         Task SetAzureCredentialsAsync(RegisterViewModel model, string responseContent);
         Task GetUserSelfieFromStorageAsync();
-        Task RegisterUserOn365Async(RegisterViewModel model);
         bool IsUserImageOnLocalStorage();
         void RegisterOrShowProfile(bool isRegistered);
     }

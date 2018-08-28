@@ -30,7 +30,6 @@ namespace Vikela.Implementation.ViewController
         {
             await RegisterRepository.RegisterWithD365Async(new RegisterViewModel()
             {
-                UniqueIdentifier = _MasterRepo.DataSource.User.UniqueIdentifier,
                 EmailAddress = "Edit@email.com",
                 FirstName = _MasterRepo.DataSource.User.FirstName,
                 IDNumber = "Edit",

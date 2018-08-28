@@ -8,6 +8,7 @@ using Vikela.Root.Repository;
 using Vikela.Trunk.ViewModel.Offline;
 using Vikela.Trunk.Repository.Implementation;
 using Vikela.Trunk.Injection.Base;
+using Vikela.Trunk.Service;
 
 namespace Vikela.Implementation.Repository
 {
@@ -15,12 +16,14 @@ namespace Vikela.Implementation.Repository
         where T : BaseViewModel
     {
         IRegisterService<RegisterViewModel> _Service;
+        IDynamixService _DynamixService;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
 
-        public RegisterRepository(IMasterRepository masterRepository, IRegisterService<RegisterViewModel> service)
+        public RegisterRepository(IMasterRepository masterRepository, IRegisterService<RegisterViewModel> service, IDynamixService dynamix=null)
             : base(masterRepository)
         {
             _Service = service;
+            _DynamixService = dynamix;
             _PlatformBonsai = new PlatformBonsai();
             var platform = new PlatformRepository<RegisterViewModel>(masterRepository, _PlatformBonsai)
             {
@@ -33,11 +36,8 @@ namespace Vikela.Implementation.Repository
 
         public async Task SetUserRecordWithRegisterViewModelAsync(RegisterViewModel model)
         {
-            if (model.UniqueIdentifier == Guid.Empty)
-                model.UniqueIdentifier = Guid.NewGuid();
             var actionModel = new UserModel()
             {
-                UniqueIdentifier = model.UniqueIdentifier,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 MobileNumber = model.MobileNumber,
@@ -89,7 +89,8 @@ namespace Vikela.Implementation.Repository
 
         public async Task RegisterWithD365Async(RegisterViewModel model)
         {
-            await _Service.Register365UserAsync(model);
+            if (_DynamixService != null)
+                await _DynamixService.RegisterUserAsync(model);
         }
     }
 }

@@ -290,6 +290,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\StoragePictureModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IAzureBlobStorageRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\AzureBlobStorageRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IDynamixService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\DynamixService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
