@@ -23,10 +23,7 @@ namespace Vikela.Implementation.ViewController
 
         public async Task CapturePhotoAsync()
         {
-            await _Reposetory.CapturePhotoAsync(InputObject, 
-                                      (model) => 
-            {
-            });
+            await _Reposetory.CapturePhotoAsync(InputObject);
         }
 
         public void Select()
@@ -40,7 +37,7 @@ namespace Vikela.Implementation.ViewController
                 UserID = _MasterRepo.DataSource.User.OID,
                 PictureStorageSASToken=_MasterRepo.DataSource.User.PictureStorageSASToken,
                 UserPicture=InputObject.Selfie});
-            _MasterRepo.PushRegistrationCellphone();
+            _MasterRepo.PushRegistrationName();
         }
     }
 }

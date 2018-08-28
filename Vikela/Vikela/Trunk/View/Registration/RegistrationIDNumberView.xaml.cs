@@ -19,7 +19,7 @@ namespace Vikela.Implementation.View
 
         public async void On_UpdateIDNumber_Event(object sender, EventArgs e)
         {
-            await _ViewController.UpdateIDNumber();
+            await _ViewController.UpdateIDNumberAsync();
         }
     }
 }

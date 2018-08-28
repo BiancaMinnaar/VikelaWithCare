@@ -21,10 +21,10 @@ namespace Vikela.Implementation.ViewController
             _Reposetory = new RegistrationIDNumberRepository<RegistrationIDNumberViewModel>(_MasterRepo, _Service);
         }
 
-        public async Task UpdateIDNumber()
+        public async Task UpdateIDNumberAsync()
         {
-            await _Reposetory.UpdateIDNumber(InputObject, (ModelIO) =>
-                                             _MasterRepo.PushCongratulationsView());
+            await _Reposetory.UpdateIDNumberAsync(InputObject);
+            _MasterRepo.PushCongratulationsView();
         }
     }
 }

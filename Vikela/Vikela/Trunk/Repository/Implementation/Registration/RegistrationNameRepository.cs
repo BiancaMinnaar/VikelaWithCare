@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
@@ -6,7 +5,6 @@ using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Root.Repository;
 using Vikela.Trunk.Repository.Implementation;
-using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Implementation.Repository
 {
@@ -21,12 +19,12 @@ namespace Vikela.Implementation.Repository
             _Service = service;
         }
 
-        public async Task UpdateName(RegistrationNameViewModel model, Action<UserModel> completeAction)
+        public async Task UpdateNameAsync(RegistrationNameViewModel model)
         {
             _MasterRepo.DataSource.User.FirstName = model.FirstName;
             _MasterRepo.DataSource.User.LastName = model.LastName;
+            _MasterRepo.DataSource.User.EmailAddress = "edit@edit.edit";
             await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
-            completeAction(_MasterRepo.DataSource.User);
         }
     }
 }

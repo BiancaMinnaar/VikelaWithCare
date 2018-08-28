@@ -55,7 +55,7 @@ namespace Vikela.Implementation.Repository
             return modelAction;
         }
 
-        public async Task CapturePhotoAsync(SelfieViewModel model, Action<UserModel> completeAction)
+        public async Task CapturePhotoAsync(SelfieViewModel model)
         {
             var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
 
@@ -64,7 +64,6 @@ namespace Vikela.Implementation.Repository
                 model.Selfie = await _ImageRepo.GetPhotoBinary(photo.GetStream());
                 _MasterRepo.DataSource.User.UserPicture = model.Selfie;
                 await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
-                completeAction(_MasterRepo.DataSource.User);
             }
         }
 

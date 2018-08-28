@@ -4,6 +4,6 @@ namespace Vikela.Interface.ViewController
 {
     public interface IRegistrationNameViewController
     {
-        Task UpdateName();
+        Task UpdateNameAsync();
     }
 }

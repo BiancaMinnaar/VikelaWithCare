@@ -4,6 +4,6 @@ namespace Vikela.Interface.ViewController
 {
     public interface IRegistrationVerifyMobileViewController
     {
-        Task UpdateOTP();
+        Task UpdateOTPAsync();
     }
 }

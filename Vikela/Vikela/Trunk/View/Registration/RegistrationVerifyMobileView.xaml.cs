@@ -19,7 +19,7 @@ namespace Vikela.Implementation.View
 
         public async void On_UpdateOTP_Event(object sender, EventArgs e)
         {
-            await _ViewController.UpdateOTP();
+            await _ViewController.UpdateOTPAsync();
         }
 
         void On_Resend_Event(object sender, System.EventArgs e)

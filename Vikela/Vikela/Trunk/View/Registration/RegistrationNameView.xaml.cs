@@ -19,7 +19,7 @@ namespace Vikela.Implementation.View
 
         public async void On_UpdateName_Event(object sender, EventArgs e)
         {
-            await _ViewController.UpdateName();
+            await _ViewController.UpdateNameAsync();
         }
     }
 }

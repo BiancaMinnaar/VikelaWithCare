@@ -21,10 +21,10 @@ namespace Vikela.Implementation.ViewController
             _Reposetory = new RegistrationVerifyMobileRepository<RegistrationVerifyMobileViewModel>(_MasterRepo, _Service);
         }
 
-        public async Task UpdateOTP()
+        public async Task UpdateOTPAsync()
         {
-            await _Reposetory.UpdateOTP(InputObject, (ModelIO) =>
-                                        _MasterRepo.PushCongratulationsView());
+            await _Reposetory.UpdateOTPAsync(InputObject);
+            _MasterRepo.PushRegistrationIDNumber();
         }
     }
 }

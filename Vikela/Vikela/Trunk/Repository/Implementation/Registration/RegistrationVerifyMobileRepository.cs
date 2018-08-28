@@ -19,9 +19,9 @@ namespace Vikela.Implementation.Repository
             _Service = service;
         }
 
-        public async Task UpdateOTP(RegistrationVerifyMobileViewModel model, Action<RegistrationVerifyMobileViewModel> completeAction)
+        public async Task UpdateOTPAsync(RegistrationVerifyMobileViewModel model)
         {
-            completeAction(model);
+            //TODO:Implement
         }
     }
 }

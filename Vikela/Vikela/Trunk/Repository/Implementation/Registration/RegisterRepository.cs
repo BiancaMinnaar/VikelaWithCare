@@ -112,6 +112,7 @@ namespace Vikela.Implementation.Repository
             return new RegisterViewModel()
             {
                 FirstName = name,
+                LastName = "Edit",
                 OID = oID,
                 TokenID = ar.IdToken
             };

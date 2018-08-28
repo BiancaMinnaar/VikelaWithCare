@@ -4,6 +4,6 @@ namespace Vikela.Interface.ViewController
 {
     public interface IRegistrationIDNumberViewController
     {
-        Task UpdateIDNumber();
+        Task UpdateIDNumberAsync();
     }
 }
