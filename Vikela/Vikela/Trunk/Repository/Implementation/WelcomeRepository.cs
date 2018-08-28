@@ -48,8 +48,9 @@ namespace Vikela.Implementation.Repository
             //Has Auth?
             var isAuthenticated = _MasterRepo.DataSource.User.OID != Guid.Empty.ToString();
             //Has 356 account?
+            var hasRegistrationRecord = _RegisterRepo.GetDyn365RegisterViewModel().ErrorList.Length == 0;
             var isIn365 = false;
-            return toOverride || isAuthenticated && isIn365;
+            return toOverride || isAuthenticated && hasRegistrationRecord && isIn365;
         }
 
         public void RegisterOrShowProfile(bool isRegistered)
