@@ -27,17 +27,23 @@ namespace Vikela.Trunk.Service.Implementation
                     eMail= model.EmailAddress,
                     firstName= model.FirstName,
                     lastName= model.LastName,
-                    //idNumber= model.IDNumber,
-                    //mobileNumber= model.MobileNumber,
-                    UserPictureURL="qq",
-                //    userId = "995d0312-254b-488f-ab9a-7ae47c407228",
-                //EmailAddress = "26AugUser2@vikelaproductsdev.onmicrosoft.com",
-                //firstName = "26AugUser2",
-                //lastName = "User2Lastname",
-                idNumber = "1234567890149",
-                mobileNumber = "1234567891"
-                //profileImageUrl = "qq"
+                    idNumber= model.IDNumber,
+                    mobileNumber= model.MobileNumber,
+                    UserPictureURL="edit"
                 }, ParameterTypeEnum.BodyParameter)}
+            };
+            await _NetworkInterfaceWithTypedParameters(requestURL, parameters, httpMethod);
+        }
+
+        public async Task GetUserWithOIDAsync(RegisterViewModel model)
+        {
+            string requestURL = "dyn365/api/v1.0/User";
+            var httpMethod = BaseNetworkAccessEnum.Put;
+            var parameters = new Dictionary<string, ParameterTypedValue>()
+            {
+                {"Ocp-Apim-Subscription-Key", new ParameterTypedValue("a77f84e222b54957a9c946b99347c1f1", ParameterTypeEnum.HeaderParameter)},
+                {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
+                {"userId", new ParameterTypedValue(model.OID)}
             };
             await _NetworkInterfaceWithTypedParameters(requestURL, parameters, httpMethod);
         }

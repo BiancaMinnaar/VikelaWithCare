@@ -8,5 +8,6 @@ namespace Vikela.Trunk.Service
     public interface IDynamixService
     {
 		Task RegisterUserAsync(RegisterViewModel model);
+        Task GetUserWithOIDAsync(RegisterViewModel model);
     }
 }

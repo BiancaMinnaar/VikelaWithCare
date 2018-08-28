@@ -148,5 +148,10 @@ namespace Vikela.Implementation.Repository
             var decoded = Encoding.UTF8.GetString(byteArray, 0, byteArray.Count());
             return decoded;
         }
+
+        public async Task GetUserWithOID(RegisterViewModel model)
+        {
+            await _DynamixService.GetUserWithOIDAsync(model);
+        }
     }
 }
