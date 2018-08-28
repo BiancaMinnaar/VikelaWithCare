@@ -43,9 +43,13 @@ namespace Vikela.Implementation.Repository
             return _MasterRepo.DataSource.User.UserPicture != null && _MasterRepo.DataSource.User.UserPicture.Length > 0;
         }
 
-        public bool IsRegisteredUser()
+        public bool IsRegisteredUser(bool toOverride=false)
         {
-            throw new NotImplementedException();
+            //Has Auth?
+            var isAuthenticated = _MasterRepo.DataSource.User.OID != Guid.Empty.ToString();
+            //Has 356 account?
+            var isIn365 = false;
+            return toOverride || isAuthenticated && isIn365;
         }
 
         public void RegisterOrShowProfile(bool isRegistered)
