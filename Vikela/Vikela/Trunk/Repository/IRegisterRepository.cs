@@ -15,6 +15,6 @@ namespace Vikela.Interface.Repository
         void OAuthInstagram(RegisterViewModel model, Action<T> completeAction);
         void OAuthGoogle(RegisterViewModel model, Action<T> completeAction);
         Task CallForImageBlobStorageSASAsync(RegisterViewModel model);
-        Task RegisterWithD365Async(RegisterViewModel model);
+        Task<string[]> RegisterWithD365Async(RegisterViewModel model);
     }
 }

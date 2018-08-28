@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using CorePCL;
 using Vikela.Root.ViewModel;
 
 namespace Vikela.Implementation.ViewModel
@@ -115,6 +116,31 @@ namespace Vikela.Implementation.ViewModel
                 pictureStorageSASToken = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PictureStorageSASToken"));
             }
+        }
+
+        public RegisterViewModel()
+        {
+            ValidationRules.Add(GetRule(() =>
+            {
+				return FirstName != null && FirstName.Length > 0;
+            }, "FirstName is empty."));
+            ValidationRules.Add(GetRule(() =>
+            {
+                return EmailAddress != null && EmailAddress.Length > 0;
+            }, "EmailAddress is empty."));
+            ValidationRules.Add(GetRule(() =>
+            {
+                return IDNumber != null && IDNumber.Length > 0;
+            }, "IDNumber is empty."));
+            ValidationRules.Add(GetRule(() =>
+            {
+                return LastName != null && LastName.Length > 0;
+            }, "LastName is empty."));
+            ValidationRules.Add(GetRule(() =>
+            {
+                return MobileNumber != null && MobileNumber.Length > 0;
+            }, "MobileNumber is empty."));
+            
         }
     }
 }

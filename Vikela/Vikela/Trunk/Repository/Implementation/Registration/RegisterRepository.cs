@@ -87,10 +87,17 @@ namespace Vikela.Implementation.Repository
             await _Service.RegisterForSASAsync(model);
         }
 
-        public async Task RegisterWithD365Async(RegisterViewModel model)
+        public async Task<string[]> RegisterWithD365Async(RegisterViewModel model)
         {
-            if (_DynamixService != null)
+			if (_DynamixService != null && model.ErrorList.Length == 0)
+			{
                 await _DynamixService.RegisterUserAsync(model);
+				return new string[]{"Success"}; 
+			}
+            else
+			{
+				return model.ErrorList;
+			}
         }
     }
 }

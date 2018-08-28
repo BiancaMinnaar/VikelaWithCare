@@ -22,23 +22,11 @@ namespace Vikela.Implementation.ViewController
             _Service = new RegisterService<RegisterViewModel>((U, P, C, A) =>
                                                                      ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegisterViewModel>(U, P, C, A));
             _Reposetory = new RegisterRepository<RegisterViewModel>(_MasterRepo, _Service);
-            _DynamixService = new DynamixService((U, P, A) =>
-                                                 ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
         }
 
         public async Task RegisterAsync()
         {
             await _Reposetory.SetUserRecordWithRegisterViewModelAsync(InputObject);
-            await _Reposetory.RegisterWithD365Async(new RegisterViewModel()
-            {
-                EmailAddress = "Edit",
-                FirstName = _MasterRepo.DataSource.User.FirstName,
-                IDNumber = "Edit",
-                LastName = "Edit",
-                MobileNumber = _MasterRepo.DataSource.User.MobileNumber,
-                OID = _MasterRepo.DataSource.User.OID,
-                UserPictureURL = "Edit"
-            });
             _MasterRepo.PushSelfieView();
         }
 

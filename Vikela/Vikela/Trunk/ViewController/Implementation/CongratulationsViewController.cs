@@ -6,6 +6,7 @@ using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Interface.ViewController;
 using Vikela.Root.ViewController;
+using Vikela.Trunk.Service.Implementation;
 
 namespace Vikela.Implementation.ViewController
 {
@@ -23,23 +24,33 @@ namespace Vikela.Implementation.ViewController
             _Reposetory = new CongratulationsRepository<CongratulationsViewModel>(_MasterRepo, _Service);
             RegisterService = new RegisterService<RegisterViewModel>((U, P, C, A) =>
                                                                      ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegisterViewModel>(U, P, C, A));
-            RegisterRepository = new RegisterRepository<RegisterViewModel>(_MasterRepo, RegisterService);
+            var _DynamixService = new DynamixService((U, P, A) =>
+                                                 ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
+            RegisterRepository = new RegisterRepository<RegisterViewModel>(_MasterRepo, RegisterService, _DynamixService);
         }
 
         public async Task CompleteRegistrationAsync()
         {
-            await RegisterRepository.RegisterWithD365Async(new RegisterViewModel()
+            var registerData = new RegisterViewModel
             {
-                EmailAddress = "Edit@email.com",
+                EmailAddress = _MasterRepo.DataSource.User.EmailAddress,
                 FirstName = _MasterRepo.DataSource.User.FirstName,
-                IDNumber = "Edit",
-                LastName = "Edit",
+                IDNumber = _MasterRepo.DataSource.User.IDNumber,
+                LastName = _MasterRepo.DataSource.User.LastName,
                 MobileNumber = _MasterRepo.DataSource.User.MobileNumber,
                 OID = _MasterRepo.DataSource.User.OID,
                 UserPictureURL = "Edit",
                 TokenID = _MasterRepo.DataSource.User.TokenID
-            });
-            _MasterRepo.PushMyCoverView();
+            };
+            var errors = await RegisterRepository.RegisterWithD365Async(registerData);
+            if (errors[0] != "Success")
+            {
+                foreach (var message in errors)
+                    ShowMessage(message);
+            }
+            else
+                //ShowMessage(_ResponseContent);
+                _MasterRepo.PushMyCoverView();
         }
     }
 }

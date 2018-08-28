@@ -63,19 +63,28 @@ namespace Vikela.Implementation.ViewController
             return _Reposetory.GetActiveCoverTileViewModel(OnLick);
         }
 
+		//TODO:Remove, only for testing
 		public async Task RegisterAsync()
 		{
-            await _RegisterRepo.RegisterWithD365Async(new RegisterViewModel()
+            var registerData = new RegisterViewModel
             {
-                EmailAddress = "Edit@email.com",
+                EmailAddress = _MasterRepo.DataSource.User.EmailAddress,
                 FirstName = _MasterRepo.DataSource.User.FirstName,
-                IDNumber = "Edit",
-                LastName = "Edit",
+                IDNumber = _MasterRepo.DataSource.User.IDNumber,
+                LastName = _MasterRepo.DataSource.User.LastName,
                 MobileNumber = _MasterRepo.DataSource.User.MobileNumber,
                 OID = _MasterRepo.DataSource.User.OID,
                 UserPictureURL = "Edit",
                 TokenID = _MasterRepo.DataSource.User.TokenID
-            });
+            };
+			var errors = await _RegisterRepo.RegisterWithD365Async(registerData);
+			if (errors[0] != "Success")
+			{
+				foreach(var message in errors)
+					ShowMessage(message);
+            }
+            else
+                ShowMessage(_ResponseContent);
 		}
     }
 }
