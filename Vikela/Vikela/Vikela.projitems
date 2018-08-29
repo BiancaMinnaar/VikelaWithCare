@@ -82,6 +82,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\AddTrustedSourceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -292,6 +296,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\AzureBlobStorageRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IDynamixService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\DynamixService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\AddTrustedSourceViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IAddTrustedSourceViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\AddTrustedSourceViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IAddTrustedSourceRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\AddTrustedSourceRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IAddTrustedSourceService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\AddTrustedSourceService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\AddTrustedSourceView.xaml.cs">
+      <DependentUpon>AddTrustedSourceView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
