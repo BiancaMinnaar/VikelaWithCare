@@ -19,6 +19,7 @@ namespace Vikela.Implementation.ViewController
             _Service = new RegistrationIDNumberService<RegistrationIDNumberViewModel>((U, P, C, A) => 
                                                            ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegistrationIDNumberViewModel>(U, P, C, A));
             _Reposetory = new RegistrationIDNumberRepository<RegistrationIDNumberViewModel>(_MasterRepo, _Service);
+            InputObject.IDNumber = _MasterRepo.DataSource.User.IDNumber;
         }
 
         public async Task UpdateIDNumberAsync()

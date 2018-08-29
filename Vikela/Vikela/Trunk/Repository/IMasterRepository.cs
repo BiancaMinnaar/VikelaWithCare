@@ -38,6 +38,7 @@ namespace Vikela.Interface.Repository
         void PushRegistrationIDNumber();
         void PushEditProfile();
         void PushSettings();
+        void PushAddBeneficiary();
     }
 }
 

@@ -223,5 +223,10 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _Navigation.PushAsync(new SettingsView());
         }
+
+        public void PushAddBeneficiary()
+        {
+            _Navigation.PushAsync(new AddBeneficiaryView());
+        }
     }
 }

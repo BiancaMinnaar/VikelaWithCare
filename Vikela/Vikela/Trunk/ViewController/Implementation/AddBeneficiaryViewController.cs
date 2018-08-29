@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Vikela.Implementation.Repository;
 using Vikela.Implementation.Service;
 using Vikela.Implementation.ViewModel;
@@ -21,9 +20,14 @@ namespace Vikela.Implementation.ViewController
             _Reposetory = new AddBeneficiaryRepository<AddBeneficiaryViewModel>(_MasterRepo, _Service);
         }
 
-        public async Task Save()
+        public void Load()
         {
-            
+            InputObject.Profile = _MasterRepo.DataSource.User;
+        }
+
+        public void PopToCover()
+        {
+            _MasterRepo.PopView();
         }
     }
 }

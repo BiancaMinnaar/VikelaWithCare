@@ -76,6 +76,11 @@ namespace Vikela.Implementation.View
         {
 			await _ViewController.RegisterAsync();
         }
+
+        public void OnCircleTapped(object sender, EventArgs eventArgs)
+        {
+            _ViewController.PushAddBeneficiary();
+        }
     }
 }
 

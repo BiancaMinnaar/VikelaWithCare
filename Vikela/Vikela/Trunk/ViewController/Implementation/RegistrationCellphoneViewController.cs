@@ -22,6 +22,7 @@ namespace Vikela.Implementation.ViewController
 
             InputObject.Greeting = "Hi " + _MasterRepo.DataSource.User.FirstName +
                 ", what is your cellphone number?";
+            InputObject.CellPhoneNumber = _MasterRepo.DataSource.User.MobileNumber;
         }
 
         public async Task UpdateCellPhoneAsync()

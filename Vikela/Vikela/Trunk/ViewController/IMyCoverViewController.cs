@@ -9,6 +9,7 @@ namespace Vikela.Interface.ViewController
     {
         void Load();
         void PushEditProfile();
+        void PushAddBeneficiary();
         PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnClick);
         TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action OnClick);
         SiyabongaViewModel GetSiyabongaTileViewModel(Action OnClick);

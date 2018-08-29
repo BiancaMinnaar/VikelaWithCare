@@ -43,6 +43,11 @@ namespace Vikela.Implementation.ViewController
             _MasterRepo.PushEditProfile();
         }
 
+        public void  PushAddBeneficiary()
+        {
+            _MasterRepo.PushAddBeneficiary();
+        }
+
         public PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnClick)
         {
             return _Reposetory.GetPersonalDetailTileViewModel(OnClick);
