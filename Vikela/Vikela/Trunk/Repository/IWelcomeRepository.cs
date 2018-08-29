@@ -13,6 +13,6 @@ namespace Vikela.Interface.Repository
         Task GetUserSelfieFromStorageAsync();
         bool IsUserImageOnLocalStorage();
         void RegisterOrShowProfile(bool isRegistered);
-        bool IsRegisteredUser(bool toOverride=false);
+        bool IsRegisteredUser(string D365Data, bool toOverride=false);
     }
 }

@@ -41,10 +41,18 @@ namespace Vikela.Implementation.ViewController
             registration.PictureStorageSASToken = _ResponseContent;
             await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(registration);
             await _Reposetory.GetUserSelfieFromStorageAsync();
-            await _RegisterRepo.GetUserWithOIDAsync(registration);
-            var user = _ResponseContent;
-            _Reposetory.RegisterOrShowProfile(_Reposetory.IsRegisteredUser());
+            await SetUserWithD365Data(registration);
+            _Reposetory.RegisterOrShowProfile(_Reposetory.IsRegisteredUser(_ResponseContent));
             _MasterRepo.HideLoading();
+        }
+
+        private async Task SetUserWithD365Data(RegisterViewModel model)
+        {
+            await _RegisterRepo.GetUserWithOIDAsync(model);
+            if (!HasErrors)
+            {
+                var user = _ResponseContent;
+            }
         }
     }
 }
