@@ -10,9 +10,7 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     x:Class="Vikela.Implementation.View.AddTrustedSourceView" 
-    x:TypeArguments="p:AddTrustedSourceViewController, m:AddTrustedSourceViewModel" 
-    BackgroundColor="#565E60"
-    Title="Login">
+    x:TypeArguments="p:AddTrustedSourceViewController, m:AddTrustedSourceViewModel">
     <ContentPage.Resources>
         <ResourceDictionary>
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
@@ -24,7 +22,7 @@
             <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <Button Text="Back" FontSize="8" Clicked="Back_Clicked" />
-                    <Label StyleClass="LargerLabel" Text="Add Beneficiary" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label StyleClass="LargerLabel" Text="Add Trusted Source" VerticalOptions="Center" HorizontalOptions="Center" />
                 </StackLayout>
             </StackLayout>
             <StackLayout VerticalOptions="FillAndExpand">
@@ -48,7 +46,7 @@
                 </StackLayout>
             </StackLayout>
             <StackLayout VerticalOptions="End" HorizontalOptions="Center" HeightRequest="100" Orientation="Horizontal">
-                <Button StyleClass="Button" Text="add Beneficiary" Clicked="On_Save_Event"></Button>
+                <Button StyleClass="Button" Text="add Trusted Source" Clicked="On_Save_Event"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

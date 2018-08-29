@@ -23,7 +23,7 @@ namespace Vikela.Implementation.ViewController
 
         public void Load()
         {
-            
+			InputObject.Profile = _MasterRepo.DataSource.User;
         }
 
         public void PopToCover()
