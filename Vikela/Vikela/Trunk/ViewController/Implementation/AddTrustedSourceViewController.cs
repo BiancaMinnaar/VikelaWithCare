@@ -21,9 +21,14 @@ namespace Vikela.Implementation.ViewController
             _Reposetory = new AddTrustedSourceRepository<AddTrustedSourceViewModel>(_MasterRepo, _Service);
         }
 
-        public async Task Load()
+        public void Load()
         {
             
+        }
+
+        public void PopToCover()
+        {
+            _MasterRepo.PopView();
         }
     }
 }

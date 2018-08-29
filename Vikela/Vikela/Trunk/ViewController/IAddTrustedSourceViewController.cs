@@ -4,6 +4,7 @@ namespace Vikela.Interface.ViewController
 {
     public interface IAddTrustedSourceViewController
     {
-        Task Load();
+        void Load();
+        void PopToCover();
     }
 }

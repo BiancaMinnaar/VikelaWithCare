@@ -19,9 +19,15 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public async void On_Load_Event(object sender, EventArgs e)
+        public async void On_Save_Event(object sender, EventArgs e)
         {
-            await _ViewController.Load();
+            //Save Ben to local
+            //popNav
+        }
+
+        void Back_Clicked(object sender, System.EventArgs e)
+        {
+            _ViewController.PopToCover();
         }
     }
 }
