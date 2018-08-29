@@ -37,13 +37,12 @@ namespace Vikela.Trunk.Service.Implementation
 
         public async Task GetUserWithOIDAsync(RegisterViewModel model)
         {
-            string requestURL = "dyn365/api/v1.0/User";
-            var httpMethod = BaseNetworkAccessEnum.Put;
+            string requestURL = "dyn365/api/v1.0/User/" + model.OID;
+            var httpMethod = BaseNetworkAccessEnum.Get;
             var parameters = new Dictionary<string, ParameterTypedValue>()
             {
                 {"Ocp-Apim-Subscription-Key", new ParameterTypedValue("a77f84e222b54957a9c946b99347c1f1", ParameterTypeEnum.HeaderParameter)},
                 {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
-                {"userId", new ParameterTypedValue(model.OID)}
             };
             await _NetworkInterfaceWithTypedParameters(requestURL, parameters, httpMethod);
         }

@@ -33,7 +33,9 @@ namespace Vikela.Trunk.Repository.Implementation
             : base(null)
         {
             DataSource = new MasterModel();
-			OnPlatformServiceCallBack =
+            PlatformSingleton.Instance.Model.HideLoaderFromPlatform = HideLoading;
+            PlatformSingleton.Instance.Model.ShowLoaderFromPlatform = ShowLoading;
+            OnPlatformServiceCallBack =
                 new List<Action<string, IPlatformModelBase>>();
             Task.Run(async () =>
             {

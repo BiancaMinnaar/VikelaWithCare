@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Foundation;
 using ImageCircle.Forms.Plugin.iOS;
 using Microsoft.Identity.Client;
 using UIKit;
-using Vikela.iOS.Injection.Facebook;
 using Vikela.iOS.Injection.Photo;
 using Vikela.Trunk.Injection.Base;
 
@@ -33,6 +29,7 @@ namespace Vikela.iOS
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
             AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url);
+            PlatformSingleton.Instance.Model.ShowLoaderFromPlatform();
             return true;
         }
     }

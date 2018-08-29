@@ -19,6 +19,6 @@ namespace Vikela.Interface.Repository
         Task<string[]> RegisterWithD365Async(RegisterViewModel model);
         RegisterViewModel GetUserFromARToken(AuthenticationResult ar);
         RegisterViewModel GetDyn365RegisterViewModel();
-        Task GetUserWithOID(RegisterViewModel model);
+        Task GetUserWithOIDAsync(RegisterViewModel model);
     }
 }

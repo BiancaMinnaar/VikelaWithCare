@@ -2,9 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Identity.Client;
-using Newtonsoft.Json.Linq;
 using Vikela.Implementation.ViewController;
 using Vikela.Implementation.ViewModel;
 using Vikela.Root.View;
@@ -20,7 +18,6 @@ namespace Vikela.Implementation.View
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = _ViewController.InputObject;
         }
-           
 
         protected override void SetSVGCollection()
         {
@@ -28,10 +25,17 @@ namespace Vikela.Implementation.View
 
         public async void On_Start_Clicked(object sender, EventArgs e)
         {
-            AuthenticationResult ar = App.PCA.Users.Any()
-                ? await App.PCA.AcquireTokenSilentAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.Authority, false)
-                : await App.PCA.AcquireTokenAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
-            await _ViewController.SetUserAsync(ar);
+            try
+            {
+                AuthenticationResult ar = App.PCA.Users.Any()
+                    ? await App.PCA.AcquireTokenSilentAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.Authority, false)
+                    : await App.PCA.AcquireTokenAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
+                await _ViewController.SetUserAsync(ar);
+            }
+            catch (MsalServiceException ex)
+            {
+                _ViewController.ShowMessage(ex.Message);
+            }
         }
 
         private IUser GetUserByPolicy(IEnumerable<IUser> users, string policy)

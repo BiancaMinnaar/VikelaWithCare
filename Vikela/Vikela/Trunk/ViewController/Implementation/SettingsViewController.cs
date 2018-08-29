@@ -6,7 +6,6 @@ using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Interface.ViewController;
 using Vikela.Root.ViewController;
-using Vikela.Trunk.Repository.Implementation;
 
 namespace Vikela.Implementation.ViewController
 {

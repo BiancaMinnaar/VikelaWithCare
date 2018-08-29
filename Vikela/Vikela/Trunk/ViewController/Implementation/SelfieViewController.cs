@@ -19,6 +19,7 @@ namespace Vikela.Implementation.ViewController
             _Service = new SelfieService<SelfieViewModel>((U, P, C, A) => 
                                                            ExecuteQueryWithReturnTypeAndNetworkAccessAsync<SelfieViewModel>(U, P, C, A));
             _Reposetory = new SelfieRepository<SelfieViewModel>(_MasterRepo, _Service);
+            InputObject.Selfie = _MasterRepo.DataSource.User.UserPicture;
         }
 
         public async Task CapturePhotoAsync()

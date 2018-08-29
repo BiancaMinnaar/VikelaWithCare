@@ -39,11 +39,11 @@ namespace Vikela.Root.ViewController
             };
             base.NetworkCallInitialised += (sender, e) =>
             {
-                UserDialogs.Instance.ShowLoading();
+                //UserDialogs.Instance.ShowLoading();
             };
             base.NetworkCallCompleted += (sender, e) =>
             {
-                UserDialogs.Instance.HideLoading();
+                //UserDialogs.Instance.HideLoading();
             };
         }
 

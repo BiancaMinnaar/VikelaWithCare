@@ -149,7 +149,7 @@ namespace Vikela.Implementation.Repository
             return decoded;
         }
 
-        public async Task GetUserWithOID(RegisterViewModel model)
+        public async Task GetUserWithOIDAsync(RegisterViewModel model)
         {
             await _DynamixService.GetUserWithOIDAsync(model);
         }
