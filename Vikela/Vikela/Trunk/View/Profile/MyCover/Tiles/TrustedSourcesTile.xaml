@@ -18,7 +18,7 @@
                 <Label Text="We will contact these sources in case of a claim" Style="{DynamicResource BlackLabel}"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <Button Text="+" />
+                <Button Text="+" Clicked="AddOne_Clicked"/>
                 <Button Text="+" />
                 <Button Text="+" />
             </StackLayout>

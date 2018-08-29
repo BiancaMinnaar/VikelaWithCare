@@ -21,5 +21,10 @@ namespace Vikela.Trunk.View.Profile.MyCover.Tiles
         protected override void SetSVGCollection()
         {
         }
+
+        void AddOne_Clicked(object sender, System.EventArgs e)
+        {
+			_ViewController._MasterRepo.PushAddTrustedSource();
+        }
     }
 }

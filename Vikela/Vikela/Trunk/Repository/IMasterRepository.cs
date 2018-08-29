@@ -39,6 +39,7 @@ namespace Vikela.Interface.Repository
         void PushEditProfile();
         void PushSettings();
         void PushAddBeneficiary();
+		void PushAddTrustedSource();
     }
 }
 

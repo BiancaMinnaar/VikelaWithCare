@@ -228,5 +228,10 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _Navigation.PushAsync(new AddBeneficiaryView());
         }
+
+		public void PushAddTrustedSource()
+		{
+            _Navigation.PushAsync(new AddTrustedSourceView());
+		}
     }
 }
