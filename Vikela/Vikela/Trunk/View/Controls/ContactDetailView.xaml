@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<base:ProjectBaseContentPage 
+<base:ProjectBaseContentView 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:base="clr-namespace:Vikela.Root.View"
@@ -9,15 +9,40 @@
     xmlns:svg="clr-namespace:TwinTechsForms.NControl;assembly=TwinTechsForms.NControl.SvgImageView"
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.ContactDetailView" 
-    x:TypeArguments="p:ContactDetailViewController, m:ContactDetailViewModel" 
-    BackgroundColor="#565E60"
-    Title="Login">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    <ContentPage.Content>
+    x:TypeArguments="p:ContactDetailViewController, m:ContactDetailViewModel">
+    <StackLayout>
+        <controls:CircleImage Source="{Binding ContactPicture, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
+            <controls:CircleImage.WidthRequest>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android, iOS">55</On>
+                    <On Platform="WinPhone">75</On>
+                </OnPlatform>
+            </controls:CircleImage.WidthRequest>
+            <controls:CircleImage.HeightRequest>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android, iOS">55</On>
+                    <On Platform="WinPhone">75</On>
+                </OnPlatform>
+            </controls:CircleImage.HeightRequest>
+        </controls:CircleImage>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label StyleClass="DarkDefaultLabel" Text="First Name" VerticalOptions="Center" />
+                <Entry Keyboard="Numeric" Text="{Binding FirstName}" WidthRequest="200"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label StyleClass="DarkDefaultLabel" Text="Last Name" VerticalOptions="Center" />
+                <Entry Keyboard="Numeric" Text="{Binding LastName}" WidthRequest="200"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label StyleClass="DarkDefaultLabel" Text="CellPhone Number" VerticalOptions="Center" />
+                <Entry Keyboard="Numeric" Text="{Binding CellNumber}" WidthRequest="200"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label StyleClass="DarkDefaultLabel" Text="ID Numbere" VerticalOptions="Center" />
+                <Entry Keyboard="Numeric" Text="{Binding IDNumber}" WidthRequest="200"/>
+            </StackLayout>
+        </StackLayout>
         
-    </ContentPage.Content>
-</base:ProjectBaseContentPage>
+    </StackLayout>
+</base:ProjectBaseContentView>

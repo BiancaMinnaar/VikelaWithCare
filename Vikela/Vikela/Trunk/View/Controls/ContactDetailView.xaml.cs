@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace Vikela.Implementation.View
 {
-    public partial class ContactDetailView : ProjectBaseContentPage<ContactDetailViewController, ContactDetailViewModel>
+    public partial class ContactDetailView : ProjectBaseContentView<ContactDetailViewController, ContactDetailViewModel>
     {
         public ContactDetailView()
         {

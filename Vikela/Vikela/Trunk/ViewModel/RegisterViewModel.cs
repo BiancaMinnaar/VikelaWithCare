@@ -15,7 +15,7 @@ namespace Vikela.Implementation.ViewModel
             set 
             {
                 firstName = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FistName"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FirstName"));
             }
         }
 

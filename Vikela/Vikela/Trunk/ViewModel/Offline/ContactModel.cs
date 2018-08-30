@@ -10,5 +10,7 @@ namespace Vikela.Trunk.ViewModel.Offline
 		public string LastName{ get; set; }
 		public string CellNumber{ get; set; }
 		public string IDNumber{ get; set; }
+        public byte[] UserPicture { get; set; }
+        public string PictureURL { get; set; }
     }
 }
