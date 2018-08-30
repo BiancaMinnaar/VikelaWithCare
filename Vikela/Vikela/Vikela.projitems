@@ -86,6 +86,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\ContactDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -307,6 +311,16 @@
       <DependentUpon>AddTrustedSourceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Offline\ContactModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IContactDetailViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\ContactDetailViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IContactDetailRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\ContactDetailRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IContactDetailService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\ContactDetailService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\ContactDetailView.xaml.cs">
+      <DependentUpon>ContactDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\ContactDetailViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
