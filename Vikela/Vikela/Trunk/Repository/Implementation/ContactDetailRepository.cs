@@ -1,28 +1,22 @@
-using System;
-using System.Threading.Tasks;
-using CorePCL;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
-using Vikela.Interface.Service;
 using Vikela.Root.Repository;
 
 namespace Vikela.Implementation.Repository
 {
-    public class ContactDetailRepository<T> : ProjectBaseRepository, IContactDetailRepository<T>
-        where T : BaseViewModel
+    public class ContactDetailRepository : ProjectBaseRepository, IContactDetailRepository
     {
-        IContactDetailService<T> _Service;
+        IAddTrustedSourceRepository _Reposetory;
 
-        public ContactDetailRepository(IMasterRepository masterRepository, IContactDetailService<T> service)
+        public ContactDetailRepository(IMasterRepository masterRepository, IAddTrustedSourceRepository repository)
             : base(masterRepository)
         {
-            _Service = service;
+            _Reposetory = new AddTrustedSourceRepository(_MasterRepo);
         }
 
-        public async Task Load(ContactDetailViewModel model, Action<T> completeAction)
+        public void Load(ContactDetailViewModel model)
         {
-            var serviceReturnModel = await _Service.Load(model);
-            completeAction(serviceReturnModel);
+            model = _Reposetory.GetTrustedContactDetailFromMaster();
         }
     }
 }

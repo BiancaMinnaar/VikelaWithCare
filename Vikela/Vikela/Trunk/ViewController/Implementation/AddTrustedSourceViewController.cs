@@ -11,19 +11,21 @@ namespace Vikela.Implementation.ViewController
 {
     public class AddTrustedSourceViewController : ProjectBaseViewController<AddTrustedSourceViewModel>, IAddTrustedSourceViewController
     {
-        IAddTrustedSourceRepository<AddTrustedSourceViewModel> _Reposetory;
-        IAddTrustedSourceService<AddTrustedSourceViewModel> _Service;
+        IAddTrustedSourceRepository _Reposetory;
 
         public override void SetRepositories()
         {
-            _Service = new AddTrustedSourceService<AddTrustedSourceViewModel>((U, P, C, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<AddTrustedSourceViewModel>(U, P, C, A));
-            _Reposetory = new AddTrustedSourceRepository<AddTrustedSourceViewModel>(_MasterRepo, _Service);
+            _Reposetory = new AddTrustedSourceRepository(_MasterRepo);
         }
 
         public void Load()
         {
-			InputObject.Profile = _MasterRepo.DataSource.User;
+            InputObject.SourceDetail = _Reposetory.GetTrustedContactDetailFromMaster();
+        }
+
+        public void SaveTrustedSource()
+        {
+            _Reposetory.UpdateMasterWithTrustedSource(InputObject.SourceDetail);
         }
 
         public void PopToCover()

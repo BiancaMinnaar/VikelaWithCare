@@ -1,13 +1,10 @@
-using System;
 using System.Threading.Tasks;
-using CorePCL;
 using Vikela.Implementation.ViewModel;
 
 namespace Vikela.Interface.Repository
 {
-    public interface IContactDetailRepository<T>
-        where T : BaseViewModel
+    public interface IContactDetailRepository
     {
-        Task Load(ContactDetailViewModel model, Action<T> completeAction);
+        void Load(ContactDetailViewModel model);
     }
 }

@@ -8,21 +8,35 @@ using Vikela.Root.Repository;
 
 namespace Vikela.Implementation.Repository
 {
-    public class AddTrustedSourceRepository<T> : ProjectBaseRepository, IAddTrustedSourceRepository<T>
-        where T : BaseViewModel
+    public class AddTrustedSourceRepository : ProjectBaseRepository, IAddTrustedSourceRepository
     {
-        IAddTrustedSourceService<T> _Service;
 
-        public AddTrustedSourceRepository(IMasterRepository masterRepository, IAddTrustedSourceService<T> service)
+        public AddTrustedSourceRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
-            _Service = service;
         }
 
-        public async Task Load(AddTrustedSourceViewModel model, Action<T> completeAction)
+        public ContactDetailViewModel GetTrustedContactDetailFromMaster()
         {
-            var serviceReturnModel = await _Service.Load(model);
-            completeAction(serviceReturnModel);
+            var source = _MasterRepo.DataSource.TrustedSources[_MasterRepo.DataSource.TrustedSourceEditIndex];
+            return new ContactDetailViewModel()
+            {
+                FirstName = source.FirstName,
+                LastName = source.LastName,
+                CellNumber = source.CellNumber,
+                IDNumber = source.IDNumber
+            };
+        }
+
+        public void UpdateMasterWithTrustedSource(ContactDetailViewModel model)
+        {
+            var source = _MasterRepo.DataSource.TrustedSources[_MasterRepo.DataSource.TrustedSourceEditIndex];
+            source.FirstName = model.FirstName;
+            source.LastName = model.LastName;
+            source.CellNumber = model.CellNumber;
+            source.IDNumber = model.IDNumber;
+            _MasterRepo.SaveTrustedSource(source, _MasterRepo.DataSource.TrustedSourceEditIndex);
+            _MasterRepo.DataSource.TrustedSourceEditIndex = -1;
         }
     }
 }

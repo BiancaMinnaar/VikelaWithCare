@@ -12,6 +12,7 @@ namespace Vikela.Implementation.View
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            _ViewController.Load();
             BindingContext = _ViewController.InputObject;
         }
 
@@ -22,7 +23,9 @@ namespace Vikela.Implementation.View
         public async void On_Save_Event(object sender, EventArgs e)
         {
             //Save Ben to local
+            _ViewController.SaveTrustedSource();
             //popNav
+            _ViewController.PopToCover();
         }
 
         void Back_Clicked(object sender, System.EventArgs e)

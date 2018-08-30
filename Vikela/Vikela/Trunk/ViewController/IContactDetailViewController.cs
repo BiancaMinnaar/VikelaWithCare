@@ -4,6 +4,6 @@ namespace Vikela.Interface.ViewController
 {
     public interface IContactDetailViewController
     {
-        Task Load();
+        void Load();
     }
 }

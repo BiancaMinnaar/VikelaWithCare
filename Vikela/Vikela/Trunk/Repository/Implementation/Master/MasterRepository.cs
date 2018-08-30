@@ -48,7 +48,12 @@ namespace Vikela.Trunk.Repository.Implementation
 
         private List<ContactModel> GetTrustedSources()
         {
-            return new List<ContactModel>(3);
+            return new List<ContactModel>
+            {
+                new ContactModel(),
+                new ContactModel(),
+                new ContactModel()
+            };
         }
 
         public static MasterRepository MasterRepo
@@ -240,5 +245,11 @@ namespace Vikela.Trunk.Repository.Implementation
 		{
             _Navigation.PushAsync(new AddTrustedSourceView());
 		}
+
+        public void SaveTrustedSource(ContactModel model, int index)
+        {
+            //OfflineStorageRepo.QueryTable("")
+            DataSource.TrustedSources[index] = model;
+        }
     }
 }

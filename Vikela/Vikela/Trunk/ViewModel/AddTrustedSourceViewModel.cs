@@ -6,6 +6,6 @@ namespace Vikela.Implementation.ViewModel
     public class AddTrustedSourceViewModel : ProjectBaseViewModel
     {
         public UserModel Profile { get; set; }
-        public ContactModel SourceDetail { get; set; }
+        public ContactDetailViewModel SourceDetail { get; set; }
     }
 }

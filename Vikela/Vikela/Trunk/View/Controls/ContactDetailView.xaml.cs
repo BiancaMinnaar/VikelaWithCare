@@ -26,17 +26,12 @@ namespace Vikela.Implementation.View
         public ContactDetailView()
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this, false);
+            _ViewController.Load();
             BindingContext = _ViewController.InputObject;
         }
 
         protected override void SetSVGCollection()
         {
-        }
-
-        public async void On_Load_Event(object sender, EventArgs e)
-        {
-            await _ViewController.Load();
         }
     }
 }

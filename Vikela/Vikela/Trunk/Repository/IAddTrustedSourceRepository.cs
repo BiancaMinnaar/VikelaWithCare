@@ -5,9 +5,9 @@ using Vikela.Implementation.ViewModel;
 
 namespace Vikela.Interface.Repository
 {
-    public interface IAddTrustedSourceRepository<T>
-        where T : BaseViewModel
+    public interface IAddTrustedSourceRepository
     {
-        Task Load(AddTrustedSourceViewModel model, Action<T> completeAction);
+        ContactDetailViewModel GetTrustedContactDetailFromMaster();
+        void UpdateMasterWithTrustedSource(ContactDetailViewModel model);
     }
 }

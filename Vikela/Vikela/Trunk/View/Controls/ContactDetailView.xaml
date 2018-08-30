@@ -29,19 +29,19 @@
         <StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label StyleClass="DarkDefaultLabel" Text="First Name" VerticalOptions="Center" />
-                <Entry Keyboard="Numeric" Text="{Binding FirstName}" WidthRequest="200"/>
+                <Entry Keyboard="Numeric" Text="{Binding FirstName, Mode=TwoWay}" WidthRequest="200"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label StyleClass="DarkDefaultLabel" Text="Last Name" VerticalOptions="Center" />
-                <Entry Keyboard="Numeric" Text="{Binding LastName}" WidthRequest="200"/>
+                <Entry Keyboard="Numeric" Text="{Binding LastName, Mode=TwoWay}" WidthRequest="200"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label StyleClass="DarkDefaultLabel" Text="CellPhone Number" VerticalOptions="Center" />
-                <Entry Keyboard="Numeric" Text="{Binding CellNumber}" WidthRequest="200"/>
+                <Entry Keyboard="Numeric" Text="{Binding CellNumber, Mode=TwoWay}" WidthRequest="200"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label StyleClass="DarkDefaultLabel" Text="ID Numbere" VerticalOptions="Center" />
-                <Entry Keyboard="Numeric" Text="{Binding IDNumber}" WidthRequest="200"/>
+                <Entry Keyboard="Numeric" Text="{Binding IDNumber, Mode=TwoWay}" WidthRequest="200"/>
             </StackLayout>
         </StackLayout>
         

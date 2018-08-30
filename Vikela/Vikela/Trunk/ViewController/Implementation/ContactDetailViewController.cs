@@ -11,19 +11,16 @@ namespace Vikela.Implementation.ViewController
 {
     public class ContactDetailViewController : ProjectBaseViewController<ContactDetailViewModel>, IContactDetailViewController
     {
-        IContactDetailRepository<ContactDetailViewModel> _Reposetory;
-        IContactDetailService<ContactDetailViewModel> _Service;
+        IAddTrustedSourceRepository _Reposetory;
 
         public override void SetRepositories()
         {
-            _Service = new ContactDetailService<ContactDetailViewModel>((U, P, C, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<ContactDetailViewModel>(U, P, C, A));
-            _Reposetory = new ContactDetailRepository<ContactDetailViewModel>(_MasterRepo, _Service);
+            _Reposetory = new AddTrustedSourceRepository(_MasterRepo);
         }
 
-        public async Task Load()
+        public void Load()
         {
-            
+            InputObject = _Reposetory.GetTrustedContactDetailFromMaster();
         }
     }
 }
