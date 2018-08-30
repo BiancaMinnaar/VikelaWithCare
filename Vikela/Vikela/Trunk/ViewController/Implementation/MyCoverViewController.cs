@@ -33,9 +33,9 @@ namespace Vikela.Implementation.ViewController
             _RegisterRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, _RegisterService, _DynamixService);
         }
 
-        public void Load()
+        public void Load(Action detailClick, Action<object> trustedSourcesClick)
         {
-            _Reposetory.Load(InputObject);
+            _Reposetory.Load(InputObject, detailClick, trustedSourcesClick);
         }
 
         public void PushEditProfile()

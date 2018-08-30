@@ -7,7 +7,7 @@ namespace Vikela.Interface.ViewController
 {
     public interface IMyCoverViewController
     {
-        void Load();
+        void Load(Action detailClick, Action<object> trustedSourcesClick);
         void PushEditProfile();
         void PushAddBeneficiary();
         PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnClick);

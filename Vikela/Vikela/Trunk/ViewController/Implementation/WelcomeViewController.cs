@@ -42,7 +42,7 @@ namespace Vikela.Implementation.ViewController
             await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(registration);
             await _Reposetory.GetUserSelfieFromStorageAsync();
             await SetUserWithD365Data(registration);
-            _Reposetory.RegisterOrShowProfile(_Reposetory.IsRegisteredUser(_ResponseContent));
+            _Reposetory.RegisterOrShowProfile(_Reposetory.IsRegisteredUser(_ResponseContent, true));
             _MasterRepo.HideLoading();
         }
 

@@ -1,4 +1,6 @@
-﻿using Vikela.Root.ViewModel;
+﻿using System.Collections.Generic;
+using Vikela.Implementation.ViewModel;
+using Vikela.Root.ViewModel;
 
 namespace Vikela.Trunk.ViewModel
 {
@@ -60,6 +62,8 @@ namespace Vikela.Trunk.ViewModel
         }
 
         private string greeting;
+        private List<ContactDetailViewModel> _trustedSources;
+
         public string Greeting
         {
             get { return greeting; }
@@ -69,5 +73,7 @@ namespace Vikela.Trunk.ViewModel
                 OnPropertyChanged("Greeting");
             }
         }
+
+        public List<ContactDetailViewModel> TrustedSources { get => _trustedSources; set { _trustedSources = value; OnPropertyChanged("TrustedSources"); } }
     }
 }

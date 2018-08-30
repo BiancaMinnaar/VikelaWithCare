@@ -14,8 +14,8 @@ namespace Vikela.Implementation.View
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            _ViewController.Load();
             BindingContext = _ViewController.InputObject;
+            _ViewController.Load(MenuClick, SetTrustedSourceForIndex);
             SetDetailTiles();
             SetSiyabongaTiles();
             SetActiveCoverTiles();

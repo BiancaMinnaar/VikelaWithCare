@@ -8,7 +8,7 @@ namespace Vikela.Interface.Repository
     public interface IMyCoverRepository<T>
         where T : BaseViewModel
     {
-        void Load(MyCoverViewModel model);
+        void Load(MyCoverViewModel model, Action detailClick, Action<object> trustedSourcesClic);
         PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnClick);
         TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action<object> OnClick);
         SiyabongaViewModel GetSiyabongaTileViewModel(Action OnClick);

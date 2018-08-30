@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
@@ -20,13 +21,20 @@ namespace Vikela.Implementation.Repository
             _Service = service;
         }
 
-        public void Load(MyCoverViewModel model)
+        public void Load(MyCoverViewModel model, Action detailClick, Action<object> trustedSourcesClick)
         {
+
             model.UserProfile = new Trunk.ViewModel.ProfileModel()
             {
                 FirstName = _MasterRepo.DataSource.User.FirstName,
                 UserImage = _MasterRepo.DataSource.User.UserPicture,
-                LastName = _MasterRepo.DataSource.User.LastName
+                LastName = _MasterRepo.DataSource.User.LastName,
+                TrustedSources = new List<ContactDetailViewModel>()
+            };
+            model.DetailTiles = new List<ITableScrollItemModel>
+            {
+                GetPersonalDetailTileViewModel(detailClick),
+                GetTrustedSourcesTileViewModel(trustedSourcesClick)
             };
         }
 
@@ -49,7 +57,7 @@ namespace Vikela.Implementation.Repository
         {
             return new TrustedSourcesViewModel()
             {
-                Index = 0,
+                Index = 1,
 
                 ItemClickedCommand = new Command(OnClick)
             };
