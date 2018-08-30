@@ -306,6 +306,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\AddTrustedSourceView.xaml.cs">
       <DependentUpon>AddTrustedSourceView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Offline\ContactModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
