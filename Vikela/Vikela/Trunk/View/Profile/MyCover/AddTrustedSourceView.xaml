@@ -10,7 +10,8 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     x:Class="Vikela.Implementation.View.AddTrustedSourceView" 
-    x:TypeArguments="p:AddTrustedSourceViewController, m:AddTrustedSourceViewModel">
+    x:TypeArguments="p:AddTrustedSourceViewController, m:AddTrustedSourceViewModel"
+    x:Name="AddTrustedSourceView">
     <ContentPage.Resources>
         <ResourceDictionary>
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
@@ -28,22 +29,7 @@
             <StackLayout VerticalOptions="FillAndExpand">
                 <Label StyleClass="LargerLabel" Text="Add Beneficiary Details" />
                 <Label StyleClass="BlackLabel" Text="Somemore copy" />
-                <StackLayout>
-                    <controls:CircleImage Source="{Binding Profile.UserPicture, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
-                        <controls:CircleImage.WidthRequest>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="Android, iOS">55</On>
-                                <On Platform="WinPhone">75</On>
-                            </OnPlatform>
-                        </controls:CircleImage.WidthRequest>
-                        <controls:CircleImage.HeightRequest>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="Android, iOS">55</On>
-                                <On Platform="WinPhone">75</On>
-                            </OnPlatform>
-                        </controls:CircleImage.HeightRequest>
-                    </controls:CircleImage>
-                </StackLayout>
+                <b:ContactDetailView x:Name="Details" Data="{Binding SourceDetail}"></b:ContactDetailView>
             </StackLayout>
             <StackLayout VerticalOptions="End" HorizontalOptions="Center" HeightRequest="100" Orientation="Horizontal">
                 <Button StyleClass="Button" Text="add Trusted Source" Clicked="On_Save_Event"></Button>

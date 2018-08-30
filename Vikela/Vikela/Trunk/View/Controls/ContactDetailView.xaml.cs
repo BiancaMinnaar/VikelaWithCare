@@ -8,6 +8,21 @@ namespace Vikela.Implementation.View
 {
     public partial class ContactDetailView : ProjectBaseContentView<ContactDetailViewController, ContactDetailViewModel>
     {
+        public static readonly BindableProperty DataProperty = BindableProperty.Create(nameof(Data), typeof(ContactDetailViewModel), typeof(ContactDetailView));
+
+        public ContactDetailViewModel Data
+        {
+            get
+            {
+                return (ContactDetailViewModel)GetValue(DataProperty);
+            }
+            set
+            {
+                SetValue(DataProperty, value);
+                _ViewController.InputObject = value;
+            }
+        }
+
         public ContactDetailView()
         {
             InitializeComponent();
