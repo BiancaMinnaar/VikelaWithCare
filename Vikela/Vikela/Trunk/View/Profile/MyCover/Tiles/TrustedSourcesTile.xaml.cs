@@ -14,7 +14,7 @@ namespace Vikela.Trunk.View.Profile.MyCover.Tiles
 
         public TrustedSourcesTile(ITableScrollItemModel model) : this()
         {
-            _ViewController.InputObject = (TrustedSourcesViewModel)model;
+			_ViewController.InputObject = (TrustedSourcesViewModel)model;
             BindingContext = _ViewController.InputObject;
         }
 
@@ -24,7 +24,9 @@ namespace Vikela.Trunk.View.Profile.MyCover.Tiles
 
         void AddOne_Clicked(object sender, System.EventArgs e)
         {
-			_ViewController._MasterRepo.PushAddTrustedSource();
+            //TODO:Refactor
+            _ViewController._MasterRepo.DataSource.TrustedSourceEditIndex = 0;
+            _ViewController._MasterRepo.PushAddTrustedSource();
         }
     }
 }

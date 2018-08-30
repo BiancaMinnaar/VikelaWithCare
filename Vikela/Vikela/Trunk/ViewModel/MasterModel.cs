@@ -12,7 +12,8 @@ namespace Vikela.Root.ViewModel
         public IEnumerable<PlatformServiceBonsai<IPlatformModelBase>> PlatformServiceList { get; }
         public UserModel User {get;set;}
 		public List<ContactModel> TrustedSources {get;set;}
-		public List<ContactModel> Beneficiaries {get;set;}
+        public int TrustedSourceEditIndex { get; set; }
+        public List<ContactModel> Beneficiaries {get;set;}
     }
 }
 

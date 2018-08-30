@@ -42,6 +42,13 @@ namespace Vikela.Trunk.Repository.Implementation
                 OfflineStorageRepo = OfflineStorageRepository.Instance;
                 MasterRepo.DataSource.User = await GetUserModelFromOfflineAsync();
             });
+            DataSource.TrustedSources = GetTrustedSources();
+            DataSource.TrustedSourceEditIndex = -1;
+        }
+
+        private List<ContactModel> GetTrustedSources()
+        {
+            return new List<ContactModel>(3);
         }
 
         public static MasterRepository MasterRepo
