@@ -11,7 +11,7 @@ namespace Vikela.Interface.ViewController
         void PushEditProfile();
         void PushAddBeneficiary();
         PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnClick);
-        TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action OnClick);
+        TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action<object> OnClick);
         SiyabongaViewModel GetSiyabongaTileViewModel(Action OnClick);
         ActiveCoverViewModel GetActiveCoverTileViewModel(Action OnLick);
 		Task RegisterAsync();

@@ -51,8 +51,8 @@ namespace Vikela.Implementation.View
         {
             var TileList = new List<ITableScrollItemModel>
             {
-                _ViewController.GetPersonalDetailTileViewModel(() => MenuClick()),
-                _ViewController.GetTrustedSourcesTileViewModel(() => {})
+                _ViewController.GetPersonalDetailTileViewModel(MenuClick),
+                _ViewController.GetTrustedSourcesTileViewModel(SetTrustedSourceForIndex)
             };
             DetailTiles.SetTableWithItems(TileList);
         }
@@ -60,6 +60,11 @@ namespace Vikela.Implementation.View
         void MenuClick()
         {
             _ViewController.PushEditProfile();
+        }
+
+        void SetTrustedSourceForIndex(object index)
+        {
+
         }
 
         public void On_LogoutClicked(object sender, EventArgs e)

@@ -45,7 +45,7 @@ namespace Vikela.Implementation.Repository
             };
         }
 
-        public TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action OnClick)
+        public TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action<object> OnClick)
         {
             return new TrustedSourcesViewModel()
             {

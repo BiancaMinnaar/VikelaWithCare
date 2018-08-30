@@ -10,7 +10,7 @@ namespace Vikela.Interface.Repository
     {
         void Load(MyCoverViewModel model);
         PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnClick);
-        TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action OnClick);
+        TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action<object> OnClick);
         SiyabongaViewModel GetSiyabongaTileViewModel(Action OnClick);
         ActiveCoverViewModel GetActiveCoverTileViewModel(Action OnLick);
     }

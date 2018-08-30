@@ -53,7 +53,7 @@ namespace Vikela.Implementation.ViewController
             return _Reposetory.GetPersonalDetailTileViewModel(OnClick);
         }
 
-        public TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action OnClick)
+        public TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action<object> OnClick)
         {
             return _Reposetory.GetTrustedSourcesTileViewModel(OnClick);
         }
