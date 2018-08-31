@@ -29,7 +29,7 @@
             <StackLayout VerticalOptions="FillAndExpand">
                 <Label StyleClass="LargerLabel" Text="Add Beneficiary Details" />
                 <Label StyleClass="BlackLabel" Text="Somemore copy" />
-                <b:ContactDetailView x:Name="Details" Data="{Binding SourceDetail}"></b:ContactDetailView>
+                <b:ContactDetailView x:Name="Details"></b:ContactDetailView>
             </StackLayout>
             <StackLayout VerticalOptions="End" HorizontalOptions="Center" HeightRequest="100" Orientation="Horizontal">
                 <Button StyleClass="Button" Text="add Trusted Source" Clicked="On_Save_Event"></Button>

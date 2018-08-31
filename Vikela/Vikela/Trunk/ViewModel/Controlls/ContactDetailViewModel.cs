@@ -1,8 +1,9 @@
+using System.ComponentModel;
 using Vikela.Root.ViewModel;
 
 namespace Vikela.Implementation.ViewModel
 {
-    public class ContactDetailViewModel : ProjectBaseViewModel
+    public class ContactDetailViewModel : ProjectBaseViewModel, INotifyPropertyChanged
     {
         private string _firstName;
         private string _lastName;
@@ -11,7 +12,16 @@ namespace Vikela.Implementation.ViewModel
         private byte[] _contactPicture;
         private string _pictureURL;
 
-        public string FirstName { get => _firstName; set { _firstName = value; OnPropertyChanged("FirstName"); } }
+        public new event PropertyChangedEventHandler PropertyChanged;
+        public string FirstName 
+        { 
+            get => _firstName; 
+            set 
+            { 
+                _firstName = value; 
+                OnPropertyChanged("FirstName"); 
+            } 
+        }
         public string LastName { get => _lastName; set { _lastName = value; OnPropertyChanged("LastName"); } }
         public string CellNumber { get => _cellNumber; set { _cellNumber = value; OnPropertyChanged("CellNumber"); } }
         public string IDNumber { get => _iDNumber; set { _iDNumber = value; OnPropertyChanged("IDNumber"); } }

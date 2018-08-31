@@ -14,13 +14,14 @@ namespace Vikela.Implementation.View
             NavigationPage.SetHasNavigationBar(this, false);
             _ViewController.Load();
             BindingContext = _ViewController.InputObject;
+            Details.Data = _ViewController.InputObject.SourceDetail;
         }
 
         protected override void SetSVGCollection()
         {
         }
 
-        public async void On_Save_Event(object sender, EventArgs e)
+        public void On_Save_Event(object sender, EventArgs e)
         {
             //Save Ben to local
             _ViewController.SaveTrustedSource();

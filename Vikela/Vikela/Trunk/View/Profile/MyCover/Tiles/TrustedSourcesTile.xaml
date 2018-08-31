@@ -19,8 +19,8 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Button Text="+" Clicked="AddOne_Clicked"/>
-                <Button Text="+" />
-                <Button Text="+" />
+                <Button Text="+" Clicked="AddTwo_Clicked" />
+                <Button Text="+" Clicked="AddThree_Clicked" />
             </StackLayout>
         </StackLayout>
     </Frame>

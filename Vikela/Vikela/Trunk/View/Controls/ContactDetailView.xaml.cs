@@ -20,14 +20,15 @@ namespace Vikela.Implementation.View
             {
                 SetValue(DataProperty, value);
                 _ViewController.InputObject = value;
+                BindingContext = _ViewController.InputObject;
             }
         }
 
         public ContactDetailView()
         {
             InitializeComponent();
-            _ViewController.Load();
-            BindingContext = _ViewController.InputObject;
+            //_ViewController.Load();
+
         }
 
         protected override void SetSVGCollection()
