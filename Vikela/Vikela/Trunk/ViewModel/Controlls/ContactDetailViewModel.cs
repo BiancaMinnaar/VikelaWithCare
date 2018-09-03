@@ -9,7 +9,7 @@ namespace Vikela.Implementation.ViewModel
         private string _lastName;
         private string _cellNumber;
         private string _iDNumber;
-        private byte[] _contactPicture;
+        private SelfieViewModel _contactPicture;
         private string _pictureURL;
 
         public new event PropertyChangedEventHandler PropertyChanged;
@@ -25,7 +25,7 @@ namespace Vikela.Implementation.ViewModel
         public string LastName { get => _lastName; set { _lastName = value; OnPropertyChanged("LastName"); } }
         public string CellNumber { get => _cellNumber; set { _cellNumber = value; OnPropertyChanged("CellNumber"); } }
         public string IDNumber { get => _iDNumber; set { _iDNumber = value; OnPropertyChanged("IDNumber"); } }
-        public byte[] ContactPicture { get => _contactPicture; set { _contactPicture = value; OnPropertyChanged("ContactPicture"); } }
+        public SelfieViewModel ContactPicture { get => _contactPicture; set { _contactPicture = value; OnPropertyChanged("ContactPicture"); } }
         public string PictureURL { get => _pictureURL; set { _pictureURL = value; OnPropertyChanged("PictureURL"); }  }
     }
 }

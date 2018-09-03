@@ -12,8 +12,11 @@
     x:Class="Vikela.Implementation.View.ContactDetailView" 
     x:TypeArguments="p:ContactDetailViewController, m:ContactDetailViewModel">
     <StackLayout>
+        <StackLayout.GestureRecognizers>
+              <TapGestureRecognizer Tapped="SelectPictureTapped"/>
+        </StackLayout.GestureRecognizers>
         <Frame>
-            <controls:CircleImage Source="{Binding ContactPicture, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
+            <controls:CircleImage Source="{Binding ContactPicture.Selfie, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
                 <controls:CircleImage.WidthRequest>
                     <OnPlatform x:TypeArguments="x:Double">
                         <On Platform="Android, iOS">55</On>

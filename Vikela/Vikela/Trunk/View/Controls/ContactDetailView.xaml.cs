@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Vikela.Implementation.ViewController;
 using Vikela.Implementation.ViewModel;
 using Vikela.Root.View;
@@ -34,7 +35,12 @@ namespace Vikela.Implementation.View
         protected override void SetSVGCollection()
         {
         }
-    }
+
+        public async void SelectPictureTapped(object sender, EventArgs args)
+        {
+            await _ViewController.CapturePhotoAsync();
+        }
+     }
 }
 
 

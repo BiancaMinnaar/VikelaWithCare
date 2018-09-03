@@ -24,7 +24,11 @@ namespace Vikela.Implementation.Repository
                 FirstName = source.FirstName,
                 LastName = source.LastName,
                 CellNumber = source.CellNumber,
-                IDNumber = source.IDNumber
+                IDNumber = source.IDNumber,
+                ContactPicture = new SelfieViewModel
+                {
+                    Selfie = source.UserPicture
+                }
             };
         }
 
