@@ -6,6 +6,9 @@ using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Trunk.ViewModel;
 using Vikela.Trunk.ViewModel.Offline;
+using System.Linq;
+using System.Threading.Tasks;
+using Vikela.Trunk.Service;
 
 namespace Vikela.Mobile.UnitTests
 {
@@ -19,6 +22,7 @@ namespace Vikela.Mobile.UnitTests
         MockRepository repository;
         Mock<IMasterRepository> masterRepoMock;
         Mock<IRegisterService> registerService;
+        Mock<IDynamixService> dynamixService;
         IRegisterRepository registerRepo;
 
         public RegisterRepositoryTests()
@@ -26,7 +30,8 @@ namespace Vikela.Mobile.UnitTests
             repository = new MockRepository(MockBehavior.Strict) { DefaultValue = DefaultValue.Mock };
             masterRepoMock = repository.Create<IMasterRepository>();
             registerService = repository.Create<IRegisterService>();
-            registerRepo = new RegisterRepository(masterRepoMock.Object, registerService.Object);
+            dynamixService = repository.Create<IDynamixService>();
+            registerRepo = new RegisterRepository(masterRepoMock.Object, registerService.Object, dynamixService.Object);
         }
 
         private RegisterViewModel getSimpleRegisterModel()
@@ -88,6 +93,24 @@ namespace Vikela.Mobile.UnitTests
 
             registerRepo.SetUserRecordWithRegisterViewModelAsync(regModel);
 
+            repository.VerifyAll();
+        }
+
+        [TestMethod]
+        public void TestGetUserWithOIDAsyncTranslatesModel()
+        {
+            var regModel = new RegisterViewModel()
+            {
+                FirstName = TokenName,
+                LastName = "Minnaar",
+                MobileNumber = "0835666566",
+                OID = OID,
+                UserPicture = pictureBytes,
+                TokenID = ARToken,
+                PictureStorageSASToken = "Picture SAS"
+            };
+            dynamixService.Setup(s => s.GetUserWithOIDAsync(It.Is<RegisterViewModel>(a => a.FirstName == TokenName)));
+            registerRepo.RegisterWithD365Async(regModel);
             repository.VerifyAll();
         }
     }
