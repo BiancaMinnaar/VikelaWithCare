@@ -41,14 +41,14 @@ namespace Vikela.Implementation.ViewController
             await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(registration);
             await _Reposetory.GetUserSelfieFromStorageAsync();
             await SetUserWithD365DataAsync(registration);
-            _Reposetory.RegisterOrShowProfile(_Reposetory.IsRegisteredUser(_ResponseContent, true));
+            _Reposetory.RegisterOrShowProfile(_Reposetory.IsRegisteredUser(_ResponseContent));
             _MasterRepo.HideLoading();
         }
 
         private async Task SetUserWithD365DataAsync(RegisterViewModel model)
         {
             await _RegisterRepo.GetUserWithOIDAsync(model);
-            if (!HasErrors)
+            if (!HasErrors && _ResponseContent != "Not Found")
             {
                 var user = _ResponseContent;
             }

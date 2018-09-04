@@ -47,11 +47,11 @@ namespace Vikela.Root.ViewController
             {
                 base._RawBytes = null;
                 base._ResponseContent = string.Empty;
-                //UserDialogs.Instance.ShowLoading();
             };
             base.NetworkCallCompleted += (sender, e) =>
             {
-                //UserDialogs.Instance.HideLoading();
+				if (e.NetworkCallMessage == "Not Found")
+				    base._ResponseContent = "Not Found";
             };
         }
 
