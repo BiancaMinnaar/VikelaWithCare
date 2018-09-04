@@ -13,15 +13,15 @@ namespace Vikela.Implementation.ViewController
 {
     public class RegisterViewController : ProjectBaseViewController<RegisterViewModel>, IRegisterViewController
     {
-        IRegisterRepository<RegisterViewModel> _Reposetory;
-        IRegisterService<RegisterViewModel> _Service;
+        IRegisterRepository _Reposetory;
+        IRegisterService _Service;
         IDynamixService _DynamixService;
 
         public override void SetRepositories()
         {
-            _Service = new RegisterService<RegisterViewModel>((U, P, C, A) =>
-                                                                     ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegisterViewModel>(U, P, C, A));
-            _Reposetory = new RegisterRepository<RegisterViewModel>(_MasterRepo, _Service);
+            _Service = new RegisterService((U, P, A) =>
+                                                                     ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
+            _Reposetory = new RegisterRepository(_MasterRepo, _Service);
         }
 
         public async Task RegisterAsync()
@@ -32,17 +32,17 @@ namespace Vikela.Implementation.ViewController
 
         public void OAuthFacebook()
         {
-            _Reposetory.OAuthFacebook(InputObject, null);
+            _Reposetory.OAuthFacebook(InputObject);
         }
 
         public void OAuthInstagram()
         {
-            _Reposetory.OAuthFacebook(InputObject, null);
+            _Reposetory.OAuthFacebook(InputObject);
         }
 
         public void OAuthGoogle()
         {
-            _Reposetory.OAuthFacebook(InputObject, null);
+            _Reposetory.OAuthFacebook(InputObject);
         }
     }
 }

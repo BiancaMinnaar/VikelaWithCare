@@ -17,8 +17,8 @@ namespace Vikela.Implementation.ViewController
     {
         IMyCoverRepository<MyCoverViewModel> _Reposetory;
         IMyCoverService<MyCoverViewModel> _Service;
-        IRegisterService<RegisterViewModel> _RegisterService;
-        IRegisterRepository<RegisterViewModel> _RegisterRepo;
+        IRegisterService _RegisterService;
+        IRegisterRepository _RegisterRepo;
 		IDynamixService _DynamixService;
 
         public override void SetRepositories()
@@ -26,11 +26,11 @@ namespace Vikela.Implementation.ViewController
             _Service = new MyCoverService<MyCoverViewModel>((U, P, C, A) => 
                                                            ExecuteQueryWithReturnTypeAndNetworkAccessAsync<MyCoverViewModel>(U, P, C, A));
             _Reposetory = new MyCoverRepository<MyCoverViewModel>(_MasterRepo, _Service);
-            _RegisterService = new RegisterService<RegisterViewModel>((U, P, C, A) =>
-                                                                     ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegisterViewModel>(U, P, C, A));
+            _RegisterService = new RegisterService((U, P, A) =>
+                                                   ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
             _DynamixService = new DynamixService((U, P, A) =>
                                                  ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
-            _RegisterRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, _RegisterService, _DynamixService);
+            _RegisterRepo = new RegisterRepository(_MasterRepo, _RegisterService, _DynamixService);
         }
 
         public void Load(Action detailClick, Action<object> trustedSourcesClick)

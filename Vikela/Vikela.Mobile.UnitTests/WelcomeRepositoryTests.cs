@@ -16,7 +16,7 @@ namespace Vikela.Mobile.UnitTests
 
             var masterRepoMock = repository.Create<IMasterRepository>();
             masterRepoMock.Setup(m => m.GetRegisteredUserOID()).Returns("d0b680d6-95c5-43e3-b036-c850a2696675");
-            var registerRepoMock = repository.Create<IRegisterRepository<RegisterViewModel>>();
+            var registerRepoMock = repository.Create<IRegisterRepository>();
             registerRepoMock.Setup(m => m.GetDyn365RegisterViewModel()).Returns(new RegisterViewModel());
             var selfieRepoMock = repository.Create <ISelfieRepository <RegisterViewModel>>();
             var WelcomeRepo = new WelcomeRepository(masterRepoMock.Object, registerRepoMock.Object, selfieRepoMock.Object);

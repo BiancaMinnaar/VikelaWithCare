@@ -9,21 +9,20 @@ using Vikela.Trunk.ViewModel.Offline;
 using Vikela.Trunk.Repository.Implementation;
 using Vikela.Trunk.Injection.Base;
 using Vikela.Trunk.Service;
-using Microsoft.Identity.Client;
+using Vikela.Trunk.ViewModel.Interfaces;
 using Newtonsoft.Json.Linq;
 using System.Text;
 using System.Linq;
 
 namespace Vikela.Implementation.Repository
 {
-    public class RegisterRepository<T> : ProjectBaseRepository, IRegisterRepository<T>
-        where T : BaseViewModel
+    public class RegisterRepository : ProjectBaseRepository, IRegisterRepository
     {
-        IRegisterService<RegisterViewModel> _Service;
+        IRegisterService _Service;
         IDynamixService _DynamixService;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
 
-        public RegisterRepository(IMasterRepository masterRepository, IRegisterService<RegisterViewModel> service, IDynamixService dynamix=null)
+        public RegisterRepository(IMasterRepository masterRepository, IRegisterService service, IDynamixService dynamix=null)
             : base(masterRepository)
         {
             _Service = service;
@@ -58,7 +57,7 @@ namespace Vikela.Implementation.Repository
             await _MasterRepo.SetUserRecordAsync(model);
         }
 
-        public void OAuthFacebook(RegisterViewModel model, Action<T> completeAction)
+        public void OAuthFacebook(RegisterViewModel model)
         {
             foreach (var service in _PlatformBonsai.GetBonsaiServices)
             {
@@ -76,12 +75,12 @@ namespace Vikela.Implementation.Repository
             }
         }
 
-        public void OAuthInstagram(RegisterViewModel model, Action<T> completeAction)
+        public void OAuthInstagram(RegisterViewModel model)
         {
             throw new NotImplementedException();
         }
 
-        public void OAuthGoogle(RegisterViewModel model, Action<T> completeAction)
+        public void OAuthGoogle(RegisterViewModel model)
         {
             throw new NotImplementedException();
         }
@@ -104,7 +103,7 @@ namespace Vikela.Implementation.Repository
 			}
         }
 
-        public RegisterViewModel GetUserFromARToken(AuthenticationResult ar)
+        public RegisterViewModel GetUserFromARToken(IAuthenticationResult ar)
         {
             JObject user = ParseIdToken(ar.IdToken);
             var name = user["name"]?.ToString();

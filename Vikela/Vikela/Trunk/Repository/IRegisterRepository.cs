@@ -1,23 +1,20 @@
-using System;
 using System.Threading.Tasks;
-using CorePCL;
-using Microsoft.Identity.Client;
 using Vikela.Implementation.ViewModel;
+using Vikela.Trunk.ViewModel.Interfaces;
 using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Interface.Repository
 {
-    public interface IRegisterRepository<T>
-        where T : BaseViewModel
+    public interface IRegisterRepository
     {
         Task SetUserRecordWithRegisterViewModelAsync(RegisterViewModel model);
         Task SetUserRecordWithRegisterViewModelAsync(UserModel model);
-        void OAuthFacebook(RegisterViewModel model, Action<T> completeAction);
-        void OAuthInstagram(RegisterViewModel model, Action<T> completeAction);
-        void OAuthGoogle(RegisterViewModel model, Action<T> completeAction);
+        void OAuthFacebook(RegisterViewModel model);
+        void OAuthInstagram(RegisterViewModel model);
+        void OAuthGoogle(RegisterViewModel model);
         Task CallForImageBlobStorageSASAsync(RegisterViewModel model);
         Task<string[]> RegisterWithD365Async(RegisterViewModel model);
-        RegisterViewModel GetUserFromARToken(AuthenticationResult ar);
+        RegisterViewModel GetUserFromARToken(IAuthenticationResult ar);
         RegisterViewModel GetDyn365RegisterViewModel();
         Task GetUserWithOIDAsync(RegisterViewModel model);
     }

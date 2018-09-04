@@ -321,6 +321,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\ContactDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Controls\PhotoRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IPhotoRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Interfaces\IAuthenticationResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\AzureAuthenticationResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
@@ -349,5 +351,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\Factory\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Profile\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Controls\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Interfaces\" />
   </ItemGroup>
 </Project>
