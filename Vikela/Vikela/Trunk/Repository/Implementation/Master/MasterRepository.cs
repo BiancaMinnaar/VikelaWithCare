@@ -46,6 +46,14 @@ namespace Vikela.Trunk.Repository.Implementation
             DataSource.TrustedSourceEditIndex = -1;
         }
 
+        public string GetRegisteredUserOID()
+		{
+			if (DataSource != null && DataSource.User != null)
+				return DataSource.User.OID;
+			else
+				return new Guid().ToString();
+		}
+
         private List<ContactModel> GetTrustedSources()
         {
             return new List<ContactModel>

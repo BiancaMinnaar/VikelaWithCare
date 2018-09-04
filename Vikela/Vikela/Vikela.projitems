@@ -116,8 +116,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\WelcomeViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IWelcomeRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\WelcomeRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IWelcomeService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\WelcomeService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\LoginViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>

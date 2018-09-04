@@ -1,26 +1,21 @@
 using System;
 using System.Threading.Tasks;
-using CorePCL;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
-using Vikela.Interface.Service;
 using Vikela.Root.Repository;
 
 namespace Vikela.Implementation.Repository
 {
-    public class WelcomeRepository<T> : ProjectBaseRepository, IWelcomeRepository<T>
-        where T : BaseViewModel
+    public class WelcomeRepository : ProjectBaseRepository, IWelcomeRepository
     {
-        IWelcomeService<T> _Service;
         IRegisterRepository<RegisterViewModel> _RegisterRepo;
         ISelfieRepository<RegisterViewModel> _SelfieRepo;
 
-        public WelcomeRepository(IMasterRepository masterRepository, IWelcomeService<T> service, 
+        public WelcomeRepository(IMasterRepository masterRepository, 
                                  IRegisterRepository<RegisterViewModel> registerRepo,
                                 ISelfieRepository<RegisterViewModel> selfieRepo)
             : base(masterRepository)
         {
-            _Service = service;
             _RegisterRepo = registerRepo;
             _SelfieRepo = selfieRepo;
         }
@@ -45,7 +40,7 @@ namespace Vikela.Implementation.Repository
 
         public bool IsRegisteredUser(string D365Data, bool toOverride=false)
         {
-            var isAuthenticated = _MasterRepo.DataSource.User.OID != Guid.Empty.ToString();
+            var isAuthenticated = _MasterRepo.GetRegisteredUserOID() != Guid.Empty.ToString();
             var hasRegistrationRecord = _RegisterRepo.GetDyn365RegisterViewModel().ErrorList.Length == 0;
             var isIn365 = D365Data != string.Empty;
             return toOverride || isAuthenticated && hasRegistrationRecord && isIn365;

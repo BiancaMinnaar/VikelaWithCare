@@ -14,8 +14,7 @@ namespace Vikela.Implementation.ViewController
 {
     public class WelcomeViewController : ProjectBaseViewController<WelcomeViewModel>, IWelcomeViewController
     {
-        IWelcomeRepository<WelcomeViewModel> _Reposetory;
-        IWelcomeService<WelcomeViewModel> _Service;
+        IWelcomeRepository _Reposetory;
         IRegisterService<RegisterViewModel> _RegisterService;
         IRegisterRepository<RegisterViewModel> _RegisterRepo;
         ISelfieRepository<RegisterViewModel> _SelfieRepo;
@@ -23,15 +22,13 @@ namespace Vikela.Implementation.ViewController
 
         public override void SetRepositories()
         {
-            _Service = new WelcomeService<WelcomeViewModel>((U, P, C, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<WelcomeViewModel>(U, P, C, A));
             _RegisterService = new RegisterService<RegisterViewModel>((U, P, C, A) =>
                                                                      ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegisterViewModel>(U, P, C, A));
             _DynamixService = new DynamixService((U, P, A) =>
                                                  ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
             _RegisterRepo = new RegisterRepository<RegisterViewModel>(_MasterRepo, _RegisterService, _DynamixService);
             _SelfieRepo = new SelfieRepository<RegisterViewModel>(_MasterRepo, null);
-            _Reposetory = new WelcomeRepository<WelcomeViewModel>(_MasterRepo, _Service, _RegisterRepo, _SelfieRepo);
+            _Reposetory = new WelcomeRepository(_MasterRepo, _RegisterRepo, _SelfieRepo);
         }
 
         public async Task SetUserAsync(AuthenticationResult ar)

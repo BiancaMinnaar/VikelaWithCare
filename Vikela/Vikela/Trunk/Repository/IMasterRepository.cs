@@ -11,7 +11,8 @@ namespace Vikela.Interface.Repository
     public interface IMasterRepository
     {
         MasterModel DataSource { get; set; }
-        void SetRootView(Page rootView);
+		string GetRegisteredUserOID();
+		void SetRootView(Page rootView);
         Page GetRootView();
         void PushLogOut();
         void PopView();
