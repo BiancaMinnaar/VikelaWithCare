@@ -110,7 +110,7 @@ namespace Vikela.Mobile.UnitTests
                 PictureStorageSASToken = "Picture SAS"
             };
             dynamixService.Setup(s => s.GetUserWithOIDAsync(It.Is<RegisterViewModel>(a => a.FirstName == TokenName)));
-            registerRepo.RegisterWithD365Async(regModel);
+            registerRepo.GetUserWithOIDAsync(regModel);
             repository.VerifyAll();
         }
     }
