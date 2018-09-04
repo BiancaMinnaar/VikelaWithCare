@@ -46,7 +46,6 @@ namespace Vikela.Implementation.Repository
         public bool IsRegisteredUser(string D365Data, bool toOverride=false)
         {
             var isAuthenticated = _MasterRepo.DataSource.User.OID != Guid.Empty.ToString();
-            //Has 356 account?
             var hasRegistrationRecord = _RegisterRepo.GetDyn365RegisterViewModel().ErrorList.Length == 0;
             var isIn365 = D365Data != string.Empty;
             return toOverride || isAuthenticated && hasRegistrationRecord && isIn365;
