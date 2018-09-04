@@ -51,7 +51,10 @@ namespace Vikela.Mobile.UnitTests
         [TestMethod]
         public void TestRegisterOrShowProfileShowRegisterForNewUser()
         {
-
+            masterRepoMock.Setup(m => m.GetRegisteredUserOID()).Returns("d0b680d6-95c5-43e3-b036-c850a2696675");
+            registerRepoMock.Setup(m => m.GetDyn365RegisterViewModel()).Returns(new RegisterViewModel());
+            Assert.AreEqual(false, WelcomeRepo.IsRegisteredUser(""));
+            repository.VerifyAll();
         }
     }
 }

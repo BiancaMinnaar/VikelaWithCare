@@ -16,7 +16,7 @@ namespace Vikela.Trunk.Service.Implementation
 
         public async Task RegisterUserAsync(RegisterViewModel model)
         {
-            string requestURL = "/dyn365/api/v1.0/User/register";
+            string requestURL = "/dyn365/api/v1.0/User/create";
             var httpMethod = BaseNetworkAccessEnum.Put;
             var parameters = new Dictionary<string, ParameterTypedValue>()
             {
