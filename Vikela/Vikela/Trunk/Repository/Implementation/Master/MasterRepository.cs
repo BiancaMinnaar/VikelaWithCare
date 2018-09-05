@@ -219,6 +219,11 @@ namespace Vikela.Trunk.Repository.Implementation
             _Navigation.PushAsync(new RegistrationNameView());
         }
 
+        public void PushRegistrationEmailAddress()
+        {
+            _Navigation.PushAsync(new RegistrationEmailView());
+        }
+
         public void PushRegistrationCellphone()
         {
             _Navigation.PushAsync(new RegistrationCellphoneView());

@@ -90,6 +90,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegistrationEmailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -323,6 +327,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IPhotoRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Interfaces\IAuthenticationResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\AzureAuthenticationResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\RegistrationEmailViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IRegistrationEmailViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\RegistrationEmailViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IRegistrationEmailRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IRegistrationEmailService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\RegistrationEmailService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegistrationEmailView.xaml.cs">
+      <DependentUpon>RegistrationEmailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\RegistrationEmailRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />

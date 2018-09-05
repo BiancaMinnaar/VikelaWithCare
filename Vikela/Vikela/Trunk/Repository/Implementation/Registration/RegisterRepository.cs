@@ -43,6 +43,7 @@ namespace Vikela.Implementation.Repository
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
+                EmailAddress = model.EmailAddress,
                 MobileNumber = model.MobileNumber,
                 OID = model.OID,
                 UserPicture = model.UserPicture,

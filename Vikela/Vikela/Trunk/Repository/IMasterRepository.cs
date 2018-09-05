@@ -35,6 +35,7 @@ namespace Vikela.Interface.Repository
         void PushMyCoverView();
         void PushSelfieView();
         void PushRegistrationName();
+        void PushRegistrationEmailAddress();
         void PushRegistrationCellphone();
         void PushRegistrationOTP();
         void PushRegistrationIDNumber();

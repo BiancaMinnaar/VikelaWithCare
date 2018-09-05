@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
@@ -8,21 +9,20 @@ using Vikela.Trunk.Repository.Implementation;
 
 namespace Vikela.Implementation.Repository
 {
-    public class RegistrationNameRepository<T> : ProjectBaseRepository, IRegistrationNameRepository<T>
+    public class RegistrationEmailRepository<T> : ProjectBaseRepository, IRegistrationEmailRepository<T>
         where T : BaseViewModel
     {
-        IRegistrationNameService<T> _Service;
+        IRegistrationEmailService<T> _Service;
 
-        public RegistrationNameRepository(IMasterRepository masterRepository, IRegistrationNameService<T> service)
+        public RegistrationEmailRepository(IMasterRepository masterRepository, IRegistrationEmailService<T> service)
             : base(masterRepository)
         {
             _Service = service;
         }
 
-        public async Task UpdateNameAsync(RegistrationNameViewModel model)
+        public async Task UpdateEmailAsync(RegistrationEmailViewModel model)
         {
-            _MasterRepo.DataSource.User.FirstName = model.FirstName;
-            _MasterRepo.DataSource.User.LastName = model.LastName;
+            _MasterRepo.DataSource.User.EmailAddress = model.EmailAddress;
             await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
         }
     }

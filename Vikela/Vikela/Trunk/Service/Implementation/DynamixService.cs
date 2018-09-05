@@ -17,7 +17,7 @@ namespace Vikela.Trunk.Service.Implementation
         public async Task RegisterUserAsync(RegisterViewModel model)
         {
             string requestURL = "/dyn365/api/v1.0/User/create";
-            var httpMethod = BaseNetworkAccessEnum.Put;
+            var httpMethod = BaseNetworkAccessEnum.Post;
             var parameters = new Dictionary<string, ParameterTypedValue>()
             {
                 {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},

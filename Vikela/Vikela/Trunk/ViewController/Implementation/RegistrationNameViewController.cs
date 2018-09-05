@@ -26,7 +26,7 @@ namespace Vikela.Implementation.ViewController
         public async Task UpdateNameAsync()
         {
             await _Reposetory.UpdateNameAsync(InputObject);
-            _MasterRepo.PushRegistrationCellphone();
+            _MasterRepo.PushRegistrationEmailAddress();
         }
     }
 }

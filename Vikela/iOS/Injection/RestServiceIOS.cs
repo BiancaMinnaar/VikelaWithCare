@@ -7,6 +7,7 @@ using System.Net;
 using Vikela.iOS.Injection;
 using Vikela.Root;
 using System;
+using Newtonsoft.Json;
 
 [assembly: Dependency(typeof(RestServiceIOS))]
 namespace Vikela.iOS.Injection
@@ -94,7 +95,9 @@ namespace Vikela.iOS.Injection
         public async Task<INetworkResponse> ExecuteTaskAsync(INetworkRequest req)
         {
             var client = new RestClient(Constants.BASE_URL);
+            Console.WriteLine("Network Request: " + JsonConvert.SerializeObject(req));
             var response = await client.ExecuteTaskAsync((IRestRequest)req);
+            Console.WriteLine("Network Response: " + JsonConvert.SerializeObject(response));
             return new RestRspns(response);
         }
 
