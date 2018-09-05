@@ -35,6 +35,7 @@ namespace Vikela.Implementation.Repository
         public void UpdateMasterWithTrustedSource(ContactDetailViewModel model)
         {
             var source = _MasterRepo.DataSource.TrustedSources[_MasterRepo.DataSource.TrustedSourceEditIndex];
+            source.UserPicture = model.ContactPicture.Selfie;
             source.FirstName = model.FirstName;
             source.LastName = model.LastName;
             source.CellNumber = model.CellNumber;
