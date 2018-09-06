@@ -9,7 +9,7 @@ using Vikela.Root.ViewController;
 
 namespace Vikela.Implementation.ViewController
 {
-    public class AddTrustedSourceViewController : ProjectBaseViewController<AddTrustedSourceViewModel>, IAddTrustedSourceViewController
+    public class AddTrustedSourceViewController : ProjectBaseViewController<AddContactViewModel>, IAddTrustedSourceViewController
     {
         IAddTrustedSourceRepository _Reposetory;
 

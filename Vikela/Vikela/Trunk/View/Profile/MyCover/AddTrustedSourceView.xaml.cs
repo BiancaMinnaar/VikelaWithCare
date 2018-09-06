@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace Vikela.Implementation.View
 {
-    public partial class AddTrustedSourceView : ProjectBaseContentPage<AddTrustedSourceViewController, AddTrustedSourceViewModel>
+    public partial class AddTrustedSourceView : ProjectBaseContentPage<AddTrustedSourceViewController, AddContactViewModel>
     {
         public AddTrustedSourceView()
         {

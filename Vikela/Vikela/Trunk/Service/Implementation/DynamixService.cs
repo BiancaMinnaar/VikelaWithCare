@@ -48,9 +48,28 @@ namespace Vikela.Trunk.Service.Implementation
             await _NetworkInterfaceWithTypedParameters(requestURL, parameters, httpMethod);
         }
 
-        public async Task AddTrustedSourceAsync(AddTrustedSourceViewModel model)
+        public async Task AddTrustedSourceAsync(AddContactViewModel model)
         {
             string requestURL = "/dyn365/api/v1.0/User/addsource";
+            var httpMethod = BaseNetworkAccessEnum.Put;
+            var parameters = new Dictionary<string, ParameterTypedValue>()
+            {
+                {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},
+                {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
+                {"body", new ParameterTypedValue(new
+                {
+                    benefactorUserId= model.SourceDetail.UserID,
+                    beneficiaryFirstName= model.SourceDetail.FirstName,
+                    beneficiaryLastName= model.SourceDetail.LastName,
+                    beneficiaryMobileNumber= model.SourceDetail.CellNumber,
+                }, ParameterTypeEnum.BodyParameter)}
+            };
+            await _NetworkInterfaceWithTypedParameters(requestURL, parameters, httpMethod);
+        }
+
+        public async Task AddBeneficiaryAsync(AddContactViewModel model)
+        {
+            string requestURL = "/dyn365/api/v1.0/User/addbeneficiary";
             var httpMethod = BaseNetworkAccessEnum.Put;
             var parameters = new Dictionary<string, ParameterTypedValue>()
             {

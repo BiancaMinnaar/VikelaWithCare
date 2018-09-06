@@ -274,13 +274,7 @@
       <DependentUpon>PersonalDetailsTile.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\Factory\TileViewFactory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\AddBeneficiaryViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IAddBeneficiaryViewController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\AddBeneficiaryViewController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IAddBeneficiaryRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\AddBeneficiaryRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IAddBeneficiaryService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\AddBeneficiaryService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\AddBeneficiaryView.xaml.cs">
       <DependentUpon>AddBeneficiaryView.xaml</DependentUpon>
     </Compile>
@@ -302,13 +296,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\AzureBlobStorageRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IDynamixService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\DynamixService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\AddTrustedSourceViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\AddContactViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IAddTrustedSourceViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\AddTrustedSourceViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IAddTrustedSourceRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\AddTrustedSourceRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IAddTrustedSourceService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\AddTrustedSourceService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\AddTrustedSourceView.xaml.cs">
       <DependentUpon>AddTrustedSourceView.xaml</DependentUpon>
     </Compile>
