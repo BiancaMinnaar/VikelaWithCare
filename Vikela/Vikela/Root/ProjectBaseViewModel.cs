@@ -15,6 +15,7 @@ namespace Vikela.Root.ViewModel
         public bool HasErrors { get; set; }
         [JsonIgnore]
         public IDictionary<string, string[]> LookupLists;
+		public Guid TokenID{ get;set;}
 
         public ProjectBaseViewModel()
         {

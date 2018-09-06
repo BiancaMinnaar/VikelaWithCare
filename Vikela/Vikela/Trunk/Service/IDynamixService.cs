@@ -9,5 +9,6 @@ namespace Vikela.Trunk.Service
     {
 		Task RegisterUserAsync(RegisterViewModel model);
         Task GetUserWithOIDAsync(RegisterViewModel model);
+		Task AddTrustedSourceAsync(AddTrustedSourceViewModel model);
     }
 }
