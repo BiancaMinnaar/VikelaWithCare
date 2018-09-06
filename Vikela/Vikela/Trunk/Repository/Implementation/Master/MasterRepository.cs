@@ -134,6 +134,8 @@ namespace Vikela.Trunk.Repository.Implementation
             var localUser = await GetUserRecordAsync();
             if (localUser != null)
             {
+                model.TokenID = localUser.TokenID;
+                model.UserID = localUser.UserID;
                 model.OID = localUser.OID;
                 var affected = await OfflineStorageRepo.UpdateRecord(model);
                 var whatIsAff = affected;
@@ -264,5 +266,10 @@ namespace Vikela.Trunk.Repository.Implementation
             //OfflineStorageRepo.QueryTable("")
             DataSource.TrustedSources[index] = model;
         }
+
+		public void SaveBeneficiary(ContactModel model)
+		{
+			DataSource.DefaultBeneficiary = model;
+		}
     }
 }

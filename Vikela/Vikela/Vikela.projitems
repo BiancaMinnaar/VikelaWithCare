@@ -274,7 +274,6 @@
       <DependentUpon>PersonalDetailsTile.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\Factory\TileViewFactory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IAddBeneficiaryViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\AddBeneficiaryView.xaml.cs">
       <DependentUpon>AddBeneficiaryView.xaml</DependentUpon>
     </Compile>

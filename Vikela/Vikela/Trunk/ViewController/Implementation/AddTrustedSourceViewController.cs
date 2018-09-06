@@ -28,6 +28,11 @@ namespace Vikela.Implementation.ViewController
             _Reposetory.UpdateMasterWithTrustedSource(InputObject.SourceDetail);
         }
 
+		public void SaveBenificiary()
+		{
+            _Reposetory.UpdateMasterWithBeneficiary(InputObject.SourceDetail);
+		}
+
         public void PopToCover()
         {
             _MasterRepo.PopView();

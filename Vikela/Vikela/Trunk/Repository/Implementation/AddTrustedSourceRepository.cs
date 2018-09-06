@@ -43,5 +43,16 @@ namespace Vikela.Implementation.Repository
             _MasterRepo.SaveTrustedSource(source, _MasterRepo.DataSource.TrustedSourceEditIndex);
             _MasterRepo.DataSource.TrustedSourceEditIndex = -1;
         }
+
+        public void UpdateMasterWithBeneficiary(ContactDetailViewModel model)
+        {
+            var source = _MasterRepo.DataSource.DefaultBeneficiary;
+            source.UserPicture = model.ContactPicture.Selfie;
+            source.FirstName = model.FirstName;
+            source.LastName = model.LastName;
+            source.CellNumber = model.CellNumber;
+            source.IDNumber = model.IDNumber;
+            _MasterRepo.SaveBeneficiary(source);
+        }
     }
 }

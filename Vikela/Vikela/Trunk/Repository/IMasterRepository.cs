@@ -27,6 +27,7 @@ namespace Vikela.Interface.Repository
         Task<UserModel> GetUserModelFromOfflineAsync();
         Task SetUserRecordAsync(UserModel model);
         Task RemoveUserRecordAsync(UserModel model);
+		void SaveBeneficiary(ContactModel model);
         void SaveTrustedSource(ContactModel model, int index);
         //Navigation
         void PushLoginView();

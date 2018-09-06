@@ -9,5 +9,6 @@ namespace Vikela.Interface.Repository
     {
         ContactDetailViewModel GetTrustedContactDetailFromMaster();
         void UpdateMasterWithTrustedSource(ContactDetailViewModel model);
+		void UpdateMasterWithBeneficiary(ContactDetailViewModel model);
     }
 }

@@ -10,8 +10,9 @@ namespace Vikela.Root.ViewModel
         public bool IsExistingClient { get; set; }
         public IPlatformModelBase PlatformModel { get; set; }
         public IEnumerable<PlatformServiceBonsai<IPlatformModelBase>> PlatformServiceList { get; }
-        public UserModel User {get;set;}
-		public List<ContactModel> TrustedSources {get;set;}
+        public UserModel User { get; set;}
+		public ContactModel DefaultBeneficiary{ get; set;}
+		public List<ContactModel> TrustedSources { get; set;}
         public int TrustedSourceEditIndex { get; set; }
         public List<ContactModel> Beneficiaries {get;set;}
     }

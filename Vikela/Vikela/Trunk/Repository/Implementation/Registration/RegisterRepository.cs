@@ -129,7 +129,7 @@ namespace Vikela.Implementation.Repository
                 MobileNumber = _MasterRepo.DataSource.User.MobileNumber,
                 OID = _MasterRepo.DataSource.User.OID,
                 UserPictureURL = "Edit",
-                TokenID = _MasterRepo.DataSource.User.TokenID
+				TokenID = _MasterRepo.DataSource.User.TokenID
             };
         }
 

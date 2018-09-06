@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Microsoft.Identity.Client;
+using Newtonsoft.Json.Linq;
 using Vikela.Implementation.Repository;
 using Vikela.Implementation.Service;
 using Vikela.Implementation.ViewModel;
@@ -50,6 +51,8 @@ namespace Vikela.Implementation.ViewController
             await _RegisterRepo.GetUserWithOIDAsync(model);
             if (!HasErrors && _ResponseContent != "Not Found")
             {
+                var objectss = JObject.Parse(_ResponseContent);
+
                 var user = _ResponseContent;
             }
         }
