@@ -266,6 +266,7 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             //OfflineStorageRepo.QueryTable("")
             DataSource.TrustedSources[index] = model;
+
         }
 
 		public void SaveBeneficiary(ContactModel model)

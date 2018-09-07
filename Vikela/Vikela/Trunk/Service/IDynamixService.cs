@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Vikela.Implementation.ViewModel;
 
 namespace Vikela.Trunk.Service
@@ -11,5 +9,6 @@ namespace Vikela.Trunk.Service
         Task GetUserWithOIDAsync(RegisterViewModel model);
 		Task AddTrustedSourceAsync(AddContactViewModel model);
 		Task AddBeneficiaryAsync(AddContactViewModel model);
+        Task GetConnectedContacts(RegisterViewModel model);
     }
 }

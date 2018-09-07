@@ -15,7 +15,16 @@ namespace Vikela.Root.ViewModel
         public bool HasErrors { get; set; }
         [JsonIgnore]
         public IDictionary<string, string[]> LookupLists;
-		public Guid TokenID{ get;set;}
+        private string tokenID;
+        public string TokenID
+        {
+            get { return tokenID; }
+            set
+            {
+                tokenID = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TokenID"));
+            }
+        }
 
         public ProjectBaseViewModel()
         {

@@ -1,5 +1,4 @@
 using System.ComponentModel;
-using CorePCL;
 using Vikela.Root.ViewModel;
 
 namespace Vikela.Implementation.ViewModel
@@ -85,6 +84,20 @@ namespace Vikela.Implementation.ViewModel
             }
         }
 
+        private string userID;
+        public string UserID
+        {
+            get
+            {
+                return userID;
+            }
+            set
+            {
+                userID = value;
+                OnPropertyChanged("UserID");
+            }
+        }
+
         private string oID;
         public string OID
         {
@@ -93,17 +106,6 @@ namespace Vikela.Implementation.ViewModel
             {
                 oID = value;
                 OnPropertyChanged("OID");
-            }
-        }
-
-        private string tokenID;
-        public string TokenID
-        {
-            get { return tokenID; }
-            set
-            {
-                tokenID = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TokenID"));
             }
         }
 
