@@ -13,6 +13,7 @@ using Vikela.Trunk.ViewModel.Interfaces;
 using Newtonsoft.Json.Linq;
 using System.Text;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace Vikela.Implementation.Repository
 {
@@ -180,6 +181,21 @@ namespace Vikela.Implementation.Repository
                 var localUser = getUserFromResponse(responseContent);
                 await _MasterRepo.SetUserRecordAsync(localUser);
             }
+        }
+
+        public async Task GetUserContactsFromServer(RegisterViewModel model)
+        {
+            await _DynamixService.GetConnectedContacts(model);
+        }
+
+        public async Task SetContactsWithServerDataAsync(string responseContent)
+        {
+            var responseObject = JsonConvert.DeserializeObject(responseContent);
+
+
+
+            //var responseObject = JObject.Parse(responseContent).SelectTokens("");
+            //var contactList = responseObject["data"];
         }
     }
 }

@@ -18,5 +18,7 @@ namespace Vikela.Interface.Repository
         RegisterViewModel GetDyn365RegisterViewModel();
         Task GetUserWithOIDAsync(RegisterViewModel model);
         Task SetUserWithServerDataAsync(string responseContent);
+        Task GetUserContactsFromServer(RegisterViewModel model);
+        Task SetContactsWithServerDataAsync(string responseContent);
     }
 }

@@ -94,7 +94,7 @@ namespace Vikela.Trunk.Service.Implementation
             {
                 {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},
                 {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
-                {"userId", new ParameterTypedValue(model.UserID, ParameterTypeEnum.BodyParameter)}
+                {"userId", new ParameterTypedValue(model.UserID, ParameterTypeEnum.ValueParameter)}
             };
             await _NetworkInterfaceWithTypedParameters(requestURL, parameters, httpMethod);
         }

@@ -39,7 +39,8 @@ namespace Vikela.Implementation.ViewController
         private async Task SetUserWithD365DataAsync(RegisterViewModel model)
         {
             await _RegisterRepo.GetUserWithOIDAsync(model);
-            await _RegisterRepo.SetUserWithServerData(_ResponseContent);
+            await _RegisterRepo.SetUserWithServerDataAsync(_ResponseContent);
+            model.UserID = _MasterRepo.DataSource.User.UserID;
         }
 
         public async Task SetUserAsync(AuthenticationResult ar)
@@ -51,6 +52,8 @@ namespace Vikela.Implementation.ViewController
             await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(registration);
             await _Reposetory.GetUserSelfieFromStorageAsync();
             await SetUserWithD365DataAsync(registration);
+            await _RegisterRepo.GetUserContactsFromServer(registration);
+            await _RegisterRepo.SetContactsWithServerDataAsync(_ResponseContent);
             _Reposetory.RegisterOrShowProfile(_Reposetory.IsRegisteredUser(_ResponseContent));
             _MasterRepo.HideLoading();
         }
