@@ -155,22 +155,29 @@ namespace Vikela.Implementation.Repository
 
         }
 
-        public async Task SetUserWithServerData(string responseContent)
+        private UserModel getUserFromResponse(string responseContent)
+        {
+            var responseObject = JObject.Parse(responseContent);
+            var user = responseObject["data"];
+            var userObject = JObject.Parse(user.ToString());
+            var localUser = _MasterRepo.DataSource.User;
+            localUser.UserID = userObject["userId"].ToString();
+            localUser.OID = userObject["aadObjectId"].ToString();
+            localUser.EmailAddress = userObject["eMailAddress"].ToString();
+            localUser.FirstName = userObject["firstName"].ToString();
+            localUser.LastName = userObject["lastName"].ToString();
+            localUser.IDNumber = userObject["idNumber"].ToString();
+            localUser.MobileNumber = userObject["mobileNumber"].ToString();
+            localUser.BarCode = Encoding.ASCII.GetBytes(userObject["barcode"].ToString());
+
+            return localUser;
+        }
+
+        public async Task SetUserWithServerDataAsync(string responseContent)
         {
             if (!responseContent.IsNullOrEmpty())
             {
-                var responseObject = JObject.Parse(responseContent);
-                var user = responseObject["data"];
-                var userObject = JObject.Parse(user.ToString());
-                var localUser = _MasterRepo.DataSource.User;
-                localUser.UserID = userObject["userId"].ToString();
-                localUser.OID = userObject["aadObjectId"].ToString();
-                localUser.EmailAddress = userObject["eMailAddress"].ToString();
-                localUser.FirstName = userObject["firstName"].ToString();
-                localUser.LastName = userObject["lastName"].ToString();
-                localUser.IDNumber = userObject["idNumber"].ToString();
-                localUser.MobileNumber = userObject["mobileNumber"].ToString();
-                localUser.BarCode = Encoding.ASCII.GetBytes(userObject["barcode"].ToString());
+                var localUser = getUserFromResponse(responseContent);
                 await _MasterRepo.SetUserRecordAsync(localUser);
             }
         }
