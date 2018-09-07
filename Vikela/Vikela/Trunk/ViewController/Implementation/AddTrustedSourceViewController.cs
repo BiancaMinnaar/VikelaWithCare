@@ -18,7 +18,7 @@ namespace Vikela.Implementation.ViewController
             _Reposetory = new AddTrustedSourceRepository(_MasterRepo);
         }
 
-        public void Load()
+        public void LoadTrustedSources()
         {
             InputObject.SourceDetail = _Reposetory.GetTrustedContactDetailFromMaster();
         }
@@ -36,6 +36,11 @@ namespace Vikela.Implementation.ViewController
         public void PopToCover()
         {
             _MasterRepo.PopView();
+        }
+
+        public void LoadBeneficiary()
+        {
+            InputObject.SourceDetail = _Reposetory.GetDefaultBeneniciaryFromMaster();
         }
     }
 }

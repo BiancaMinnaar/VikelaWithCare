@@ -32,6 +32,22 @@ namespace Vikela.Implementation.Repository
             };
         }
 
+        public ContactDetailViewModel GetDefaultBeneniciaryFromMaster()
+        {
+            var source = _MasterRepo.DataSource.DefaultBeneficiary;
+            return new ContactDetailViewModel()
+            {
+                FirstName = source.FirstName,
+                LastName = source.LastName,
+                CellNumber = source.CellNumber,
+                IDNumber = source.IDNumber,
+                ContactPicture = new SelfieViewModel
+                {
+                    Selfie = source.UserPicture
+                }
+            };
+        }
+
         public void UpdateMasterWithTrustedSource(ContactDetailViewModel model)
         {
             var source = _MasterRepo.DataSource.TrustedSources[_MasterRepo.DataSource.TrustedSourceEditIndex];

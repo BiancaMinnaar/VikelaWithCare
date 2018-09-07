@@ -44,6 +44,7 @@ namespace Vikela.Trunk.Repository.Implementation
             });
             DataSource.TrustedSources = GetTrustedSources();
             DataSource.TrustedSourceEditIndex = -1;
+            DataSource.DefaultBeneficiary = new ContactModel();
         }
 
         public string GetRegisteredUserOID()

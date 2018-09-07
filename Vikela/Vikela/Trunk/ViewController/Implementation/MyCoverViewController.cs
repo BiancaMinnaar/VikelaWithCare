@@ -10,6 +10,7 @@ using Vikela.Root.ViewController;
 using Vikela.Trunk.ViewModel.Controlls;
 using Vikela.Trunk.Service;
 using Vikela.Trunk.Service.Implementation;
+using Newtonsoft.Json.Linq;
 
 namespace Vikela.Implementation.ViewController
 {
@@ -89,7 +90,13 @@ namespace Vikela.Implementation.ViewController
 					ShowMessage(message);
             }
             else
-                ShowMessage(_ResponseContent);
+            {
+                var body = JObject.Parse(_ResponseContent)["body"];
+                var UserID = JObject.Parse(body.ToString())["userId"];
+                _MasterRepo.DataSource.User.UserID = UserID.ToString();
+                await _MasterRepo.SetUserRecordAsync(_MasterRepo.DataSource.User);
+                ShowMessage(UserID.ToString());
+            }
 		}
     }
 }

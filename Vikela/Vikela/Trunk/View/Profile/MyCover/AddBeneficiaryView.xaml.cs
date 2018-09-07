@@ -12,7 +12,7 @@ namespace Vikela.Implementation.View
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            _ViewController.Load();
+            _ViewController.LoadBeneficiary();
             BindingContext = _ViewController.InputObject;
             Details.Data = _ViewController.InputObject.SourceDetail;
         }
