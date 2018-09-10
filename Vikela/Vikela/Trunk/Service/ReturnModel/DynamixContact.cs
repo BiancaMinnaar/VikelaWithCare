@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using CorePCL;
+﻿using CorePCL;
 
 namespace Vikela.Trunk.Service.ReturnModel
 {
@@ -13,6 +10,6 @@ namespace Vikela.Trunk.Service.ReturnModel
         public string lastName {get;set;}
         public string profileImage {get;set;}
         public string connectionId {get;set;}
-        public string roleId {get;set;}
+        public DynamixRole connectedRole { get; set; }
     }
 }

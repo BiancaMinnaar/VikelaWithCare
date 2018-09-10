@@ -331,6 +331,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IDynamixReturnService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\DynamixReturnService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\DynamixContact.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\DynamixRole.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
