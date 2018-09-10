@@ -1,11 +1,12 @@
-using CorePCL;
-using RestSharp;
-using Xamarin.Forms;
 using System.Threading.Tasks;
-using BasePCL.Networking;
 using System.Net;
-using Vikela.Droid.Injection;
 using Vikela.Root;
+using Vikela.Droid.Injection;
+using RestSharp;
+using BasePCL.Networking;
+using CorePCL;
+using Newtonsoft.Json;
+using Xamarin.Forms;
 
 [assembly: Dependency(typeof(RestServiceDroid))]
 namespace Vikela.Droid.Injection
@@ -40,7 +41,7 @@ namespace Vikela.Droid.Injection
             base.AddHeader(name, value);
         }
 
-        public void AddJsonBody(BaseViewModel body)
+        public new void AddJsonBody(object body)
         {
             base.AddJsonBody(body);
         }
@@ -65,7 +66,7 @@ namespace Vikela.Droid.Injection
         }
     }
 
-    public class RestRspns<T> : RestRspns, INetworkResponse<T> where T : BaseViewModel
+    public class RestRspns<T> : RestRspns, INetworkResponse<T>
     {
         IRestResponse<T> _RestResponse;
 
@@ -75,7 +76,10 @@ namespace Vikela.Droid.Injection
             _RestResponse = response;
         }
 
-        public T Data { get => _RestResponse.Data; set => _RestResponse.Data = value; }
+        public T Data
+        {
+            get => JsonConvert.DeserializeObject<T>(_RestResponse.Content);
+        }
     }
 
     public class RestServiceDroid : INetworkInteraction
@@ -97,7 +101,7 @@ namespace Vikela.Droid.Injection
             return new RestRspns(response);
         }
 
-        public async Task<INetworkResponse<T>> ExecuteTaskAsync<T>(INetworkRequest req) where T : BaseViewModel
+        public async Task<INetworkResponse<T>> ExecuteTaskAsync<T>(INetworkRequest req)
         {
             var client = new RestClient(Constants.BASE_URL);
             var response = await client.ExecuteTaskAsync<T>((IRestRequest)req);
