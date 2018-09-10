@@ -16,8 +16,8 @@ namespace Vikela.Implementation.ViewController
 
         public override void SetRepositories()
         {
-            _Service = new RegistrationNameService<RegistrationNameViewModel>((U, P, C, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegistrationNameViewModel>(U, P, C, A));
+            _Service = new RegistrationNameService<RegistrationNameViewModel>((U, P, A) => 
+                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegistrationNameViewModel>(U, P, A));
             _Reposetory = new RegistrationNameRepository<RegistrationNameViewModel>(_MasterRepo, _Service);
             InputObject.FirstName = _MasterRepo.DataSource.User.FirstName;
             InputObject.LastName = _MasterRepo.DataSource.User.LastName;

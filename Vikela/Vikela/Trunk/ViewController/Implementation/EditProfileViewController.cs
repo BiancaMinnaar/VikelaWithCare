@@ -16,8 +16,8 @@ namespace Vikela.Implementation.ViewController
 
         public override void SetRepositories()
         {
-            _Service = new EditProfileService<EditProfileViewModel>((U, P, C, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<EditProfileViewModel>(U, P, C, A));
+            _Service = new EditProfileService<EditProfileViewModel>((U, P, A) => 
+                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<EditProfileViewModel>(U, P, A));
             _Reposetory = new EditProfileRepository<EditProfileViewModel>(_MasterRepo, _Service);
         }
 

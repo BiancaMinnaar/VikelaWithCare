@@ -10,7 +10,7 @@ namespace Vikela.Implementation.Service
         public class CongratulationsService<T> : BaseService<T>, ICongratulationsService<T>
             where T : BaseViewModel
         {
-            public CongratulationsService(Func<string, Dictionary<string, ParameterTypedValue>, BaseViewModel, BaseNetworkAccessEnum, Task<T>> networkInterface)
+            public CongratulationsService(Func<string, Dictionary<string, ParameterTypedValue>, BaseNetworkAccessEnum, Task<T>> networkInterface)
                 :base(networkInterface)
             {
             }
@@ -23,7 +23,7 @@ namespace Vikela.Implementation.Service
             {
                 //{"Parameter", model.Property},
             };
-            return await _NetworkInterface(requestURL, parameters, null, httpMethod);
+            return await _NetworkInterface(requestURL, parameters, httpMethod);
         }
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Threading.Tasks;
-using CorePCL;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
@@ -14,6 +13,8 @@ using Newtonsoft.Json.Linq;
 using System.Text;
 using System.Linq;
 using Newtonsoft.Json;
+using Vikela.Trunk.Service.ReturnModel;
+using System.Collections.Generic;
 
 namespace Vikela.Implementation.Repository
 {
@@ -21,13 +22,16 @@ namespace Vikela.Implementation.Repository
     {
         IRegisterService _Service;
         IDynamixService _DynamixService;
+        IDynamixReturnService<List<DynamixContact>> _DynamixReturnService;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
 
-        public RegisterRepository(IMasterRepository masterRepository, IRegisterService service, IDynamixService dynamix=null)
+        public RegisterRepository(IMasterRepository masterRepository, IRegisterService service, IDynamixService dynamix=null, 
+                                  IDynamixReturnService<List<DynamixContact>> dynamixReturn=null)
             : base(masterRepository)
         {
             _Service = service;
             _DynamixService = dynamix;
+            _DynamixReturnService = dynamixReturn;
             _PlatformBonsai = new PlatformBonsai();
             var platform = new PlatformRepository<RegisterViewModel>(masterRepository, _PlatformBonsai)
             {
@@ -183,9 +187,9 @@ namespace Vikela.Implementation.Repository
             }
         }
 
-        public async Task GetUserContactsFromServer(RegisterViewModel model)
+        public async Task<List<DynamixContact>> GetUserContactsFromServerAsync(RegisterViewModel model)
         {
-            await _DynamixService.GetConnectedContacts(model);
+            return await _DynamixReturnService.GetConnectedContactsAsync(model);
         }
 
         public async Task SetContactsWithServerDataAsync(string responseContent)

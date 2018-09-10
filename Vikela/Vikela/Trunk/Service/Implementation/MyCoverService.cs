@@ -10,7 +10,7 @@ namespace Vikela.Implementation.Service
         public class MyCoverService<T> : BaseService<T>, IMyCoverService<T>
             where T : BaseViewModel
         {
-            public MyCoverService(Func<string, Dictionary<string, ParameterTypedValue>, BaseViewModel, BaseNetworkAccessEnum, Task<T>> networkInterface)
+            public MyCoverService(Func<string, Dictionary<string, ParameterTypedValue>, BaseNetworkAccessEnum, Task<T>> networkInterface)
                 :base(networkInterface)
             {
             }
@@ -23,7 +23,7 @@ namespace Vikela.Implementation.Service
             {
                 //{"Parameter", model.Property},
             };
-            return await _NetworkInterface(requestURL, parameters, null, httpMethod);
+            return await _NetworkInterface(requestURL, parameters, httpMethod);
         }
     }
 }

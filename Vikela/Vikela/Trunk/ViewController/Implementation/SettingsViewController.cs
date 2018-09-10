@@ -17,8 +17,8 @@ namespace Vikela.Implementation.ViewController
 
         public override void SetRepositories()
         {
-            _Service = new SettingsService<SettingsViewModel>((U, P, C, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<SettingsViewModel>(U, P, C, A));
+            _Service = new SettingsService<SettingsViewModel>((U, P, A) => 
+                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<SettingsViewModel>(U, P, A));
             _Reposetory = new SettingsRepository<SettingsViewModel>(_MasterRepo, _Service);
         }
 

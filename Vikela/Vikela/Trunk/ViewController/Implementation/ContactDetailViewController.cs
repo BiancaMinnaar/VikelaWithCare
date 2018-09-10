@@ -20,8 +20,8 @@ namespace Vikela.Implementation.ViewController
 
         public override void SetRepositories()
         {
-            _Service = new SelfieService<SelfieViewModel>((U, P, C, A) =>
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<SelfieViewModel>(U, P, C, A));
+            _Service = new SelfieService<SelfieViewModel>((U, P, A) =>
+                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<SelfieViewModel>(U, P, A));
             photoRepo = new PhotoRepository(_MasterRepo);
             _Reposetory = new AddTrustedSourceRepository(_MasterRepo);
         }

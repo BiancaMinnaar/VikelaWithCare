@@ -14,6 +14,8 @@ using Vikela.Trunk.Service;
 using Vikela.Trunk.Service.Implementation;
 using Vikela.Trunk.ViewModel;
 using Vikela.Trunk.ViewModel.Offline;
+using Vikela.Trunk.Service.ReturnModel;
+using System.Collections.Generic;
 
 namespace Vikela.Implementation.ViewController
 {
@@ -31,7 +33,9 @@ namespace Vikela.Implementation.ViewController
                                                    ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
             _DynamixService = new DynamixService((U, P, A) =>
                                                  ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
-            _RegisterRepo = new RegisterRepository(_MasterRepo, _RegisterService, _DynamixService);
+            var _DynamixReturnService = new DynamixReturnService<List<DynamixContact>>((U, P, A) =>
+                                                 ExecuteQueryWithReturnTypeAndNetworkAccessAsync<List<DynamixContact>>(U, P, A));
+            _RegisterRepo = new RegisterRepository(_MasterRepo, _RegisterService, _DynamixService, _DynamixReturnService);
             _SelfieRepo = new SelfieRepository<RegisterViewModel>(_MasterRepo, null);
             _Reposetory = new WelcomeRepository(_MasterRepo, _RegisterRepo, _SelfieRepo);
         }
@@ -52,7 +56,7 @@ namespace Vikela.Implementation.ViewController
             await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(registration);
             await _Reposetory.GetUserSelfieFromStorageAsync();
             await SetUserWithD365DataAsync(registration);
-            await _RegisterRepo.GetUserContactsFromServer(registration);
+            var contactList = await _RegisterRepo.GetUserContactsFromServerAsync(registration);
             await _RegisterRepo.SetContactsWithServerDataAsync(_ResponseContent);
             _Reposetory.RegisterOrShowProfile(_Reposetory.IsRegisteredUser(_ResponseContent));
             _MasterRepo.HideLoading();

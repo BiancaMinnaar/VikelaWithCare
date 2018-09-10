@@ -16,8 +16,8 @@ namespace Vikela.Implementation.ViewController
 
         public override void SetRepositories()
         {
-            _Service = new RegistrationEmailService<RegistrationEmailViewModel>((U, P, C, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegistrationEmailViewModel>(U, P, C, A));
+            _Service = new RegistrationEmailService<RegistrationEmailViewModel>((U, P, A) => 
+                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegistrationEmailViewModel>(U, P, A));
             _Reposetory = new RegistrationEmailRepository<RegistrationEmailViewModel>(_MasterRepo, _Service);
             InputObject.EmailAddress = _MasterRepo.DataSource.User.EmailAddress;
         }

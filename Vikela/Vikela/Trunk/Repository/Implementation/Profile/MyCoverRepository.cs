@@ -47,7 +47,8 @@ namespace Vikela.Implementation.Repository
                 {
                     UserImage = _MasterRepo.DataSource.User.UserPicture,
                     FirstName = _MasterRepo.DataSource.User.FirstName,
-                    LastName = _MasterRepo.DataSource.User.LastName
+                    LastName = _MasterRepo.DataSource.User.LastName,
+                    BarCode = _MasterRepo.DataSource.User.BarCode
                 },
                 ItemClickedCommand = new Command(OnCLick)
             };

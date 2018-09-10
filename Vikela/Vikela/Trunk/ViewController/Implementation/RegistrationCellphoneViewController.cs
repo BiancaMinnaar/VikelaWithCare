@@ -16,8 +16,8 @@ namespace Vikela.Implementation.ViewController
 
         public override void SetRepositories()
         {
-            _Service = new RegistrationCellphoneService<RegistrationCellphoneViewModel>((U, P, C, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegistrationCellphoneViewModel>(U, P, C, A));
+            _Service = new RegistrationCellphoneService<RegistrationCellphoneViewModel>((U, P, A) => 
+                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegistrationCellphoneViewModel>(U, P, A));
             _Reposetory = new RegistrationCellphoneRepository<RegistrationCellphoneViewModel>(_MasterRepo, _Service);
 
             InputObject.Greeting = "Hi " + _MasterRepo.DataSource.User.FirstName +

@@ -32,6 +32,7 @@
             </controls:CircleImage>
             <Label Text="{Binding Profile.FirstName}" TextColor="Black" VerticalOptions="Center" />
             <Label Text="{Binding Profile.LastName}" VerticalOptions="Center" />
+            <Image Source="{Binding Profile.BarCode, Converter={StaticResource ByteArrayToImage}}"  WidthRequest="50" HeightRequest="50"/>
         </StackLayout>
    </Frame>
 </base:ProjectBaseContentView>

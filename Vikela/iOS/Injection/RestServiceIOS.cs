@@ -8,6 +8,7 @@ using Vikela.iOS.Injection;
 using Vikela.Root;
 using System;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 [assembly: Dependency(typeof(RestServiceIOS))]
 namespace Vikela.iOS.Injection
@@ -67,7 +68,7 @@ namespace Vikela.iOS.Injection
         }
     }
 
-    public class RestRspns<T> : RestRspns, INetworkResponse<T> where T : BaseViewModel
+    public class RestRspns<T> : RestRspns, INetworkResponse<T>
     {
         IRestResponse<T> _RestResponse;
 
@@ -77,7 +78,10 @@ namespace Vikela.iOS.Injection
             _RestResponse = response;
         }
 
-        public T Data { get => _RestResponse.Data; set => _RestResponse.Data = value; }
+        public T Data 
+        {
+            get => JsonConvert.DeserializeObject<T>(_RestResponse.Content);
+        }
     }
 
     public class RestServiceIOS : INetworkInteraction
@@ -100,7 +104,7 @@ namespace Vikela.iOS.Injection
             return new RestRspns(response);
         }
 
-        public async Task<INetworkResponse<T>> ExecuteTaskAsync<T>(INetworkRequest req) where T : BaseViewModel
+        public async Task<INetworkResponse<T>> ExecuteTaskAsync<T>(INetworkRequest req)
         {
             var client = new RestClient(Constants.BASE_URL);
             try

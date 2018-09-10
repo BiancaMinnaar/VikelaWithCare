@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Vikela.Implementation.ViewModel;
+using Vikela.Trunk.Service.ReturnModel;
 using Vikela.Trunk.ViewModel.Interfaces;
 using Vikela.Trunk.ViewModel.Offline;
 
@@ -18,7 +20,7 @@ namespace Vikela.Interface.Repository
         RegisterViewModel GetDyn365RegisterViewModel();
         Task GetUserWithOIDAsync(RegisterViewModel model);
         Task SetUserWithServerDataAsync(string responseContent);
-        Task GetUserContactsFromServer(RegisterViewModel model);
+        Task<List<DynamixContact>> GetUserContactsFromServerAsync(RegisterViewModel model);
         Task SetContactsWithServerDataAsync(string responseContent);
     }
 }

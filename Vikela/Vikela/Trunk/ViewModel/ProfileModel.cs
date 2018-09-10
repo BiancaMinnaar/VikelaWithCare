@@ -39,6 +39,17 @@ namespace Vikela.Trunk.ViewModel
             }
         }
 
+        byte[] barCode;
+        public byte[] BarCode 
+        {
+            get { return barCode; }
+            set 
+            { 
+                barCode = value; 
+                OnPropertyChanged("BarCode"); 
+            } 
+        }
+
         private string idNumber;
         public string IDNumber
         {
@@ -75,5 +86,6 @@ namespace Vikela.Trunk.ViewModel
         }
 
         public List<ContactDetailViewModel> TrustedSources { get => _trustedSources; set { _trustedSources = value; OnPropertyChanged("TrustedSources"); } }
+
     }
 }

@@ -10,7 +10,7 @@ namespace Vikela.Implementation.Service
         public class RegistrationNameService<T> : BaseService<T>, IRegistrationNameService<T>
             where T : BaseViewModel
         {
-            public RegistrationNameService(Func<string, Dictionary<string, ParameterTypedValue>, BaseViewModel, BaseNetworkAccessEnum, Task<T>> networkInterface)
+            public RegistrationNameService(Func<string, Dictionary<string, ParameterTypedValue>, BaseNetworkAccessEnum, Task<T>> networkInterface)
                 :base(networkInterface)
             {
             }
@@ -23,7 +23,7 @@ namespace Vikela.Implementation.Service
             {
                 //{"Parameter", model.Property},
             };
-            return await _NetworkInterface(requestURL, parameters, null, httpMethod);
+            return await _NetworkInterface(requestURL, parameters, httpMethod);
         }
     }
 }

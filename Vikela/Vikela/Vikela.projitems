@@ -328,6 +328,9 @@
       <DependentUpon>RegistrationEmailView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Registration\RegistrationEmailRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IDynamixReturnService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\DynamixReturnService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\DynamixContact.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
@@ -357,5 +360,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Profile\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Controls\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Interfaces\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\" />
   </ItemGroup>
 </Project>

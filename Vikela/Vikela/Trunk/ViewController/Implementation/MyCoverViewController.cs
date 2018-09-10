@@ -24,8 +24,8 @@ namespace Vikela.Implementation.ViewController
 
         public override void SetRepositories()
         {
-            _Service = new MyCoverService<MyCoverViewModel>((U, P, C, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<MyCoverViewModel>(U, P, C, A));
+            _Service = new MyCoverService<MyCoverViewModel>((U, P, A) => 
+                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<MyCoverViewModel>(U, P, A));
             _Reposetory = new MyCoverRepository<MyCoverViewModel>(_MasterRepo, _Service);
             _RegisterService = new RegisterService((U, P, A) =>
                                                    ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
