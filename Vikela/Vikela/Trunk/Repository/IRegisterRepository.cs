@@ -21,6 +21,5 @@ namespace Vikela.Interface.Repository
         Task GetUserWithOIDAsync(RegisterViewModel model);
         Task SetUserWithServerDataAsync(string responseContent);
         Task<List<DynamixContact>> GetUserContactsFromServerAsync(RegisterViewModel model);
-        Task SetContactsWithServerDataAsync(string responseContent);
     }
 }

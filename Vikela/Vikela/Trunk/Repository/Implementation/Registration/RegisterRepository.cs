@@ -12,7 +12,6 @@ using Vikela.Trunk.ViewModel.Interfaces;
 using Newtonsoft.Json.Linq;
 using System.Text;
 using System.Linq;
-using Newtonsoft.Json;
 using Vikela.Trunk.Service.ReturnModel;
 using System.Collections.Generic;
 
@@ -190,16 +189,6 @@ namespace Vikela.Implementation.Repository
         public async Task<List<DynamixContact>> GetUserContactsFromServerAsync(RegisterViewModel model)
         {
             return await _DynamixReturnService.GetConnectedContactsAsync(model);
-        }
-
-        public async Task SetContactsWithServerDataAsync(string responseContent)
-        {
-            var responseObject = JsonConvert.DeserializeObject(responseContent);
-
-
-
-            //var responseObject = JObject.Parse(responseContent).SelectTokens("");
-            //var contactList = responseObject["data"];
         }
     }
 }
