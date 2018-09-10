@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using Vikela.Implementation.Repository;
 using Vikela.Implementation.Service;
 using Vikela.Implementation.ViewModel;
@@ -10,7 +9,6 @@ using Vikela.Root.ViewController;
 using Vikela.Trunk.ViewModel.Controlls;
 using Vikela.Trunk.Service;
 using Vikela.Trunk.Service.Implementation;
-using Newtonsoft.Json.Linq;
 
 namespace Vikela.Implementation.ViewController
 {
@@ -68,35 +66,5 @@ namespace Vikela.Implementation.ViewController
         {
             return _Reposetory.GetActiveCoverTileViewModel(OnLick);
         }
-
-		//TODO:Remove, only for testing
-		public async Task RegisterAsync()
-		{
-            var registerData = new RegisterViewModel
-            {
-                EmailAddress = _MasterRepo.DataSource.User.EmailAddress,
-                FirstName = _MasterRepo.DataSource.User.FirstName,
-                IDNumber = _MasterRepo.DataSource.User.IDNumber,
-                LastName = _MasterRepo.DataSource.User.LastName,
-                MobileNumber = _MasterRepo.DataSource.User.MobileNumber,
-                OID = _MasterRepo.DataSource.User.OID,
-                UserPictureURL = "Edit",
-                TokenID = _MasterRepo.DataSource.User.TokenID
-            };
-			var errors = await _RegisterRepo.RegisterWithD365Async(registerData);
-			if (errors[0] != "Success")
-			{
-				foreach(var message in errors)
-					ShowMessage(message);
-            }
-            else
-            {
-                var body = JObject.Parse(_ResponseContent)["body"];
-                var UserID = JObject.Parse(body.ToString())["userId"];
-                _MasterRepo.DataSource.User.UserID = UserID.ToString();
-                await _MasterRepo.SetUserRecordAsync(_MasterRepo.DataSource.User);
-                ShowMessage(UserID.ToString());
-            }
-		}
     }
 }

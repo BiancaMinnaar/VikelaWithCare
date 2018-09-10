@@ -188,7 +188,7 @@ namespace Vikela.Implementation.Repository
 
         private List<ContactModel> SelectContactsWithRole(List<DynamixContact> contacts, string role)
         {
-            var query = from source in contacts.Where(a => a.roleId == "683f9b39-f9a9-e811-a955-000d3ab492e1")
+            var query = from source in contacts.Where(a => a.roleId == role)
                         select new ContactModel
                         {
                             UserID = source.userId,

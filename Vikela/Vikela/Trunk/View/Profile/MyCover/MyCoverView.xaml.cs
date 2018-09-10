@@ -77,11 +77,6 @@ namespace Vikela.Implementation.View
             _ViewController.PushEditProfile();
         }
 
-        public async void OnCoverTapped(object sender, System.EventArgs e)
-        {
-			await _ViewController.RegisterAsync();
-        }
-
         public void OnCircleTapped(object sender, EventArgs eventArgs)
         {
             _ViewController.PushAddBeneficiary();

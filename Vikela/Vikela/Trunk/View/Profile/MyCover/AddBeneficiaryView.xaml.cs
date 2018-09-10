@@ -21,7 +21,7 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public async void On_Save_Event(object sender, EventArgs e)
+        public void On_Save_Event(object sender, EventArgs e)
         {
             //Save Ben to local
             _ViewController.SaveBenificiary();
