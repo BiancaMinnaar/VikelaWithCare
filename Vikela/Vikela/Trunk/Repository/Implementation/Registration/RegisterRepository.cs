@@ -186,9 +186,27 @@ namespace Vikela.Implementation.Repository
             }
         }
 
-        public async Task<List<DynamixContact>> GetUserContactsFromServerAsync(RegisterViewModel model)
+        private List<ContactModel> SelectContactsWithRole(List<DynamixContact> contacts, string role)
         {
-            return await _DynamixReturnService.GetConnectedContactsAsync(model);
+            var query = from source in contacts.Where(a => a.roleId == "683f9b39-f9a9-e811-a955-000d3ab492e1")
+                        select new ContactModel
+                        {
+                            UserID = source.userId,
+                            ConnectionId = source.connectionId,
+                            RoleId = source.roleId,
+                            FirstName = source.firstName,
+                            LastName = source.lastName,
+                            PictureURL = source.profileImage
+                        };
+
+            return query.ToList();
+        }
+
+        public async Task SetUserContactsFromServerAsync(RegisterViewModel model)
+        {
+            var contacts = await _DynamixReturnService.GetConnectedContactsAsync(model);
+            _MasterRepo.DataSource.DefaultBeneficiary = SelectContactsWithRole(contacts, "bdf140bd-f9a9-e811-a955-000d3ab492e1")[0];
+            _MasterRepo.DataSource.TrustedSources = SelectContactsWithRole(contacts, "683f9b39-f9a9-e811-a955-000d3ab492e1");
         }
     }
 }
