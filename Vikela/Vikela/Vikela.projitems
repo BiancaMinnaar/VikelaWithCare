@@ -311,6 +311,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\DynamixPolicy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\DynamixPolicyService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IDynamixPolicyService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Offline\PolicyModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
