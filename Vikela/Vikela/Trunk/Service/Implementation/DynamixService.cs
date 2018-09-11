@@ -67,7 +67,7 @@ namespace Vikela.Trunk.Service.Implementation
             await _NetworkInterface(requestURL, parameters, httpMethod);
         }
 
-        public async Task AddBeneficiaryAsync(AddContactViewModel model)
+        public async Task AddBeneficiaryAsync(ContactDetailViewModel model)
         {
             string requestURL = "/dyn365/api/v1.0/User/addbeneficiary";
             var httpMethod = BaseNetworkAccessEnum.Put;
@@ -77,10 +77,10 @@ namespace Vikela.Trunk.Service.Implementation
                 {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
                 {"body", new ParameterTypedValue(new
                 {
-                    benefactorUserId= model.SourceDetail.UserID,
-                    beneficiaryFirstName= model.SourceDetail.FirstName,
-                    beneficiaryLastName= model.SourceDetail.LastName,
-                    beneficiaryMobileNumber= model.SourceDetail.CellNumber,
+                    benefactorUserId= model.UserID,
+                    beneficiaryFirstName= model.FirstName,
+                    beneficiaryLastName= model.LastName,
+                    beneficiaryMobileNumber= model.CellNumber,
                 }, ParameterTypeEnum.BodyParameter)}
             };
             await _NetworkInterface(requestURL, parameters, httpMethod);

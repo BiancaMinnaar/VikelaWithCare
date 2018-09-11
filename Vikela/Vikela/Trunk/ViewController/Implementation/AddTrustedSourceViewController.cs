@@ -32,8 +32,9 @@ namespace Vikela.Implementation.ViewController
             _Reposetory.UpdateMasterWithTrustedSource(InputObject.SourceDetail);
         }
 
-		public void SaveBenificiary()
+		public async Task SaveBenificiaryAsync()
 		{
+            await _Reposetory.SaveDefaultBeneficiary(InputObject.SourceDetail);
             _Reposetory.UpdateMasterWithBeneficiary(InputObject.SourceDetail);
 		}
 

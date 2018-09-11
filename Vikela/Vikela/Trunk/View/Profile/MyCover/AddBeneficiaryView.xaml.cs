@@ -21,9 +21,9 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public void On_Save_Event(object sender, EventArgs e)
+        public async void On_Save_Event(object sender, EventArgs e)
         {
-            _ViewController.SaveBenificiary();
+            await _ViewController.SaveBenificiaryAsync();
             _ViewController.PopToCover();
         }
 

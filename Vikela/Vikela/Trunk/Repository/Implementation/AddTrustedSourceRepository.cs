@@ -43,6 +43,7 @@ namespace Vikela.Implementation.Repository
             var source = _MasterRepo.DataSource.DefaultBeneficiary;
             return new ContactDetailViewModel()
             {
+                UserID = source.UserID,
                 FirstName = source.FirstName,
                 LastName = source.LastName,
                 CellNumber = source.CellNumber,
@@ -50,8 +51,14 @@ namespace Vikela.Implementation.Repository
                 ContactPicture = new SelfieViewModel
                 {
                     Selfie = source.UserPicture
-                }
+                },
+                TokenID = _MasterRepo.DataSource.User.TokenID
             };
+        }
+
+        public async Task SaveDefaultBeneficiary(ContactDetailViewModel model)
+        {
+            await _DynamixService.AddBeneficiaryAsync(model);
         }
 
         public void UpdateMasterWithTrustedSource(ContactDetailViewModel model)

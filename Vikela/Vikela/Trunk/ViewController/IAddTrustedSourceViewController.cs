@@ -6,7 +6,7 @@ namespace Vikela.Interface.ViewController
     {
         void LoadTrustedSources();
         void LoadBeneficiary();
-		void SaveBenificiary();
+        Task SaveBenificiaryAsync();
 		Task SaveTrustedSourceAsync();
         void PopToCover();
     }
