@@ -6,7 +6,7 @@ namespace Vikela.Implementation.ViewModel
 {
     public class ContactDetailViewModel : ProjectBaseViewModel, INotifyPropertyChanged
     {
-		private Guid _userID;
+		private string _userID;
 		private string _firstName;
         private string _lastName;
         private string _cellNumber;
@@ -15,7 +15,7 @@ namespace Vikela.Implementation.ViewModel
         private string _pictureURL;
 
         public new event PropertyChangedEventHandler PropertyChanged;
-        public Guid UserID { get => _userID; set { _userID = value; OnPropertyChanged("UserID"); } }
+        public string UserID { get => _userID; set { _userID = value; OnPropertyChanged("UserID"); } }
         public string FirstName 
         { 
             get => _firstName; 

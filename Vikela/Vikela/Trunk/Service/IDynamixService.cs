@@ -7,7 +7,7 @@ namespace Vikela.Trunk.Service
     {
 		Task RegisterUserAsync(RegisterViewModel model);
         Task GetUserWithOIDAsync(RegisterViewModel model);
-		Task AddTrustedSourceAsync(AddContactViewModel model);
+		Task AddTrustedSourceAsync(ContactDetailViewModel model);
 		Task AddBeneficiaryAsync(AddContactViewModel model);
         Task GetConnectedContacts(RegisterViewModel model);
     }

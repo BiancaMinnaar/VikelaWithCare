@@ -20,6 +20,7 @@ namespace Vikela.Implementation.Repository
             var source = _MasterRepo.DataSource.TrustedSources[_MasterRepo.DataSource.TrustedSourceEditIndex];
             return new ContactDetailViewModel()
             {
+                UserID = source.UserID,
                 FirstName = source.FirstName,
                 LastName = source.LastName,
                 CellNumber = source.CellNumber,
@@ -32,7 +33,7 @@ namespace Vikela.Implementation.Repository
             };
         }
 
-		public async Task SaveTrustedContactAsync(AddContactViewModel model)
+		public async Task SaveTrustedContactAsync(ContactDetailViewModel model)
 		{
 			await _DynamixService.AddTrustedSourceAsync(model);
 		}

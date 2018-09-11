@@ -28,7 +28,7 @@ namespace Vikela.Implementation.ViewController
 
         public async Task SaveTrustedSourceAsync()
         {
-            await _Reposetory.SaveTrustedContactAsync(InputObject);
+            await _Reposetory.SaveTrustedContactAsync(InputObject.SourceDetail);
             _Reposetory.UpdateMasterWithTrustedSource(InputObject.SourceDetail);
         }
 

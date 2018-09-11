@@ -135,8 +135,7 @@ namespace Vikela.Trunk.Repository.Implementation
             var localUser = await GetUserRecordAsync();
             if (localUser != null)
             {
-                model.TokenID = localUser.TokenID;
-                model.OID = localUser.OID;
+				model.Id = localUser.Id;
                 var affected = await OfflineStorageRepo.UpdateRecord(model);
                 var whatIsAff = affected;
             }
