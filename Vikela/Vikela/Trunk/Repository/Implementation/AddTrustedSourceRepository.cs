@@ -20,7 +20,7 @@ namespace Vikela.Implementation.Repository
             var source = _MasterRepo.DataSource.TrustedSources[_MasterRepo.DataSource.TrustedSourceEditIndex];
             return new ContactDetailViewModel()
             {
-                UserID = source.UserID,
+                UserID = _MasterRepo.DataSource.User.UserID,
                 FirstName = source.FirstName,
                 LastName = source.LastName,
                 CellNumber = source.CellNumber,
@@ -43,7 +43,7 @@ namespace Vikela.Implementation.Repository
             var source = _MasterRepo.DataSource.DefaultBeneficiary;
             return new ContactDetailViewModel()
             {
-                UserID = source.UserID,
+                UserID = _MasterRepo.DataSource.User.UserID,
                 FirstName = source.FirstName,
                 LastName = source.LastName,
                 CellNumber = source.CellNumber,
