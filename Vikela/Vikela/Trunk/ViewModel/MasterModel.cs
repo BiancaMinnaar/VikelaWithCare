@@ -15,6 +15,7 @@ namespace Vikela.Root.ViewModel
 		public List<ContactModel> TrustedSources { get; set;}
         public int TrustedSourceEditIndex { get; set; }
         public List<ContactModel> Beneficiaries {get;set;}
+		public List<PolicyModel> PolicyList{get;set;}
     }
 }
 

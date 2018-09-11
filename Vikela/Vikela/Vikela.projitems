@@ -312,6 +312,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\DynamixPolicyService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IDynamixPolicyService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Offline\PolicyModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Offline\UserStorageRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IUserStorageRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
@@ -342,5 +344,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Controls\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Interfaces\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Offline\" />
   </ItemGroup>
 </Project>

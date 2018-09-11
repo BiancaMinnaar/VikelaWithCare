@@ -191,6 +191,19 @@ namespace Vikela.Trunk.Repository.Implementation
             }
         }
 
+        public async Task SaveTrustedSourceAsync(ContactModel model, int index)
+        {
+            //OfflineStorageRepo.QueryTable("")
+            DataSource.TrustedSources[index] = model;
+
+        }
+
+        public async Task SaveBeneficiaryAsync(ContactModel model)
+        {
+            DataSource.DefaultBeneficiary = model;
+        }
+
+
         public void PushLoginView()
         {
             _Navigation.PushAsync(new LoginView());
@@ -258,18 +271,6 @@ namespace Vikela.Trunk.Repository.Implementation
 		public void PushAddTrustedSource()
 		{
             _Navigation.PushAsync(new AddTrustedSourceView());
-		}
-
-        public void SaveTrustedSource(ContactModel model, int index)
-        {
-            //OfflineStorageRepo.QueryTable("")
-            DataSource.TrustedSources[index] = model;
-
-        }
-
-		public void SaveBeneficiary(ContactModel model)
-		{
-			DataSource.DefaultBeneficiary = model;
 		}
     }
 }
