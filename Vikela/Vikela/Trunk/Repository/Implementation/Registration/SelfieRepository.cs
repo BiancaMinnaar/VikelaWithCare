@@ -19,15 +19,13 @@ namespace Vikela.Implementation.Repository
     public class SelfieRepository<T> : ProjectBaseRepository, ISelfieRepository<T>
         where T : BaseViewModel
     {
-        ISelfieService<T> _Service;
         IImageRepository _ImageRepo;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
         IAzureBlobStorageRepository _StorageRepository;
 
-        public SelfieRepository(IMasterRepository masterRepository, ISelfieService<T> service)
+        public SelfieRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
-            _Service = service;
             _ImageRepo = new ImageRepository(_MasterRepo);
             _PlatformBonsai = new PlatformBonsai();
             _StorageRepository = new AzureBlobStorageRepository(_MasterRepo);

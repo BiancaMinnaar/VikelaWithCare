@@ -5,9 +5,7 @@ using Vikela.Implementation.ViewModel;
 
 namespace Vikela.Interface.Repository
 {
-    public interface ICongratulationsRepository<T>
-        where T : BaseViewModel
+    public interface ICongratulationsRepository
     {
-        Task Done(CongratulationsViewModel model, Action<T> completeAction);
     }
 }

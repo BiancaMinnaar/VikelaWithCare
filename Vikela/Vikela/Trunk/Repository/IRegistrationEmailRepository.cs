@@ -5,8 +5,7 @@ using Vikela.Implementation.ViewModel;
 
 namespace Vikela.Interface.Repository
 {
-    public interface IRegistrationEmailRepository<T>
-        where T : BaseViewModel
+    public interface IRegistrationEmailRepository
     {
         Task UpdateEmailAsync(RegistrationEmailViewModel model);
     }

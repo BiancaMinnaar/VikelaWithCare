@@ -12,13 +12,10 @@ namespace Vikela.Implementation.ViewController
     public class SelfieViewController : ProjectBaseViewController<SelfieViewModel>, ISelfieViewController
     {
         ISelfieRepository<SelfieViewModel> _Reposetory;
-        ISelfieService<SelfieViewModel> _Service;
 
         public override void SetRepositories()
         {
-            _Service = new SelfieService<SelfieViewModel>((U, P, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<SelfieViewModel>(U, P, A));
-            _Reposetory = new SelfieRepository<SelfieViewModel>(_MasterRepo, _Service);
+            _Reposetory = new SelfieRepository<SelfieViewModel>(_MasterRepo);
             InputObject.Selfie = _MasterRepo.DataSource.User.UserPicture;
         }
 

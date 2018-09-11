@@ -13,12 +13,9 @@ namespace Vikela.Implementation.Repository
     public class MyCoverRepository<T> : ProjectBaseRepository, IMyCoverRepository<T>
         where T : BaseViewModel
     {
-        IMyCoverService<T> _Service;
-
-        public MyCoverRepository(IMasterRepository masterRepository, IMyCoverService<T> service)
+        public MyCoverRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
-            _Service = service;
         }
 
         public void Load(MyCoverViewModel model, Action detailClick, Action<object> trustedSourcesClick)

@@ -15,16 +15,13 @@ namespace Vikela.Implementation.ViewController
     public class MyCoverViewController : ProjectBaseViewController<MyCoverViewModel>, IMyCoverViewController
     {
         IMyCoverRepository<MyCoverViewModel> _Reposetory;
-        IMyCoverService<MyCoverViewModel> _Service;
         IRegisterService _RegisterService;
         IRegisterRepository _RegisterRepo;
 		IDynamixService _DynamixService;
 
         public override void SetRepositories()
         {
-            _Service = new MyCoverService<MyCoverViewModel>((U, P, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<MyCoverViewModel>(U, P, A));
-            _Reposetory = new MyCoverRepository<MyCoverViewModel>(_MasterRepo, _Service);
+            _Reposetory = new MyCoverRepository<MyCoverViewModel>(_MasterRepo);
             _RegisterService = new RegisterService((U, P, A) =>
                                                    ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
             _DynamixService = new DynamixService((U, P, A) =>

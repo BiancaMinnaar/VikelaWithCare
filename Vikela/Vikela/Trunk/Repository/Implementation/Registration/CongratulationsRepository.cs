@@ -8,21 +8,12 @@ using Vikela.Root.Repository;
 
 namespace Vikela.Implementation.Repository
 {
-    public class CongratulationsRepository<T> : ProjectBaseRepository, ICongratulationsRepository<T>
+    public class CongratulationsRepository<T> : ProjectBaseRepository, ICongratulationsRepository
         where T : BaseViewModel
     {
-        ICongratulationsService<T> _Service;
-
-        public CongratulationsRepository(IMasterRepository masterRepository, ICongratulationsService<T> service)
+        public CongratulationsRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
-            _Service = service;
-        }
-
-        public async Task Done(CongratulationsViewModel model, Action<T> completeAction)
-        {
-            var serviceReturnModel = await _Service.Done(model);
-            completeAction(serviceReturnModel);
         }
     }
 }

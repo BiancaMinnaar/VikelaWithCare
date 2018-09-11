@@ -12,13 +12,10 @@ namespace Vikela.Implementation.ViewController
     public class RegistrationIDNumberViewController : ProjectBaseViewController<RegistrationIDNumberViewModel>, IRegistrationIDNumberViewController
     {
         IRegistrationIDNumberRepository<RegistrationIDNumberViewModel> _Reposetory;
-        IRegistrationIDNumberService<RegistrationIDNumberViewModel> _Service;
 
         public override void SetRepositories()
         {
-            _Service = new RegistrationIDNumberService<RegistrationIDNumberViewModel>((U, P, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegistrationIDNumberViewModel>(U, P, A));
-            _Reposetory = new RegistrationIDNumberRepository<RegistrationIDNumberViewModel>(_MasterRepo, _Service);
+            _Reposetory = new RegistrationIDNumberRepository<RegistrationIDNumberViewModel>(_MasterRepo);
             InputObject.IDNumber = _MasterRepo.DataSource.User.IDNumber;
         }
 

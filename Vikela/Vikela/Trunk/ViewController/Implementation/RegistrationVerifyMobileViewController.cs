@@ -12,13 +12,10 @@ namespace Vikela.Implementation.ViewController
     public class RegistrationVerifyMobileViewController : ProjectBaseViewController<RegistrationVerifyMobileViewModel>, IRegistrationVerifyMobileViewController
     {
         IRegistrationVerifyMobileRepository<RegistrationVerifyMobileViewModel> _Reposetory;
-        IRegistrationVerifyMobileService<RegistrationVerifyMobileViewModel> _Service;
 
         public override void SetRepositories()
         {
-            _Service = new RegistrationVerifyMobileService<RegistrationVerifyMobileViewModel>((U, P, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegistrationVerifyMobileViewModel>(U, P, A));
-            _Reposetory = new RegistrationVerifyMobileRepository<RegistrationVerifyMobileViewModel>(_MasterRepo, _Service);
+            _Reposetory = new RegistrationVerifyMobileRepository<RegistrationVerifyMobileViewModel>(_MasterRepo);
         }
 
         public async Task UpdateOTPAsync()

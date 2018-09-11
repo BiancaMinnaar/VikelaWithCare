@@ -33,7 +33,7 @@ namespace Vikela.Trunk.Service.Implementation
                     UserPictureURL="edit"
                 }, ParameterTypeEnum.BodyParameter)}
             };
-            await _NetworkInterfaceWithTypedParameters(requestURL, parameters, httpMethod);
+            await _NetworkInterface(requestURL, parameters, httpMethod);
         }
 
         public async Task GetUserWithOIDAsync(RegisterViewModel model)
@@ -45,7 +45,7 @@ namespace Vikela.Trunk.Service.Implementation
                 {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},
                 {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
             };
-            await _NetworkInterfaceWithTypedParameters(requestURL, parameters, httpMethod);
+            await _NetworkInterface(requestURL, parameters, httpMethod);
         }
 
         public async Task AddTrustedSourceAsync(AddContactViewModel model)
@@ -64,7 +64,7 @@ namespace Vikela.Trunk.Service.Implementation
                     beneficiaryMobileNumber= model.SourceDetail.CellNumber,
                 }, ParameterTypeEnum.BodyParameter)}
             };
-            await _NetworkInterfaceWithTypedParameters(requestURL, parameters, httpMethod);
+            await _NetworkInterface(requestURL, parameters, httpMethod);
         }
 
         public async Task AddBeneficiaryAsync(AddContactViewModel model)
@@ -83,7 +83,7 @@ namespace Vikela.Trunk.Service.Implementation
                     beneficiaryMobileNumber= model.SourceDetail.CellNumber,
                 }, ParameterTypeEnum.BodyParameter)}
             };
-            await _NetworkInterfaceWithTypedParameters(requestURL, parameters, httpMethod);
+            await _NetworkInterface(requestURL, parameters, httpMethod);
         }
 
         public async Task GetConnectedContacts(RegisterViewModel model)
@@ -96,7 +96,7 @@ namespace Vikela.Trunk.Service.Implementation
                 {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
                 {"userId", new ParameterTypedValue(model.UserID, ParameterTypeEnum.ValueParameter)}
             };
-            await _NetworkInterfaceWithTypedParameters(requestURL, parameters, httpMethod);
+            await _NetworkInterface(requestURL, parameters, httpMethod);
         }
     }
 }

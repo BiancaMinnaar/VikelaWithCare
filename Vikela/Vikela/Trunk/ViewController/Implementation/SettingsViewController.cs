@@ -12,14 +12,10 @@ namespace Vikela.Implementation.ViewController
     public class SettingsViewController : ProjectBaseViewController<SettingsViewModel>, ISettingsViewController
     {
         ISettingsRepository<SettingsViewModel> _Reposetory;
-        ISettingsService<SettingsViewModel> _Service;
-
 
         public override void SetRepositories()
         {
-            _Service = new SettingsService<SettingsViewModel>((U, P, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<SettingsViewModel>(U, P, A));
-            _Reposetory = new SettingsRepository<SettingsViewModel>(_MasterRepo, _Service);
+            _Reposetory = new SettingsRepository<SettingsViewModel>(_MasterRepo);
         }
 
         public async Task LogoutAsync()

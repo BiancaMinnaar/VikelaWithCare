@@ -128,8 +128,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\LoginViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ILoginRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\LoginRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ILoginService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\LoginService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\RegisterViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IRegisterViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\RegisterViewController.cs" />
@@ -140,8 +138,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ICongratulationsViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\CongratulationsViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ICongratulationsRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ICongratulationsService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\CongratulationsService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\CongratulationsView.xaml.cs">
       <DependentUpon>CongratulationsView.xaml</DependentUpon>
     </Compile>
@@ -170,14 +166,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IMyCoverViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\MyCoverViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IMyCoverRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IMyCoverService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\MyCoverService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\SelfieViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ISelfieViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\SelfieViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ISelfieRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ISelfieService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\SelfieService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
@@ -194,8 +186,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IRegistrationNameViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\RegistrationNameViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IRegistrationNameRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IRegistrationNameService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\RegistrationNameService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegistrationNameView.xaml.cs">
       <DependentUpon>RegistrationNameView.xaml</DependentUpon>
     </Compile>
@@ -204,8 +194,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IRegistrationCellphoneViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\RegistrationCellphoneViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IRegistrationCellphoneRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IRegistrationCellphoneService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\RegistrationCellphoneService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegistrationCellphoneView.xaml.cs">
       <DependentUpon>RegistrationCellphoneView.xaml</DependentUpon>
     </Compile>
@@ -214,8 +202,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IRegistrationVerifyMobileViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\RegistrationVerifyMobileViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IRegistrationVerifyMobileRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IRegistrationVerifyMobileService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\RegistrationVerifyMobileService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegistrationVerifyMobileView.xaml.cs">
       <DependentUpon>RegistrationVerifyMobileView.xaml</DependentUpon>
     </Compile>
@@ -224,8 +210,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IRegistrationIDNumberViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\RegistrationIDNumberViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IRegistrationIDNumberRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IRegistrationIDNumberService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\RegistrationIDNumberService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegistrationIDNumberView.xaml.cs">
       <DependentUpon>RegistrationIDNumberView.xaml</DependentUpon>
     </Compile>
@@ -235,8 +219,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\EditProfileViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IEditProfileRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\EditProfileRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IEditProfileService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\EditProfileService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\EditProfileView.xaml.cs">
       <DependentUpon>EditProfileView.xaml</DependentUpon>
     </Compile>
@@ -246,8 +228,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\SettingsViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ISettingsRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\SettingsRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ISettingsService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\SettingsService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -308,8 +288,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\ContactDetailViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IContactDetailRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\ContactDetailRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IContactDetailService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\ContactDetailService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Controls\ContactDetailView.xaml.cs">
       <DependentUpon>ContactDetailView.xaml</DependentUpon>
     </Compile>
@@ -322,8 +300,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IRegistrationEmailViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\RegistrationEmailViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IRegistrationEmailRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IRegistrationEmailService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\RegistrationEmailService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Registration\RegistrationEmailView.xaml.cs">
       <DependentUpon>RegistrationEmailView.xaml</DependentUpon>
     </Compile>

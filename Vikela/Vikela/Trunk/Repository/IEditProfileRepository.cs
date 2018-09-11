@@ -10,6 +10,5 @@ namespace Vikela.Interface.Repository
         where T : BaseViewModel
     {
         ProfileModel Load();
-        Task Edit(EditProfileViewModel model, Action<T> completeAction);
     }
 }

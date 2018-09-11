@@ -12,13 +12,10 @@ namespace Vikela.Implementation.ViewController
     public class EditProfileViewController : ProjectBaseViewController<EditProfileViewModel>, IEditProfileViewController
     {
         IEditProfileRepository<EditProfileViewModel> _Reposetory;
-        IEditProfileService<EditProfileViewModel> _Service;
 
         public override void SetRepositories()
         {
-            _Service = new EditProfileService<EditProfileViewModel>((U, P, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<EditProfileViewModel>(U, P, A));
-            _Reposetory = new EditProfileRepository<EditProfileViewModel>(_MasterRepo, _Service);
+            _Reposetory = new EditProfileRepository<EditProfileViewModel>(_MasterRepo);
         }
 
         public void Load()

@@ -11,14 +11,11 @@ namespace Vikela.Implementation.ViewController
 {
     public class RegistrationEmailViewController : ProjectBaseViewController<RegistrationEmailViewModel>, IRegistrationEmailViewController
     {
-        IRegistrationEmailRepository<RegistrationEmailViewModel> _Reposetory;
-        IRegistrationEmailService<RegistrationEmailViewModel> _Service;
+        IRegistrationEmailRepository _Reposetory;
 
         public override void SetRepositories()
         {
-            _Service = new RegistrationEmailService<RegistrationEmailViewModel>((U, P, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegistrationEmailViewModel>(U, P, A));
-            _Reposetory = new RegistrationEmailRepository<RegistrationEmailViewModel>(_MasterRepo, _Service);
+            _Reposetory = new RegistrationEmailRepository<RegistrationEmailViewModel>(_MasterRepo);
             InputObject.EmailAddress = _MasterRepo.DataSource.User.EmailAddress;
         }
 

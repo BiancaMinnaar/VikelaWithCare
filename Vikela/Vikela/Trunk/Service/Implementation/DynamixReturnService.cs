@@ -4,17 +4,18 @@ using System.Threading.Tasks;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
 using Vikela.Root;
+using Vikela.Trunk.Service.ReturnModel;
 
 namespace Vikela.Trunk.Service.Implementation
 {
-    public class DynamixReturnService<T> : BaseService<T>, IDynamixReturnService<T>
+    public class DynamixReturnService : BaseService<List<DynamixContact>>, IDynamixReturnService<List<DynamixContact>>
     {
-        public DynamixReturnService(Func<string, Dictionary<string, ParameterTypedValue>, BaseNetworkAccessEnum, Task<T>> networkInterface)
+        public DynamixReturnService(Func<string, Dictionary<string, ParameterTypedValue>, BaseNetworkAccessEnum, Task<List<DynamixContact>>> networkInterface)
                 : base(networkInterface)
         {
         }
 
-        public async Task<T> GetConnectedContactsAsync(RegisterViewModel model)
+        public async Task<List<DynamixContact>> GetConnectedContactsAsync(RegisterViewModel model)
         {
             string requestURL = "/dyn365/api/v1.0/Connections/getconnectedcontacts";
             var httpMethod = BaseNetworkAccessEnum.Get;
@@ -24,7 +25,8 @@ namespace Vikela.Trunk.Service.Implementation
                 {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
                 {"userId", new ParameterTypedValue(model.UserID, ParameterTypeEnum.ValueParameter)}
             };
-            return await _NetworkInterface(requestURL, parameters, httpMethod);
+
+            return await _NetworkInterfaceWithOutput(requestURL, parameters, httpMethod);
         }
     }
 }

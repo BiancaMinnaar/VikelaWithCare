@@ -25,7 +25,7 @@ namespace Vikela.Implementation.Service
                 {"MobileNumber", new ParameterTypedValue(model.MobileNumber)},
                 {"UserPicture", new ParameterTypedValue(model.UserPicture)}
             };
-            await _NetworkInterfaceWithTypedParameters(requestURL, parameters, httpMethod);
+            await _NetworkInterface(requestURL, parameters, httpMethod);
         }
 
         public async Task RegisterForSASAsync(RegisterViewModel model)
@@ -37,7 +37,7 @@ namespace Vikela.Implementation.Service
                 {"Ocp-Apim-Subscription-Key", new ParameterTypedValue("a77f84e222b54957a9c946b99347c1f1", ParameterTypeEnum.HeaderParameter)},
                 {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)}
             };
-            await _NetworkInterfaceWithTypedParameters(requestURL, parameters, httpMethod);
+            await _NetworkInterface(requestURL, parameters, httpMethod);
         }
     }
 }

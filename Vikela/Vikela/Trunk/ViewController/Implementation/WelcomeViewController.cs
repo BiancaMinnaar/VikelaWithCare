@@ -33,10 +33,10 @@ namespace Vikela.Implementation.ViewController
                                                    ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
             _DynamixService = new DynamixService((U, P, A) =>
                                                  ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
-            var _DynamixReturnService = new DynamixReturnService<List<DynamixContact>>((U, P, A) =>
+            var _DynamixReturnService = new DynamixReturnService((U, P, A) =>
                                                  ExecuteQueryWithReturnTypeAndNetworkAccessAsync<List<DynamixContact>>(U, P, A));
             _RegisterRepo = new RegisterRepository(_MasterRepo, _RegisterService, _DynamixService, _DynamixReturnService);
-            _SelfieRepo = new SelfieRepository<RegisterViewModel>(_MasterRepo, null);
+            _SelfieRepo = new SelfieRepository<RegisterViewModel>(_MasterRepo);
             _Reposetory = new WelcomeRepository(_MasterRepo, _RegisterRepo, _SelfieRepo);
         }
 

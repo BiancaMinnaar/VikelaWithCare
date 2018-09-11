@@ -12,13 +12,10 @@ namespace Vikela.Implementation.ViewController
     public class RegistrationNameViewController : ProjectBaseViewController<RegistrationNameViewModel>, IRegistrationNameViewController
     {
         IRegistrationNameRepository<RegistrationNameViewModel> _Reposetory;
-        IRegistrationNameService<RegistrationNameViewModel> _Service;
 
         public override void SetRepositories()
         {
-            _Service = new RegistrationNameService<RegistrationNameViewModel>((U, P, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<RegistrationNameViewModel>(U, P, A));
-            _Reposetory = new RegistrationNameRepository<RegistrationNameViewModel>(_MasterRepo, _Service);
+            _Reposetory = new RegistrationNameRepository<RegistrationNameViewModel>(_MasterRepo);
             InputObject.FirstName = _MasterRepo.DataSource.User.FirstName;
             InputObject.LastName = _MasterRepo.DataSource.User.LastName;
         }

@@ -11,14 +11,8 @@ namespace Vikela.Implementation.ViewController
 {
     public class LoginViewController : ProjectBaseViewController<LoginViewModel>, ILoginViewController
     {
-        ILoginRepository<LoginViewModel> _Reposetory;
-        ILoginService<LoginViewModel> _Service;
-
         public override void SetRepositories()
         {
-            _Service = new LoginService<LoginViewModel>((U, P, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<LoginViewModel>(U, P, A));
-            _Reposetory = new LoginRepository<LoginViewModel>(_MasterRepo, _Service);
         }
 
         public async Task Login()

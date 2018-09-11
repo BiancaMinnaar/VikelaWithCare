@@ -11,12 +11,9 @@ namespace Vikela.Implementation.Repository
     public class RegistrationIDNumberRepository<T> : ProjectBaseRepository, IRegistrationIDNumberRepository<T>
         where T : BaseViewModel
     {
-        IRegistrationIDNumberService<T> _Service;
-
-        public RegistrationIDNumberRepository(IMasterRepository masterRepository, IRegistrationIDNumberService<T> service)
+        public RegistrationIDNumberRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
-            _Service = service;
         }
 
         public async Task UpdateIDNumberAsync(RegistrationIDNumberViewModel model)

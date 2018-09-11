@@ -11,12 +11,9 @@ namespace Vikela.Implementation.Repository
     public class RegistrationVerifyMobileRepository<T> : ProjectBaseRepository, IRegistrationVerifyMobileRepository<T>
         where T : BaseViewModel
     {
-        IRegistrationVerifyMobileService<T> _Service;
-
-        public RegistrationVerifyMobileRepository(IMasterRepository masterRepository, IRegistrationVerifyMobileService<T> service)
+        public RegistrationVerifyMobileRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
-            _Service = service;
         }
 
         public async Task UpdateOTPAsync(RegistrationVerifyMobileViewModel model)

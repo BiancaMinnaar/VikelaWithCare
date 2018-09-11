@@ -15,13 +15,9 @@ namespace Vikela.Implementation.ViewController
     {
         IAddTrustedSourceRepository _Reposetory;
         IPhotoRepository photoRepo;
-        ISelfieService<SelfieViewModel> _Service;
-
 
         public override void SetRepositories()
         {
-            _Service = new SelfieService<SelfieViewModel>((U, P, A) =>
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<SelfieViewModel>(U, P, A));
             photoRepo = new PhotoRepository(_MasterRepo);
             _Reposetory = new AddTrustedSourceRepository(_MasterRepo);
         }

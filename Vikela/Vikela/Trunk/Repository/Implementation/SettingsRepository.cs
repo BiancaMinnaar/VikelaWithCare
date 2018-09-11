@@ -11,18 +11,9 @@ namespace Vikela.Implementation.Repository
     public class SettingsRepository<T> : ProjectBaseRepository, ISettingsRepository<T>
         where T : BaseViewModel
     {
-        ISettingsService<T> _Service;
-
-        public SettingsRepository(IMasterRepository masterRepository, ISettingsService<T> service)
+        public SettingsRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
-            _Service = service;
-        }
-
-        public async Task Show(SettingsViewModel model, Action<T> completeAction)
-        {
-            var serviceReturnModel = await _Service.Show(model);
-            completeAction(serviceReturnModel);
         }
     }
 }

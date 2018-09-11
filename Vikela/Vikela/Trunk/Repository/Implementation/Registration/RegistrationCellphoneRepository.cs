@@ -11,12 +11,9 @@ namespace Vikela.Implementation.Repository
     public class RegistrationCellphoneRepository<T> : ProjectBaseRepository, IRegistrationCellphoneRepository<T>
         where T : BaseViewModel
     {
-        IRegistrationCellphoneService<T> _Service;
-
-        public RegistrationCellphoneRepository(IMasterRepository masterRepository, IRegistrationCellphoneService<T> service)
+        public RegistrationCellphoneRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
-            _Service = service;
         }
 
         public async Task UpdateCellPhoneAsync(RegistrationCellphoneViewModel model)

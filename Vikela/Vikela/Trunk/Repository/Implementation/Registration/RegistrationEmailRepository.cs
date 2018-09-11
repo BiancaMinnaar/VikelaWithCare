@@ -9,15 +9,11 @@ using Vikela.Trunk.Repository.Implementation;
 
 namespace Vikela.Implementation.Repository
 {
-    public class RegistrationEmailRepository<T> : ProjectBaseRepository, IRegistrationEmailRepository<T>
-        where T : BaseViewModel
+    public class RegistrationEmailRepository<T> : ProjectBaseRepository, IRegistrationEmailRepository
     {
-        IRegistrationEmailService<T> _Service;
-
-        public RegistrationEmailRepository(IMasterRepository masterRepository, IRegistrationEmailService<T> service)
+        public RegistrationEmailRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
-            _Service = service;
         }
 
         public async Task UpdateEmailAsync(RegistrationEmailViewModel model)

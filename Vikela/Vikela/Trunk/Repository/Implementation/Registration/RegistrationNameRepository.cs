@@ -11,12 +11,9 @@ namespace Vikela.Implementation.Repository
     public class RegistrationNameRepository<T> : ProjectBaseRepository, IRegistrationNameRepository<T>
         where T : BaseViewModel
     {
-        IRegistrationNameService<T> _Service;
-
-        public RegistrationNameRepository(IMasterRepository masterRepository, IRegistrationNameService<T> service)
+        public RegistrationNameRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
-            _Service = service;
         }
 
         public async Task UpdateNameAsync(RegistrationNameViewModel model)

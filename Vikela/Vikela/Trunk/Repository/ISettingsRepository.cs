@@ -8,6 +8,5 @@ namespace Vikela.Interface.Repository
     public interface ISettingsRepository<T>
         where T : BaseViewModel
     {
-        Task Show(SettingsViewModel model, Action<T> completeAction);
     }
 }

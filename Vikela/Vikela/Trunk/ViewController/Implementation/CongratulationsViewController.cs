@@ -14,21 +14,18 @@ namespace Vikela.Implementation.ViewController
 {
     public class CongratulationsViewController : ProjectBaseViewController<CongratulationsViewModel>, ICongratulationsViewController
     {
-        ICongratulationsRepository<CongratulationsViewModel> _Reposetory;
+        ICongratulationsRepository _Reposetory;
         IRegisterRepository RegisterRepository;
-        ICongratulationsService<CongratulationsViewModel> _Service;
         IRegisterService RegisterService;
 
         public override void SetRepositories()
         {
-            _Service = new CongratulationsService<CongratulationsViewModel>((U, P, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<CongratulationsViewModel>(U, P, A));
-            _Reposetory = new CongratulationsRepository<CongratulationsViewModel>(_MasterRepo, _Service);
+            _Reposetory = new CongratulationsRepository<CongratulationsViewModel>(_MasterRepo);
             RegisterService = new RegisterService((U, P, A) =>
                                                   ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
             var _DynamixService = new DynamixService((U, P, A) =>
                                                  ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
-            var _DynamixReturnService = new DynamixReturnService<List<DynamixContact>>((U, P, A) =>
+            var _DynamixReturnService = new DynamixReturnService((U, P, A) =>
                                                  ExecuteQueryWithReturnTypeAndNetworkAccessAsync<List<DynamixContact>>(U, P, A));
             RegisterRepository = new RegisterRepository(_MasterRepo, RegisterService, _DynamixService, _DynamixReturnService);
         }

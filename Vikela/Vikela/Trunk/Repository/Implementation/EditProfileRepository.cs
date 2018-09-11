@@ -12,18 +12,9 @@ namespace Vikela.Implementation.Repository
     public class EditProfileRepository<T> : ProjectBaseRepository, IEditProfileRepository<T>
         where T : BaseViewModel
     {
-        IEditProfileService<T> _Service;
-
-        public EditProfileRepository(IMasterRepository masterRepository, IEditProfileService<T> service)
+        public EditProfileRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
-            _Service = service;
-        }
-
-        public async Task Edit(EditProfileViewModel model, Action<T> completeAction)
-        {
-            var serviceReturnModel = await _Service.Edit(model);
-            completeAction(serviceReturnModel);
         }
 
         public ProfileModel Load()
