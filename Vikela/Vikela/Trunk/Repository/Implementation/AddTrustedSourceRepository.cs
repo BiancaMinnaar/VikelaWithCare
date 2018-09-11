@@ -1,19 +1,18 @@
-using System;
 using System.Threading.Tasks;
-using CorePCL;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
-using Vikela.Interface.Service;
 using Vikela.Root.Repository;
+using Vikela.Trunk.Service;
 
 namespace Vikela.Implementation.Repository
 {
     public class AddTrustedSourceRepository : ProjectBaseRepository, IAddTrustedSourceRepository
     {
-
-        public AddTrustedSourceRepository(IMasterRepository masterRepository)
+		IDynamixService _DynamixService;
+        public AddTrustedSourceRepository(IMasterRepository masterRepository, IDynamixService service)
             : base(masterRepository)
         {
+			_DynamixService = service;
         }
 
         public ContactDetailViewModel GetTrustedContactDetailFromMaster()
@@ -28,9 +27,15 @@ namespace Vikela.Implementation.Repository
                 ContactPicture = new SelfieViewModel
                 {
                     Selfie = source.UserPicture
-                }
+                },
+                TokenID = _MasterRepo.DataSource.User.TokenID
             };
         }
+
+		public async Task SaveTrustedContactAsync(AddContactViewModel model)
+		{
+			await _DynamixService.AddTrustedSourceAsync(model);
+		}
 
         public ContactDetailViewModel GetDefaultBeneniciaryFromMaster()
         {

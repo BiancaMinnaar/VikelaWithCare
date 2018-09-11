@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace Vikela.Interface.ViewController
 {
     public interface IAddTrustedSourceViewController
@@ -5,7 +7,7 @@ namespace Vikela.Interface.ViewController
         void LoadTrustedSources();
         void LoadBeneficiary();
 		void SaveBenificiary();
-		void SaveTrustedSource();
+		Task SaveTrustedSourceAsync();
         void PopToCover();
     }
 }

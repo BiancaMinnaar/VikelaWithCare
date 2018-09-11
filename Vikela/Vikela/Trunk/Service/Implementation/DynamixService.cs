@@ -55,7 +55,7 @@ namespace Vikela.Trunk.Service.Implementation
             var parameters = new Dictionary<string, ParameterTypedValue>()
             {
                 {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},
-                {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
+                {"Authorization", new ParameterTypedValue(model.SourceDetail.TokenID, ParameterTypeEnum.HeaderParameter)},
                 {"body", new ParameterTypedValue(new
                 {
                     benefactorUserId= model.SourceDetail.UserID,

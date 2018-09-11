@@ -38,9 +38,8 @@ namespace Vikela.Root.ViewController
             base.NetworkInteractionFailed += (sender, e) =>
             {
                 HasErrors = true;
-                base._RawBytes = null;
-                base._ResponseContent = string.Empty;
-                string mys = e.NetworkCallMessage;
+                base._RawBytes = e.RawBytes;
+                base._ResponseContent = e.NetworkResponseContent;
                 UserDialogs.Instance.Toast(new ToastConfig(e.NetworkCallMessage).SetDuration(TimeSpan.FromSeconds(5)).SetBackgroundColor(System.Drawing.Color.FromArgb(193, 57, 43)));
             };
             base.NetworkCallInitialised += (sender, e) =>

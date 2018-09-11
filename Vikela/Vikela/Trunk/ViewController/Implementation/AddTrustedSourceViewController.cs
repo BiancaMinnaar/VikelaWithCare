@@ -1,21 +1,24 @@
 using System.Threading.Tasks;
 using Vikela.Implementation.Repository;
-using Vikela.Implementation.Service;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
-using Vikela.Interface.Service;
 using Vikela.Interface.ViewController;
 using Vikela.Root.ViewController;
+using Vikela.Trunk.Service;
+using Vikela.Trunk.Service.Implementation;
 
 namespace Vikela.Implementation.ViewController
 {
     public class AddTrustedSourceViewController : ProjectBaseViewController<AddContactViewModel>, IAddTrustedSourceViewController
     {
         IAddTrustedSourceRepository _Reposetory;
+        IDynamixService _service;
 
         public override void SetRepositories()
         {
-            _Reposetory = new AddTrustedSourceRepository(_MasterRepo);
+            _service = new DynamixService((U, P, A) =>
+                                                 ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
+            _Reposetory = new AddTrustedSourceRepository(_MasterRepo, _service);
         }
 
         public void LoadTrustedSources()
@@ -23,8 +26,9 @@ namespace Vikela.Implementation.ViewController
             InputObject.SourceDetail = _Reposetory.GetTrustedContactDetailFromMaster();
         }
 
-        public void SaveTrustedSource()
+        public async Task SaveTrustedSourceAsync()
         {
+            await _Reposetory.SaveTrustedContactAsync(InputObject);
             _Reposetory.UpdateMasterWithTrustedSource(InputObject.SourceDetail);
         }
 

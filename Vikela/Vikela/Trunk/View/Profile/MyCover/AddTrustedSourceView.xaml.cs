@@ -21,11 +21,9 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public void On_Save_Event(object sender, EventArgs e)
+        public async void On_Save_Event(object sender, EventArgs e)
         {
-            //Save Ben to local
-            _ViewController.SaveTrustedSource();
-            //popNav
+            await _ViewController.SaveTrustedSourceAsync();
             _ViewController.PopToCover();
         }
 

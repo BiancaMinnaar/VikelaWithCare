@@ -11,7 +11,7 @@ namespace Vikela.Implementation.Repository
         public ContactDetailRepository(IMasterRepository masterRepository, IAddTrustedSourceRepository repository)
             : base(masterRepository)
         {
-            _Reposetory = new AddTrustedSourceRepository(_MasterRepo);
+            _Reposetory = repository;
         }
 
         public void Load(ContactDetailViewModel model)
