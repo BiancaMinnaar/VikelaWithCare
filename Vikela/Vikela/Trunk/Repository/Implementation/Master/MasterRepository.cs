@@ -29,9 +29,6 @@ namespace Vikela.Trunk.Repository.Implementation
 
         private IUserStorageRepository UserStorageRepo;
 
-        //private IOfflineStorageRepository OfflineStorageRepo;
-        //private const string SelectTableCount = "SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = 'UserModel'";
-        //private const string SelectTopUser = "SELECT * FROM UserModel";
 
         MasterRepository()
             : base(null)
@@ -157,7 +154,6 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             DataSource.DefaultBeneficiary = model;
         }
-
 
         public void PushLoginView()
         {

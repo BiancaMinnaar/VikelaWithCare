@@ -1,30 +1,21 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Vikela.Interface.Repository;
-using Vikela.Root.Repository;
 using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Trunk.Repository.Implementation.Offline
 {
-    public class UserStorageRepository : ProjectBaseRepository, IUserStorageRepository
+    public class UserStorageRepository : BaseStorageRepository<UserModel>, IUserStorageRepository
     {
-        private IOfflineStorageRepository OfflineStorageRepo;
-        private const string SelectTableCount = "SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = 'UserModel'";
         private const string SelectTopUser = "SELECT * FROM UserModel";
 
         public UserStorageRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
-            OfflineStorageRepo = OfflineStorageRepository.Instance;
         }
 
         public async Task SetUserRecordAsync(UserModel model)
         {
-            if (!await CheckUserModelTableAsync())
-            {
-                await CreateUserModelTabelAsync();
-
-            }
+            await CheckCreateModelTable();
             var localUser = await GetUserRecordAsync();
             if (localUser != null)
             {
@@ -41,7 +32,7 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
 
         public async Task<UserModel> GetUserModelFromOfflineAsync()
         {
-            var hasUserModelTable = await CheckUserModelTableAsync();
+            var hasUserModelTable = await CheckCreateModelTable();
 
             if (hasUserModelTable)
             {
@@ -49,7 +40,6 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
             }
             else
             {
-                await CreateUserModelTabelAsync();
                 return null;
             }
         }
@@ -62,17 +52,6 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
             {
                 await OfflineStorageRepo.DeleteRecord(allModel);
             }
-        }
-
-        private async Task<bool> CheckUserModelTableAsync()
-        {
-            return await OfflineStorageRepo.SelectScalar(
-                SelectTableCount) != 0;
-        }
-
-        private async Task CreateUserModelTabelAsync()
-        {
-            await OfflineStorageRepo.CreateTable<UserModel>();
         }
 
         private async Task<UserModel> GetUserRecordAsync()
