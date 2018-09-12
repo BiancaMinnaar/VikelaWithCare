@@ -35,7 +35,7 @@ namespace Vikela.Implementation.Repository
 
 		public async Task SaveTrustedContactAsync(ContactDetailViewModel model)
 		{
-			await _DynamixService.AddTrustedSourceAsync(model);
+			await _DynamixService.UpdateTrustedSourceAsync(model);
 		}
 
         public ContactDetailViewModel GetDefaultBeneniciaryFromMaster()
@@ -56,12 +56,12 @@ namespace Vikela.Implementation.Repository
             };
         }
 
-        public async Task SaveDefaultBeneficiary(ContactDetailViewModel model)
+        public async Task SaveDefaultBeneficiaryAsync(ContactDetailViewModel model)
         {
-            await _DynamixService.AddBeneficiaryAsync(model);
+            await _DynamixService.UpdateBeneficiaryAsync(model);
         }
 
-        public async Task UpdateMasterWithTrustedSource(ContactDetailViewModel model)
+        public async Task UpdateMasterWithTrustedSourceAsync(ContactDetailViewModel model)
         {
             var source = _MasterRepo.DataSource.TrustedSources[_MasterRepo.DataSource.TrustedSourceEditIndex];
             source.UserPicture = model.ContactPicture.Selfie;
@@ -73,7 +73,7 @@ namespace Vikela.Implementation.Repository
             _MasterRepo.DataSource.TrustedSourceEditIndex = -1;
         }
 
-        public async Task UpdateMasterWithBeneficiary(ContactDetailViewModel model)
+        public async Task UpdateMasterWithBeneficiaryAsync(ContactDetailViewModel model)
         {
             var source = _MasterRepo.DataSource.DefaultBeneficiary;
             source.UserPicture = model.ContactPicture.Selfie;

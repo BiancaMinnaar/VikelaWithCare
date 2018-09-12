@@ -56,7 +56,7 @@ namespace Vikela.Implementation.Repository
             return new TrustedSourcesViewModel()
             {
                 Index = 1,
-
+                //TODO:Add Picture
                 ItemClickedCommand = new Command(OnClick)
             };
         }

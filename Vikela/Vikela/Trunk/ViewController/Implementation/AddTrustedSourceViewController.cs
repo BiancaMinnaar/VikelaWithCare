@@ -29,13 +29,13 @@ namespace Vikela.Implementation.ViewController
         public async Task SaveTrustedSourceAsync()
         {
             await _Reposetory.SaveTrustedContactAsync(InputObject.SourceDetail);
-            _Reposetory.UpdateMasterWithTrustedSource(InputObject.SourceDetail);
+            _Reposetory.UpdateMasterWithTrustedSourceAsync(InputObject.SourceDetail);
         }
 
 		public async Task SaveBenificiaryAsync()
 		{
-            await _Reposetory.SaveDefaultBeneficiary(InputObject.SourceDetail);
-            _Reposetory.UpdateMasterWithBeneficiary(InputObject.SourceDetail);
+            await _Reposetory.SaveDefaultBeneficiaryAsync(InputObject.SourceDetail);
+            _Reposetory.UpdateMasterWithBeneficiaryAsync(InputObject.SourceDetail);
 		}
 
         public void PopToCover()
