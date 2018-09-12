@@ -17,7 +17,6 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
         public ContactStorageRepository(IMasterRepository masterRepository, IOfflineStorageRepository offlineStorageRepo)
             : base(masterRepository, offlineStorageRepo)
         {
-            SelectWithIDQuery = $"SELECT * FROM ContactModel where Id = {ID}";
             SelectTrustedSources = $"SELECT * FROM ContactModel where ContactRole = '{TrustedSourceRoleName}'";
             SelectDefaultBeneficiary = $"SELECT * FROM ContactModel where ContactRole = '{DefaultBeneficiaryRoleName}'";
 
@@ -26,6 +25,7 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
         public async Task<ContactModel> GetContactWithIDAsync(ContactModel model)
         {
             ID = model.Id.ToString();
+            SelectWithIDQuery = $"SELECT * FROM ContactModel where Id = {ID}";
             var list = await OfflineStorageRepo.QueryTable<ContactModel>(
                 SelectWithIDQuery);
             if (list != null && list.Count > 0)
@@ -35,9 +35,10 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
 
         public async Task SaveContactToLocalStorageAsync(ContactModel model)
         {
-            await GetContactWithIDAsync(model);
-            if (model != null)
+            var returnedModel = await GetContactWithIDAsync(model);
+            if (returnedModel != null)
             {
+                model.Id = returnedModel.Id;
                 var affected = await OfflineStorageRepo.UpdateRecord(model);
                 var whatIsAff = affected;
             }

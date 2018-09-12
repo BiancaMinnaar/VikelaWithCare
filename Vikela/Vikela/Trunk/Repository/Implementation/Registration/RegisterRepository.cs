@@ -204,9 +204,12 @@ namespace Vikela.Implementation.Repository
 
         public async Task SetUserContactsFromServerAsync(RegisterViewModel model)
         {
+            //TODO:Check if local storage record has been synced
             var contacts = await _DynamixReturnService.GetConnectedContactsAsync(model);
             _MasterRepo.DataSource.DefaultBeneficiary = SelectContactsWithRole(contacts, "Beneficiary")[0];
+            await _MasterRepo.SaveBeneficiaryAsync(_MasterRepo.DataSource.DefaultBeneficiary);
             _MasterRepo.DataSource.TrustedSources = SelectContactsWithRole(contacts, "Trusted Source");
+            await _MasterRepo.SaveTrustedSourceListAsync(_MasterRepo.DataSource.TrustedSources);
         }
     }
 }

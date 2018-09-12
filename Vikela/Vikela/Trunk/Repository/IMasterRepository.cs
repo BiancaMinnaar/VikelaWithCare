@@ -29,6 +29,7 @@ namespace Vikela.Interface.Repository
         Task RemoveUserRecordAsync(UserModel model);
 		Task SaveBeneficiaryAsync(ContactModel model);
         Task SaveTrustedSourceAsync(ContactModel model, int index);
+        Task SaveTrustedSourceListAsync(List<ContactModel> modelList);
         //Navigation
         void PushLoginView();
         void PushRegistrationView();

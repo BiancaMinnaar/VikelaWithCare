@@ -27,8 +27,8 @@ namespace Vikela.Trunk.Repository.Implementation
         public Func<string, Dictionary<string, ParameterTypedValue>, BaseNetworkAccessEnum, Task> NetworkInterfaceWithTypedParameters { get; set; }
         public List<Action<string, IPlatformModelBase>> OnPlatformServiceCallBack { get; set; }
 
-        private IUserStorageRepository UserStorageRepo;
-
+        internal IUserStorageRepository UserStorageRepo;
+        internal IContactStorageRepository ContactStorageRepository;
 
         MasterRepository()
             : base(null)
@@ -39,13 +39,14 @@ namespace Vikela.Trunk.Repository.Implementation
             OnPlatformServiceCallBack =
                 new List<Action<string, IPlatformModelBase>>();
             UserStorageRepo = new UserStorageRepository(this, OfflineStorageRepository.Instance);
+            ContactStorageRepository = new ContactStorageRepository(this, OfflineStorageRepository.Instance);
             Task.Run(async () =>
             {
                 MasterRepo.DataSource.User = await UserStorageRepo.GetUserModelFromOfflineAsync();
+                DataSource.TrustedSources = await GetTrustedSourcesAsync();
+                DataSource.TrustedSourceEditIndex = -1;
+                DataSource.DefaultBeneficiary = await GetDefaultBeneficiaryAsync();
             });
-            DataSource.TrustedSources = GetTrustedSources();
-            DataSource.TrustedSourceEditIndex = -1;
-            DataSource.DefaultBeneficiary = new ContactModel();
         }
 
         public string GetRegisteredUserOID()
@@ -56,15 +57,25 @@ namespace Vikela.Trunk.Repository.Implementation
 				return new Guid().ToString();
 		}
 
-        private List<ContactModel> GetTrustedSources()
+        internal async Task<List<ContactModel>> GetTrustedSourcesAsync()
         {
-            //TODO: Get DB values
+            var dbTrustedSources = await ContactStorageRepository.GetTrustedSourcesAsync();
+            if (dbTrustedSources != null && dbTrustedSources.Count == 3)
+                return dbTrustedSources;
             return new List<ContactModel>
             {
                 new ContactModel(),
                 new ContactModel(),
                 new ContactModel()
             };
+        }
+
+        internal async Task<ContactModel> GetDefaultBeneficiaryAsync()
+        {
+            var ben = await ContactStorageRepository.GetDefaultBeneficiaryAsync(); 
+            if (ben != null)
+                return ben;
+            return new ContactModel();
         }
 
         public static MasterRepository MasterRepo
@@ -145,14 +156,20 @@ namespace Vikela.Trunk.Repository.Implementation
 
         public async Task SaveTrustedSourceAsync(ContactModel model, int index)
         {
-            //OfflineStorageRepo.QueryTable("")
             DataSource.TrustedSources[index] = model;
+            await ContactStorageRepository.SaveContactToLocalStorageAsync(model);
+        }
 
+        public async Task SaveTrustedSourceListAsync(List<ContactModel> modelList)
+        {
+            for (var count=0; count < modelList.Count; count ++)
+                await SaveTrustedSourceAsync(modelList[count], count);
         }
 
         public async Task SaveBeneficiaryAsync(ContactModel model)
         {
             DataSource.DefaultBeneficiary = model;
+            await ContactStorageRepository.SaveContactToLocalStorageAsync(model);
         }
 
         public void PushLoginView()
