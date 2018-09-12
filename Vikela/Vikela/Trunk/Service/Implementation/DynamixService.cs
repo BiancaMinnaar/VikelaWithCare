@@ -86,15 +86,40 @@ namespace Vikela.Trunk.Service.Implementation
             await _NetworkInterface(requestURL, parameters, httpMethod);
         }
 
-        public async Task GetConnectedContacts(RegisterViewModel model)
+        public async Task UpdateTrustedSourceAsync(ContactDetailViewModel model)
         {
-            string requestURL = "/dyn365/api/v1.0/Connections/getconnectedcontacts";
-            var httpMethod = BaseNetworkAccessEnum.Get;
+            string requestURL = "/dyn365/api/v1.0/User/updatesource";
+            var httpMethod = BaseNetworkAccessEnum.Put;
             var parameters = new Dictionary<string, ParameterTypedValue>()
             {
                 {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},
                 {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
-                {"userId", new ParameterTypedValue(model.UserID, ParameterTypeEnum.ValueParameter)}
+                {"body", new ParameterTypedValue(new
+                {
+                    trusteeUserId= model.UserID,
+                    trustedSourceFirstName= model.FirstName,
+                    trustedSourceLastName= model.LastName,
+                    trustedSourceMobileNumber= model.CellNumber,
+                }, ParameterTypeEnum.BodyParameter)}
+            };
+            await _NetworkInterface(requestURL, parameters, httpMethod);
+        }
+
+        public async Task UpdateBeneficiaryAsync(ContactDetailViewModel model)
+        {
+            string requestURL = "/dyn365/api/v1.0/User/updatebeneficiary";
+            var httpMethod = BaseNetworkAccessEnum.Put;
+            var parameters = new Dictionary<string, ParameterTypedValue>()
+            {
+                {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},
+                {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
+                {"body", new ParameterTypedValue(new
+                {
+                    benefactorUserId= model.UserID,
+                    beneficiaryFirstName= model.FirstName,
+                    beneficiaryLastName= model.LastName,
+                    beneficiaryMobileNumber= model.CellNumber,
+                }, ParameterTypeEnum.BodyParameter)}
             };
             await _NetworkInterface(requestURL, parameters, httpMethod);
         }
