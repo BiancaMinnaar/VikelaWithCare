@@ -47,6 +47,12 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
             }
         }
 
+        public async Task SaveContactListToLocalStorageAsync(List<ContactModel> modelList)
+        {
+            foreach (ContactModel model in modelList)
+                await SaveContactToLocalStorageAsync(model);
+        }
+
         public async Task<List<ContactModel>> GetTrustedSourcesAsync()
         {
             return await OfflineStorageRepo.QueryTable<ContactModel>(SelectTrustedSources);
