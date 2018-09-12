@@ -10,6 +10,7 @@ using Vikela.Interface.Repository;
 using Vikela.Root.Repository;
 using Vikela.Root.ViewModel;
 using Vikela.Trunk.Injection.Base;
+using Vikela.Trunk.Repository.Implementation.Offline;
 using Vikela.Trunk.ViewModel.Offline;
 using Xamarin.Forms;
 
@@ -25,9 +26,12 @@ namespace Vikela.Trunk.Repository.Implementation
         public Func<string, Dictionary<string, object>, BaseNetworkAccessEnum, Task> NetworkInterface { get; set; }
         public Func<string, Dictionary<string, ParameterTypedValue>, BaseNetworkAccessEnum, Task> NetworkInterfaceWithTypedParameters { get; set; }
         public List<Action<string, IPlatformModelBase>> OnPlatformServiceCallBack { get; set; }
-        private IOfflineStorageRepository OfflineStorageRepo;
-        private const string SelectTableCount = "SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = 'UserModel'";
-        private const string SelectTopUser = "SELECT * FROM UserModel";
+
+        private IUserStorageRepository UserStorageRepo;
+
+        //private IOfflineStorageRepository OfflineStorageRepo;
+        //private const string SelectTableCount = "SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = 'UserModel'";
+        //private const string SelectTopUser = "SELECT * FROM UserModel";
 
         MasterRepository()
             : base(null)
@@ -37,10 +41,10 @@ namespace Vikela.Trunk.Repository.Implementation
             PlatformSingleton.Instance.Model.ShowLoaderFromPlatform = ShowLoading;
             OnPlatformServiceCallBack =
                 new List<Action<string, IPlatformModelBase>>();
+            UserStorageRepo = new UserStorageRepository(this);
             Task.Run(async () =>
             {
-                OfflineStorageRepo = OfflineStorageRepository.Instance;
-                MasterRepo.DataSource.User = await GetUserModelFromOfflineAsync();
+                MasterRepo.DataSource.User = await UserStorageRepo.GetUserModelFromOfflineAsync();
             });
             DataSource.TrustedSources = GetTrustedSources();
             DataSource.TrustedSourceEditIndex = -1;
@@ -57,6 +61,7 @@ namespace Vikela.Trunk.Repository.Implementation
 
         private List<ContactModel> GetTrustedSources()
         {
+            //TODO: Get DB values
             return new List<ContactModel>
             {
                 new ContactModel(),
@@ -127,68 +132,18 @@ namespace Vikela.Trunk.Repository.Implementation
 
         public async Task SetUserRecordAsync(UserModel model)
         {
-            if (!await CheckUserModelTableAsync())
-            {
-                await CreateUserModelTabelAsync();
-
-            }
-            var localUser = await GetUserRecordAsync();
-            if (localUser != null)
-            {
-				model.Id = localUser.Id;
-                var affected = await OfflineStorageRepo.UpdateRecord(model);
-                var whatIsAff = affected;
-            }
-            else
-            {
-                await OfflineStorageRepo.InsertRecord(model);
-            }
-            DataSource.User = await GetUserModelFromOfflineAsync();
+            await UserStorageRepo.SetUserRecordAsync(model);
+            DataSource.User = await UserStorageRepo.GetUserModelFromOfflineAsync();
         }
 
         public async Task<UserModel> GetUserModelFromOfflineAsync()
         {
-            var hasUserModelTable = await CheckUserModelTableAsync();
-
-            if (hasUserModelTable)
-            {
-                return await GetUserRecordAsync();
-            }
-            else
-            {
-                await CreateUserModelTabelAsync();
-                return null;
-            }
-        }
-
-        private async Task<bool> CheckUserModelTableAsync()
-        {
-            return await OfflineStorageRepo.SelectScalar(
-                SelectTableCount) != 0;
-        }
-
-        private async Task CreateUserModelTabelAsync()
-        {
-            await OfflineStorageRepo.CreateTable<UserModel>();
-        }
-
-        private async Task<UserModel> GetUserRecordAsync()
-        {
-            var list = await OfflineStorageRepo.QueryTable<UserModel>(
-                SelectTopUser);
-            if (list != null && list.Count > 0)
-                return list[0];
-            return null;
+            return await UserStorageRepo.GetUserModelFromOfflineAsync();
         }
 
         public async Task RemoveUserRecordAsync(UserModel model)
         {
-            var list = await OfflineStorageRepo.QueryTable<UserModel>(
-                SelectTopUser);
-            foreach(var allModel in list)
-            {
-                await OfflineStorageRepo.DeleteRecord(allModel);
-            }
+            await UserStorageRepo.RemoveUserRecordAsync(model);
         }
 
         public async Task SaveTrustedSourceAsync(ContactModel model, int index)

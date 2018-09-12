@@ -15,11 +15,7 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
         public UserStorageRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
-            Task.Run(async () =>
-            {
-                OfflineStorageRepo = OfflineStorageRepository.Instance;
-                _MasterRepo.DataSource.User = await GetUserModelFromOfflineAsync();
-            });
+            OfflineStorageRepo = OfflineStorageRepository.Instance;
         }
 
         public async Task SetUserRecordAsync(UserModel model)
@@ -58,6 +54,16 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
             }
         }
 
+        public async Task RemoveUserRecordAsync(UserModel model)
+        {
+            var list = await OfflineStorageRepo.QueryTable<UserModel>(
+                SelectTopUser);
+            foreach (var allModel in list)
+            {
+                await OfflineStorageRepo.DeleteRecord(allModel);
+            }
+        }
+
         private async Task<bool> CheckUserModelTableAsync()
         {
             return await OfflineStorageRepo.SelectScalar(
@@ -76,16 +82,6 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
             if (list != null && list.Count > 0)
                 return list[0];
             return null;
-        }
-
-        public async Task RemoveUserRecordAsync(UserModel model)
-        {
-            var list = await OfflineStorageRepo.QueryTable<UserModel>(
-                SelectTopUser);
-            foreach(var allModel in list)
-            {
-                await OfflineStorageRepo.DeleteRecord(allModel);
-            }
         }
     }
 }
