@@ -6,7 +6,7 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
 {
     public class UserStorageRepository : BaseStorageRepository<UserModel>, IUserStorageRepository
     {
-        private const string SelectTopUser = "SELECT * FROM UserModel";
+        internal const string SelectTopUser = "SELECT * FROM UserModel";
 
         public UserStorageRepository(IMasterRepository masterRepository, IOfflineStorageRepository offlineStorageRepo)
 			: base(masterRepository, offlineStorageRepo)
@@ -15,7 +15,6 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
 
         public async Task SetUserRecordAsync(UserModel model)
         {
-            await CheckCreateModelTable();
             var localUser = await GetUserRecordAsync();
             if (localUser != null)
             {
@@ -32,16 +31,7 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
 
         public async Task<UserModel> GetUserModelFromOfflineAsync()
         {
-            var hasUserModelTable = await CheckCreateModelTable();
-
-            if (hasUserModelTable)
-            {
-                return await GetUserRecordAsync();
-            }
-            else
-            {
-                return null;
-            }
+            return await GetUserRecordAsync();
         }
 
         public async Task RemoveUserRecordAsync(UserModel model)

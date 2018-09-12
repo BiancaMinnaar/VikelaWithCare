@@ -9,6 +9,7 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
     {
         internal string tableName = typeof(T).Name;
         protected IOfflineStorageRepository OfflineStorageRepo;
+        internal bool Exists { get; set; }
 
         protected string TableCountQuery { get; private set; }
 
@@ -16,28 +17,29 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
             : base(masterRepository)
         {
 			OfflineStorageRepo = offlineStorageRepo;
+            Task.Run(async () => Exists = await CheckCreateModelTableAsync());
             TableCountQuery = $"SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = '{tableName}'";
         }
 
-        private async Task<bool> CheckModelTableAsync()
+        internal async Task<bool> CheckModelTableAsync()
         {
             return await OfflineStorageRepo.SelectScalar(
                 TableCountQuery) != 0;
         }
 
-        private async Task CreateModelTabelAsync()
+        internal async Task CreateModelTabelAsync()
         {
-            await OfflineStorageRepo.CreateTable<T>();
+            if (!Exists)
+                await OfflineStorageRepo.CreateTable<T>();
         }
 
-        protected async Task<bool> CheckCreateModelTable()
+        internal async Task<bool> CheckCreateModelTableAsync()
         {
-            var exists = await CheckModelTableAsync();
-            if (!exists)
+            if (!Exists)
             {
                 await CreateModelTabelAsync();
             }
-            return exists;
+            return Exists;
         }
     }
 }
