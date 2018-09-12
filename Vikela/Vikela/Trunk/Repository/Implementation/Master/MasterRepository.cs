@@ -38,7 +38,7 @@ namespace Vikela.Trunk.Repository.Implementation
             PlatformSingleton.Instance.Model.ShowLoaderFromPlatform = ShowLoading;
             OnPlatformServiceCallBack =
                 new List<Action<string, IPlatformModelBase>>();
-            UserStorageRepo = new UserStorageRepository(this);
+            UserStorageRepo = new UserStorageRepository(this, OfflineStorageRepository.Instance);
             Task.Run(async () =>
             {
                 MasterRepo.DataSource.User = await UserStorageRepo.GetUserModelFromOfflineAsync();

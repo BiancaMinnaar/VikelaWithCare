@@ -12,11 +12,11 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
 
         protected string TableCountQuery { get; private set; }
 
-        public BaseStorageRepository(IMasterRepository masterRepository)
+        public BaseStorageRepository(IMasterRepository masterRepository, IOfflineStorageRepository offlineStorageRepo)
             : base(masterRepository)
         {
+			OfflineStorageRepo = offlineStorageRepo;
             TableCountQuery = $"SELECT count(1) FROM sqlite_master WHERE type = 'table' AND name = '{tableName}'";
-            OfflineStorageRepo = OfflineStorageRepository.Instance;
         }
 
         private async Task<bool> CheckModelTableAsync()

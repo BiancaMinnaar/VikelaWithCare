@@ -8,8 +8,8 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
     {
         private const string SelectTopUser = "SELECT * FROM UserModel";
 
-        public UserStorageRepository(IMasterRepository masterRepository)
-            : base(masterRepository)
+        public UserStorageRepository(IMasterRepository masterRepository, IOfflineStorageRepository offlineStorageRepo)
+			: base(masterRepository, offlineStorageRepo)
         {
         }
 
