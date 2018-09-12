@@ -315,6 +315,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Offline\UserStorageRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IUserStorageRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Offline\BaseStorageRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IContactStorageRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Offline\ContactStorageRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
