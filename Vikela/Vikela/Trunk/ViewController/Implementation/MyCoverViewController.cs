@@ -9,6 +9,7 @@ using Vikela.Root.ViewController;
 using Vikela.Trunk.ViewModel.Controlls;
 using Vikela.Trunk.Service;
 using Vikela.Trunk.Service.Implementation;
+using System.Collections.Generic;
 
 namespace Vikela.Implementation.ViewController
 {
@@ -59,9 +60,9 @@ namespace Vikela.Implementation.ViewController
             return _Reposetory.GetSiyabongaTileViewModel(OnClick);
         }
 
-        public ActiveCoverViewModel GetActiveCoverTileViewModel(Action OnLick)
+        public List<ActiveCoverViewModel> GetActiveCoverTileModels(Action OnLick)
         {
-            return _Reposetory.GetActiveCoverTileViewModel(OnLick);
+            return _Reposetory.GetActiveCoverTileModels(OnLick);
         }
     }
 }

@@ -11,5 +11,6 @@ namespace Vikela.Trunk.ViewModel.Controlls
         public Color TileColor { get; set; }
         public string CareAmount { get; set; }
         public byte[] BeneficiaryImage { get; set; }
+		public string TimeLeft{get;set;}
     }
 }

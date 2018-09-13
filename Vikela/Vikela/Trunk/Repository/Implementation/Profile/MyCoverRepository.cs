@@ -9,6 +9,7 @@ using Vikela.Root.Repository;
 using Vikela.Trunk.ViewModel;
 using Vikela.Trunk.ViewModel.Controlls;
 using Xamarin.Forms;
+using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Implementation.Repository
 {
@@ -89,16 +90,29 @@ namespace Vikela.Implementation.Repository
             };
         }
 
-        public ActiveCoverViewModel GetActiveCoverTileViewModel(Action OnClick)
+        public ActiveCoverViewModel GetActiveCoverTileModelFromPolicy(PolicyModel model, Action OnClick, int index)
         {
-            return new ActiveCoverViewModel()
+            var endDate = DateTime.Parse(model.endDate);
+            var startDate = DateTime.Parse(model.startDate);
+            var timeCalc = TimeSpan.FromTicks(endDate.AddTicks(-startDate.Ticks).Ticks).Days;
+            return new ActiveCoverViewModel
             {
-                Index = 0,
-                TileColor=Color.FromHex("#BBDE6B"),
-                CareAmount="R1500",
-                BeneficiaryImage=_MasterRepo.DataSource.User.UserPicture,
-                ItemClickedCommand = new Command(OnClick)
+                Index = index,
+                TileColor = Color.FromHex("#BBDE6B"),
+                CareAmount = model.ensuredAmount,
+                BeneficiaryImage = _MasterRepo.DataSource.User.UserPicture,
+                ItemClickedCommand = new Command(OnClick),
+                TimeLeft = $"{timeCalc} Days Left"
             };
+        }
+
+        public List<ActiveCoverViewModel> GetActiveCoverTileModels(Action OnClick)
+        {
+            List<ActiveCoverViewModel> list = new List<ActiveCoverViewModel>();
+            for (var count = 0; count < _MasterRepo.DataSource.PolicyList.Count; count++)
+                list.Add(GetActiveCoverTileModelFromPolicy(_MasterRepo.DataSource.PolicyList[count], OnClick, count));
+
+            return list;
         }
     }
 }

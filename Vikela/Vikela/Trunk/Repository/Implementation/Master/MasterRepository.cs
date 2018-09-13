@@ -46,6 +46,7 @@ namespace Vikela.Trunk.Repository.Implementation
                 DataSource.TrustedSources = await GetTrustedSourcesAsync();
                 DataSource.TrustedSourceEditIndex = -1;
                 DataSource.DefaultBeneficiary = await GetDefaultBeneficiaryAsync();
+                DataSource.PolicyList = await GetActiveCovers();
             });
         }
 
@@ -76,6 +77,11 @@ namespace Vikela.Trunk.Repository.Implementation
             if (ben != null)
                 return ben;
             return new ContactModel();
+        }
+
+        internal async Task<List<PolicyModel>> GetActiveCovers()
+        {
+            return new List<PolicyModel>();
         }
 
         public static MasterRepository MasterRepo

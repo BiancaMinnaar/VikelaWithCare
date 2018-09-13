@@ -22,15 +22,17 @@ namespace Vikela.Implementation.Repository
         IRegisterService _Service;
         IDynamixService _DynamixService;
         IDynamixReturnService<List<DynamixContact>> _DynamixReturnService;
+        IDynamixReturnService<List<DynamixPolicy>> _DynamixPolicyReturnService;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
 
         public RegisterRepository(IMasterRepository masterRepository, IRegisterService service, IDynamixService dynamix=null, 
-                                  IDynamixReturnService<List<DynamixContact>> dynamixReturn=null)
+                                  IDynamixReturnService<List<DynamixContact>> dynamixReturn=null, IDynamixReturnService<List<DynamixPolicy>> dynasmicPolicyReturn=null)
             : base(masterRepository)
         {
             _Service = service;
             _DynamixService = dynamix;
             _DynamixReturnService = dynamixReturn;
+            _DynamixPolicyReturnService = dynasmicPolicyReturn;
             _PlatformBonsai = new PlatformBonsai();
             var platform = new PlatformRepository<RegisterViewModel>(masterRepository, _PlatformBonsai)
             {
@@ -210,6 +212,28 @@ namespace Vikela.Implementation.Repository
             await _MasterRepo.SaveBeneficiaryAsync(_MasterRepo.DataSource.DefaultBeneficiary);
             _MasterRepo.DataSource.TrustedSources = SelectContactsWithRole(contacts, "Trusted Source");
             await _MasterRepo.SaveTrustedSourceListAsync(_MasterRepo.DataSource.TrustedSources);
+        }
+
+        private List<PolicyModel> getPolicyOfflineModelsFromServiceList(List<DynamixPolicy> policies)
+        {
+            var query = from model in policies
+                        select new PolicyModel
+                        {
+                            beneficiaryContactId = model.beneficiaryContactId,
+                            beneficiaryProfileImageUrl = model.beneficiaryProfileImageUrl,
+                            endDate = model.endDate,
+                            ensuredAmount = model.ensuredAmount,
+                            name = model.name,
+                            startDate = model.startDate
+                        };
+
+            return query.ToList();
+        }
+
+        public async Task SetUserPoliciesFromServerAsync(RegisterViewModel model)
+        {
+            var policies = await _DynamixPolicyReturnService.GetAllActivePoliciesAsync(model);
+            _MasterRepo.DataSource.PolicyList = getPolicyOfflineModelsFromServiceList(policies);
         }
     }
 }

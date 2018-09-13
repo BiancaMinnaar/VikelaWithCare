@@ -31,7 +31,7 @@ namespace Vikela.Trunk.Service.Implementation
 
         public async Task<T> GetAllActivePoliciesAsync(RegisterViewModel model)
         {
-            string requestURL = "/dyn365/api/v1.0/Policy";
+            string requestURL = "/dyn365/api/v1.0/Policy/{getpolicyoverview}";
             var httpMethod = BaseNetworkAccessEnum.Get;
             var parameters = new Dictionary<string, ParameterTypedValue>()
             {
