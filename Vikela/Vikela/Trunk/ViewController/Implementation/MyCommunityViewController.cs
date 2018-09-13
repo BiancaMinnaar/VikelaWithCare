@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Vikela.Implementation.Repository;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
@@ -15,13 +16,16 @@ namespace Vikela.Implementation.ViewController
     {
         IMyCommunityRepository _Reposetory;
         IDynamixReturnService<DynamixCommunity> _Service;
+        IDynamixService _service;
         IMyCoverRepository<MyCoverViewModel> CoverRepo;
 
         public override void SetRepositories()
         {
             _Service =  new DynamixReturnService<DynamixCommunity>((U, P, A) =>
                                                  ExecuteQueryWithReturnTypeAndNetworkAccessAsync<DynamixCommunity>(U, P, A));
-            _Reposetory = new MyCommunityRepository(_MasterRepo, _Service);
+            _service = new DynamixService((U, P, A) =>
+                                                 ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
+            _Reposetory = new MyCommunityRepository(_MasterRepo, _Service, _service);
             CoverRepo = new MyCoverRepository<MyCoverViewModel>(_MasterRepo);
         }
 
@@ -38,6 +42,14 @@ namespace Vikela.Implementation.ViewController
         public void PopToCover()
         {
             _MasterRepo.PopView();
+        }
+
+        public async Task SaveCommunityAsync()
+        {
+            InputObject.TokenID = _MasterRepo.DataSource.User.TokenID;
+            InputObject.UserID = _MasterRepo.DataSource.User.UserID;
+            await _Reposetory.SaveCommunityAsync(InputObject);
+            await _Reposetory.UpdateMasterWithCommunityAsync(InputObject);
         }
     }
 }

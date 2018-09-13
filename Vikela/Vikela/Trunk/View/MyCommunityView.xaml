@@ -9,9 +9,7 @@
     xmlns:svg="clr-namespace:TwinTechsForms.NControl;assembly=TwinTechsForms.NControl.SvgImageView"
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.MyCommunityView" 
-    x:TypeArguments="p:MyCommunityViewController, m:MyCommunityViewModel" 
-    BackgroundColor="#565E60"
-    Title="Login">
+    x:TypeArguments="p:MyCommunityViewController, m:MyCommunityViewModel">
     <ContentPage.Resources>
         <ResourceDictionary>
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
@@ -31,11 +29,11 @@
                 <Frame>
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Name :"></Label>
-                        <Entry Text="{Binding CommunityName}" />
+                        <Entry Text="{Binding CommunityName}" HorizontalOptions="FillAndExpand" />
                     </StackLayout>
                 </Frame>
                 <b:TableScrollView x:Name="DetailTiles" />
-                <Button Text="Save" />
+                <Button Text="Save" Clicked="OnSave" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

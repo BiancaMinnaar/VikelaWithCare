@@ -178,6 +178,12 @@ namespace Vikela.Trunk.Repository.Implementation
             await ContactStorageRepository.SaveContactToLocalStorageAsync(model);
         }
 
+        public async Task SaveCommunityAsync(CommunityModel model)
+        {
+            DataSource.Community = model;
+            //await 
+        }
+
         public void PushLoginView()
         {
             _Navigation.PushAsync(new LoginView());

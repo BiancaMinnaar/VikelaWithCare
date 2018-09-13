@@ -40,6 +40,12 @@ namespace Vikela.Implementation.View
         {
 
         }
+
+        async void OnSave(object sender, System.EventArgs e)
+        {
+            await _ViewController.SaveCommunityAsync();
+            _ViewController.PopToCover();
+        }
     }
 }
 
