@@ -4,6 +4,6 @@ namespace Vikela.Interface.ViewController
 {
     public interface IMyCommunityViewController
     {
-        Task Load();
+        void LoadCommunity();
     }
 }

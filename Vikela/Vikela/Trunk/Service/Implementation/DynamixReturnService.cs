@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
 using Vikela.Root;
-using Vikela.Trunk.Service.ReturnModel;
 
 namespace Vikela.Trunk.Service.Implementation
 {

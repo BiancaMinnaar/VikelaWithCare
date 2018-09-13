@@ -1,28 +1,28 @@
-using System;
-using System.Threading.Tasks;
-using CorePCL;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
-using Vikela.Interface.Service;
 using Vikela.Root.Repository;
+using Vikela.Trunk.Service;
+using Vikela.Trunk.Service.ReturnModel;
 
 namespace Vikela.Implementation.Repository
 {
-    public class MyCommunityRepository<T> : ProjectBaseRepository, IMyCommunityRepository<T>
-        where T : BaseViewModel
+    public class MyCommunityRepository : ProjectBaseRepository, IMyCommunityRepository
     {
-        IMyCommunityService<T> _Service;
+        IDynamixReturnService<DynamixCommunity> _Service;
 
-        public MyCommunityRepository(IMasterRepository masterRepository, IMyCommunityService<T> service)
+        public MyCommunityRepository(IMasterRepository masterRepository, IDynamixReturnService<DynamixCommunity> service)
             : base(masterRepository)
         {
             _Service = service;
         }
 
-        public async Task Load(MyCommunityViewModel model, Action<T> completeAction)
+        public MyCommunityViewModel GetCommunityFromMaster()
         {
-            var serviceReturnModel = await _Service.Load(model);
-            completeAction(serviceReturnModel);
+            var source = _MasterRepo.DataSource.Community;
+            return new MyCommunityViewModel
+            {
+                CommunityName = source.CommunityName
+            };
         }
     }
 }
