@@ -64,5 +64,10 @@ namespace Vikela.Implementation.ViewController
         {
             return _Reposetory.GetActiveCoverTileModels(OnLick);
         }
+
+        public void PushMyCommunity()
+        {
+            _MasterRepo.PushMyCommunity();
+        }
     }
 }

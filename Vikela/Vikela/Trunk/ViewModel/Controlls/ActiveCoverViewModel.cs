@@ -8,6 +8,7 @@ namespace Vikela.Trunk.ViewModel.Controlls
     {
         public int Index { get; set; }
         public ICommand ItemClickedCommand { get; set; }
+		public string Title {get;set;}
         public Color TileColor { get; set; }
         public string CareAmount { get; set; }
         public byte[] BeneficiaryImage { get; set; }

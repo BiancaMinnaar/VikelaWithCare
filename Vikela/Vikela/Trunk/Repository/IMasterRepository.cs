@@ -45,6 +45,7 @@ namespace Vikela.Interface.Repository
         void PushSettings();
         void PushAddBeneficiary();
 		void PushAddTrustedSource();
+        void PushMyCommunity();
     }
 }
 

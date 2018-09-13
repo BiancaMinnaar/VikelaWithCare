@@ -70,7 +70,7 @@ namespace Vikela.Implementation.View
 
         public void OnCircleTapped(object sender, EventArgs eventArgs)
         {
-            _ViewController.PushAddBeneficiary();
+            _ViewController.PushMyCommunity();
         }
     }
 }

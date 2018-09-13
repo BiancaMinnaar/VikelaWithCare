@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Linq;
 using System.Collections.Generic;
 using CorePCL;
@@ -95,11 +96,13 @@ namespace Vikela.Implementation.Repository
             var endDate = DateTime.Parse(model.endDate);
             var startDate = DateTime.Parse(model.startDate);
             var timeCalc = TimeSpan.FromTicks(endDate.AddTicks(-startDate.Ticks).Ticks).Days;
+            CultureInfo ci = new CultureInfo("en-ZA");
             return new ActiveCoverViewModel
             {
                 Index = index,
                 TileColor = Color.FromHex("#BBDE6B"),
-                CareAmount = model.ensuredAmount,
+                Title=model.name,
+				CareAmount = (Double.Parse(model.ensuredAmount)/10000).ToString("C", ci),
                 BeneficiaryImage = _MasterRepo.DataSource.User.UserPicture,
                 ItemClickedCommand = new Command(OnClick),
                 TimeLeft = $"{timeCalc} Days Left"

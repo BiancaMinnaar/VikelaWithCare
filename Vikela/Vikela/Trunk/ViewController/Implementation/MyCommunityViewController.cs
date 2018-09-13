@@ -16,9 +16,6 @@ namespace Vikela.Implementation.ViewController
 
         public override void SetRepositories()
         {
-            _Service = new MyCommunityService<MyCommunityViewModel>((U, P, C, A) => 
-                                                           ExecuteQueryWithReturnTypeAndNetworkAccessAsync<MyCommunityViewModel>(U, P, C, A));
-            _Reposetory = new MyCommunityRepository<MyCommunityViewModel>(_MasterRepo, _Service);
         }
 
         public async Task Load()

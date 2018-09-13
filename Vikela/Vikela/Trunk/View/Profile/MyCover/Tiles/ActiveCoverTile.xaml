@@ -18,7 +18,7 @@
             </StackLayout.GestureRecognizers>
             <StackLayout WidthRequest="10" BackgroundColor="{Binding TileColor}" />
             <StackLayout Spacing="1">
-                <Label Text="Spend with Care" Style="{DynamicResource BlackLabel}" />
+                <Label Text="{Binding }" Style="{DynamicResource BlackLabel}" />
                 <Label Text="{Binding CareAmount}" Style="{DynamicResource LargeLabel}" TextColor="{Binding TileColor}" />
             </StackLayout>
             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">

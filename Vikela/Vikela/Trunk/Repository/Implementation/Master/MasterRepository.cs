@@ -246,5 +246,10 @@ namespace Vikela.Trunk.Repository.Implementation
 		{
             _Navigation.PushAsync(new AddTrustedSourceView());
 		}
+
+        public void PushMyCommunity()
+        {
+            _Navigation.PushAsync(new MyCommunityView());
+        }
     }
 }
