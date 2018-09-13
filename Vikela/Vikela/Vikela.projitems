@@ -331,6 +331,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\MyCommunityRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IMyCommunityService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\MyCommunityService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\DynamixCommunity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Offline\CommunityModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />

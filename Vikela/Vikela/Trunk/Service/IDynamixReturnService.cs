@@ -7,5 +7,6 @@ namespace Vikela.Trunk.Service
     {
         Task<T> GetConnectedContactsAsync(RegisterViewModel model);
         Task<T> GetAllActivePoliciesAsync(RegisterViewModel model);
+        Task<T> GetCommunityAsync(RegisterViewModel model);
     }
 }

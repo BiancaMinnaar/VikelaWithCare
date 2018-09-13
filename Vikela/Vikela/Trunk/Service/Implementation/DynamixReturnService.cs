@@ -42,5 +42,21 @@ namespace Vikela.Trunk.Service.Implementation
 
             return await _NetworkInterfaceWithOutput(requestURL, parameters, httpMethod);
         }
+
+        public async Task<T> GetCommunityAsync(RegisterViewModel model)
+        {
+            string requestURL = "/dyn365/api/v1.0/Communities/{getCommunityName}";
+            var httpMethod = BaseNetworkAccessEnum.Get;
+            var parameters = new Dictionary<string, ParameterTypedValue>
+            {
+                {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},
+                {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
+                {"body", new ParameterTypedValue(new
+                {
+                    userId= model.UserID
+                }, ParameterTypeEnum.BodyParameter)}
+            };
+            return await _NetworkInterfaceWithOutput(requestURL, parameters, httpMethod);
+        }
     }
 }

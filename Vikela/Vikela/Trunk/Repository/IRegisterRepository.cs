@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Vikela.Implementation.ViewModel;
-using Vikela.Trunk.Service.ReturnModel;
 using Vikela.Trunk.ViewModel.Interfaces;
 using Vikela.Trunk.ViewModel.Offline;
 
@@ -22,5 +20,6 @@ namespace Vikela.Interface.Repository
         Task SetUserWithServerDataAsync(string responseContent);
         Task SetUserContactsFromServerAsync(RegisterViewModel model);
         Task SetUserPoliciesFromServerAsync(RegisterViewModel model);
+        Task SetCommunityValueFromServiceAsync(RegisterViewModel model);
     }
 }

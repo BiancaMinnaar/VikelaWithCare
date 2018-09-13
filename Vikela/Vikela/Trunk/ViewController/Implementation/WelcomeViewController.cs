@@ -37,7 +37,10 @@ namespace Vikela.Implementation.ViewController
                                                  ExecuteQueryWithReturnTypeAndNetworkAccessAsync<List<DynamixContact>>(U, P, A));
             var _DynamixPolicyReturnService = new DynamixReturnService<List<DynamixPolicy>>((U, P, A) =>
                                                  ExecuteQueryWithReturnTypeAndNetworkAccessAsync<List<DynamixPolicy>>(U, P, A));
-            _RegisterRepo = new RegisterRepository(_MasterRepo, _RegisterService, _DynamixService, _DynamixReturnService, _DynamixPolicyReturnService);
+            var _DynamixCommunityReturnService = new DynamixReturnService<DynamixCommunity>((U, P, A) =>
+                                                 ExecuteQueryWithReturnTypeAndNetworkAccessAsync<DynamixCommunity>(U, P, A));
+            _RegisterRepo = new RegisterRepository(_MasterRepo, _RegisterService, _DynamixService, _DynamixReturnService, 
+			                                       _DynamixPolicyReturnService, _DynamixCommunityReturnService);
             _SelfieRepo = new SelfieRepository<RegisterViewModel>(_MasterRepo);
             _Reposetory = new WelcomeRepository(_MasterRepo, _RegisterRepo, _SelfieRepo);
         }
@@ -60,6 +63,7 @@ namespace Vikela.Implementation.ViewController
             await SetUserWithD365DataAsync(registration);
             await _RegisterRepo.SetUserContactsFromServerAsync(registration);
             await _RegisterRepo.SetUserPoliciesFromServerAsync(registration);
+            await _RegisterRepo.SetCommunityValueFromServiceAsync(registration);
             _Reposetory.RegisterOrShowProfile(_Reposetory.IsRegisteredUser(_ResponseContent));
             _MasterRepo.HideLoading();
         }

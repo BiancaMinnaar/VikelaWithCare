@@ -107,5 +107,24 @@ namespace Vikela.Trunk.Service.Implementation
             };
             await _NetworkInterface(requestURL, parameters, httpMethod);
         }
+
+        //Communities
+
+        public async Task UpdateCommunityAsync(MyCommunityViewModel model)
+        {
+            string requestURL = "/dyn365/api/v1.0/Communities/{updateCommunityName}";
+            var httpMethod = BaseNetworkAccessEnum.Patch;
+            var parameters = new Dictionary<string, ParameterTypedValue>()
+            {
+                {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},
+                {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
+                {"body", new ParameterTypedValue(new
+                {
+                    userId= model.UserID,
+                    communityName=model.CommunityName
+                }, ParameterTypeEnum.BodyParameter)}
+            };
+            await _NetworkInterface(requestURL, parameters, httpMethod);
+        }
     }
 }

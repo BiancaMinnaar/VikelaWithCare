@@ -10,5 +10,6 @@ namespace Vikela.Trunk.Service
 		Task AddTrustedSourceAsync(ContactDetailViewModel model);
 		Task AddBeneficiaryAsync(ContactDetailViewModel model);
         Task UpdateContactAsync(ContactDetailViewModel model);
+        Task UpdateCommunityAsync(MyCommunityViewModel model);
     }
 }

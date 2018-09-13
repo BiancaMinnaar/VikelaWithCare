@@ -23,16 +23,20 @@ namespace Vikela.Implementation.Repository
         IDynamixService _DynamixService;
         IDynamixReturnService<List<DynamixContact>> _DynamixReturnService;
         IDynamixReturnService<List<DynamixPolicy>> _DynamixPolicyReturnService;
+        IDynamixReturnService<DynamixCommunity> _DynamixCommunityReturnService;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
 
         public RegisterRepository(IMasterRepository masterRepository, IRegisterService service, IDynamixService dynamix=null, 
-                                  IDynamixReturnService<List<DynamixContact>> dynamixReturn=null, IDynamixReturnService<List<DynamixPolicy>> dynasmicPolicyReturn=null)
+                                  IDynamixReturnService<List<DynamixContact>> dynamixReturn=null,
+                                  IDynamixReturnService<List<DynamixPolicy>> dynasmicPolicyReturn=null,
+                                  IDynamixReturnService<DynamixCommunity> dynamixCommunityReturnService=null)
             : base(masterRepository)
         {
             _Service = service;
             _DynamixService = dynamix;
             _DynamixReturnService = dynamixReturn;
             _DynamixPolicyReturnService = dynasmicPolicyReturn;
+            _DynamixCommunityReturnService = dynamixCommunityReturnService;
             _PlatformBonsai = new PlatformBonsai();
             var platform = new PlatformRepository<RegisterViewModel>(masterRepository, _PlatformBonsai)
             {
@@ -234,6 +238,20 @@ namespace Vikela.Implementation.Repository
         {
             var policies = await _DynamixPolicyReturnService.GetAllActivePoliciesAsync(model);
             _MasterRepo.DataSource.PolicyList = getPolicyOfflineModelsFromServiceList(policies);
+        }
+
+        private CommunityModel GetCommunityOfflineModelFromServiceModel(DynamixCommunity model)
+        {
+            return new CommunityModel
+            {
+                CommunityName = model.data.communityName
+            };
+        }
+
+        public async Task SetCommunityValueFromServiceAsync(RegisterViewModel model)
+        {
+            var community = await _DynamixCommunityReturnService.GetCommunityAsync(model);
+            _MasterRepo.DataSource.Community = GetCommunityOfflineModelFromServiceModel(community);
         }
     }
 }
