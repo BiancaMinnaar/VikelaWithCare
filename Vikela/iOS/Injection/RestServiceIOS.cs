@@ -29,6 +29,8 @@ namespace Vikela.iOS.Injection
                     return Method.POST;
                 case BaseNetworkAccessEnum.Put:
                     return Method.PUT;
+                case BaseNetworkAccessEnum.Patch:
+                    return Method.PATCH;
             }
         }
 

@@ -25,7 +25,7 @@ namespace Vikela.Implementation.ViewController
                                                   ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
             var _DynamixService = new DynamixService((U, P, A) =>
                                                  ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A));
-            var _DynamixReturnService = new DynamixReturnService((U, P, A) =>
+            var _DynamixReturnService = new DynamixReturnService<List<DynamixContact>>((U, P, A) =>
                                                  ExecuteQueryWithReturnTypeAndNetworkAccessAsync<List<DynamixContact>>(U, P, A));
             RegisterRepository = new RegisterRepository(_MasterRepo, RegisterService, _DynamixService, _DynamixReturnService);
         }

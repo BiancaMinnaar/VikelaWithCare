@@ -1,10 +1,12 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Root.Repository;
+using Vikela.Trunk.ViewModel;
 using Vikela.Trunk.ViewModel.Controlls;
 using Xamarin.Forms;
 
@@ -51,12 +53,27 @@ namespace Vikela.Implementation.Repository
             };
         }
 
+        internal List<ProfileModel> GetTrustesSourceProfileModelList()
+        {
+            var TrustesSources = from source in _MasterRepo.DataSource.TrustedSources
+                                 select new ProfileModel
+                                 {
+                UserID=source.UserID,
+                FirstName=source.FirstName,
+                LastName=source.LastName,
+                CellPhoneNumber=source.CellNumber,
+                IDNumber=source.IDNumber
+            };
+
+            return TrustesSources.ToList();
+        }
+
         public TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action<object> OnClick)
         {
             return new TrustedSourcesViewModel()
             {
                 Index = 1,
-                //TODO:Add Picture
+                ThreeSources = GetTrustesSourceProfileModelList(),
                 ItemClickedCommand = new Command(OnClick)
             };
         }

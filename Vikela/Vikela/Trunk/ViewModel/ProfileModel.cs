@@ -7,6 +7,17 @@ namespace Vikela.Trunk.ViewModel
     public class ProfileModel : ProjectBaseViewModel
     {
         private string firstName;
+        internal string userID;
+        public string UserID 
+        {
+            get { return userID; }
+            set
+            {
+                userID = value;
+                OnPropertyChanged("UserID");
+            }
+        }
+
         public string FirstName
         {
             get { return firstName; }
