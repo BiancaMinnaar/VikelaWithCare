@@ -94,6 +94,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\MyCommunityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -317,6 +321,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Offline\BaseStorageRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IContactStorageRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Offline\ContactStorageRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\MyCommunityViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\MyCommunityView.xaml.cs">
+      <DependentUpon>MyCommunityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IMyCommunityViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\MyCommunityViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IMyCommunityRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\MyCommunityRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IMyCommunityService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\MyCommunityService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />

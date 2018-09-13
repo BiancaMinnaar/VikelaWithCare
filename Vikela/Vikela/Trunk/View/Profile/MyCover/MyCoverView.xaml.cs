@@ -17,7 +17,6 @@ namespace Vikela.Implementation.View
             BindingContext = _ViewController.InputObject;
             _ViewController.Load(MenuClick, SetTrustedSourceForIndex);
             SetDetailTiles();
-            SetSiyabongaTiles();
             SetActiveCoverTiles();
         }
 
@@ -27,7 +26,7 @@ namespace Vikela.Implementation.View
 
         private void SetActiveCoverTiles()
         {
-            ActiveCovers.SetTableWithItems(_ViewController.GetActiveCoverTileModels(() => { }));
+            ActiveCovers.SetTableWithItems(_ViewController.GetActiveCoverTileModels(_ViewController.PushAddBeneficiary));
         }
 
         private void SetSiyabongaTiles()

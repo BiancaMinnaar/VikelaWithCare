@@ -1,4 +1,6 @@
-﻿using Vikela.Implementation.ViewController;
+﻿using System;
+using System.Windows.Input;
+using Vikela.Implementation.ViewController;
 using Vikela.Root.View;
 using Vikela.Root.ViewModel;
 using Vikela.Trunk.ViewModel.Controlls;
@@ -8,6 +10,7 @@ namespace Vikela.Trunk.View.Profile.MyCover.Tiles
 {
     public partial class ActiveCoverTile : ProjectBaseContentView<TableScrollItemViewController, ProjectBaseViewModel>
     {
+        internal ICommand command;
         public ActiveCoverTile()
         {
             InitializeComponent();
@@ -23,6 +26,13 @@ namespace Vikela.Trunk.View.Profile.MyCover.Tiles
         {
             _ViewController.InputObject = (ActiveCoverViewModel)model;
             BindingContext = _ViewController.InputObject;
+            command = model.ItemClickedCommand;
+        }
+
+        public void AddBeneficiary(object sender, EventArgs e)
+        {
+            //_ViewController._MasterRepo.PushAddBeneficiary();
+            command.Execute(null);
         }
     }
 }

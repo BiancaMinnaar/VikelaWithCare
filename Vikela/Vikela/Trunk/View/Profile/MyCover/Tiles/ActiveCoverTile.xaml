@@ -13,6 +13,9 @@
     x:TypeArguments="p:TableScrollItemViewController, m:ProjectBaseViewModel">
     <Frame>
         <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+            <StackLayout.GestureRecognizers>
+              <TapGestureRecognizer Tapped="AddBeneficiary"/>
+            </StackLayout.GestureRecognizers>
             <StackLayout WidthRequest="10" BackgroundColor="{Binding TileColor}" />
             <StackLayout Spacing="1">
                 <Label Text="Spend with Care" Style="{DynamicResource BlackLabel}" />
