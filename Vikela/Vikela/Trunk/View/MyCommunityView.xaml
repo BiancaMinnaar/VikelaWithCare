@@ -18,6 +18,25 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
+        <StackLayout Spacing="0">
+            <StackLayout HeightRequest="30" BackgroundColor="#47B3E4" />
+            <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Back" FontSize="8" Clicked="Back_Clicked" />
+                    <Label StyleClass="LargerLabel" Text="My Community" VerticalOptions="Center" HorizontalOptions="Center" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Label StyleClass="LargerLabel" Text="Who is your community" />
+                <Frame>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Name :"></Label>
+                        <Entry Text="{Binding CommunityName}" />
+                    </StackLayout>
+                </Frame>
+                <b:TableScrollView x:Name="DetailTiles" />
+                <Button Text="Save" />
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>
