@@ -9,6 +9,7 @@ namespace Vikela.Interface.Repository
 		Task SaveTrustedContactAsync(ContactDetailViewModel model);
         ContactDetailViewModel GetDefaultBeneniciaryFromMaster();
         Task SaveDefaultBeneficiaryAsync(ContactDetailViewModel model);
+        Task SaveTrustedSourceAsync(ContactDetailViewModel model);
         Task UpdateMasterWithTrustedSourceAsync(ContactDetailViewModel model);
         Task UpdateMasterWithBeneficiaryAsync(ContactDetailViewModel model);
     }
