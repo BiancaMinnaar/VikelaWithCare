@@ -16,15 +16,7 @@ namespace Vikela.Implementation.ViewModel
 
         public new event PropertyChangedEventHandler PropertyChanged;
         public string UserID { get => _userID; set { _userID = value; OnPropertyChanged("UserID"); } }
-        public string FirstName 
-        { 
-            get => _firstName; 
-            set 
-            { 
-                _firstName = value; 
-                OnPropertyChanged("FirstName"); 
-            } 
-        }
+        public string FirstName { get => _firstName; set { _firstName = value; OnPropertyChanged("FirstName"); } }
         public string LastName { get => _lastName; set { _lastName = value; OnPropertyChanged("LastName"); } }
         public string CellNumber { get => _cellNumber; set { _cellNumber = value; OnPropertyChanged("CellNumber"); } }
         public string Email { get => _email; set { _email = value; OnPropertyChanged("Email"); } }

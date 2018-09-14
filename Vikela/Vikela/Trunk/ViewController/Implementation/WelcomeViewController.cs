@@ -13,7 +13,6 @@ using Vikela.Root.ViewController;
 using Vikela.Trunk.Service;
 using Vikela.Trunk.Service.Implementation;
 using Vikela.Trunk.ViewModel;
-using Vikela.Trunk.ViewModel.Offline;
 using Vikela.Trunk.Service.ReturnModel;
 using System.Collections.Generic;
 
@@ -24,7 +23,7 @@ namespace Vikela.Implementation.ViewController
         IWelcomeRepository _Reposetory;
         IRegisterService _RegisterService;
         IRegisterRepository _RegisterRepo;
-        ISelfieRepository<RegisterViewModel> _SelfieRepo;
+        ISelfieRepository _SelfieRepo;
         IDynamixService _DynamixService;
 
         public override void SetRepositories()
@@ -41,7 +40,7 @@ namespace Vikela.Implementation.ViewController
                                                  ExecuteQueryWithReturnTypeAndNetworkAccessAsync<DynamixCommunity>(U, P, A));
             _RegisterRepo = new RegisterRepository(_MasterRepo, _RegisterService, _DynamixService, _DynamixReturnService, 
 			                                       _DynamixPolicyReturnService, _DynamixCommunityReturnService);
-            _SelfieRepo = new SelfieRepository<RegisterViewModel>(_MasterRepo);
+            _SelfieRepo = new SelfieRepository(_MasterRepo);
             _Reposetory = new WelcomeRepository(_MasterRepo, _RegisterRepo, _SelfieRepo);
         }
 

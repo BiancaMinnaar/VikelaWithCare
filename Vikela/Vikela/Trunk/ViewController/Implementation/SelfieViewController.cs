@@ -1,9 +1,7 @@
 using System.Threading.Tasks;
 using Vikela.Implementation.Repository;
-using Vikela.Implementation.Service;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
-using Vikela.Interface.Service;
 using Vikela.Interface.ViewController;
 using Vikela.Root.ViewController;
 
@@ -11,11 +9,11 @@ namespace Vikela.Implementation.ViewController
 {
     public class SelfieViewController : ProjectBaseViewController<SelfieViewModel>, ISelfieViewController
     {
-        ISelfieRepository<SelfieViewModel> _Reposetory;
+        ISelfieRepository _Reposetory;
 
         public override void SetRepositories()
         {
-            _Reposetory = new SelfieRepository<SelfieViewModel>(_MasterRepo);
+            _Reposetory = new SelfieRepository(_MasterRepo);
             InputObject.Selfie = _MasterRepo.DataSource.User.UserPicture;
         }
 

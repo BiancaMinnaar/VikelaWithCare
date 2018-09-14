@@ -9,11 +9,11 @@ namespace Vikela.Implementation.Repository
     public class WelcomeRepository : ProjectBaseRepository, IWelcomeRepository
     {
         IRegisterRepository _RegisterRepo;
-        ISelfieRepository<RegisterViewModel> _SelfieRepo;
+        ISelfieRepository _SelfieRepo;
 
         public WelcomeRepository(IMasterRepository masterRepository, 
                                  IRegisterRepository registerRepo,
-                                ISelfieRepository<RegisterViewModel> selfieRepo)
+                                ISelfieRepository selfieRepo)
             : base(masterRepository)
         {
             _RegisterRepo = registerRepo;

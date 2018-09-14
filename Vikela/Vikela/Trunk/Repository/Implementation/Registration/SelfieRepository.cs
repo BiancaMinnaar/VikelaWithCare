@@ -1,23 +1,17 @@
 using System;
-using System.IO;
 using System.Threading.Tasks;
-using CorePCL;
-using Microsoft.WindowsAzure.Storage.Blob;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
-using Vikela.Interface.Service;
 using Vikela.Root.Repository;
 using Vikela.Trunk.Injection.Base;
 using Vikela.Trunk.PlatformBonsai.Photo;
 using Vikela.Trunk.Repository;
 using Vikela.Trunk.Repository.Implementation;
 using Vikela.Trunk.ViewModel;
-using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Implementation.Repository
 {
-    public class SelfieRepository<T> : ProjectBaseRepository, ISelfieRepository<T>
-        where T : BaseViewModel
+    public class SelfieRepository : ProjectBaseRepository, ISelfieRepository
     {
         IImageRepository _ImageRepo;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
@@ -75,6 +69,19 @@ namespace Vikela.Implementation.Repository
                     service.PlatformHarness.Activate();
                 }
             }
+        }
+
+        public StoragePictureModel GetStoragePictureModelForSelfie(SelfieViewModel model, string userID)
+        {
+            var myModel = new StoragePictureModel
+            {
+                TokenID = _MasterRepo.DataSource.User.TokenID,
+                UserID = userID,
+                UserPicture = model.Selfie,
+                PictureStorageSASToken=_MasterRepo.DataSource.User.PictureStorageSASToken
+            };
+
+            return myModel;
         }
 
         public async Task StoreSelfieAsync(StoragePictureModel model)
