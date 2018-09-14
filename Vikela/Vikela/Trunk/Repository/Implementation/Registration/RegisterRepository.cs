@@ -14,6 +14,7 @@ using System.Text;
 using System.Linq;
 using Vikela.Trunk.Service.ReturnModel;
 using System.Collections.Generic;
+using Vikela.Trunk.ViewModel;
 
 namespace Vikela.Implementation.Repository
 {
@@ -25,6 +26,7 @@ namespace Vikela.Implementation.Repository
         IDynamixReturnService<List<DynamixPolicy>> _DynamixPolicyReturnService;
         IDynamixReturnService<DynamixCommunity> _DynamixCommunityReturnService;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
+        ISelfieRepository _SelfieRepo;
 
         public RegisterRepository(IMasterRepository masterRepository, IRegisterService service, IDynamixService dynamix=null, 
                                   IDynamixReturnService<List<DynamixContact>> dynamixReturn=null,
@@ -45,6 +47,7 @@ namespace Vikela.Implementation.Repository
                     OnError?.Invoke(errs);
                 }
             };
+            _SelfieRepo = new SelfieRepository(_MasterRepo);
         }
 
         public async Task SetUserRecordWithRegisterViewModelAsync(RegisterViewModel model)

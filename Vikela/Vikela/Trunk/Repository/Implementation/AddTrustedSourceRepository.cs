@@ -77,6 +77,7 @@ namespace Vikela.Implementation.Repository
             source.CellNumber = model.CellNumber;
             source.IDNumber = model.IDNumber;
             source.Email = model.Email;
+            source.UserPicture = model.ContactPicture.Selfie;
             await _MasterRepo.SaveTrustedSourceAsync(source, _MasterRepo.DataSource.TrustedSourceEditIndex);
             _MasterRepo.DataSource.TrustedSourceEditIndex = -1;
         }
@@ -90,6 +91,7 @@ namespace Vikela.Implementation.Repository
             source.CellNumber = model.CellNumber;
             source.IDNumber = model.IDNumber;
             source.Email = model.Email;
+            source.UserPicture = model.ContactPicture.Selfie;
             await _MasterRepo.SaveBeneficiaryAsync(source);
         }
     }

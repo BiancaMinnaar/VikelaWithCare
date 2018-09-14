@@ -23,51 +23,52 @@ namespace Vikela.Implementation.ViewController
             _selfieRepo = new SelfieRepository(_MasterRepo);
         }
 
-        public void LoadTrustedSources()
+        public void LoadTrustedSourcesAsync()
         {
+            _MasterRepo.ShowLoading();
             InputObject.SourceDetail = _Reposetory.GetTrustedContactDetailFromMaster();
             var storageModel = _selfieRepo.GetStoragePictureModelForSelfie(
                 InputObject.SourceDetail.ContactPicture, InputObject.SourceDetail.UserID);
-            Task.Run(async () => 
-            {
-                await _selfieRepo.GetSelfieAsync(storageModel);
-                InputObject.SourceDetail.ContactPicture.Selfie = storageModel.UserPicture;
-            });
+            InputObject.SourceDetail.ContactPicture.Selfie = storageModel.UserPicture;
+            _MasterRepo.HideLoading();
+        }
+
+        public void LoadBeneficiaryAsync()
+        {
+            _MasterRepo.ShowLoading();
+            InputObject.SourceDetail = _Reposetory.GetDefaultBeneniciaryFromMaster();
+            var storageModel = _selfieRepo.GetStoragePictureModelForSelfie(
+                InputObject.SourceDetail.ContactPicture, InputObject.SourceDetail.UserID);
+            InputObject.SourceDetail.ContactPicture.Selfie = storageModel.UserPicture;
+            _MasterRepo.HideLoading();
         }
 
         public async Task SaveTrustedSourceAsync()
         {
+            _MasterRepo.ShowLoading();
             await _Reposetory.SaveTrustedContactAsync(InputObject.SourceDetail);
             var storageModel = _selfieRepo.GetStoragePictureModelForSelfie(
                 InputObject.SourceDetail.ContactPicture, InputObject.SourceDetail.UserID);
             await _selfieRepo.StoreSelfieAsync(storageModel);
             await _Reposetory.UpdateMasterWithTrustedSourceAsync(InputObject.SourceDetail);
+            _MasterRepo.HideLoading();
         }
 
-		public async Task SaveBenificiaryAsync()
-		{
+        public async Task SaveBenificiaryAsync()
+        {
+            _MasterRepo.ShowLoading();
             await _Reposetory.SaveDefaultBeneficiaryAsync(InputObject.SourceDetail);
             var storageModel = _selfieRepo.GetStoragePictureModelForSelfie(
                 InputObject.SourceDetail.ContactPicture, InputObject.SourceDetail.UserID);
             await _selfieRepo.StoreSelfieAsync(storageModel);
             await _Reposetory.UpdateMasterWithBeneficiaryAsync(InputObject.SourceDetail);
-		}
+            _MasterRepo.HideLoading();
+        }
 
         public void PopToCover()
         {
             _MasterRepo.PopView();
         }
 
-        public void LoadBeneficiary()
-        {
-            InputObject.SourceDetail = _Reposetory.GetDefaultBeneniciaryFromMaster();
-            var storageModel = _selfieRepo.GetStoragePictureModelForSelfie(
-                InputObject.SourceDetail.ContactPicture, InputObject.SourceDetail.UserID);
-            Task.Run(async () =>
-            {
-                await _selfieRepo.GetSelfieAsync(storageModel);
-                InputObject.SourceDetail.ContactPicture.Selfie = storageModel.UserPicture;
-            });
-        }
     }
 }

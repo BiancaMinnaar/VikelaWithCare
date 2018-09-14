@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Vikela.Implementation.ViewController;
 using Vikela.Implementation.ViewModel;
 using Vikela.Root.View;
@@ -12,9 +13,9 @@ namespace Vikela.Implementation.View
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            _ViewController.LoadTrustedSources();
-            BindingContext = _ViewController.InputObject;
+            _ViewController.LoadTrustedSourcesAsync();
             Details.Data = _ViewController.InputObject.SourceDetail;
+            BindingContext = _ViewController.InputObject;
         }
 
         protected override void SetSVGCollection()
