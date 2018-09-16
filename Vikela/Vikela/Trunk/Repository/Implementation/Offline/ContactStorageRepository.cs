@@ -25,7 +25,7 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
         public async Task<ContactModel> GetContactWithIDAsync(ContactModel model)
         {
             ID = model.Id.ToString();
-            SelectWithIDQuery = $"SELECT * FROM ContactModel where Id = {ID}";
+            SelectWithIDQuery = $"SELECT * FROM ContactModel where UserID = {ID}";
             var list = await OfflineStorageRepo.QueryTable<ContactModel>(
                 SelectWithIDQuery);
             if (list != null && list.Count > 0)

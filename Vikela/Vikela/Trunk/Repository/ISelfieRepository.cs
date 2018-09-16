@@ -8,7 +8,7 @@ namespace Vikela.Interface.Repository
     {
         Task CapturePhotoAsync(SelfieViewModel model);
         void SelectPictureFromGallery(SelfieViewModel model);
-        StoragePictureModel GetStoragePictureModelForSelfie(SelfieViewModel model, string userID);
+        StoragePictureModel GetStoragePictureModelForSelfie(byte[] contactPicture, string userID);
         Task StoreSelfieAsync(StoragePictureModel model);
         Task GetSelfieAsync(StoragePictureModel model);
 

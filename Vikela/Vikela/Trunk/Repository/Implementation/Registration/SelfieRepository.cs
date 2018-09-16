@@ -71,13 +71,13 @@ namespace Vikela.Implementation.Repository
             }
         }
 
-        public StoragePictureModel GetStoragePictureModelForSelfie(SelfieViewModel model, string userID)
+        public StoragePictureModel GetStoragePictureModelForSelfie(byte[] contactPicture, string userID)
         {
             var myModel = new StoragePictureModel
             {
                 TokenID = _MasterRepo.DataSource.User.TokenID,
                 UserID = userID,
-                UserPicture = model.Selfie,
+                UserPicture = contactPicture,
                 PictureStorageSASToken=_MasterRepo.DataSource.User.PictureStorageSASToken
             };
 

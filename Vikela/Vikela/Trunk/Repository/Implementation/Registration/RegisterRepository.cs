@@ -15,6 +15,8 @@ using System.Linq;
 using Vikela.Trunk.Service.ReturnModel;
 using System.Collections.Generic;
 using Vikela.Trunk.ViewModel;
+using Vikela.Trunk.Repository.Implementation.Offline;
+using Vikela.Trunk.Repository;
 
 namespace Vikela.Implementation.Repository
 {
@@ -27,6 +29,7 @@ namespace Vikela.Implementation.Repository
         IDynamixReturnService<DynamixCommunity> _DynamixCommunityReturnService;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
         ISelfieRepository _SelfieRepo;
+        IAzureBlobStorageRepository BlobStorageRepository;
 
         public RegisterRepository(IMasterRepository masterRepository, IRegisterService service, IDynamixService dynamix=null, 
                                   IDynamixReturnService<List<DynamixContact>> dynamixReturn=null,
@@ -40,6 +43,7 @@ namespace Vikela.Implementation.Repository
             _DynamixPolicyReturnService = dynasmicPolicyReturn;
             _DynamixCommunityReturnService = dynamixCommunityReturnService;
             _PlatformBonsai = new PlatformBonsai();
+            BlobStorageRepository = new AzureBlobStorageRepository(_MasterRepo);
             var platform = new PlatformRepository<RegisterViewModel>(masterRepository, _PlatformBonsai)
             {
                 OnError = (errs) =>
@@ -195,7 +199,7 @@ namespace Vikela.Implementation.Repository
             }
         }
 
-        private List<ContactModel> SelectContactsWithRole(List<DynamixContact> contacts, string role)
+        private async Task<List<ContactModel>> SelectContactsWithRole(RegisterViewModel model, List<DynamixContact> contacts, string role)
         {
             if (contacts != null)
 
@@ -208,23 +212,38 @@ namespace Vikela.Implementation.Repository
                                 ContactRole = source.connectedRole.roleName,
                                 FirstName = source.firstName,
                                 LastName = source.lastName,
-                                PictureURL = source.profileImage
+                                PictureURL = source.profileImage,
                             };
 
-                return query.ToList();
+                var contactModels = query.ToList();
+                foreach (var contact in contactModels)
+                {
+                    var storagePictureModel = new StoragePictureModel
+                    {
+                        TokenID = model.TokenID,
+                        UserID = contact.UserID,
+                        PictureStorageSASToken = model.PictureStorageSASToken
+                    };
+                    await BlobStorageRepository.GetBlobImageAsync(storagePictureModel);
+                    contact.UserPicture = storagePictureModel.UserPicture;
+                }
+
+
+                return contactModels;
             }
             return null;
         }
 
         public async Task SetUserContactsFromServerAsync(RegisterViewModel model)
         {
-            //TODO:Check if local storage record has been synced
             var contacts = await _DynamixReturnService.GetConnectedContactsAsync(model);
             if (contacts != null)
             {
-                _MasterRepo.DataSource.DefaultBeneficiary = SelectContactsWithRole(contacts, "Beneficiary")[0];
+                var contactStore = new ContactStorageRepository(_MasterRepo, OfflineStorageRepository.Instance);
+                var task = await SelectContactsWithRole(model, contacts, "Beneficiary");
+                _MasterRepo.DataSource.DefaultBeneficiary = task[0];
+                _MasterRepo.DataSource.TrustedSources = await SelectContactsWithRole(model, contacts, "Trusted Source");
                 await _MasterRepo.SaveBeneficiaryAsync(_MasterRepo.DataSource.DefaultBeneficiary);
-                _MasterRepo.DataSource.TrustedSources = SelectContactsWithRole(contacts, "Trusted Source");
                 await _MasterRepo.SaveTrustedSourceListAsync(_MasterRepo.DataSource.TrustedSources);
             }
         }

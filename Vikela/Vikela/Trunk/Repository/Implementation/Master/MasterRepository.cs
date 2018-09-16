@@ -11,6 +11,7 @@ using Vikela.Root.Repository;
 using Vikela.Root.ViewModel;
 using Vikela.Trunk.Injection.Base;
 using Vikela.Trunk.Repository.Implementation.Offline;
+using Vikela.Trunk.ViewModel;
 using Vikela.Trunk.ViewModel.Offline;
 using Xamarin.Forms;
 
@@ -29,6 +30,7 @@ namespace Vikela.Trunk.Repository.Implementation
 
         internal IUserStorageRepository UserStorageRepo;
         internal IContactStorageRepository ContactStorageRepository;
+        internal IAzureBlobStorageRepository BlobStorageRepository;
 
         MasterRepository()
             : base(null)
@@ -38,15 +40,16 @@ namespace Vikela.Trunk.Repository.Implementation
             PlatformSingleton.Instance.Model.ShowLoaderFromPlatform = ShowLoading;
             OnPlatformServiceCallBack =
                 new List<Action<string, IPlatformModelBase>>();
+            BlobStorageRepository = new AzureBlobStorageRepository(this);
             UserStorageRepo = new UserStorageRepository(this, OfflineStorageRepository.Instance);
             ContactStorageRepository = new ContactStorageRepository(this, OfflineStorageRepository.Instance);
             Task.Run(async () =>
             {
                 MasterRepo.DataSource.User = await UserStorageRepo.GetUserModelFromOfflineAsync();
-                DataSource.TrustedSources = await GetTrustedSourcesAsync();
+                DataSource.TrustedSources = new List<ContactModel>();
                 DataSource.TrustedSourceEditIndex = -1;
-                DataSource.DefaultBeneficiary = await GetDefaultBeneficiaryAsync();
-                DataSource.PolicyList = await GetActiveCovers();
+                DataSource.DefaultBeneficiary = new ContactModel();
+                DataSource.PolicyList = new List<PolicyModel>();
             });
         }
 
@@ -62,25 +65,45 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             var dbTrustedSources = await ContactStorageRepository.GetTrustedSourcesAsync();
             if (dbTrustedSources != null && dbTrustedSources.Count == 3)
-                return dbTrustedSources;
-            return new List<ContactModel>
             {
-                new ContactModel(),
-                new ContactModel(),
-                new ContactModel()
-            };
+                foreach(var source in dbTrustedSources)
+                {
+                    if (source.UserPicture == null)
+                    {
+                        var model = new StoragePictureModel
+                        {
+                            TokenID = DataSource.User.TokenID,
+                            UserID = DataSource.User.UserID,
+                            PictureStorageSASToken = DataSource.User.PictureStorageSASToken
+                        };
+                        await BlobStorageRepository.GetBlobImageAsync(model);
+                        source.UserPicture = model.UserPicture;
+                    }
+                }
+            }
+            return dbTrustedSources;
         }
 
         internal async Task<ContactModel> GetDefaultBeneficiaryAsync()
         {
-            var ben = await ContactStorageRepository.GetDefaultBeneficiaryAsync(); 
-            if (ben != null)
-                return ben;
-            return new ContactModel();
+            var source = await ContactStorageRepository.GetDefaultBeneficiaryAsync(); 
+            if (source != null)
+            {
+                var model = new StoragePictureModel
+                {
+                    TokenID = DataSource.User.TokenID,
+                    UserID = DataSource.User.UserID,
+                    PictureStorageSASToken = DataSource.User.PictureStorageSASToken
+                };
+                await BlobStorageRepository.GetBlobImageAsync(model);
+                source.UserPicture = model.UserPicture;
+            }
+            return source;
         }
 
         internal async Task<List<PolicyModel>> GetActiveCovers()
         {
+            //TODO: get policy from DB
             return new List<PolicyModel>();
         }
 
