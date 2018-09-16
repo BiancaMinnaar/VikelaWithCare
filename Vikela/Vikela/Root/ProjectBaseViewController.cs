@@ -19,11 +19,13 @@ namespace Vikela.Root.ViewController
         protected List<ValidationRule> BrokenRules;
         public bool HasSpecificResponse { get; set; }
         public bool HasErrors { get; set; }
+        public bool MustShowError { get; set; }
 
         protected ProjectBaseViewController()
             :base(new RestService(DependencyService.Get<INetworkInteraction>()))
         {
             HasErrors = false;
+            MustShowError = true;
             _MasterRepo = MasterRepository.MasterRepo;
 
             HasSpecificResponse = false;
@@ -40,7 +42,8 @@ namespace Vikela.Root.ViewController
                 HasErrors = true;
                 base._RawBytes = e.RawBytes;
                 base._ResponseContent = e.NetworkResponseContent;
-                UserDialogs.Instance.Toast(new ToastConfig(e.NetworkCallMessage).SetDuration(TimeSpan.FromSeconds(5)).SetBackgroundColor(System.Drawing.Color.FromArgb(193, 57, 43)));
+                if (MustShowError)
+                    UserDialogs.Instance.Toast(new ToastConfig(e.NetworkCallMessage).SetDuration(TimeSpan.FromSeconds(5)).SetBackgroundColor(System.Drawing.Color.FromArgb(193, 57, 43)));
             };
             base.NetworkCallInitialised += (sender, e) =>
             {

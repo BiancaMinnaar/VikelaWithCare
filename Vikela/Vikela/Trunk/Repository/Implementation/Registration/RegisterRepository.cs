@@ -197,28 +197,36 @@ namespace Vikela.Implementation.Repository
 
         private List<ContactModel> SelectContactsWithRole(List<DynamixContact> contacts, string role)
         {
-            var query = from source in contacts.Where(a => a.connectedRole.roleName == role)
-                        select new ContactModel
-                        {
-                            UserID = source.userId,
-                            ConnectionId = source.connectionId,
-                            ContactRole = source.connectedRole.roleName,
-                            FirstName = source.firstName,
-                            LastName = source.lastName,
-                            PictureURL = source.profileImage
-                        };
+            if (contacts != null)
 
-            return query.ToList();
+            {
+                var query = from source in contacts.Where(a => a.connectedRole.roleName == role)
+                            select new ContactModel
+                            {
+                                UserID = source.userId,
+                                ConnectionId = source.connectionId,
+                                ContactRole = source.connectedRole.roleName,
+                                FirstName = source.firstName,
+                                LastName = source.lastName,
+                                PictureURL = source.profileImage
+                            };
+
+                return query.ToList();
+            }
+            return null;
         }
 
         public async Task SetUserContactsFromServerAsync(RegisterViewModel model)
         {
             //TODO:Check if local storage record has been synced
             var contacts = await _DynamixReturnService.GetConnectedContactsAsync(model);
-            _MasterRepo.DataSource.DefaultBeneficiary = SelectContactsWithRole(contacts, "Beneficiary")[0];
-            await _MasterRepo.SaveBeneficiaryAsync(_MasterRepo.DataSource.DefaultBeneficiary);
-            _MasterRepo.DataSource.TrustedSources = SelectContactsWithRole(contacts, "Trusted Source");
-            await _MasterRepo.SaveTrustedSourceListAsync(_MasterRepo.DataSource.TrustedSources);
+            if (contacts != null)
+            {
+                _MasterRepo.DataSource.DefaultBeneficiary = SelectContactsWithRole(contacts, "Beneficiary")[0];
+                await _MasterRepo.SaveBeneficiaryAsync(_MasterRepo.DataSource.DefaultBeneficiary);
+                _MasterRepo.DataSource.TrustedSources = SelectContactsWithRole(contacts, "Trusted Source");
+                await _MasterRepo.SaveTrustedSourceListAsync(_MasterRepo.DataSource.TrustedSources);
+            }
         }
 
         private List<PolicyModel> getPolicyOfflineModelsFromServiceList(List<DynamixPolicy> policies)
@@ -240,15 +248,18 @@ namespace Vikela.Implementation.Repository
         public async Task SetUserPoliciesFromServerAsync(RegisterViewModel model)
         {
             var policies = await _DynamixPolicyReturnService.GetAllActivePoliciesAsync(model);
+            if (policies != null)
             _MasterRepo.DataSource.PolicyList = getPolicyOfflineModelsFromServiceList(policies);
         }
 
         private CommunityModel GetCommunityOfflineModelFromServiceModel(DynamixCommunity model)
         {
+            if (model != null)
             return new CommunityModel
             {
                 CommunityName = model.data.communityName
             };
+            return null;
         }
 
         public async Task SetCommunityValueFromServiceAsync(RegisterViewModel model)

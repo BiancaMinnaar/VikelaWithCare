@@ -34,8 +34,10 @@ namespace Vikela.Implementation.ViewController
 
         public async Task CompleteRegistrationAsync()
         {
+            _MasterRepo.ShowLoading();
             var registerData = RegisterRepository.GetDyn365RegisterViewModel();
             var errors = await RegisterRepository.RegisterWithD365Async(registerData);
+            _MasterRepo.HideLoading();
             if (errors[0] != "Success")
             {
                 foreach (var message in errors)

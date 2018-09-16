@@ -81,7 +81,12 @@ namespace Vikela.iOS.Injection
 
         public T Data 
         {
-            get => JsonConvert.DeserializeObject<T>(_RestResponse.Content);
+            get
+            {
+                if (_RestResponse.Content.StartsWith("{", StringComparison.Ordinal))
+                    return JsonConvert.DeserializeObject<T>(_RestResponse.Content);
+                return default(T);
+            }
         }
     }
 
