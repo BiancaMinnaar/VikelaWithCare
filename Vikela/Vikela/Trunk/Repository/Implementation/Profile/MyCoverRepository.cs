@@ -25,7 +25,7 @@ namespace Vikela.Implementation.Repository
         public void Load(MyCoverViewModel model, Action detailClick, Action<object> trustedSourcesClick)
         {
 
-            model.UserProfile = new Trunk.ViewModel.ProfileModel()
+            model.UserProfile = new ProfileModel()
             {
                 FirstName = _MasterRepo.DataSource.User.FirstName,
                 UserImage = _MasterRepo.DataSource.User.UserPicture,
@@ -44,7 +44,7 @@ namespace Vikela.Implementation.Repository
             return new PersonalDetailViewModel()
             {
                 Index = 0,
-                Profile = new Trunk.ViewModel.ProfileModel
+                Profile = new ProfileModel
                 {
                     UserImage = _MasterRepo.DataSource.User.UserPicture,
                     FirstName = _MasterRepo.DataSource.User.FirstName,
@@ -57,17 +57,21 @@ namespace Vikela.Implementation.Repository
 
         internal List<ProfileModel> GetTrustesSourceProfileModelList()
         {
-            var TrustesSources = from source in _MasterRepo.DataSource.TrustedSources
-                                 select new ProfileModel
-                                 {
-                UserID=source.UserID,
-                FirstName=source.FirstName,
-                LastName=source.LastName,
-                CellPhoneNumber=source.CellNumber,
-                IDNumber=source.IDNumber
-            };
+            if (_MasterRepo.DataSource.TrustedSources != null)
+            {
+                var TrustesSources = from source in _MasterRepo.DataSource.TrustedSources
+                                     select new ProfileModel
+                                     {
+                                         UserID = source.UserID,
+                                         FirstName = source.FirstName,
+                                         LastName = source.LastName,
+                                         CellPhoneNumber = source.CellNumber,
+                                         IDNumber = source.IDNumber
+                                     };
 
-            return TrustesSources.ToList();
+                return TrustesSources.ToList();
+            }
+            else return null;
         }
 
         public TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action<object> OnClick)
@@ -111,11 +115,15 @@ namespace Vikela.Implementation.Repository
 
         public List<ActiveCoverViewModel> GetActiveCoverTileModels(Action OnClick)
         {
-            List<ActiveCoverViewModel> list = new List<ActiveCoverViewModel>();
-            for (var count = 0; count < _MasterRepo.DataSource.PolicyList.Count; count++)
-                list.Add(GetActiveCoverTileModelFromPolicy(_MasterRepo.DataSource.PolicyList[count], OnClick, count));
+            if (_MasterRepo.DataSource.PolicyList != null)
+            {
+                List<ActiveCoverViewModel> list = new List<ActiveCoverViewModel>();
+                for (var count = 0; count < _MasterRepo.DataSource.PolicyList.Count; count++)
+                    list.Add(GetActiveCoverTileModelFromPolicy(_MasterRepo.DataSource.PolicyList[count], OnClick, count));
 
-            return list;
+                return list;
+            }
+            return null;
         }
     }
 }
