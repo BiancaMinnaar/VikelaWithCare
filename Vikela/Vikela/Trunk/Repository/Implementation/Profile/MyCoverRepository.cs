@@ -96,6 +96,16 @@ namespace Vikela.Implementation.Repository
             };
         }
 
+        public Color GetRobotColor(DateTime startTime, DateTime endTime)
+        {
+            var monthsDifference = Math.Abs((startTime.Month - endTime.Month) + 12 * (startTime.Year - endTime.Year));
+            if (monthsDifference > 1 && monthsDifference < 2)
+                return Color.Orange;
+            if (monthsDifference < 1)
+                return Color.Red;
+            return Color.FromHex("#BBDE6B");
+        }
+
         public ActiveCoverViewModel GetActiveCoverTileModelFromPolicy(PolicyModel model, Action OnClick, int index)
         {
             var endDate = DateTime.Parse(model.endDate);
@@ -105,7 +115,7 @@ namespace Vikela.Implementation.Repository
             return new ActiveCoverViewModel
             {
                 Index = index,
-                TileColor = Color.FromHex("#BBDE6B"),
+                TileColor = GetRobotColor(startDate, endDate),
                 Title=model.name,
 				CareAmount = (Double.Parse(model.ensuredAmount)/10000).ToString("C", ci),
                 BeneficiaryImage = _MasterRepo.DataSource.DefaultBeneficiary.UserPicture,
