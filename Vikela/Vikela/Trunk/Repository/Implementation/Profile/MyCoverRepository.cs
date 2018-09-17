@@ -99,10 +99,10 @@ namespace Vikela.Implementation.Repository
         public Color GetRobotColor(DateTime startTime, DateTime endTime)
         {
             var monthsDifference = Math.Abs((startTime.Month - endTime.Month) + 12 * (startTime.Year - endTime.Year));
-            if (monthsDifference > 1 && monthsDifference < 2)
-                return Color.Orange;
-            if (monthsDifference < 1)
+            if (monthsDifference == 0)
                 return Color.Red;
+            if (monthsDifference == 1)
+                return Color.Orange;
             return Color.FromHex("#BBDE6B");
         }
 
