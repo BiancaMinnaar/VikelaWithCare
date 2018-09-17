@@ -333,6 +333,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\MyCommunityService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\DynamixCommunity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Offline\CommunityModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\DynamixServiceReturn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\DynamixBeneficiaryAddReturn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\DynamixBeneficiary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\DynamixTrustedSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\DynamicTrustedSourceAddReturn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\AddBeneficiaryRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IAddBeneficiaryRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />

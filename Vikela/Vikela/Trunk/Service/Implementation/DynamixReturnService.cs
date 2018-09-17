@@ -54,5 +54,65 @@ namespace Vikela.Trunk.Service.Implementation
             };
             return await _NetworkInterfaceWithOutput(requestURL, parameters, httpMethod);
         }
+
+        public async Task<T> AddTrustedSourceAsync(ContactDetailViewModel model)
+        {
+            string requestURL = "/dyn365/api/v1.0/User/addsource";
+            var httpMethod = BaseNetworkAccessEnum.Put;
+            var parameters = new Dictionary<string, ParameterTypedValue>()
+            {
+                {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},
+                {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
+                {"body", new ParameterTypedValue(new
+                {
+                    trusteeUserId= model.UserID,
+                    trustedSourceFirstName= model.FirstName,
+                    trustedSourceLastName= model.LastName,
+                    trustedSourceMobileNumber= model.CellNumber,
+                }, ParameterTypeEnum.BodyParameter)}
+            };
+            return await _NetworkInterfaceWithOutput(requestURL, parameters, httpMethod);
+        }
+
+        public async Task<T> AddBeneficiaryAsync(ContactDetailViewModel model)
+        {
+            string requestURL = "/dyn365/api/v1.0/User/addbeneficiary";
+            var httpMethod = BaseNetworkAccessEnum.Put;
+            var parameters = new Dictionary<string, ParameterTypedValue>()
+            {
+                {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},
+                {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
+                {"body", new ParameterTypedValue(new
+                {
+                    benefactorUserId= model.UserID,
+                    beneficiaryFirstName= model.FirstName,
+                    beneficiaryLastName= model.LastName,
+                    beneficiaryMobileNumber= model.CellNumber,
+                }, ParameterTypeEnum.BodyParameter)}
+            };
+            return await _NetworkInterfaceWithOutput(requestURL, parameters, httpMethod);
+        }
+
+        public async Task<T> UpdateContactAsync(ContactDetailViewModel model)
+        {
+            string requestURL = "/dyn365/api/v1.0/User/update";
+            var httpMethod = BaseNetworkAccessEnum.Patch;
+            var parameters = new Dictionary<string, ParameterTypedValue>()
+            {
+                {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},
+                {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
+                {"body", new ParameterTypedValue(new
+                {
+                    userId= model.UserID,
+                    eMail= "",
+                    firstName= model.FirstName,
+                    lastName= model.LastName,
+                    idNumber=model.IDNumber,
+                    mobileNumber=model.CellNumber,
+                    profileImageUrl=""
+                }, ParameterTypeEnum.BodyParameter)}
+            };
+            return await _NetworkInterfaceWithOutput(requestURL, parameters, httpMethod);
+        }
     }
 }

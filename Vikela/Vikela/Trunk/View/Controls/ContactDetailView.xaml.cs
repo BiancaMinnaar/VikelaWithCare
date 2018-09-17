@@ -36,9 +36,9 @@ namespace Vikela.Implementation.View
         {
         }
 
-        public async void SelectPictureTapped(object sender, EventArgs args)
+        public void SelectPictureTapped(object sender, EventArgs args)
         {
-            await _ViewController.CapturePhotoAsync();
+            _ViewController.CapturePhoto();
         }
      }
 }

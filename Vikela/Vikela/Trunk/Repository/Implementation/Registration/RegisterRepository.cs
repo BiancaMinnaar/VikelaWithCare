@@ -241,7 +241,8 @@ namespace Vikela.Implementation.Repository
             {
                 var contactStore = new ContactStorageRepository(_MasterRepo, OfflineStorageRepository.Instance);
                 var task = await SelectContactsWithRole(model, contacts, "Beneficiary");
-                _MasterRepo.DataSource.DefaultBeneficiary = task[0];
+                if (task.Count > 0)
+                    _MasterRepo.DataSource.DefaultBeneficiary = task[0];
                 _MasterRepo.DataSource.TrustedSources = await SelectContactsWithRole(model, contacts, "Trusted Source");
                 await _MasterRepo.SaveBeneficiaryAsync(_MasterRepo.DataSource.DefaultBeneficiary);
                 await _MasterRepo.SaveTrustedSourceListAsync(_MasterRepo.DataSource.TrustedSources);

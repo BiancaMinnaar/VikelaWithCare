@@ -6,11 +6,7 @@ namespace Vikela.Interface.Repository
     public interface IAddTrustedSourceRepository
     {
         ContactDetailViewModel GetTrustedContactDetailFromMaster();
-		Task SaveTrustedContactAsync(ContactDetailViewModel model);
-        ContactDetailViewModel GetDefaultBeneniciaryFromMaster();
-        Task SaveDefaultBeneficiaryAsync(ContactDetailViewModel model);
         Task SaveTrustedSourceAsync(ContactDetailViewModel model);
         Task UpdateMasterWithTrustedSourceAsync(ContactDetailViewModel model);
-        Task UpdateMasterWithBeneficiaryAsync(ContactDetailViewModel model);
     }
 }
