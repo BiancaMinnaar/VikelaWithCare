@@ -185,9 +185,16 @@ namespace Vikela.Implementation.Repository
             localUser.LastName = userObject["lastName"].ToString();
             localUser.IDNumber = userObject["idNumber"].ToString();
             localUser.MobileNumber = userObject["mobileNumber"].ToString();
-            localUser.BarCode = Encoding.ASCII.GetBytes(userObject["barcode"].ToString());
+            localUser.BarCode = Convert.FromBase64String(FixBase64ForImage(userObject["barcode"].ToString()));
 
             return localUser;
+        }
+
+        string FixBase64ForImage(string Image)
+        {
+            System.Text.StringBuilder sbText = new System.Text.StringBuilder(Image, Image.Length);
+            sbText.Replace("data:image/png;base64,", String.Empty); sbText.Replace(" ", String.Empty);
+            return sbText.ToString();
         }
 
         public async Task SetUserWithServerDataAsync(string responseContent)
