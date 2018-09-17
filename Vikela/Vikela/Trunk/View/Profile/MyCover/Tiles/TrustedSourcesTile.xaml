@@ -18,6 +18,7 @@
                 <Label Text="We will contact these sources in case of a claim" Style="{DynamicResource BlackLabel}"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Frame>
                 <StackLayout>
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer
@@ -38,6 +39,8 @@
                         </controls:CircleImage.HeightRequest>
                     </controls:CircleImage>
                 </StackLayout>
+                </Frame>
+                <Frame>
                 <StackLayout>
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer
@@ -58,6 +61,8 @@
                         </controls:CircleImage.HeightRequest>
                     </controls:CircleImage>
                 </StackLayout>
+                </Frame>
+                <Frame>
                 <StackLayout>
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer
@@ -78,6 +83,7 @@
                         </controls:CircleImage.HeightRequest>
                     </controls:CircleImage>
                 </StackLayout>
+                </Frame>
             </StackLayout>
         </StackLayout>
     </Frame>
