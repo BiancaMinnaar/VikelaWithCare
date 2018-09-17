@@ -66,7 +66,8 @@ namespace Vikela.Implementation.Repository
                                          FirstName = source.FirstName,
                                          LastName = source.LastName,
                                          CellPhoneNumber = source.CellNumber,
-                                         IDNumber = source.IDNumber
+                                         IDNumber = source.IDNumber,
+                                         UserImage = source.UserPicture
                                      };
 
                 return TrustesSources.ToList();
@@ -107,7 +108,7 @@ namespace Vikela.Implementation.Repository
                 TileColor = Color.FromHex("#BBDE6B"),
                 Title=model.name,
 				CareAmount = (Double.Parse(model.ensuredAmount)/10000).ToString("C", ci),
-                BeneficiaryImage = _MasterRepo.DataSource.User.UserPicture,
+                BeneficiaryImage = _MasterRepo.DataSource.DefaultBeneficiary.UserPicture,
                 ItemClickedCommand = new Command(OnClick),
                 TimeLeft = $"{timeCalc} Days Left"
             };

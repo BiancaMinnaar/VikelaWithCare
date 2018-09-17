@@ -16,8 +16,15 @@ namespace Vikela.Implementation.View
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = _ViewController.InputObject;
             _ViewController.Load(MenuClick, SetTrustedSourceForIndex);
+        }
+
+        protected override void OnAppearing()
+        {
+            _ViewController._MasterRepo.ShowLoading();
+            base.OnAppearing();
             SetDetailTiles();
             SetActiveCoverTiles();
+            _ViewController._MasterRepo.HideLoading();
         }
 
         protected override void SetSVGCollection()

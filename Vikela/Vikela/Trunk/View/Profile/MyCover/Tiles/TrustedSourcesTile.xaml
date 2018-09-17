@@ -18,9 +18,66 @@
                 <Label Text="We will contact these sources in case of a claim" Style="{DynamicResource BlackLabel}"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <Button Text="+" Clicked="AddOne_Clicked"/>
-                <Button Text="+" Clicked="AddTwo_Clicked" />
-                <Button Text="+" Clicked="AddThree_Clicked" />
+                <StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="AddOne_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                    <controls:CircleImage Source="{Binding SourceOnePicture, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
+                        <controls:CircleImage.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android, iOS">55</On>
+                                <On Platform="WinPhone">75</On>
+                            </OnPlatform>
+                        </controls:CircleImage.WidthRequest>
+                        <controls:CircleImage.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android, iOS">55</On>
+                                <On Platform="WinPhone">75</On>
+                            </OnPlatform>
+                        </controls:CircleImage.HeightRequest>
+                    </controls:CircleImage>
+                </StackLayout>
+                <StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="AddTwo_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                    <controls:CircleImage Source="{Binding SourceTwoPicture, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
+                        <controls:CircleImage.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android, iOS">55</On>
+                                <On Platform="WinPhone">75</On>
+                            </OnPlatform>
+                        </controls:CircleImage.WidthRequest>
+                        <controls:CircleImage.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android, iOS">55</On>
+                                <On Platform="WinPhone">75</On>
+                            </OnPlatform>
+                        </controls:CircleImage.HeightRequest>
+                    </controls:CircleImage>
+                </StackLayout>
+                <StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="AddThree_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                    <controls:CircleImage Source="{Binding SourceThreePicture, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
+                        <controls:CircleImage.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android, iOS">55</On>
+                                <On Platform="WinPhone">75</On>
+                            </OnPlatform>
+                        </controls:CircleImage.WidthRequest>
+                        <controls:CircleImage.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android, iOS">55</On>
+                                <On Platform="WinPhone">75</On>
+                            </OnPlatform>
+                        </controls:CircleImage.HeightRequest>
+                    </controls:CircleImage>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </Frame>
