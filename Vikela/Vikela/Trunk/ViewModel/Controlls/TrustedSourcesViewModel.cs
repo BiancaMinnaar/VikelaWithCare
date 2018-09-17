@@ -10,18 +10,33 @@ namespace Vikela.Trunk.ViewModel.Controlls
         public ICommand ItemClickedCommand { get; set; }
         public byte[] SourceOnePicture
         {
-            get => ThreeSources[0].UserImage;
+            get
+            {
+                if (ThreeSources != null && ThreeSources.Count > 0)
+                    return ThreeSources[0].UserImage;
+                return null;
+            }
             set { ThreeSources[0].UserImage = value; OnPropertyChanged("SourceOnePicture"); }
         }
         public byte[] SourceTwoPicture
         {
-            get => ThreeSources[1].UserImage;
-            set { ThreeSources[0].UserImage = value; OnPropertyChanged("SourceTwoPicture"); }
+            get
+            {
+                if (ThreeSources != null && ThreeSources.Count > 1)
+                    return ThreeSources[1].UserImage;
+                return null;
+            }
+            set { ThreeSources[1].UserImage = value; OnPropertyChanged("SourceTwoPicture"); }
         }
         public byte[] SourceThreePicture
         {
-            get => ThreeSources[2].UserImage;
-            set { ThreeSources[0].UserImage = value; OnPropertyChanged("SourceThreePicture"); }
+            get 
+            {
+                if (ThreeSources != null && ThreeSources.Count > 2)
+                    return ThreeSources[2].UserImage;
+                return null;
+            }
+            set { ThreeSources[2].UserImage = value; OnPropertyChanged("SourceThreePicture"); }
         }
 
         public List<ProfileModel> ThreeSources = 

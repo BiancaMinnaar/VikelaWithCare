@@ -42,6 +42,7 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
             {
                 await OfflineStorageRepo.DeleteRecord(allModel);
             }
+            _MasterRepo.InitializeDataSource();
         }
 
         private async Task<UserModel> GetUserRecordAsync()

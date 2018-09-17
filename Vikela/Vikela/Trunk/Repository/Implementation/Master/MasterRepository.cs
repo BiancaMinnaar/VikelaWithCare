@@ -46,11 +46,16 @@ namespace Vikela.Trunk.Repository.Implementation
             Task.Run(async () =>
             {
                 MasterRepo.DataSource.User = await UserStorageRepo.GetUserModelFromOfflineAsync();
-                DataSource.TrustedSources = new List<ContactModel>();
-                DataSource.TrustedSourceEditIndex = -1;
-                DataSource.DefaultBeneficiary = new ContactModel();
-                DataSource.PolicyList = new List<PolicyModel>();
+                InitializeDataSource();
             });
+        }
+
+        public void InitializeDataSource()
+        {
+            DataSource.TrustedSources = new List<ContactModel>(){new ContactModel(),new ContactModel(), new ContactModel()};
+            DataSource.TrustedSourceEditIndex = -1;
+            DataSource.DefaultBeneficiary = new ContactModel();
+            DataSource.PolicyList = new List<PolicyModel>();
         }
 
         public string GetRegisteredUserOID()

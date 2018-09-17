@@ -17,18 +17,28 @@ namespace Vikela.Implementation.Repository
 
         public ContactDetailViewModel GetTrustedContactDetailFromMaster()
         {
-            var source = _MasterRepo.DataSource.TrustedSources[_MasterRepo.DataSource.TrustedSourceEditIndex];
+            if (_MasterRepo.DataSource.TrustedSources != null && _MasterRepo.DataSource.TrustedSources.Count > 2)
+            {
+                var source = _MasterRepo.DataSource.TrustedSources[_MasterRepo.DataSource.TrustedSourceEditIndex];
+                return new ContactDetailViewModel()
+                {
+                    UserID = source.UserID,
+                    FirstName = source.FirstName,
+                    LastName = source.LastName,
+                    CellNumber = source.CellNumber,
+                    IDNumber = source.IDNumber,
+                    Email = source.Email,
+                    ContactPicture = new SelfieViewModel
+                    {
+                        Selfie = source.UserPicture
+                    },
+                    TokenID = _MasterRepo.DataSource.User.TokenID
+                };
+            }
             return new ContactDetailViewModel()
             {
-                UserID = source.UserID,
-                FirstName = source.FirstName,
-                LastName = source.LastName,
-                CellNumber = source.CellNumber,
-                IDNumber = source.IDNumber,
-                Email = source.Email,
                 ContactPicture = new SelfieViewModel
                 {
-                    Selfie = source.UserPicture
                 },
                 TokenID = _MasterRepo.DataSource.User.TokenID
             };
@@ -41,18 +51,28 @@ namespace Vikela.Implementation.Repository
 
         public ContactDetailViewModel GetDefaultBeneniciaryFromMaster()
         {
-            var source = _MasterRepo.DataSource.DefaultBeneficiary;
+            if (_MasterRepo.DataSource.DefaultBeneficiary != null)
+            {
+                var source = _MasterRepo.DataSource.DefaultBeneficiary;
+                return new ContactDetailViewModel()
+                {
+                    UserID = source.UserID,
+                    FirstName = source.FirstName,
+                    LastName = source.LastName,
+                    CellNumber = source.CellNumber,
+                    IDNumber = source.IDNumber,
+                    Email = source.Email,
+                    ContactPicture = new SelfieViewModel
+                    {
+                        Selfie = source.UserPicture
+                    },
+                    TokenID = _MasterRepo.DataSource.User.TokenID
+                };
+            }
             return new ContactDetailViewModel()
             {
-                UserID = source.UserID,
-                FirstName = source.FirstName,
-                LastName = source.LastName,
-                CellNumber = source.CellNumber,
-                IDNumber = source.IDNumber,
-                Email = source.Email,
                 ContactPicture = new SelfieViewModel
                 {
-                    Selfie = source.UserPicture
                 },
                 TokenID = _MasterRepo.DataSource.User.TokenID
             };
