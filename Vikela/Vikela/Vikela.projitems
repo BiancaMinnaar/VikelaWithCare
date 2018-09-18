@@ -98,6 +98,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Graphs\MonthRadialGraphView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -340,6 +344,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\DynamicTrustedSourceAddReturn.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\AddBeneficiaryRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IAddBeneficiaryRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IMonthRadialGraphViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\MonthRadialGraphViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IMonthRadialGraphRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\MonthRadialGraphRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Graphs\MonthRadialGraphView.xaml.cs">
+      <DependentUpon>MonthRadialGraphView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Graphs\MonthRadialGraphViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
@@ -371,5 +383,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Interfaces\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Offline\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Graphs\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Graphs\" />
   </ItemGroup>
 </Project>

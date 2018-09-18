@@ -18,11 +18,10 @@
             </StackLayout.GestureRecognizers>
             <StackLayout WidthRequest="10" BackgroundColor="{Binding TileColor}" />
             <StackLayout Spacing="1">
-                <Label Text="{Binding }" Style="{DynamicResource BlackLabel}" />
                 <Label Text="{Binding CareAmount}" Style="{DynamicResource LargeLabel}" TextColor="{Binding TileColor}" />
             </StackLayout>
             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
-                <Label Text="Graph" />
+                <StackLayout x:Name="Radial"></StackLayout>
             </StackLayout>
             <StackLayout>
                 <controls:CircleImage Source="{Binding BeneficiaryImage, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
