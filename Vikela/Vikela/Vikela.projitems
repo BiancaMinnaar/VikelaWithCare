@@ -110,7 +110,11 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\SiyabongaDetailView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\MyCashView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\SiyabongaDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
@@ -387,13 +391,23 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ISiyabongaDetailViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\SiyabongaDetailViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\SiyabongaDetailViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\SiyabongaDetailView.xaml.cs">
-      <DependentUpon>SiyabongaDetailView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ISiyabongaDetailRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\SiyabongaDetailRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ISiyabongaDetailService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\SiyabongaDetailService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IMyCashViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\MyCashViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\MyCashViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IMyCashRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\MyCashRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IMyCashService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\MyCashService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\MyCashView.xaml.cs">
+      <DependentUpon>MyCashView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\SiyabongaDetailView.xaml.cs">
+      <DependentUpon>SiyabongaDetailView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
