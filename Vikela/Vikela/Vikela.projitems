@@ -106,6 +106,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\PurchaseDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -365,6 +369,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\SendWithCareService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\SendWithCareView.xaml.cs">
       <DependentUpon>SendWithCareView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IPurchaseDetailsRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\PurchaseDetailsRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IPurchaseDetailsService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\PurchaseDetailsService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IPurchaseDetailsViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\PurchaseDetailsViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\PurchaseDetailsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\PurchaseDetailsView.xaml.cs">
+      <DependentUpon>PurchaseDetailsView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
