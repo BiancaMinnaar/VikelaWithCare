@@ -122,6 +122,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\NotifyClaimView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -419,6 +423,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\VoucherRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\VoucherView.xaml.cs">
       <DependentUpon>VoucherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\INotifyClaimViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\NotifyClaimViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\NotifyClaimViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\INotifyClaimRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\NotifyClaimRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\INotifyClaimService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\NotifyClaimService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\NotifyClaimView.xaml.cs">
+      <DependentUpon>NotifyClaimView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
