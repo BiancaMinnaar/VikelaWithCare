@@ -55,12 +55,12 @@ namespace SourceConsole
                     MainRepo = new BonsaiReturnCallingStructureRepository(
                         new FileService(), new SimpleCSharpProjectFactory(readerRepo), readerRepo, str["-viewname"]);
                 }
-            }
-            if (MainRepo != null)
-                MainRepo.RunSteps();
-            else
-            {
-                Console.WriteLine("Please use paramters -init -view -call -return -viewname");
+                if (MainRepo != null)
+                    MainRepo.RunSteps();
+                else
+                {
+                    Console.WriteLine("Please use paramters -init -view -call -return -viewname");
+                }
             }
         }
     }

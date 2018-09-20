@@ -110,6 +110,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\SiyabongaDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -380,6 +384,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\PurchaseDetailsView.xaml.cs">
       <DependentUpon>PurchaseDetailsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ISiyabongaDetailViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\SiyabongaDetailViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\SiyabongaDetailViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\SiyabongaDetailView.xaml.cs">
+      <DependentUpon>SiyabongaDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ISiyabongaDetailRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\SiyabongaDetailRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ISiyabongaDetailService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\SiyabongaDetailService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
