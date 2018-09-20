@@ -102,7 +102,7 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\SendWithCareView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\SendWithCareView.xaml">
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
@@ -359,13 +359,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ISendWithCareViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\SendWithCareViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\SendWithCareViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\SendWithCareView.xaml.cs">
-      <DependentUpon>SendWithCareView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ISendWithCareRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\SendWithCareRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ISendWithCareService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\SendWithCareService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\SendWithCareView.xaml.cs">
+      <DependentUpon>SendWithCareView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
