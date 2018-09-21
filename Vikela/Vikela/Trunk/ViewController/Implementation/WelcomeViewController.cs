@@ -60,6 +60,7 @@ namespace Vikela.Implementation.ViewController
 
         public async Task SetUserAsync(AuthenticationResult ar)
         {
+            _MasterRepo.ShowLoading();
             var authResult = new AzureAuthenticationResult() { IdToken = ar.IdToken };
             var registration = _RegisterRepo.GetUserFromARToken(authResult);
             await _RegisterRepo.CallForImageBlobStorageSASAsync(registration);

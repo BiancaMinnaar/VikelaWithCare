@@ -20,6 +20,7 @@ namespace Vikela.Trunk.Repository.Implementation
     public class MasterRepository : ProjectBaseRepository, IMasterRepository
     {
         private static MasterRepository _Reposetory = new MasterRepository();
+        bool isLoading = false;
         private static readonly object syncronisationLock = new object();
         public MasterModel DataSource { get; set; }
         private INavigation _Navigation;
@@ -150,12 +151,20 @@ namespace Vikela.Trunk.Repository.Implementation
 
         public void ShowLoading()
         {
-            UserDialogs.Instance.ShowLoading();
+            if (!isLoading)
+            {
+                isLoading = true;
+                UserDialogs.Instance.ShowLoading();
+            }
         }
 
         public void HideLoading()
         {
-            UserDialogs.Instance.HideLoading();
+            if (isLoading)
+            {
+                isLoading = false;
+                UserDialogs.Instance.HideLoading();
+            }
         }
 
         public void DumpJson<T>(string heading, T objectToDump)
