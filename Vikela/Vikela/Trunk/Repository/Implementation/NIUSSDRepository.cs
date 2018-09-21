@@ -20,7 +20,7 @@ namespace Vikela.Implementation.Repository
 
         public async Task YourMethodNameAsync(NIUSSDViewModel model, Action completeAction)
         {
-            await _Service.YourMethodNameAsync(model);
+            await _Service.SendUSSDAsync(model);
             completeAction();
         }
     }

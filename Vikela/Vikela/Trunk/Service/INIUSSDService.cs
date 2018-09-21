@@ -5,6 +5,6 @@ namespace Vikela.Interface.Service
 {
     public interface INIUSSDService<T>
     {
-        Task<T> YourMethodNameAsync(NIUSSDViewModel model);
+        Task<T> SendUSSDAsync(NIUSSDViewModel model);
     }
 }

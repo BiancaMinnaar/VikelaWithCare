@@ -6,6 +6,6 @@ namespace Vikela.Interface.Repository
 {
     public interface IRegistrationCellphoneRepository
     {
-        Task UpdateCellPhoneAsync(RegistrationCellphoneViewModel model);
+        Task<bool> UpdateCellPhoneWithUSSDTestAsync(RegistrationCellphoneViewModel model);
     }
 }

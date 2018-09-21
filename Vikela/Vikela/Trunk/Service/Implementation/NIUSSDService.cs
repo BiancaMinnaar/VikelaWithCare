@@ -14,7 +14,7 @@ namespace Vikela.Implementation.Service
         {
         }
 
-        public async Task<T> YourMethodNameAsync(NIUSSDViewModel model)
+        public async Task<T> SendUSSDAsync(NIUSSDViewModel model)
         {
             string requestURL = "/path/{Parameter}";
             var httpMethod = BaseNetworkAccessEnum.Get;
