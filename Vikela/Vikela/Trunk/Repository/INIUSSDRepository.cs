@@ -1,11 +1,12 @@
+using System;
 using System.Threading.Tasks;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
 
 namespace Vikela.Interface.Repository
 {
-    public interface IRegistrationCellphoneRepository
+    public interface INIUSSDRepository
     {
-        Task UpdateCellPhoneAsync(RegistrationCellphoneViewModel model);
+        Task YourMethodNameAsync(NIUSSDViewModel model, Action completeAction);
     }
 }

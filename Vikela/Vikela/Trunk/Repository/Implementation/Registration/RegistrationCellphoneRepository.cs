@@ -8,9 +8,9 @@ using Vikela.Trunk.Repository.Implementation;
 
 namespace Vikela.Implementation.Repository
 {
-    public class RegistrationCellphoneRepository<T> : ProjectBaseRepository, IRegistrationCellphoneRepository<T>
-        where T : BaseViewModel
+    public class RegistrationCellphoneRepository : ProjectBaseRepository, IRegistrationCellphoneRepository
     {
+
         public RegistrationCellphoneRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {

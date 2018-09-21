@@ -11,11 +11,11 @@ namespace Vikela.Implementation.ViewController
 {
     public class RegistrationCellphoneViewController : ProjectBaseViewController<RegistrationCellphoneViewModel>, IRegistrationCellphoneViewController
     {
-        IRegistrationCellphoneRepository<RegistrationCellphoneViewModel> _Reposetory;
+        IRegistrationCellphoneRepository _Reposetory;
 
         public override void SetRepositories()
         {
-            _Reposetory = new RegistrationCellphoneRepository<RegistrationCellphoneViewModel>(_MasterRepo);
+            _Reposetory = new RegistrationCellphoneRepository(_MasterRepo);
 
             InputObject.Greeting = "Hi " + _MasterRepo.DataSource.User.FirstName +
                 ", what is your cellphone number?";
@@ -25,6 +25,7 @@ namespace Vikela.Implementation.ViewController
         public async Task UpdateCellPhoneAsync()
         {
             await _Reposetory.UpdateCellPhoneAsync(InputObject);
+            
             _MasterRepo.PushRegistrationOTP();
         }
     }

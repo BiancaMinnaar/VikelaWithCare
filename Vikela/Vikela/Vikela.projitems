@@ -443,6 +443,12 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IVoucherService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\VoucherService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\INIUSSDRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\NIUSSDRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\INIUSSDService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\NIUSSDService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\NIUSSDReturnModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\NIUSSDViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
