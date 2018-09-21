@@ -19,7 +19,7 @@ namespace Vikela.Implementation.Repository
         public async Task UpdateCellPhoneAsync(RegistrationCellphoneViewModel model)
         {
             _MasterRepo.DataSource.User.MobileNumber = model.CellPhoneNumber;
-            await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
+            await OfflineStorageRepository.Instance.UpdateRecordAsync(_MasterRepo.DataSource.User);
         }
     }
 }

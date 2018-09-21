@@ -19,7 +19,7 @@ namespace Vikela.Implementation.Repository
         public async Task UpdateIDNumberAsync(RegistrationIDNumberViewModel model)
         {
             _MasterRepo.DataSource.User.IDNumber = model.IDNumber;
-            await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
+            await OfflineStorageRepository.Instance.UpdateRecordAsync(_MasterRepo.DataSource.User);
         }
     }
 }

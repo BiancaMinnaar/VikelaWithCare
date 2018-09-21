@@ -18,7 +18,6 @@ namespace Vikela.Trunk.View.Profile.MyCover.Tiles
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = _ViewController.InputObject;
-            Radial.Children.Add(new MonthRadialGraphView());
         }
 
         protected override void SetSVGCollection()

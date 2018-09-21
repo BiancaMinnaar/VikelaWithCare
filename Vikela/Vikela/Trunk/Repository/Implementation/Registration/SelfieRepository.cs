@@ -32,7 +32,7 @@ namespace Vikela.Implementation.Repository
                 var stream = ((IPhotoPicturePickerModel)photo).ImageStream;
                 model.Selfie = await _ImageRepo.GetPhotoBinary(stream);
                 _MasterRepo.DataSource.User.UserPicture = model.Selfie;
-                await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
+                await OfflineStorageRepository.Instance.UpdateRecordAsync(_MasterRepo.DataSource.User);
             };
 
             Action<string, IPlatformModelBase> pr = (serviceKey, photo) =>
@@ -55,7 +55,7 @@ namespace Vikela.Implementation.Repository
             {
                 model.Selfie = await _ImageRepo.GetPhotoBinary(photo.GetStream());
                 _MasterRepo.DataSource.User.UserPicture = model.Selfie;
-                await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
+                await OfflineStorageRepository.Instance.UpdateRecordAsync(_MasterRepo.DataSource.User);
             }
         }
 

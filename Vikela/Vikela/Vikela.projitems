@@ -98,10 +98,6 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Graphs\MonthRadialGraphView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>Generator</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\SendWithCareView.xaml">
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
@@ -376,9 +372,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\MonthRadialGraphViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IMonthRadialGraphRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\MonthRadialGraphRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Graphs\MonthRadialGraphView.xaml.cs">
-      <DependentUpon>MonthRadialGraphView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Graphs\MonthRadialGraphViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ISendWithCareViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\SendWithCareViewController.cs" />

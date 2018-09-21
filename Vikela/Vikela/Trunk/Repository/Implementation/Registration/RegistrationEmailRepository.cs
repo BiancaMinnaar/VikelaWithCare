@@ -19,7 +19,7 @@ namespace Vikela.Implementation.Repository
         public async Task UpdateEmailAsync(RegistrationEmailViewModel model)
         {
             _MasterRepo.DataSource.User.EmailAddress = model.EmailAddress;
-            await OfflineStorageRepository.Instance.UpdateRecord(_MasterRepo.DataSource.User);
+            await OfflineStorageRepository.Instance.UpdateRecordAsync(_MasterRepo.DataSource.User);
         }
     }
 }

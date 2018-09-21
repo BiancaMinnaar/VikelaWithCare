@@ -23,14 +23,14 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
 
         internal async Task<bool> CheckModelTableAsync()
         {
-            return await OfflineStorageRepo.SelectScalar(
+            return await OfflineStorageRepo.SelectScalarAsync(
                 TableCountQuery) != 0;
         }
 
         internal async Task CreateModelTabelAsync()
         {
             if (!Exists)
-                await OfflineStorageRepo.CreateTable<T>();
+                await OfflineStorageRepo.CreateTableAsync<T>();
         }
 
         internal async Task<bool> CheckCreateModelTableAsync()

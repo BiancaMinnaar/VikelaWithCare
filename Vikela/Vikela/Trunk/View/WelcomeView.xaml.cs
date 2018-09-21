@@ -25,17 +25,20 @@ namespace Vikela.Implementation.View
 
         public async void On_Start_Clicked(object sender, EventArgs e)
         {
-            try
-            {
-                AuthenticationResult ar = App.PCA.Users.Any()
-                    ? await App.PCA.AcquireTokenSilentAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.Authority, false)
-                    : await App.PCA.AcquireTokenAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
-                await _ViewController.SetUserAsync(ar);
-            }
-            catch (MsalServiceException ex)
-            {
-                _ViewController.ShowMessage(ex.Message);
-            }
+            AuthenticationResult ar = null;
+                try
+                {
+                    if (App.PCA.Users.Any())
+    					ar = await App.PCA.AcquireTokenSilentAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.Authority, false);
+                        else 
+                        ar = await App.PCA.AcquireTokenAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
+                }
+                catch (MsalServiceException)
+                {
+                    foreach (var user in App.PCA.Users) { App.PCA.Remove(user); }
+                    ar = await App.PCA.AcquireTokenAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
+                }
+            await _ViewController.SetUserAsync(ar);
         }
 
         private IUser GetUserByPolicy(IEnumerable<IUser> users, string policy)
@@ -43,7 +46,8 @@ namespace Vikela.Implementation.View
             foreach (var user in users)
             {
                 string userIdentifier = Base64UrlDecode(user.Identifier.Split('.')[0]);
-                if (userIdentifier.EndsWith(policy.ToLower())) return user;
+                if (userIdentifier.EndsWith(policy.ToLower(), StringComparison.OrdinalIgnoreCase)) 
+                    return user;
             }
 
             return null;

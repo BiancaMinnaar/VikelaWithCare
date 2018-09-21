@@ -19,12 +19,12 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
             if (localUser != null)
             {
                 model.Id = localUser.Id;
-                var affected = await OfflineStorageRepo.UpdateRecord(model);
+                var affected = await OfflineStorageRepo.UpdateRecordAsync(model);
                 var whatIsAff = affected;
             }
             else
             {
-                await OfflineStorageRepo.InsertRecord(model);
+                await OfflineStorageRepo.InsertRecordAsync(model);
             }
             _MasterRepo.DataSource.User = await GetUserModelFromOfflineAsync();
         }
@@ -36,18 +36,18 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
 
         public async Task RemoveUserRecordAsync(UserModel model)
         {
-            var list = await OfflineStorageRepo.QueryTable<UserModel>(
+            var list = await OfflineStorageRepo.QueryTableAsync<UserModel>(
                 SelectTopUser);
             foreach (var allModel in list)
             {
-                await OfflineStorageRepo.DeleteRecord(allModel);
+                await OfflineStorageRepo.DeleteRecordAsync(allModel);
             }
             _MasterRepo.InitializeDataSource();
         }
 
         private async Task<UserModel> GetUserRecordAsync()
         {
-            var list = await OfflineStorageRepo.QueryTable<UserModel>(
+            var list = await OfflineStorageRepo.QueryTableAsync<UserModel>(
                 SelectTopUser);
             if (list != null && list.Count > 0)
                 return list[0];

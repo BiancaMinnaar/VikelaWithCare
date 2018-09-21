@@ -26,7 +26,7 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
         {
             ID = model.Id.ToString();
             SelectWithIDQuery = $"SELECT * FROM ContactModel where UserID = {ID}";
-            var list = await OfflineStorageRepo.QueryTable<ContactModel>(
+            var list = await OfflineStorageRepo.QueryTableAsync<ContactModel>(
                 SelectWithIDQuery);
             if (list != null && list.Count > 0)
                 return list[0];
@@ -39,12 +39,12 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
             if (returnedModel != null)
             {
                 model.Id = returnedModel.Id;
-                var affected = await OfflineStorageRepo.UpdateRecord(model);
+                var affected = await OfflineStorageRepo.UpdateRecordAsync(model);
                 var whatIsAff = affected;
             }
             else
             {
-                await OfflineStorageRepo.InsertRecord(model);
+                await OfflineStorageRepo.InsertRecordAsync(model);
             }
         }
 
@@ -56,12 +56,12 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
 
         public async Task<List<ContactModel>> GetTrustedSourcesAsync()
         {
-            return await OfflineStorageRepo.QueryTable<ContactModel>(SelectTrustedSources);
+            return await OfflineStorageRepo.QueryTableAsync<ContactModel>(SelectTrustedSources);
         }
 
         public async Task<ContactModel> GetDefaultBeneficiaryAsync()
         {
-            var Beneficiaries = await OfflineStorageRepo.QueryTable<ContactModel>(SelectDefaultBeneficiary);
+            var Beneficiaries = await OfflineStorageRepo.QueryTableAsync<ContactModel>(SelectDefaultBeneficiary);
             if (Beneficiaries != null && Beneficiaries.Count > 0)
                 return Beneficiaries[0];
             return null;

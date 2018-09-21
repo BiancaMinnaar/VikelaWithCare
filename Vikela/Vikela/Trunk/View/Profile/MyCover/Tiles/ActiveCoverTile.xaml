@@ -21,7 +21,6 @@
                 <Label Text="{Binding CareAmount}" Style="{DynamicResource LargeLabel}" TextColor="{Binding TileColor}" />
             </StackLayout>
             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
-                <StackLayout x:Name="Radial"></StackLayout>
             </StackLayout>
             <StackLayout>
                 <controls:CircleImage Source="{Binding BeneficiaryImage, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
