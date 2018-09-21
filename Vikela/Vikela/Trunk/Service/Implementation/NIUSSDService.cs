@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using CorePCL;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Service;
+using Vikela.Root;
 
 namespace Vikela.Implementation.Service
 {
@@ -16,11 +17,17 @@ namespace Vikela.Implementation.Service
 
         public async Task<T> SendUSSDAsync(NIUSSDViewModel model)
         {
-            string requestURL = "/path/{Parameter}";
-            var httpMethod = BaseNetworkAccessEnum.Get;
+            string requestURL = "/dyn365/api/v1.0/User/verifyuserniussd";
+            var httpMethod = BaseNetworkAccessEnum.Post;
             var parameters = new Dictionary<string, ParameterTypedValue>()
             {
-                //{"Parameter", model.Property},
+                {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},
+                {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
+                {"body", new ParameterTypedValue(new
+                {
+                    model.userId,
+                    model.mobileNumber
+                }, ParameterTypeEnum.BodyParameter)}
             };
             return await _NetworkInterfaceWithOutput(requestURL, parameters, httpMethod);
         }

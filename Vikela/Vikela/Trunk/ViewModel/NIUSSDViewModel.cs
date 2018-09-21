@@ -5,5 +5,6 @@ namespace Vikela.Implementation.ViewModel
     {
         public string userId{get;set;}
         public string mobileNumber{get;set;}
+        public string TokenID { get; set; }
     }
 }

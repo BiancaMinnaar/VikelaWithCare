@@ -126,10 +126,10 @@ namespace Vikela.Implementation.ViewModel
             {
 				return FirstName != null && FirstName.Length > 0;
             }, "FirstName is empty."));
-            ValidationRules.Add(GetRule(() =>
-            {
-                return EmailAddress != null && EmailAddress.Length > 0;
-            }, "EmailAddress is empty."));
+            //ValidationRules.Add(GetRule(() =>
+            //{
+            //    return EmailAddress != null && EmailAddress.Length > 0;
+            //}, "EmailAddress is empty."));
             ValidationRules.Add(GetRule(() =>
             {
                 return IDNumber != null && IDNumber.Length > 0;

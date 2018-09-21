@@ -7,6 +7,6 @@ namespace Vikela.Interface.Repository
 {
     public interface INIUSSDRepository
     {
-        Task YourMethodNameAsync(NIUSSDViewModel model, Action completeAction);
+        Task SendUSSDAsync(NIUSSDViewModel model, Action completeAction);
     }
 }

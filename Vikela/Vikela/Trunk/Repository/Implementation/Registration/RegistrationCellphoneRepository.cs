@@ -22,9 +22,13 @@ namespace Vikela.Implementation.Repository
         public async Task<bool> UpdateCellPhoneWithUSSDTestAsync(RegistrationCellphoneViewModel model)
         {
             _MasterRepo.DataSource.User.MobileNumber = model.CellPhoneNumber;
-            var returnVal = await _ussdService.SendUSSDAsync(
-                new NIUSSDViewModel { mobileNumber = model.CellPhoneNumber, userId = _MasterRepo.DataSource.User.UserID });
-            if (returnVal.result == "Accept")
+            var sendModel = new NIUSSDViewModel 
+            { 
+                mobileNumber = model.CellPhoneNumber, 
+                userId = _MasterRepo.DataSource.User.OID, 
+                TokenID = _MasterRepo.DataSource.User.TokenID };
+            var returnVal = await _ussdService.SendUSSDAsync(sendModel);
+            if (returnVal.body.result == "Accept")
             { 
                 await OfflineStorageRepository.Instance.UpdateRecordAsync(_MasterRepo.DataSource.User);
                 return true;

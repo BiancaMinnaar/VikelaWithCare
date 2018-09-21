@@ -18,7 +18,7 @@ namespace Vikela.Implementation.Repository
             _Service = service;
         }
 
-        public async Task YourMethodNameAsync(NIUSSDViewModel model, Action completeAction)
+        public async Task SendUSSDAsync(NIUSSDViewModel model, Action completeAction)
         {
             await _Service.SendUSSDAsync(model);
             completeAction();
