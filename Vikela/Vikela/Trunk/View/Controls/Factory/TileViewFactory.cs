@@ -20,7 +20,8 @@ namespace Vikela.Trunk.View.Controls.Factory
                 {type, (model) => new PersonalDetailsTile(model)},
                 {typeof(TrustedSourcesViewModel), (m) => new TrustedSourcesTile(m)},
                 {typeof(SiyabongaViewModel), (m) => new SiyabongaTile(m)},
-                {typeof(ActiveCoverViewModel), (m) => new ActiveCoverTile(m)}
+                {typeof(ActiveCoverViewModel), (m) => new ActiveCoverTile(m)},
+                {typeof(PurchaseHistoryDetailViewModel), (m) => new ActiveCoverTile(m)}
             };
         }
 

@@ -4,6 +4,10 @@ using Vikela.Root.Repository;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
+using System.Collections.Generic;
+using Vikela.Trunk.ViewModel.Controlls;
+using System.Linq;
+using Xamarin.Forms;
 
 namespace Vikela.Implementation.Repository
 {
@@ -17,10 +21,16 @@ namespace Vikela.Implementation.Repository
             _Service = service;
         }
 
-        public async Task YourMethodName(SendWithCareViewModel model, Action completeAction)
+        public List<PurchaseHistoryDetailViewModel> GetPurchaseDetailTileModels(Action OnClick)
         {
-            await _Service.YourMethodName(model);
-            completeAction();
+            var history = from detail in _MasterRepo.DataSource.PurchaseHistory
+                          select new PurchaseHistoryDetailViewModel
+                          {
+                              Index = 0,
+                              HistoryDetails = detail,
+                              ItemClickedCommand = new Command(OnClick)
+                          };
+            return history.ToList();
         }
     }
 }

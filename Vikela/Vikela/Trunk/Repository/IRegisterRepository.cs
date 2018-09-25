@@ -21,5 +21,6 @@ namespace Vikela.Interface.Repository
         Task SetUserContactsFromServerAsync(RegisterViewModel model);
         Task SetUserPoliciesFromServerAsync(RegisterViewModel model);
         Task SetCommunityValueFromServiceAsync(RegisterViewModel model);
+        Task SetPurchaseHistoryFromServiceAsync(RegisterViewModel model);
     }
 }

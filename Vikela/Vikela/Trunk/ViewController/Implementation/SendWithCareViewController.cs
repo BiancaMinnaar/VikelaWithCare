@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Vikela.Implementation.Repository;
 using Vikela.Implementation.Service;
@@ -6,6 +8,7 @@ using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using Vikela.Interface.ViewController;
 using Vikela.Root.ViewController;
+using Vikela.Trunk.ViewModel.Controlls;
 
 namespace Vikela.Implementation.ViewController
 {
@@ -21,14 +24,14 @@ namespace Vikela.Implementation.ViewController
             _Reposetory = new SendWithCareRepository(_MasterRepo, _Service);
         }
 
-        public async Task YourMethodNameAsync()
-        {
-            
-        }
-
         public void PopToCover()
         {
             _MasterRepo.PopView();
+        }
+
+        public List<PurchaseHistoryDetailViewModel> GetPurchaseDetailTileModels(Action OnClick)
+        {
+            return _Reposetory.GetPurchaseDetailTileModels(OnClick);
         }
     }
 }

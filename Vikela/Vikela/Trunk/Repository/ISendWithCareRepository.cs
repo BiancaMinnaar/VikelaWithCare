@@ -1,12 +1,11 @@
 using System;
-using System.Threading.Tasks;
-using CorePCL;
-using Vikela.Implementation.ViewModel;
+using System.Collections.Generic;
+using Vikela.Trunk.ViewModel.Controlls;
 
 namespace Vikela.Interface.Repository
 {
     public interface ISendWithCareRepository
     {
-        Task YourMethodName(SendWithCareViewModel model, Action completeAction);
+        List<PurchaseHistoryDetailViewModel> GetPurchaseDetailTileModels(Action OnClick);
     }
 }

@@ -293,5 +293,21 @@ namespace Vikela.Implementation.Repository
             var community = await _DynamixCommunityReturnService.GetCommunityAsync(model);
             _MasterRepo.DataSource.Community = GetCommunityOfflineModelFromServiceModel(community);
         }
+
+        public async Task SetPurchaseHistoryFromServiceAsync(RegisterViewModel model)
+        {
+            _MasterRepo.DataSource.PurchaseHistory = new List<PurchaseDetailsViewModel>
+            {
+                new PurchaseDetailsViewModel
+                    {
+                    StartDate=DateTime.Today,
+                    EndDate=DateTime.Today,
+                    Cover=500,
+                    Premium=50,
+                    Product="Send withcare",
+                    PurchasedAt="Checkers Centurion"
+                    }
+            };
+        }
     }
 }

@@ -1,9 +1,12 @@
 using System;
-using System.Threading.Tasks;
+using System.Linq;
 using Vikela.Root.Repository;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
+using System.Collections.Generic;
+using Vikela.Trunk.ViewModel.Controlls;
+using Xamarin.Forms;
 
 namespace Vikela.Implementation.Repository
 {
@@ -17,10 +20,6 @@ namespace Vikela.Implementation.Repository
             _Service = service;
         }
 
-        public async Task YourMethodName(PurchaseDetailsViewModel model, Action completeAction)
-        {
-            await _Service.YourMethodName(model);
-            completeAction();
-        }
+
     }
 }

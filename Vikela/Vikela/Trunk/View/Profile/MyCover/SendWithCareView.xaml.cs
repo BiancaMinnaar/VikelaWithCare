@@ -13,18 +13,19 @@ namespace Vikela.Implementation.View
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = _ViewController.InputObject;
+            PurchaseHistory.SetTableWithItems(_ViewController.GetPurchaseDetailTileModels(HistoryClicked));
         }
 
         protected override void SetSVGCollection()
         {
         }
 
-        public async void On_YourMethodName_EventAsync(object sender, EventArgs e)
+        void Back_Clicked(object sender, System.EventArgs e)
         {
-            await _ViewController.YourMethodNameAsync();
+            _ViewController.PopToCover();
         }
 
-        void Back_Clicked(object sender, System.EventArgs e)
+        void HistoryClicked()
         {
             _ViewController.PopToCover();
         }
