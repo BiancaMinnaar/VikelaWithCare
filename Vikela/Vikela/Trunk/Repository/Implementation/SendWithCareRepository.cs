@@ -1,7 +1,5 @@
 using System;
-using System.Threading.Tasks;
 using Vikela.Root.Repository;
-using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Interface.Service;
 using System.Collections.Generic;
