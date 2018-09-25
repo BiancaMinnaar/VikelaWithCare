@@ -18,29 +18,30 @@
     <ContentPage.Content>
          <StackLayout Spacing="0">
             <StackLayout HeightRequest="30" BackgroundColor="#47B3E4" />
-            <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Button Text="Back" FontSize="8" Clicked="Back_Clicked" />
-                    <Label StyleClass="LargerLabel" Text="Send with Care" VerticalOptions="Center" HorizontalOptions="Center" />
-                </StackLayout>
-            </StackLayout>
-            <StackLayout VerticalOptions="FillAndExpand">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
-                    <Label StyleClass="LargerLabel" Text="Purchase History" />
-                    <b:TableScrollView x:Name="PurchaseHistory" />
-                </StackLayout>
-            </StackLayout>
-            <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" HeightRequest="100" Orientation="Horizontal">
-                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Green" Orientation="Horizontal">
-                    <StackLayout HorizontalOptions="Center">
-                        <Label Text="Running Total" />
-                        <Label Text="Your cover will expire in 3 months" />
-                    </StackLayout>
-                    <StackLayout>
-                        <Label Text="R 1500" />
+                <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Button Text="Back" FontSize="8" Clicked="Back_Clicked" />
+                        <Label StyleClass="LargerLabel" Text="Send with Care" VerticalOptions="Center" HorizontalOptions="Center" />
                     </StackLayout>
                 </StackLayout>
-            </StackLayout>
+                <StackLayout VerticalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Start">
+                        <Label StyleClass="DarkLargeLabel" Text="How my cover is made up" />
+                        <Label StyleClass="DarkLargeLabel" Text="Purchase History" />
+                        <b:TableScrollView x:Name="PurchaseHistory" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" HeightRequest="100" Orientation="Horizontal">
+                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Green" Orientation="Horizontal">
+                        <StackLayout HorizontalOptions="Center">
+                            <Label Text="Running Total" />
+                            <Label Text="Your cover will expire in 3 months" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="R 1500" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
             <StackLayout VerticalOptions="End" HorizontalOptions="Center" HeightRequest="100" Orientation="Horizontal">
                 <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="My Cover"></Button>
                 <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="My Cash"></Button>
