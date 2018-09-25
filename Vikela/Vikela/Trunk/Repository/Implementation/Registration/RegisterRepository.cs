@@ -273,6 +273,7 @@ namespace Vikela.Implementation.Repository
 
         public async Task SetUserPoliciesFromServerAsync(RegisterViewModel model)
         {
+            //TODO: COmplete
             var policies = await _DynamixPolicyReturnService.GetAllActivePoliciesAsync(model);
             if (policies != null)
             {
@@ -281,7 +282,8 @@ namespace Vikela.Implementation.Repository
                                      select new PurchaseDetailsViewModel
                                      {
                                      PurchasedAt=policy.Store.StoreName,
-                                     BeneficiaryID=policy.Beneficiary.BeneficiaryId
+                                     BeneficiaryID=policy.Beneficiary.BeneficiaryId,
+                                     PolicyID=policy.PolicyId
                                        };
                 _MasterRepo.DataSource.PurchaseHistory = policyListData.ToList();
 

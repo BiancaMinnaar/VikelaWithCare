@@ -13,6 +13,7 @@ namespace Vikela.Implementation.ViewModel
         private DateTime _startDate;
         private DateTime _endDate;
         private Guid _beneficiaryID;
+        private Guid _policyID;
 
         public new event PropertyChangedEventHandler PropertyChanged;
         public string PurchasedAt { get => _purchasedAt; set { _purchasedAt = value; OnPropertyChanged("PurchasedAt"); } }
@@ -21,6 +22,7 @@ namespace Vikela.Implementation.ViewModel
         public double Premium { get => _premium; set { _premium = value; OnPropertyChanged("Premium"); } }
         public DateTime StartDate { get => _startDate; set { _startDate = value; OnPropertyChanged("StartDate"); } }
         public DateTime EndDate { get => _endDate; set { _endDate = value; OnPropertyChanged("EndDate"); } }
-        public Guid BeneficiaryID { get => _beneficiaryID; set { _beneficiaryID = value; OnPropertyChanged("EndDate"); } }
+        public Guid BeneficiaryID { get => _beneficiaryID; set { _beneficiaryID = value; OnPropertyChanged("BeneficiaryID"); } }
+        public Guid PolicyID { get => _policyID; set { _policyID = value; OnPropertyChanged("PolicyID"); } }
     }
 }

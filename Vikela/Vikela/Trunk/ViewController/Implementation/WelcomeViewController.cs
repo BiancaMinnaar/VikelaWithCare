@@ -60,6 +60,8 @@ namespace Vikela.Implementation.ViewController
 
         public async Task SetUserAsync(AuthenticationResult ar)
         {
+            //await _MasterRepo.RemoveUserRecordAsync(_MasterRepo.DataSource.User);
+            //foreach (var user in App.PCA.Users) { App.PCA.Remove(user); }
             _MasterRepo.ShowLoading();
             var authResult = new AzureAuthenticationResult() { IdToken = ar.IdToken };
             var registration = _RegisterRepo.GetUserFromARToken(authResult);

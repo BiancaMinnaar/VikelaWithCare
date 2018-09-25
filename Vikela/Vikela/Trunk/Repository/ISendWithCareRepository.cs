@@ -6,6 +6,6 @@ namespace Vikela.Interface.Repository
 {
     public interface ISendWithCareRepository
     {
-        List<PurchaseHistoryDetailViewModel> GetPurchaseDetailTileModels(Guid beneficiaryID, Action OnClick);
+        List<PurchaseHistoryDetailViewModel> GetPurchaseDetailTileModels(Guid beneficiaryID, Action<object> OnClick);
     }
 }

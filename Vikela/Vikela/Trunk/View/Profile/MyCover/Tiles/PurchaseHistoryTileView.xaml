@@ -13,10 +13,11 @@
     <Frame>
         <StackLayout Orientation="Horizontal">
             <StackLayout.GestureRecognizers>
-                  <TapGestureRecognizer Command="{Binding ItemClickedCommand}" CommandParameter="{Binding ListIndex}"/>
+                  <TapGestureRecognizer Command="{Binding ItemClickedCommand}" CommandParameter="{Binding HistoryDetails.PolicyID}"/>
             </StackLayout.GestureRecognizers>
             <StackLayout Orientation="Vertical">
                 <Label Text="{Binding HistoryDetails.PurchasedAt}" />
+                <Label Text="{Binding HistoryDetails.PolicyID}" />
             </StackLayout>
             
         </StackLayout>
