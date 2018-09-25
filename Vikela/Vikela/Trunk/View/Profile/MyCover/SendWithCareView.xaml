@@ -16,9 +16,29 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout VerticalOptions="FillAndExpand" />
-            <Button Text="Back" Clicked="PopToCover" />
+         <StackLayout Spacing="0">
+            <StackLayout HeightRequest="30" BackgroundColor="#47B3E4" />
+            <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Back" FontSize="8" Clicked="Back_Clicked" />
+                    <Label StyleClass="LargerLabel" Text="Send with Care" VerticalOptions="Center" HorizontalOptions="Center" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Label StyleClass="LargerLabel" Text="Purchase History" />
+                <b:TableScrollView x:Name="PurchaseHistory" />
+            </StackLayout>
+            <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" HeightRequest="100" Orientation="Horizontal">
+                <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="Green" Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="Center">
+                        <Label Text="Running Total" />
+                        <Label Text="Your cover will expire in 3 months" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="R 1500" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>

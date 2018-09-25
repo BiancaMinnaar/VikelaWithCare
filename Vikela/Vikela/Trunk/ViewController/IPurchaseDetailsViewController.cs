@@ -5,5 +5,6 @@ namespace Vikela.Interface.ViewController
     public interface IPurchaseDetailsViewController
     {
         Task YourMethodNameAsync();
+        void PopToCover();
     }
 }

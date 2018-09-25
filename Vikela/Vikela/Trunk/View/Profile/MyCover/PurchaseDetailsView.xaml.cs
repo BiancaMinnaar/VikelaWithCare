@@ -23,6 +23,11 @@ namespace Vikela.Implementation.View
         {
             await _ViewController.YourMethodNameAsync();
         }
+
+        void Back_Clicked(object sender, System.EventArgs e)
+        {
+            _ViewController.PopToCover();
+        }
     }
 }
 

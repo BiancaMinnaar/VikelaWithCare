@@ -16,6 +16,22 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
+        <StackLayout Spacing="0">
+            <StackLayout HeightRequest="30" BackgroundColor="#47B3E4" />
+            <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Back" FontSize="8" Clicked="Back_Clicked" />
+                    <Label StyleClass="LargerLabel" Text="Add Beneficiary" VerticalOptions="Center" HorizontalOptions="Center" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Label StyleClass="LargerLabel" Text="Add Beneficiary Details" />
+                <Label StyleClass="BlackLabel" Text="Somemore copy" />
+                <b:ContactDetailView x:Name="Details"></b:ContactDetailView>
+            </StackLayout>
+            <StackLayout VerticalOptions="End" HorizontalOptions="Center" HeightRequest="100" Orientation="Horizontal">
+                <Button StyleClass="Button" Text="add Beneficiary" Clicked="On_Save_Event"></Button>
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>
