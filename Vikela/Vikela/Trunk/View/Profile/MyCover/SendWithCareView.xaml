@@ -25,11 +25,13 @@
                 </StackLayout>
             </StackLayout>
             <StackLayout VerticalOptions="FillAndExpand">
-                <Label StyleClass="LargerLabel" Text="Purchase History" />
-                <b:TableScrollView x:Name="PurchaseHistory" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                    <Label StyleClass="LargerLabel" Text="Purchase History" />
+                    <b:TableScrollView x:Name="PurchaseHistory" />
+                </StackLayout>
             </StackLayout>
             <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" HeightRequest="100" Orientation="Horizontal">
-                <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="Green" Orientation="Horizontal">
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Green" Orientation="Horizontal">
                     <StackLayout HorizontalOptions="Center">
                         <Label Text="Running Total" />
                         <Label Text="Your cover will expire in 3 months" />
@@ -38,6 +40,13 @@
                         <Label Text="R 1500" />
                     </StackLayout>
                 </StackLayout>
+            </StackLayout>
+            <StackLayout VerticalOptions="End" HorizontalOptions="Center" HeightRequest="100" Orientation="Horizontal">
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="My Cover"></Button>
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="My Cash"></Button>
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="Siyabonga"></Button>
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="Circle"></Button>
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="Notifications"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

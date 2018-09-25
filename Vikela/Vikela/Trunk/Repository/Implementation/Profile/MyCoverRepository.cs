@@ -109,25 +109,17 @@ namespace Vikela.Implementation.Repository
         public ActiveCoverViewModel GetActiveCoverTileModelFromPolicy(PolicyModel model, Action<object> OnClick, int index)
         {
             CultureInfo ci = new CultureInfo("en-ZA");
-            DateTime startDate;
-            DateTime endDate;
-            if (DateTime.TryParse(model.endDate, out endDate)
-            && DateTime.TryParse(model.startDate, out startDate))
-               // && decimal.TryParse(model.ensuredAmount, NumberStyles.Number, ci, out careAmount))
+            var timeCalc = TimeSpan.FromTicks(model.endDate.AddTicks(-model.startDate.Ticks).Ticks).Days;
+            return new ActiveCoverViewModel
             {
-                var timeCalc = TimeSpan.FromTicks(endDate.AddTicks(-startDate.Ticks).Ticks).Days;
-                return new ActiveCoverViewModel
-                {
-                    Index = index,
-                    TileColor = GetRobotColor(startDate, endDate),
-                    Title = model.name,
-                    CareAmount = (model.ensuredAmount/ 10000).ToString("C", ci),
-                    BeneficiaryImage = _MasterRepo.DataSource.DefaultBeneficiary.UserPicture,
-                    ItemClickedCommand = new Command(OnClick),
-                    TimeLeft = $"{timeCalc} Days Left"
-                };
-            }
-            return null;
+                Index = index,
+                TileColor = GetRobotColor(model.startDate, model.endDate),
+                Title = model.name,
+                CareAmount = (model.ensuredAmount/ 10000).ToString("C", ci),
+                BeneficiaryImage = _MasterRepo.DataSource.DefaultBeneficiary.UserPicture,
+                ItemClickedCommand = new Command(OnClick),
+                TimeLeft = $"{timeCalc} Days Left"
+            };
         }
 
         public List<ActiveCoverViewModel> GetActiveCoverTileModels(Action<object> OnClick)

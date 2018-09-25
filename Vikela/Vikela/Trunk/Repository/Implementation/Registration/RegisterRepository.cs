@@ -25,7 +25,7 @@ namespace Vikela.Implementation.Repository
         IRegisterService _Service;
         IDynamixService _DynamixService;
         IDynamixReturnService<List<DynamixContact>> _DynamixReturnService;
-        IDynamixReturnService<List<DynamixPolicy>> _DynamixPolicyReturnService;
+        IDynamixReturnService<DynamixPolicy> _DynamixPolicyReturnService;
         IDynamixReturnService<DynamixCommunity> _DynamixCommunityReturnService;
         IPlatformBonsai<IPlatformModelBonsai> _PlatformBonsai;
         ISelfieRepository _SelfieRepo;
@@ -33,7 +33,7 @@ namespace Vikela.Implementation.Repository
 
         public RegisterRepository(IMasterRepository masterRepository, IRegisterService service, IDynamixService dynamix=null, 
                                   IDynamixReturnService<List<DynamixContact>> dynamixReturn=null,
-                                  IDynamixReturnService<List<DynamixPolicy>> dynasmicPolicyReturn=null,
+                                  IDynamixReturnService<DynamixPolicy> dynasmicPolicyReturn=null,
                                   IDynamixReturnService<DynamixCommunity> dynamixCommunityReturnService=null)
             : base(masterRepository)
         {
@@ -256,17 +256,16 @@ namespace Vikela.Implementation.Repository
             }
         }
 
-        private List<PolicyModel> getPolicyOfflineModelsFromServiceList(List<DynamixPolicy> policies)
+        private List<PolicyModel> getPolicyOfflineModelsFromServiceList(DynamixPolicy policies)
         {
-            var query = from model in policies
+            var query = from model in policies.Details
                         select new PolicyModel
                         {
-                            beneficiaryContactId = model.beneficiaryContactId,
-                            beneficiaryProfileImageUrl = model.beneficiaryProfileImageUrl,
-                            endDate = model.endDate,
-                            ensuredAmount = model.ensuredAmount,
-                            name = model.name,
-                            startDate = model.startDate
+                            beneficiaryContactId = model.Beneficiary.BeneficiaryId,
+                            endDate = model.EndDate,
+                            ensuredAmount = model.EnsuredAmount,
+                            name = model.Name,
+                            startDate = model.StartDate
                         };
 
             return query.ToList();
