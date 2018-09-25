@@ -13,6 +13,6 @@ namespace Vikela.Interface.Repository
         PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnClick);
         TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action<object> OnClick);
         SiyabongaViewModel GetSiyabongaTileViewModel(Action OnClick);
-        List<ActiveCoverViewModel> GetActiveCoverTileModels(Action OnLick);
+        List<ActiveCoverViewModel> GetActiveCoverTileModels(Action<object> OnLick);
     }
 }

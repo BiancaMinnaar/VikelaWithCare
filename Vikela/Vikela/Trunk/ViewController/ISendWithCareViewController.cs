@@ -5,5 +5,6 @@ namespace Vikela.Interface.ViewController
     public interface ISendWithCareViewController
     {
         Task YourMethodNameAsync();
+        void PopToCover();
     }
 }

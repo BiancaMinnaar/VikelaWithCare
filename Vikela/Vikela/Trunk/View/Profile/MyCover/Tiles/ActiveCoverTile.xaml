@@ -13,16 +13,22 @@
     x:TypeArguments="p:TableScrollItemViewController, m:ProjectBaseViewModel">
     <Frame>
         <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-            <StackLayout.GestureRecognizers>
-              <TapGestureRecognizer Tapped="AddBeneficiary"/>
-            </StackLayout.GestureRecognizers>
-            <StackLayout WidthRequest="10" BackgroundColor="{Binding TileColor}" />
-            <StackLayout Spacing="1">
-                <Label Text="{Binding CareAmount}" Style="{DynamicResource LargeLabel}" TextColor="{Binding TileColor}" />
-            </StackLayout>
-            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
-            </StackLayout>
             <StackLayout>
+                <StackLayout.GestureRecognizers>
+                  <TapGestureRecognizer Tapped="PushSendWithCare"/>
+                </StackLayout.GestureRecognizers>
+                <StackLayout WidthRequest="10" BackgroundColor="{Binding TileColor}" />
+                <StackLayout Spacing="1">
+                    <Label Text="{Binding CareAmount}" Style="{DynamicResource LargeLabel}" TextColor="{Binding TileColor}" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                </StackLayout>
+            </StackLayout>
+            <StackLayout HorizontalOptions="FillAndExpand" />
+            <StackLayout>
+                <StackLayout.GestureRecognizers>
+                  <TapGestureRecognizer Tapped="AddBeneficiary"/>
+                </StackLayout.GestureRecognizers>
                 <controls:CircleImage Source="{Binding BeneficiaryImage, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
                 <controls:CircleImage.WidthRequest>
                     <OnPlatform x:TypeArguments="x:Double">

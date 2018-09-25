@@ -33,7 +33,7 @@ namespace Vikela.Implementation.View
 
         private void SetActiveCoverTiles()
         {
-            ActiveCovers.SetTableWithItems(_ViewController.GetActiveCoverTileModels(_ViewController.PushAddBeneficiary));
+            ActiveCovers.SetTableWithItems(_ViewController.GetActiveCoverTileModels(_ViewController.PushSendWithCare));
         }
 
         private void SetSiyabongaTiles()

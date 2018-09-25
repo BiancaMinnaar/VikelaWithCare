@@ -23,6 +23,11 @@ namespace Vikela.Implementation.View
         {
             await _ViewController.YourMethodNameAsync();
         }
+
+        public void PopToCover(object sender, EventArgs e)
+        {
+            _ViewController.PopToCover();
+        }
     }
 }
 

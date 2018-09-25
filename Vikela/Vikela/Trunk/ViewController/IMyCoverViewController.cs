@@ -9,10 +9,10 @@ namespace Vikela.Interface.ViewController
     {
         void Load(Action detailClick, Action<object> trustedSourcesClick);
         void PushEditProfile();
-        void PushAddBeneficiary();
+        void PushSendWithCare(object index);
         PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnClick);
         TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action<object> OnClick);
         SiyabongaViewModel GetSiyabongaTileViewModel(Action OnClick);
-        List<ActiveCoverViewModel> GetActiveCoverTileModels(Action OnLick);
+        List<ActiveCoverViewModel> GetActiveCoverTileModels(Action<object> OnLick);
     }
 }

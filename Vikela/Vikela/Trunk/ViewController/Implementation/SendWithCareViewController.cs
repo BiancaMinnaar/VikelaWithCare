@@ -25,5 +25,10 @@ namespace Vikela.Implementation.ViewController
         {
             
         }
+
+        public void PopToCover()
+        {
+            _MasterRepo.PopView();
+        }
     }
 }

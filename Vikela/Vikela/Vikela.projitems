@@ -482,5 +482,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Offline\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Graphs\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Graphs\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\Images\" />
   </ItemGroup>
 </Project>

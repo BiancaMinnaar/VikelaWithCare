@@ -294,5 +294,10 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _Navigation.PushAsync(new MyCommunityView());
         }
+
+        public void PushSendWithCare()
+        {
+            _Navigation.PushAsync(new SendWithCareView());
+        }
     }
 }

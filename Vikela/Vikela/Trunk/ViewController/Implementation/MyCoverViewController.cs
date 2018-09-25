@@ -40,9 +40,10 @@ namespace Vikela.Implementation.ViewController
             _MasterRepo.PushEditProfile();
         }
 
-        public void  PushAddBeneficiary()
+        public void PushSendWithCare(object index)
         {
-            _MasterRepo.PushAddBeneficiary();
+            //TODO: setup with index
+            _MasterRepo.PushSendWithCare();
         }
 
         public PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnClick)
@@ -60,7 +61,7 @@ namespace Vikela.Implementation.ViewController
             return _Reposetory.GetSiyabongaTileViewModel(OnClick);
         }
 
-        public List<ActiveCoverViewModel> GetActiveCoverTileModels(Action OnLick)
+        public List<ActiveCoverViewModel> GetActiveCoverTileModels(Action<object> OnLick)
         {
             return _Reposetory.GetActiveCoverTileModels(OnLick);
         }

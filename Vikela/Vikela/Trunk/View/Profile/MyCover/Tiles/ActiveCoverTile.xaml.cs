@@ -12,7 +12,9 @@ namespace Vikela.Trunk.View.Profile.MyCover.Tiles
     
     public partial class ActiveCoverTile : ProjectBaseContentView<TableScrollItemViewController, ProjectBaseViewModel>
     {
-        internal ICommand command;
+        protected ICommand command;
+        protected ITableScrollItemModel _Model;
+
         public ActiveCoverTile()
         {
             InitializeComponent();
@@ -33,10 +35,14 @@ namespace Vikela.Trunk.View.Profile.MyCover.Tiles
             command = model.ItemClickedCommand;
         }
 
+        public void PushSendWithCare(object sender, EventArgs e)
+        {
+            command.Execute(((ActiveCoverViewModel)_ViewController.InputObject).Index);
+        }
+
         public void AddBeneficiary(object sender, EventArgs e)
         {
-            //_ViewController._MasterRepo.PushAddBeneficiary();
-            command.Execute(null);
+            _ViewController._MasterRepo.PushAddBeneficiary();
         }
     }
 }

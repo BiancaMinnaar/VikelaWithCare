@@ -16,6 +16,8 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
+       <StackLayout>
+            <Button Text="Back" Clicked="PopToCover" />
+        </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>

@@ -106,7 +106,7 @@ namespace Vikela.Implementation.Repository
             return Color.FromHex("#BBDE6B");
         }
 
-        public ActiveCoverViewModel GetActiveCoverTileModelFromPolicy(PolicyModel model, Action OnClick, int index)
+        public ActiveCoverViewModel GetActiveCoverTileModelFromPolicy(PolicyModel model, Action<object> OnClick, int index)
         {
             CultureInfo ci = new CultureInfo("en-ZA");
             DateTime startDate;
@@ -130,7 +130,7 @@ namespace Vikela.Implementation.Repository
             return null;
         }
 
-        public List<ActiveCoverViewModel> GetActiveCoverTileModels(Action OnClick)
+        public List<ActiveCoverViewModel> GetActiveCoverTileModels(Action<object> OnClick)
         {
             if (_MasterRepo.DataSource.PolicyList != null)
             {
