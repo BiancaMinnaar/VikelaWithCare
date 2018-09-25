@@ -73,7 +73,6 @@ namespace Vikela.Implementation.ViewController
                 await _RegisterRepo.SetUserContactsFromServerAsync(registration);
                 await _RegisterRepo.SetUserPoliciesFromServerAsync(registration);
                 await _RegisterRepo.SetCommunityValueFromServiceAsync(registration);
-                await _RegisterRepo.SetPurchaseHistoryFromServiceAsync(registration);
             }
             _Reposetory.RegisterOrShowProfile(_Reposetory.IsRegisteredUser(_ResponseContent));
             _MasterRepo.HideLoading();

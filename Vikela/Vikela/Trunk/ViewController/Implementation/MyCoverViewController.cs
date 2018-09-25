@@ -43,7 +43,8 @@ namespace Vikela.Implementation.ViewController
         public void PushSendWithCare(object index)
         {
             //TODO: setup with index
-            _MasterRepo.PushSendWithCare();
+            Guid beneficiaryID = Guid.Parse(_MasterRepo.DataSource.DefaultBeneficiary.UserID);
+            _MasterRepo.PushSendWithCare(beneficiaryID);
         }
 
         public PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnClick)

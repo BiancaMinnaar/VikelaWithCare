@@ -295,9 +295,9 @@ namespace Vikela.Trunk.Repository.Implementation
             _Navigation.PushAsync(new MyCommunityView());
         }
 
-        public void PushSendWithCare()
+        public void PushSendWithCare(Guid beneficiaryID)
         {
-            _Navigation.PushAsync(new SendWithCareView());
+            _Navigation.PushAsync(new SendWithCareView(beneficiaryID));
         }
     }
 }

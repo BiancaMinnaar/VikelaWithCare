@@ -29,9 +29,9 @@ namespace Vikela.Implementation.ViewController
             _MasterRepo.PopView();
         }
 
-        public List<PurchaseHistoryDetailViewModel> GetPurchaseDetailTileModels(Action OnClick)
+        public List<PurchaseHistoryDetailViewModel> GetPurchaseDetailTileModels(Guid beneficiaryID, Action OnClick)
         {
-            return _Reposetory.GetPurchaseDetailTileModels(OnClick);
+            return _Reposetory.GetPurchaseDetailTileModels(beneficiaryID, OnClick);
         }
     }
 }

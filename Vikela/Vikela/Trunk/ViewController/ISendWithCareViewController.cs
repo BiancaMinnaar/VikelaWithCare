@@ -7,7 +7,7 @@ namespace Vikela.Interface.ViewController
 {
     public interface ISendWithCareViewController
     {
-        List<PurchaseHistoryDetailViewModel> GetPurchaseDetailTileModels(Action OnClick);
+        List<PurchaseHistoryDetailViewModel> GetPurchaseDetailTileModels(Guid beneficiaryID, Action OnClick);
         void PopToCover();
     }
 }

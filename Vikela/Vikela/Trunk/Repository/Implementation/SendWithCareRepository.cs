@@ -21,9 +21,10 @@ namespace Vikela.Implementation.Repository
             _Service = service;
         }
 
-        public List<PurchaseHistoryDetailViewModel> GetPurchaseDetailTileModels(Action OnClick)
+        public List<PurchaseHistoryDetailViewModel> GetPurchaseDetailTileModels(Guid beneficiaryID, Action OnClick)
         {
             var history = from detail in _MasterRepo.DataSource.PurchaseHistory
+                          where detail.BeneficiaryID==beneficiaryID
                           select new PurchaseHistoryDetailViewModel
                           {
                               Index = 0,

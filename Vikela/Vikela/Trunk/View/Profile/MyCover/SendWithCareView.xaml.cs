@@ -8,12 +8,12 @@ namespace Vikela.Implementation.View
 {
     public partial class SendWithCareView : ProjectBaseContentPage<SendWithCareViewController, SendWithCareViewModel>
     {
-        public SendWithCareView()
+        public SendWithCareView(Guid beneficiaryID)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = _ViewController.InputObject;
-            PurchaseHistory.SetTableWithItems(_ViewController.GetPurchaseDetailTileModels(HistoryClicked));
+            PurchaseHistory.SetTableWithItems(_ViewController.GetPurchaseDetailTileModels(beneficiaryID, HistoryClicked));
         }
 
         protected override void SetSVGCollection()

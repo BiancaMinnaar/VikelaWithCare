@@ -246,7 +246,7 @@ namespace Vikela.Implementation.Repository
             var contacts = await _DynamixReturnService.GetConnectedContactsAsync(model);
             if (contacts != null)
             {
-                var contactStore = new ContactStorageRepository(_MasterRepo, OfflineStorageRepository.Instance);
+                //var contactStore = new ContactStorageRepository(_MasterRepo, OfflineStorageRepository.Instance);
                 var task = await SelectContactsWithRole(model, contacts, "Beneficiary");
                 if (task.Count > 0)
                     _MasterRepo.DataSource.DefaultBeneficiary = task[0];
@@ -275,7 +275,17 @@ namespace Vikela.Implementation.Repository
         {
             var policies = await _DynamixPolicyReturnService.GetAllActivePoliciesAsync(model);
             if (policies != null)
-            _MasterRepo.DataSource.PolicyList = getPolicyOfflineModelsFromServiceList(policies);
+            {
+                _MasterRepo.DataSource.PolicyList = getPolicyOfflineModelsFromServiceList(policies);
+                var policyListData = from policy in policies.Details
+                                     select new PurchaseDetailsViewModel
+                                     {
+                                     PurchasedAt=policy.Store.StoreName,
+                                     BeneficiaryID=policy.Beneficiary.BeneficiaryId
+                                       };
+                _MasterRepo.DataSource.PurchaseHistory = policyListData.ToList();
+
+            }
         }
 
         private CommunityModel GetCommunityOfflineModelFromServiceModel(DynamixCommunity model)
@@ -292,22 +302,6 @@ namespace Vikela.Implementation.Repository
         {
             var community = await _DynamixCommunityReturnService.GetCommunityAsync(model);
             _MasterRepo.DataSource.Community = GetCommunityOfflineModelFromServiceModel(community);
-        }
-
-        public async Task SetPurchaseHistoryFromServiceAsync(RegisterViewModel model)
-        {
-            _MasterRepo.DataSource.PurchaseHistory = new List<PurchaseDetailsViewModel>
-            {
-                new PurchaseDetailsViewModel
-                    {
-                    StartDate=DateTime.Today,
-                    EndDate=DateTime.Today,
-                    Cover=500,
-                    Premium=50,
-                    Product="Send withcare",
-                    PurchasedAt="Checkers Centurion"
-                    }
-            };
         }
     }
 }

@@ -16,7 +16,7 @@
                   <TapGestureRecognizer Command="{Binding ItemClickedCommand}" CommandParameter="{Binding ListIndex}"/>
             </StackLayout.GestureRecognizers>
             <StackLayout Orientation="Vertical">
-                <Label Text="Item" />
+                <Label Text="{Binding HistoryDetails.PurchasedAt}" />
             </StackLayout>
             
         </StackLayout>
