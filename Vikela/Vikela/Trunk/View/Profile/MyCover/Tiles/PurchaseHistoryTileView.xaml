@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base:ProjectBaseContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:Vikela.Root.View"
+    xmlns:m="clr-namespace:Vikela.Root.ViewModel"
+    xmlns:p="clr-namespace:Vikela.Implementation.ViewController"
+    xmlns:b="clr-namespace:Vikela.Implementation.View"
+    xmlns:svg="clr-namespace:TwinTechsForms.NControl;assembly=TwinTechsForms.NControl.SvgImageView"
+    xmlns:image="clr-namespace:MobileBonsai.View"
+    x:Class="Vikela.Implementation.View.PurchaseHistoryTileView" 
+    x:TypeArguments="p:TableScrollItemViewController, m:ProjectBaseViewModel">
+    <Frame>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout.GestureRecognizers>
+                  <TapGestureRecognizer Command="{Binding ItemClickedCommand}" CommandParameter="{Binding ListIndex}"/>
+            </StackLayout.GestureRecognizers>
+            <StackLayout Orientation="Vertical">
+                <Label Text="Item" />
+            </StackLayout>
+            
+        </StackLayout>
+   </Frame>
+</base:ProjectBaseContentView>

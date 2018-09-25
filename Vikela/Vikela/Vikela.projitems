@@ -126,6 +126,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\PurchaseHistoryTileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -450,6 +454,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\NIUSSDReturnModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\NIUSSDViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\PurchaseHistoryDetailViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IPurchaseHistoryTileViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\PurchaseHistoryTileViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\PurchaseHistoryTileViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\PurchaseHistoryTileView.xaml.cs">
+      <DependentUpon>PurchaseHistoryTileView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
