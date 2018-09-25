@@ -16,7 +16,8 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-       <StackLayout>
+        <StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand" />
             <Button Text="Back" Clicked="PopToCover" />
         </StackLayout>
     </ContentPage.Content>
