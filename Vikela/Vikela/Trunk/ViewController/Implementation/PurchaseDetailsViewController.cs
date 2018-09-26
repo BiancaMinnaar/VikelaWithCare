@@ -14,17 +14,9 @@ namespace Vikela.Implementation.ViewController
 
         public void SetPolicyDetailWithPolicyID(Guid policyID)
         {
-            var policyToView = from policy in _MasterRepo.DataSource.PolicyList
-                         where policy.PolicyID == policyID
-                         select new PurchaseDetailsViewModel
-                         {
-                             PurchasedAt = policy.storeName,
-                             Product = policy.name,
-                             StartDate = policy.startDate,
-                             EndDate = policy.endDate,
-                             Cover = policy.ensuredAmount,
-                             Premium = policy.premiumAmount
-                         };
+            var policyToView = from policy in _MasterRepo.DataSource.PurchaseHistory
+                               where policy.PolicyID == policyID
+                         select policy;
             InputObject = policyToView.FirstOrDefault();
         }
 
