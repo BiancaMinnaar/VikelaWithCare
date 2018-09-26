@@ -16,7 +16,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Spacing="0">
+        <StackLayout Spacing="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <StackLayout HeightRequest="30" BackgroundColor="#47B3E4" />
             <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
@@ -24,36 +24,52 @@
                     <Label StyleClass="LargerLabel" Text="{Binding PurchasedAt}" VerticalOptions="Center" HorizontalOptions="Center" />
                 </StackLayout>
             </StackLayout>
-            <StackLayout VerticalOptions="FillAndExpand">
-                <Label StyleClass="LargerLabel" Text="Purchase Details" />
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label HorizontalOptions="Center" StyleClass="LargerLabel" Text="Purchase Details" />
             </StackLayout>
-            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <StackLayout HorizontalOptions="StartAndExpand">
+            <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
                     <Label Text="Purchased At"></Label>
                     <Label HorizontalOptions="End" Text="{Binding PurchasedAt}" />
                 </StackLayout>
-                <StackLayout HorizontalOptions="StartAndExpand">
+                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
                     <Label Text="Product"></Label>
                     <Label HorizontalOptions="End" Text="{Binding Product}" />
                 </StackLayout>
-                <StackLayout HorizontalOptions="StartAndExpand">
+                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
                     <Label Text="Purchased Date"></Label>
                     <Label HorizontalOptions="End" Text="{Binding StartDate}" />
                 </StackLayout>
-                <StackLayout HorizontalOptions="StartAndExpand">
+                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
                     <Label Text="Date Expoire"></Label>
                     <Label HorizontalOptions="End" Text="{Binding EndDate}" />
                 </StackLayout>
-                <StackLayout HorizontalOptions="StartAndExpand">
+                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
                     <Label Text="Cover"></Label>
                     <Label HorizontalOptions="End" Text="{Binding Cover}" />
                 </StackLayout>
-                <StackLayout HorizontalOptions="StartAndExpand">
+                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
                     <Label Text="Premium"></Label>
                     <Label HorizontalOptions="End" Text="{Binding Premium}" />
                 </StackLayout>
             </StackLayout>
+            <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" HeightRequest="100" Orientation="Horizontal">
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Green" Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="Center">
+                        <Label Text="Running Total" />
+                        <Label Text="Your cover will expire in 3 months" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="R 1500" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
             <StackLayout VerticalOptions="End" HorizontalOptions="Center" HeightRequest="100" Orientation="Horizontal">
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="My Cover"></Button>
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="My Cash"></Button>
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="Siyabonga"></Button>
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="Circle"></Button>
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="Notifications"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
