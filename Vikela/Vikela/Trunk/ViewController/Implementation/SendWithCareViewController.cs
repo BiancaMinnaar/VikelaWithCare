@@ -36,7 +36,7 @@ namespace Vikela.Implementation.ViewController
 
         public void ShowHistoryItemDetail(Guid policyId)
         {
-            ShowMessage(policyId.ToString());
+            _MasterRepo.PushPolicyDetail(policyId);
         }
     }
 }

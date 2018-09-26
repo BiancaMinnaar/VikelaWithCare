@@ -1,5 +1,4 @@
 using Vikela.Implementation.ViewController;
-using Vikela.Implementation.ViewModel;
 using Vikela.Root.View;
 using Vikela.Root.ViewModel;
 using Vikela.Trunk.ViewModel.Controlls;

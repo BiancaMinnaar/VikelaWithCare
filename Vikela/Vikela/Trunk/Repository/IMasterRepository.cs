@@ -49,6 +49,7 @@ namespace Vikela.Interface.Repository
 		void PushAddTrustedSource();
         void PushMyCommunity();
         void PushSendWithCare(Guid beneficiaryID);
+        void PushPolicyDetail(Guid policyID);
     }
 }
 

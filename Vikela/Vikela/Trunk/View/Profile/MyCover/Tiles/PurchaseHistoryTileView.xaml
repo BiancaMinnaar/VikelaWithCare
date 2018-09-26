@@ -17,9 +17,7 @@
             </StackLayout.GestureRecognizers>
             <StackLayout Orientation="Vertical">
                 <Label Text="{Binding HistoryDetails.PurchasedAt}" />
-                <Label Text="{Binding HistoryDetails.PolicyID}" />
             </StackLayout>
-            
         </StackLayout>
    </Frame>
 </base:ProjectBaseContentView>

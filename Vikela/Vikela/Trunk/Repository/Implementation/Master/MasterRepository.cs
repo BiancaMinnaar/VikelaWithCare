@@ -299,5 +299,10 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _Navigation.PushAsync(new SendWithCareView(beneficiaryID));
         }
+
+        public void PushPolicyDetail(Guid policyID)
+        {
+            _Navigation.PushAsync(new PurchaseDetailsView(policyID));
+        }
     }
 }

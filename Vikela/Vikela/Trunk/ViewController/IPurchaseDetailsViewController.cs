@@ -1,10 +1,10 @@
-using System.Threading.Tasks;
+using System;
 
 namespace Vikela.Interface.ViewController
 {
     public interface IPurchaseDetailsViewController
     {
-        Task YourMethodNameAsync();
+        void SetPolicyDetailWithPolicyID(Guid policyID);
         void PopToCover();
     }
 }
