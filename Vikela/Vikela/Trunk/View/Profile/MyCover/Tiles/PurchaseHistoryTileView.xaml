@@ -17,6 +17,13 @@
             </StackLayout.GestureRecognizers>
             <StackLayout Orientation="Vertical">
                 <Label Text="{Binding HistoryDetails.PurchasedAt}" />
+                <Label Text="{Binding HistoryDetails.StartDate}" />
+            </StackLayout>
+            <StackLayout>
+                <Label Text="{Binding CoverMoneyDisplay}" />
+            </StackLayout>
+            <StackLayout>
+                
             </StackLayout>
         </StackLayout>
    </Frame>
