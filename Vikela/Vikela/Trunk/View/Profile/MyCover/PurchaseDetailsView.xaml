@@ -28,9 +28,29 @@
                 <Label StyleClass="LargerLabel" Text="Purchase Details" />
             </StackLayout>
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <StackLayout HorizontalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="StartAndExpand">
                     <Label Text="Purchased At"></Label>
                     <Label HorizontalOptions="End" Text="{Binding PurchasedAt}" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="StartAndExpand">
+                    <Label Text="Product"></Label>
+                    <Label HorizontalOptions="End" Text="{Binding Product}" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="StartAndExpand">
+                    <Label Text="Purchased Date"></Label>
+                    <Label HorizontalOptions="End" Text="{Binding StartDate}" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="StartAndExpand">
+                    <Label Text="Date Expoire"></Label>
+                    <Label HorizontalOptions="End" Text="{Binding EndDate}" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="StartAndExpand">
+                    <Label Text="Cover"></Label>
+                    <Label HorizontalOptions="End" Text="{Binding Cover}" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="StartAndExpand">
+                    <Label Text="Premium"></Label>
+                    <Label HorizontalOptions="End" Text="{Binding Premium}" />
                 </StackLayout>
             </StackLayout>
             <StackLayout VerticalOptions="End" HorizontalOptions="Center" HeightRequest="100" Orientation="Horizontal">

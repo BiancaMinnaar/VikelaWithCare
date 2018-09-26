@@ -281,10 +281,14 @@ namespace Vikela.Implementation.Repository
                 var policyListData = from policy in policies.Details
                                      select new PurchaseDetailsViewModel
                                      {
-                                     PurchasedAt=policy.Store.StoreName,
-                                     BeneficiaryID=policy.Beneficiary.BeneficiaryId,
-                                     PolicyID=policy.PolicyId
-                                       };
+                                         PurchasedAt=policy.Store.StoreName,
+                                         Product=policy.Name,
+                                         StartDate=policy.StartDate,
+                                         EndDate=policy.EndDate,
+                                         Cover=policy.EnsuredAmount,
+                                         Premium=policy.PremiumAmount,
+                                         BeneficiaryID=policy.Beneficiary.BeneficiaryId,
+                                         PolicyID=policy.PolicyId};
                 _MasterRepo.DataSource.PurchaseHistory = policyListData.ToList();
 
             }
