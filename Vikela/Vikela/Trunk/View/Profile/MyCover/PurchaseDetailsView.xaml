@@ -21,16 +21,19 @@
             <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <Button Text="Back" FontSize="8" Clicked="Back_Clicked" />
-                    <Label StyleClass="LargerLabel" Text="Add Beneficiary" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label StyleClass="LargerLabel" Text="{Binding PurchasedAt}" VerticalOptions="Center" HorizontalOptions="Center" />
                 </StackLayout>
             </StackLayout>
             <StackLayout VerticalOptions="FillAndExpand">
-                <Label StyleClass="LargerLabel" Text="Add Beneficiary Details" />
-                <Label StyleClass="BlackLabel" Text="Somemore copy" />
-                <b:ContactDetailView x:Name="Details"></b:ContactDetailView>
+                <Label StyleClass="LargerLabel" Text="Purchase Details" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Purchased At"></Label>
+                    <Label HorizontalOptions="End" Text="{Binding PurchasedAt}" />
+                </StackLayout>
             </StackLayout>
             <StackLayout VerticalOptions="End" HorizontalOptions="Center" HeightRequest="100" Orientation="Horizontal">
-                <Button StyleClass="Button" Text="add Beneficiary" Clicked="On_Save_Event"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

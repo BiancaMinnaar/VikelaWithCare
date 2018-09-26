@@ -12,6 +12,7 @@ namespace Vikela.Implementation.View
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            _ViewController.SetPolicyDetailWithPolicyID(policyID);
             BindingContext = _ViewController.InputObject;
         }
 
