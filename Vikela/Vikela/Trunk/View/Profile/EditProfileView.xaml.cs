@@ -25,6 +25,11 @@ namespace Vikela.Implementation.View
             await _ViewController.Edit();
         }
 
+        void Back_Clicked(object sender, System.EventArgs e)
+        {
+            _ViewController.PopToCover();
+        }
+
         void On_Settings_Clicked(object sender, System.EventArgs e)
         {
             _ViewController.PushSettings();

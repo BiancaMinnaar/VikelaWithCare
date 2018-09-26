@@ -21,7 +21,7 @@
             <StackLayout HeightRequest="30" BackgroundColor="#47B3E4" />
             <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Button Text="B" FontSize="8" />
+                    <Button Text="Back" FontSize="8" Clicked="Back_Clicked" />
                     <Label StyleClass="LargerLabel" Text="Edit Profile" VerticalOptions="Center" HorizontalOptions="Center" />
                     <Button Text="Set" FontSize="8" Clicked="On_Settings_Clicked" />
                 </StackLayout>
@@ -38,10 +38,6 @@
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Last name" />
                     <Entry Text="{Binding UserProfile.LastName}" />
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="ID Number" />
-                    <Entry Text="{Binding UserProfile.IDNumber}" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Cell Number" />

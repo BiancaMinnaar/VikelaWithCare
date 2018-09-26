@@ -1,9 +1,5 @@
-using System;
-using System.Threading.Tasks;
 using CorePCL;
-using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
-using Vikela.Interface.Service;
 using Vikela.Root.Repository;
 using Vikela.Trunk.ViewModel;
 
@@ -19,11 +15,12 @@ namespace Vikela.Implementation.Repository
 
         public ProfileModel Load()
         {
-            return new ProfileModel()
+            return new ProfileModel
             {
                 FirstName = _MasterRepo.DataSource.User.FirstName,
-                UserImage = _MasterRepo.DataSource.User.UserPicture,
-                LastName = _MasterRepo.DataSource.User.LastName
+                LastName = _MasterRepo.DataSource.User.LastName,
+                CellPhoneNumber = _MasterRepo.DataSource.User.MobileNumber,
+                UserImage = _MasterRepo.DataSource.User.UserPicture
             };
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Vikela.Implementation.Repository;
 using Vikela.Implementation.ViewModel;
@@ -21,6 +22,11 @@ namespace Vikela.Implementation.ViewController
             await _MasterRepo.RemoveUserRecordAsync(_MasterRepo.DataSource.User);
             foreach (var user in App.PCA.Users) { App.PCA.Remove(user); }
             _MasterRepo.PushLogOut();
+        }
+
+        public void PopToCover()
+        {
+            _MasterRepo.PopView();
         }
     }
 }

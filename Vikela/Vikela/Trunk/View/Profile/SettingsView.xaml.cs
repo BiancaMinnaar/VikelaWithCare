@@ -19,6 +19,11 @@ namespace Vikela.Implementation.View
         {
         }
 
+        void Back_Clicked(object sender, System.EventArgs e)
+        {
+            _ViewController.PopToCover();
+        }
+
         void On_Logout_Clicked(object sender, System.EventArgs e)
         {
             _ViewController._MasterRepo.DataSource.User.OID = "";

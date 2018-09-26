@@ -22,7 +22,7 @@
             <StackLayout HeightRequest="30" BackgroundColor="#47B3E4" />
             <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Button Text="B" FontSize="8" />
+                    <Button Text="Back" FontSize="8" Clicked="Back_Clicked" />
                     <Label StyleClass="LargerLabel" Text="Settings" VerticalOptions="Center" HorizontalOptions="Center" />
                 </StackLayout>
             </StackLayout>

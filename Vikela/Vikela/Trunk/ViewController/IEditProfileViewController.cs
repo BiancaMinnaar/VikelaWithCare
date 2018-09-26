@@ -6,5 +6,6 @@ namespace Vikela.Interface.ViewController
     {
         void Load();
         Task Edit();
+        void PopToCover();
     }
 }

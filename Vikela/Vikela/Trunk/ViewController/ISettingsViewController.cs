@@ -5,5 +5,6 @@ namespace Vikela.Interface.ViewController
     public interface ISettingsViewController
     {
         Task LogoutAsync();
+        void PopToCover();
     }
 }

@@ -78,7 +78,6 @@ namespace Vikela.Trunk.Repository.Implementation
             contactModel.CellNumber = model.CellNumber;
             contactModel.IDNumber = model.IDNumber;
             contactModel.Email = model.Email;
-            contactModel.UserPicture = model.ContactPicture.Selfie;
             await _MasterRepo.SaveBeneficiaryAsync(contactModel);
         }
     }
