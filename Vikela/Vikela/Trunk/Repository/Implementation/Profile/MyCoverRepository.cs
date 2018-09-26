@@ -126,9 +126,32 @@ namespace Vikela.Implementation.Repository
         {
             if (_MasterRepo.DataSource.PolicyList != null)
             {
-                List<ActiveCoverViewModel> list = new List<ActiveCoverViewModel>();
-                for (var count = 0; count < _MasterRepo.DataSource.PolicyList.Count; count++)
-                    list.Add(GetActiveCoverTileModelFromPolicy(_MasterRepo.DataSource.PolicyList[count], OnClick, count));
+                var productCover = from policy in _MasterRepo.DataSource.PurchaseHistory
+                           group policy.Cover by policy.Product into Transaction
+                           select new {
+                               Product=Transaction.Key,
+                               CoverAmount=Transaction.Sum()
+                           };
+                var ProductStartDate = from policy in _MasterRepo.DataSource.PurchaseHistory
+                                       group policy.StartDate by policy.Product into Transaction
+                                       select new { product = Transaction.Key, StartDate = Transaction.Min() };
+                var ProductEndDate = from policy in _MasterRepo.DataSource.PurchaseHistory
+                                       group policy.EndDate by policy.Product into Transaction
+                                       select new { product = Transaction.Key, EndDate = Transaction.Max() };
+                var product = new PolicyModel
+                {
+                    name = productCover.FirstOrDefault().Product,
+                    ensuredAmount = productCover.FirstOrDefault().CoverAmount,
+                    startDate=ProductStartDate.FirstOrDefault().StartDate,
+                    endDate=ProductEndDate.FirstOrDefault().EndDate
+                };
+
+
+
+
+
+                List < ActiveCoverViewModel > list = new List<ActiveCoverViewModel>();
+                    list.Add(GetActiveCoverTileModelFromPolicy(product, OnClick, 1));
 
                 return list;
             }

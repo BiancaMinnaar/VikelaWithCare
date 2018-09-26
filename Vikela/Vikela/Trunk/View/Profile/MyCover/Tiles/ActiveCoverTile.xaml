@@ -19,12 +19,13 @@
                 </StackLayout.GestureRecognizers>
                 <StackLayout WidthRequest="10" BackgroundColor="{Binding TileColor}" />
                 <StackLayout Spacing="1">
-                    <Label Text="{Binding CareAmount}" Style="{DynamicResource LargeLabel}" TextColor="{Binding TileColor}" />
-                </StackLayout>
-                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                    <Label Text="{Binding Title}" Style="{DynamicResource SmallBlackLabel}" TextColor="{Binding TileColor}" />
+                    <Label Text="{Binding CareAmount}" Style="{DynamicResource BaseLabel}" TextColor="{Binding TileColor}" />
                 </StackLayout>
             </StackLayout>
-            <StackLayout HorizontalOptions="FillAndExpand" />
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                    <Label Text="{Binding TimeLeft}" Style="{DynamicResource BaseLabel}" TextColor="{Binding TileColor}" />
+                </StackLayout>
             <StackLayout>
                 <StackLayout.GestureRecognizers>
                   <TapGestureRecognizer Tapped="AddBeneficiary"/>

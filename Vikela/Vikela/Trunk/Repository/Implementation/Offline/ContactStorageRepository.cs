@@ -9,7 +9,7 @@ namespace Vikela.Trunk.Repository.Implementation.Offline
     {
         internal string ID;
         protected string SelectWithIDQuery { get; private set; }
-        internal const string TrustedSourceRoleName = "Trusted Source";
+        internal const string TrustedSourceRoleName = "Trusted Friend";
         protected string SelectTrustedSources { get; private set; }
         internal const string DefaultBeneficiaryRoleName = "Beneficiary";
         protected string SelectDefaultBeneficiary { get; private set; }

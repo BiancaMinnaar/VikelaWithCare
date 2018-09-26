@@ -250,7 +250,7 @@ namespace Vikela.Implementation.Repository
                 var task = await SelectContactsWithRole(model, contacts, "Beneficiary");
                 if (task.Count > 0)
                     _MasterRepo.DataSource.DefaultBeneficiary = task[0];
-                _MasterRepo.DataSource.TrustedSources = await SelectContactsWithRole(model, contacts, "Trusted Source");
+                _MasterRepo.DataSource.TrustedSources = await SelectContactsWithRole(model, contacts, "Trusted Friend");
                 await _MasterRepo.SaveBeneficiaryAsync(_MasterRepo.DataSource.DefaultBeneficiary);
                 await _MasterRepo.SaveTrustedSourceListAsync(_MasterRepo.DataSource.TrustedSources);
             }
@@ -282,7 +282,7 @@ namespace Vikela.Implementation.Repository
                                      select new PurchaseDetailsViewModel
                                      {
                                          PurchasedAt=policy.Store.StoreName,
-                                         Product=policy.Name,
+                                         Product=policy.Product.ProductName,
                                          StartDate=policy.StartDate,
                                          EndDate=policy.EndDate,
                                          Cover=policy.EnsuredAmount,
