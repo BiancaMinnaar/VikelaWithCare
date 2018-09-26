@@ -1,5 +1,4 @@
-﻿using System;
-using Vikela.Implementation.ViewModel;
+﻿using Vikela.Implementation.ViewModel;
 
 namespace Vikela.Trunk.Repository
 {

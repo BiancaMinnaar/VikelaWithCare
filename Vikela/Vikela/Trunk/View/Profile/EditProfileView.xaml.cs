@@ -22,7 +22,7 @@ namespace Vikela.Implementation.View
 
         public async void On_Edit_Event(object sender, EventArgs e)
         {
-            await _ViewController.Edit();
+            await _ViewController.UpdateUserDetailAsync();
         }
 
         void Back_Clicked(object sender, System.EventArgs e)
@@ -33,6 +33,11 @@ namespace Vikela.Implementation.View
         void On_Settings_Clicked(object sender, System.EventArgs e)
         {
             _ViewController.PushSettings();
+        }
+
+        void On_CapturePhoto(object sender, System.EventArgs e)
+        {
+            _ViewController.CapturePhoto();
         }
     }
 }

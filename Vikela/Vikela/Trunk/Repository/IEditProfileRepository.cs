@@ -1,5 +1,6 @@
 using CorePCL;
 using Vikela.Trunk.ViewModel;
+using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Interface.Repository
 {
@@ -7,5 +8,6 @@ namespace Vikela.Interface.Repository
         where T : BaseViewModel
     {
         ProfileModel Load();
+        UserModel GetUserModelToUpdate(ProfileModel model);
     }
 }

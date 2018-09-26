@@ -2,6 +2,7 @@ using CorePCL;
 using Vikela.Interface.Repository;
 using Vikela.Root.Repository;
 using Vikela.Trunk.ViewModel;
+using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Implementation.Repository
 {
@@ -11,6 +12,15 @@ namespace Vikela.Implementation.Repository
         public EditProfileRepository(IMasterRepository masterRepository)
             : base(masterRepository)
         {
+        }
+
+        public UserModel GetUserModelToUpdate(ProfileModel model)
+        {
+            var user = _MasterRepo.DataSource.User;
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.MobileNumber = model.CellPhoneNumber;
+            return user;
         }
 
         public ProfileModel Load()

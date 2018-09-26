@@ -1,11 +1,12 @@
-using System.Threading.Tasks;
+using System;
 using System.Net;
-using Vikela.Root;
-using Vikela.Droid.Injection;
-using RestSharp;
+using System.Threading.Tasks;
 using BasePCL.Networking;
 using CorePCL;
 using Newtonsoft.Json;
+using RestSharp;
+using Vikela.Droid.Injection;
+using Vikela.Root;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(RestServiceDroid))]
@@ -28,6 +29,8 @@ namespace Vikela.Droid.Injection
                     return Method.POST;
                 case BaseNetworkAccessEnum.Put:
                     return Method.PUT;
+                case BaseNetworkAccessEnum.Patch:
+                    return Method.PATCH;
             }
         }
 
@@ -78,7 +81,12 @@ namespace Vikela.Droid.Injection
 
         public T Data
         {
-            get => JsonConvert.DeserializeObject<T>(_RestResponse.Content);
+            get
+            {
+                if (_RestResponse.Content.StartsWith("{", StringComparison.Ordinal) || _RestResponse.Content.StartsWith("[{", StringComparison.Ordinal))
+                    return JsonConvert.DeserializeObject<T>(_RestResponse.Content);
+                return default(T);
+            }
         }
     }
 
@@ -98,6 +106,7 @@ namespace Vikela.Droid.Injection
         {
             var client = new RestClient(Constants.BASE_URL);
             var response = await client.ExecuteTaskAsync((IRestRequest)req);
+            Console.WriteLine("Network Response: " + JsonConvert.SerializeObject(response));
             return new RestRspns(response);
         }
 
@@ -105,6 +114,7 @@ namespace Vikela.Droid.Injection
         {
             var client = new RestClient(Constants.BASE_URL);
             var response = await client.ExecuteTaskAsync<T>((IRestRequest)req);
+            Console.WriteLine("Network Response: " + JsonConvert.SerializeObject(response));
             return new RestRspns<T>(response);
         }
     }

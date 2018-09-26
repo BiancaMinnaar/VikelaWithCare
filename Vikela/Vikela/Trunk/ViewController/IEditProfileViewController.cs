@@ -5,7 +5,8 @@ namespace Vikela.Interface.ViewController
     public interface IEditProfileViewController
     {
         void Load();
-        Task Edit();
+        Task UpdateUserDetailAsync();
         void PopToCover();
+        void CapturePhoto();
     }
 }

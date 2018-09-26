@@ -1,13 +1,13 @@
-using CorePCL;
-using RestSharp;
-using Xamarin.Forms;
+using System;
+using System.Net;
 using System.Threading.Tasks;
 using BasePCL.Networking;
-using System.Net;
+using CorePCL;
+using Newtonsoft.Json;
+using RestSharp;
 using Vikela.iOS.Injection;
 using Vikela.Root;
-using System;
-using Newtonsoft.Json;
+using Xamarin.Forms;
 
 [assembly: Dependency(typeof(RestServiceIOS))]
 namespace Vikela.iOS.Injection
