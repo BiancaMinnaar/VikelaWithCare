@@ -54,7 +54,6 @@ namespace Vikela.Implementation.ViewController
             if (user != null && user.success)
             {
                 await _RegisterRepo.SetUserWithServerDataAsync(user.data);
-                model.UserID = _MasterRepo.DataSource.User.UserID;
                 return true;
             }
             return false;
