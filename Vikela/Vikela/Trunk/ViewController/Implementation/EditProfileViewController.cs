@@ -7,7 +7,6 @@ using Vikela.Root.ViewController;
 using Vikela.Trunk.Repository;
 using Vikela.Trunk.Repository.Implementation.Controls;
 using Vikela.Trunk.Service.Implementation;
-using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Implementation.ViewController
 {
@@ -50,7 +49,6 @@ namespace Vikela.Implementation.ViewController
             var storageModel = _selfieRepo.GetStoragePictureModelForSelfie(
                 InputObject.UserProfile.UserImage.Selfie, InputObject.UserProfile.UserID);
             await _selfieRepo.StoreSelfieAsync(storageModel);
-            //TODO: Save user to dyn
             await _Reposetory.SaveUserAsync(_Reposetory.GetUserContactModelFromMaster());
             _MasterRepo.HideLoading();
             _MasterRepo.PopView();

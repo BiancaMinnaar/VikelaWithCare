@@ -44,10 +44,6 @@
                 <Label StyleClass="DarkDefaultLabel" Text="CellPhone Number" VerticalOptions="Center" />
                 <Entry Keyboard="Numeric" Text="{Binding CellNumber, Mode=TwoWay}" WidthRequest="200"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label StyleClass="DarkDefaultLabel" Text="ID Numbere" VerticalOptions="Center" />
-                <Entry Keyboard="Numeric" Text="{Binding IDNumber, Mode=TwoWay}" WidthRequest="200"/>
-            </StackLayout>
         </StackLayout>
         
     </StackLayout>

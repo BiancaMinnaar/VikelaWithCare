@@ -148,14 +148,13 @@ namespace Vikela.Trunk.Repository.Implementation
             return _RootView;
         }
 
-        public void PushLogOut()
+        public async Task PushLogOut()
         {
-            Task.Run(async () =>
-            {
-                await RemoveUserRecordAsync(DataSource.User);
-                DataSource.User = null;
-            });
-            _Navigation.PopToRootAsync();
+            //TODO: check if user exist.
+            //await _MasterRepo.RemoveUserRecordAsync(_MasterRepo.DataSource.User);
+            foreach (var user in App.PCA.Users) { App.PCA.Remove(user); }
+            DataSource.User = null;
+            await _Navigation.PopToRootAsync();
         }
 
         public void PopView()

@@ -5,5 +5,6 @@ namespace Vikela.Interface.ViewController
     public interface ICongratulationsViewController
     {
         Task CompleteRegistrationAsync();
+        void Logout();
     }
 }

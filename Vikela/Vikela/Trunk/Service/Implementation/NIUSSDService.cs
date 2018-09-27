@@ -17,7 +17,7 @@ namespace Vikela.Implementation.Service
 
         public async Task<T> SendUSSDAsync(NIUSSDViewModel model)
         {
-            string requestURL = "/dyn365/api/v1.0/User/verifyuserniussd";
+            string requestURL = "/dyn365/api/v1.0/User/retryverifyuserniussd";
             var httpMethod = BaseNetworkAccessEnum.Post;
             var parameters = new Dictionary<string, ParameterTypedValue>()
             {

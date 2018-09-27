@@ -28,8 +28,8 @@ namespace Vikela.Implementation.ViewController
 
         public async Task UpdateCellPhoneAsync()
         {
-            var isValid = await _Reposetory.UpdateCellPhoneWithUSSDTestAsync(InputObject);
-            if (isValid)
+            //var isValid = await _Reposetory.UpdateCellPhoneWithUSSDTestAsync(InputObject);
+            //if (isValid)
                 _MasterRepo.PushRegistrationIDNumber();
         }
     }

@@ -22,7 +22,15 @@ namespace Vikela.Implementation.View
 
         public async void On_CompleteRegistration_Clicked(object sender, EventArgs e)
         {
-            await _ViewController.CompleteRegistrationAsync();
+            //await _ViewController.CompleteRegistrationAsync();
+            _ViewController.Logout();
+        }
+
+        public async void OnRefresh(object sender, EventArgs e)
+        {
+            _ViewController.ShowMessage("Pending...");
+            //await _ViewController.GetUserStatus();
+            //_ViewController.
         }
     }
 }

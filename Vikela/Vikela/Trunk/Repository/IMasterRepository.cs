@@ -15,7 +15,7 @@ namespace Vikela.Interface.Repository
         string GetRegisteredUserOID();
 		void SetRootView(Page rootView);
         Page GetRootView();
-        void PushLogOut();
+        Task PushLogOut();
         void PopView();
         void PopModal();
         void ShowLoading();

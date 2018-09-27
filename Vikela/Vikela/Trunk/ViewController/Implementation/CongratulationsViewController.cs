@@ -43,9 +43,14 @@ namespace Vikela.Implementation.ViewController
                 foreach (var message in errors)
                     ShowMessage(message);
             }
-            else
+            //else
                 //ShowMessage(_ResponseContent);
-                _MasterRepo.PushMyCoverView();
+                //_MasterRepo.PushMyCoverView();
+        }
+
+        public void Logout()
+        {
+            _MasterRepo.PushLogOut();
         }
     }
 }
