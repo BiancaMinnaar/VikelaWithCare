@@ -41,14 +41,14 @@ namespace Vikela.Implementation.ViewController
             var registerData = RegisterRepository.GetDyn365RegisterViewModel();
             var user = await RegisterRepository.RegisterWithD365Async(registerData);
             _MasterRepo.HideLoading();
-            //if (errors[0] != "Success")
+            //if (user.success)
+                //_MasterRepo.PushMyCoverView();
             //{
             //    foreach (var message in errors)
-            //        ShowMessage(message);
+                    //ShowMessage(user.success.ToString());
             //}
             //else
                 //ShowMessage(_ResponseContent);
-                //_MasterRepo.PushMyCoverView();
         }
 
         public async Task RefreshActiveState()

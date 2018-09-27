@@ -48,7 +48,9 @@ namespace Vikela.Implementation.ViewController
 
         private async Task<bool> SetUserWithD365DataAsync(RegisterViewModel model)
         {
+            MustShowError = false;
             var user = await _RegisterRepo.GetUserWithOIDAsync(model);
+            MustShowError = true;
             if (user != null && user.success)
             {
                 await _RegisterRepo.SetUserWithServerDataAsync(user.data);
