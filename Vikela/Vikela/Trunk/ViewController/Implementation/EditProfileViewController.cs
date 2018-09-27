@@ -47,7 +47,7 @@ namespace Vikela.Implementation.ViewController
             var model = _Reposetory.GetUserModelToUpdate(InputObject.UserProfile);
             await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(model);
             var storageModel = _selfieRepo.GetStoragePictureModelForSelfie(
-                InputObject.UserProfile.UserImage.Selfie, InputObject.UserProfile.UserID);
+                InputObject.UserProfile.UserImage.Selfie, _MasterRepo.DataSource.User.OID);
             await _selfieRepo.StoreSelfieAsync(storageModel);
             await _Reposetory.SaveUserAsync(_Reposetory.GetUserContactModelFromMaster());
             _MasterRepo.HideLoading();

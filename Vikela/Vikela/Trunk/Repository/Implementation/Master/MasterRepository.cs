@@ -149,7 +149,7 @@ namespace Vikela.Trunk.Repository.Implementation
         public async Task PushLogOut()
         {
             //TODO: check if user exist.
-            await _MasterRepo.RemoveUserRecordAsync(_MasterRepo.DataSource.User);
+            //await _MasterRepo.RemoveUserRecordAsync(_MasterRepo.DataSource.User);
             foreach (var user in App.PCA.Users) { App.PCA.Remove(user); }
             DataSource.User = null;
             await _Navigation.PopToRootAsync();
