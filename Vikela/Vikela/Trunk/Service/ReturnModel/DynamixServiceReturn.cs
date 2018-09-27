@@ -1,5 +1,11 @@
 ﻿namespace Vikela.Trunk.Service.ReturnModel
 {
+    public abstract class DynamixServiceUserReturn<T>
+    {
+        public bool success { get; set; }
+        public object errors { get; set; }
+        public abstract T data { get; set; }
+    }
     public abstract class DynamixServiceReturn<T>
     {
         public string id { get; set; }

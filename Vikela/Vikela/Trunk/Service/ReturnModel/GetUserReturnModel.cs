@@ -1,8 +1,8 @@
 ﻿namespace Vikela.Trunk.Service.ReturnModel
 {
-    public class GetUserReturnModel : DynamixServiceReturn<UserReturnModel>
+    public class GetUserReturnModel : DynamixServiceUserReturn<UserReturnModel>
     {
-        public override UserReturnModel body { get; set; }
+        public override UserReturnModel data { get; set; }
     }
 
     public class UserReturnModel

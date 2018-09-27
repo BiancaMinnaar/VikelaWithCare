@@ -191,13 +191,20 @@ namespace Vikela.Implementation.Repository
             return sbText.ToString();
         }
 
-        public async Task SetUserWithServerDataAsync(string responseContent)
+        public async Task SetUserWithServerDataAsync(UserReturnModel user)
         {
-            if (!responseContent.IsNullOrEmpty())
-            {
-                var localUser = getUserFromResponse(responseContent);
-                await _MasterRepo.SetUserRecordAsync(localUser);
-            }
+            var localUser = GetUserModeFromUserReturnModel(user);
+            await _MasterRepo.SetUserRecordAsync(localUser);
+        }
+
+        private UserModel GetUserModeFromUserReturnModel(UserReturnModel user)
+        {
+            var userModel = _MasterRepo.DataSource.User;
+            userModel.UserID = user.userId;
+            userModel.MobileNumber = user.mobileNumber;
+            userModel.BarCode = Convert.FromBase64String(FixBase64ForImage(user.barcode));
+
+            return userModel;
         }
 
         private async Task<List<ContactModel>> SelectContactsWithRole(RegisterViewModel model, List<DynamixContact> contacts, string role)

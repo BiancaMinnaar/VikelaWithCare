@@ -48,12 +48,10 @@ namespace Vikela.Implementation.ViewController
 
         private async Task<bool> SetUserWithD365DataAsync(RegisterViewModel model)
         {
-            MustShowError = false;
-            await _RegisterRepo.GetUserWithOIDAsync(model);
-            MustShowError = true;
-            if (_ResponseContent != "")
+            var user = await _RegisterRepo.GetUserWithOIDAsync(model);
+            if (user != null && user.success)
             {
-                await _RegisterRepo.SetUserWithServerDataAsync(_ResponseContent);
+                await _RegisterRepo.SetUserWithServerDataAsync(user.data);
                 model.UserID = _MasterRepo.DataSource.User.UserID;
                 return true;
             }
@@ -70,8 +68,8 @@ namespace Vikela.Implementation.ViewController
 
             await GetUserSelfieAsync(registration);
 
-            await RequestUserDateFromDynamixAsync(registration);
-            _Reposetory.RegisterOrShowProfile(_Reposetory.IsRegisteredUser(_ResponseContent));
+            var isUser = await RequestUserDateFromDynamixAsync(registration);
+            _Reposetory.RegisterOrShowProfile(isUser);
             _MasterRepo.HideLoading();
         }
 
@@ -83,14 +81,17 @@ namespace Vikela.Implementation.ViewController
             await _Reposetory.GetUserSelfieFromStorageAsync();
         }
 
-        private async Task RequestUserDateFromDynamixAsync(RegisterViewModel registration)
+        private async Task<bool> RequestUserDateFromDynamixAsync(RegisterViewModel registration)
         {
-            if (await SetUserWithD365DataAsync(registration))
+            var isUser = await SetUserWithD365DataAsync(registration);
+            if (isUser)
             {
                 await _RegisterRepo.SetUserContactsFromServerAsync(registration);
                 await _RegisterRepo.SetUserPoliciesFromServerAsync(registration);
                 await _RegisterRepo.SetCommunityValueFromServiceAsync(registration);
             }
+
+            return isUser;
         }
     }
 }
