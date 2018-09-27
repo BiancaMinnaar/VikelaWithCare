@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
-using CoreFoundation;
 using CorePCL;
 using Newtonsoft.Json;
-using SystemConfiguration;
 using Vikela.Implementation.View;
 using Vikela.Interface.Repository;
 using Vikela.Root;
@@ -40,7 +38,7 @@ namespace Vikela.Trunk.Repository.Implementation
             : base(null)
         {
             DataSource = new MasterModel();
-            DataSource.IsOnline = false;
+            DataSource.IsOnline = true;
             Setup();
             PlatformSingleton.Instance.Model.HideLoaderFromPlatform = HideLoading;
             PlatformSingleton.Instance.Model.ShowLoaderFromPlatform = ShowLoading;
@@ -58,16 +56,16 @@ namespace Vikela.Trunk.Repository.Implementation
 
         void Setup()
         {
-            var reachability = new NetworkReachability(Constants.BASE_URL);
-            var reachable = reachability.TryGetFlags(out NetworkReachabilityFlags flags);
-            reachability.SetNotification(OnChange);
-            reachability.Schedule(CFRunLoop.Current, CFRunLoop.ModeDefault);
+            //var reachability = new NetworkReachability(Constants.BASE_URL);
+            //var reachable = reachability.TryGetFlags(out NetworkReachabilityFlags flags);
+            //reachability.SetNotification(OnChange);
+            //reachability.Schedule(CFRunLoop.Current, CFRunLoop.ModeDefault);
         }
 
-        void OnChange(NetworkReachabilityFlags flags)
-        {
-            DataSource.IsOnline = flags == NetworkReachabilityFlags.Reachable;
-        }
+        //void OnChange(NetworkReachabilityFlags flags)
+        //{
+        //    DataSource.IsOnline = flags == NetworkReachabilityFlags.Reachable;
+        //}
 
         public void InitializeDataSource()
         {
@@ -151,7 +149,7 @@ namespace Vikela.Trunk.Repository.Implementation
         public async Task PushLogOut()
         {
             //TODO: check if user exist.
-            //await _MasterRepo.RemoveUserRecordAsync(_MasterRepo.DataSource.User);
+            await _MasterRepo.RemoveUserRecordAsync(_MasterRepo.DataSource.User);
             foreach (var user in App.PCA.Users) { App.PCA.Remove(user); }
             DataSource.User = null;
             await _Navigation.PopToRootAsync();
