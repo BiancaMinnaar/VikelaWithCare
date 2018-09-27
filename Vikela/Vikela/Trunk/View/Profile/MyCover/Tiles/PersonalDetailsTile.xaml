@@ -16,7 +16,7 @@
             <StackLayout.GestureRecognizers>
                   <TapGestureRecognizer Command="{Binding ItemClickedCommand}" CommandParameter="{Binding ListIndex}"/>
             </StackLayout.GestureRecognizers>
-            <controls:CircleImage Source="{Binding Profile.UserImage, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
+            <controls:CircleImage Source="{Binding Profile.UserImage.Selfie, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
                 <controls:CircleImage.WidthRequest>
                     <OnPlatform x:TypeArguments="x:Double">
                         <On Platform="Android, iOS">55</On>

@@ -1,4 +1,5 @@
 using CorePCL;
+using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Root.Repository;
 using Vikela.Trunk.ViewModel;
@@ -20,6 +21,7 @@ namespace Vikela.Implementation.Repository
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
             user.MobileNumber = model.CellPhoneNumber;
+            user.UserPicture = model.UserImage.Selfie;
             return user;
         }
 
@@ -30,7 +32,7 @@ namespace Vikela.Implementation.Repository
                 FirstName = _MasterRepo.DataSource.User.FirstName,
                 LastName = _MasterRepo.DataSource.User.LastName,
                 CellPhoneNumber = _MasterRepo.DataSource.User.MobileNumber,
-                UserImage = _MasterRepo.DataSource.User.UserPicture
+                UserImage = new SelfieViewModel { Selfie = _MasterRepo.DataSource.User.UserPicture }
             };
         }
     }

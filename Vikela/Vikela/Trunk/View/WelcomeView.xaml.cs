@@ -28,6 +28,7 @@ namespace Vikela.Implementation.View
             AuthenticationResult ar = null;
                 try
                 {
+                    //IsOnline
                     if (App.PCA.Users.Any())
     					ar = await App.PCA.AcquireTokenSilentAsync(App.ApiScopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.Authority, false);
                         else 

@@ -28,7 +28,7 @@ namespace Vikela.Implementation.Repository
             model.UserProfile = new ProfileModel()
             {
                 FirstName = _MasterRepo.DataSource.User.FirstName,
-                UserImage = _MasterRepo.DataSource.User.UserPicture,
+                UserImage = new SelfieViewModel { Selfie = _MasterRepo.DataSource.User.UserPicture },
                 LastName = _MasterRepo.DataSource.User.LastName,
                 TrustedSources = new List<ContactDetailViewModel>()
             };
@@ -46,7 +46,7 @@ namespace Vikela.Implementation.Repository
                 Index = 0,
                 Profile = new ProfileModel
                 {
-                    UserImage = _MasterRepo.DataSource.User.UserPicture,
+                    UserImage = new SelfieViewModel { Selfie = _MasterRepo.DataSource.User.UserPicture },
                     FirstName = _MasterRepo.DataSource.User.FirstName,
                     LastName = _MasterRepo.DataSource.User.LastName,
                     BarCode = _MasterRepo.DataSource.User.BarCode
@@ -67,7 +67,7 @@ namespace Vikela.Implementation.Repository
                                          LastName = source.LastName,
                                          CellPhoneNumber = source.CellNumber,
                                          IDNumber = source.IDNumber,
-                                         UserImage = source.UserPicture
+                                         UserImage = new SelfieViewModel { Selfie = source.UserPicture }
                                      };
 
                 return TrustesSources.ToList();

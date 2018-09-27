@@ -42,20 +42,23 @@ namespace Vikela.Implementation.ViewController
 
         public async Task UpdateUserDetailAsync()
         {
+            _MasterRepo.ShowLoading();
             var model = _Reposetory.GetUserModelToUpdate(InputObject.UserProfile);
             await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(model);
             var storageModel = _selfieRepo.GetStoragePictureModelForSelfie(
-                InputObject.UserProfile.UserImage, InputObject.UserProfile.UserID);
+                InputObject.UserProfile.UserImage.Selfie, InputObject.UserProfile.UserID);
             await _selfieRepo.StoreSelfieAsync(storageModel);
+            _MasterRepo.HideLoading();
+            _MasterRepo.PopView();
         }
 
         public void CapturePhoto()
         {
             var selfie = new SelfieViewModel
             {
-                Selfie = InputObject.UserProfile.UserImage
+                Selfie = InputObject.UserProfile.UserImage.Selfie
             };
-            photoRepo.SelectPictureFromGallery(selfie);
+            photoRepo.SelectPictureFromGallery(InputObject.UserProfile.UserImage);
         }
     }
 }

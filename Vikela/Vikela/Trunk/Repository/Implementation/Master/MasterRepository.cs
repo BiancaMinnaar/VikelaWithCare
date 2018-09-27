@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
+using CoreFoundation;
 using CorePCL;
 using Newtonsoft.Json;
+using SystemConfiguration;
 using Vikela.Implementation.View;
 using Vikela.Interface.Repository;
+using Vikela.Root;
 using Vikela.Root.Repository;
 using Vikela.Root.ViewModel;
 using Vikela.Trunk.Injection.Base;
@@ -37,6 +40,8 @@ namespace Vikela.Trunk.Repository.Implementation
             : base(null)
         {
             DataSource = new MasterModel();
+            DataSource.IsOnline = false;
+            Setup();
             PlatformSingleton.Instance.Model.HideLoaderFromPlatform = HideLoading;
             PlatformSingleton.Instance.Model.ShowLoaderFromPlatform = ShowLoading;
             OnPlatformServiceCallBack =
@@ -51,12 +56,26 @@ namespace Vikela.Trunk.Repository.Implementation
             });
         }
 
+        void Setup()
+        {
+            var reachability = new NetworkReachability(Constants.BASE_URL);
+            var reachable = reachability.TryGetFlags(out NetworkReachabilityFlags flags);
+            reachability.SetNotification(OnChange);
+            reachability.Schedule(CFRunLoop.Current, CFRunLoop.ModeDefault);
+        }
+
+        void OnChange(NetworkReachabilityFlags flags)
+        {
+            DataSource.IsOnline = flags == NetworkReachabilityFlags.Reachable;
+        }
+
         public void InitializeDataSource()
         {
             DataSource.TrustedSources = new List<ContactModel>(){new ContactModel(),new ContactModel(), new ContactModel()};
             DataSource.TrustedSourceEditIndex = -1;
             DataSource.DefaultBeneficiary = new ContactModel();
             DataSource.PolicyList = new List<PolicyModel>();
+            //transactions
         }
 
         public string GetRegisteredUserOID()

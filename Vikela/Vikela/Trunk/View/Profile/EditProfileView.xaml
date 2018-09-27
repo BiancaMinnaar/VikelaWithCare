@@ -27,8 +27,8 @@
                 </StackLayout>
             </StackLayout>
             <StackLayout>
-                <Image WidthRequest="80" HeightRequest="80" Source="{Binding UserProfile.UserImage, Converter={StaticResource ByteArrayToImage}}" />
-                <Button StyleClass="DefaultButton" Text="Change Picture" Clicked="Handle_Clicked" />
+                <Image WidthRequest="80" HeightRequest="80" Source="{Binding UserProfile.UserImage.Selfie, Converter={StaticResource ByteArrayToImage}}" />
+                <Button StyleClass="DefaultButton" Text="Change Picture" Clicked="On_CapturePhoto" />
             </StackLayout>
             <StackLayout>
                 <StackLayout Orientation="Horizontal">

@@ -39,16 +39,8 @@ namespace Vikela.Trunk.ViewModel
             }
         }
 
-        private byte[] userImage;
-        public byte[] UserImage
-        {
-            get { return userImage; }
-            set
-            {
-                userImage = value;
-                OnPropertyChanged("UserImage");
-            }
-        }
+        internal SelfieViewModel userImage;
+        public SelfieViewModel UserImage { get => userImage; set { userImage = value; OnPropertyChanged("UserImage"); } }
 
         byte[] barCode;
         public byte[] BarCode 

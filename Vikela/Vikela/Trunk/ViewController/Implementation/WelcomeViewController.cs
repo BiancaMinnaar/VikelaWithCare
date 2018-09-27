@@ -65,19 +65,30 @@ namespace Vikela.Implementation.ViewController
             _MasterRepo.ShowLoading();
             var authResult = new AzureAuthenticationResult() { IdToken = ar.IdToken };
             var registration = _RegisterRepo.GetUserFromARToken(authResult);
+
+            await GetUserSelfieAsync(registration);
+
+            await RequestUserDateFromDynamixAsync(registration);
+            _Reposetory.RegisterOrShowProfile(_Reposetory.IsRegisteredUser(_ResponseContent));
+            _MasterRepo.HideLoading();
+        }
+
+        private async Task GetUserSelfieAsync(RegisterViewModel registration)
+        { 
             await _RegisterRepo.CallForImageBlobStorageSASAsync(registration);
             registration.PictureStorageSASToken = _ResponseContent;
             await _RegisterRepo.SetUserRecordWithRegisterViewModelAsync(registration);
             await _Reposetory.GetUserSelfieFromStorageAsync();
+        }
 
+        private async Task RequestUserDateFromDynamixAsync(RegisterViewModel registration)
+        {
             if (await SetUserWithD365DataAsync(registration))
             {
                 await _RegisterRepo.SetUserContactsFromServerAsync(registration);
                 await _RegisterRepo.SetUserPoliciesFromServerAsync(registration);
                 await _RegisterRepo.SetCommunityValueFromServiceAsync(registration);
             }
-            _Reposetory.RegisterOrShowProfile(_Reposetory.IsRegisteredUser(_ResponseContent));
-            _MasterRepo.HideLoading();
         }
     }
 }
