@@ -41,6 +41,7 @@ namespace Vikela.Implementation.ViewController
             var registerData = RegisterRepository.GetDyn365RegisterViewModel();
             var user = await RegisterRepository.RegisterWithD365Async(registerData);
             _MasterRepo.HideLoading();
+            //TODO: navigate on success.??
             //if (user.success)
                 //_MasterRepo.PushMyCoverView();
             //{
@@ -55,6 +56,7 @@ namespace Vikela.Implementation.ViewController
         {
             var registerData = RegisterRepository.GetDyn365RegisterViewModel();
             var dd = await RegisterRepository.GetUserWithOIDAsync(registerData);
+            //TODO: navigate on success.
         }
 
         public void Logout()
