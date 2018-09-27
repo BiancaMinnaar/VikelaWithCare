@@ -76,7 +76,6 @@ namespace Vikela.Trunk.Repository.Implementation
             contactModel.FirstName = model.FirstName;
             contactModel.LastName = model.LastName;
             contactModel.CellNumber = model.CellNumber;
-            contactModel.IDNumber = model.IDNumber;
             contactModel.Email = model.Email;
             await _MasterRepo.SaveBeneficiaryAsync(contactModel);
         }

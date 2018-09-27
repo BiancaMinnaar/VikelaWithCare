@@ -6,6 +6,7 @@ using Vikela.Interface.ViewController;
 using Vikela.Root.ViewController;
 using Vikela.Trunk.Repository;
 using Vikela.Trunk.Repository.Implementation.Controls;
+using Vikela.Trunk.Service.Implementation;
 using Vikela.Trunk.ViewModel.Offline;
 
 namespace Vikela.Implementation.ViewController
@@ -19,7 +20,8 @@ namespace Vikela.Implementation.ViewController
 
         public override void SetRepositories()
         {
-            _Reposetory = new EditProfileRepository<EditProfileViewModel>(_MasterRepo);
+            _Reposetory = new EditProfileRepository<EditProfileViewModel>(_MasterRepo, new DynamixService((U, P, A) =>
+                                                 ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, P, A)));
             photoRepo = new PhotoRepository(_MasterRepo);
             _RegisterRepo = new RegisterRepository(_MasterRepo, null);
             _selfieRepo = new SelfieRepository(_MasterRepo);
@@ -48,6 +50,8 @@ namespace Vikela.Implementation.ViewController
             var storageModel = _selfieRepo.GetStoragePictureModelForSelfie(
                 InputObject.UserProfile.UserImage.Selfie, InputObject.UserProfile.UserID);
             await _selfieRepo.StoreSelfieAsync(storageModel);
+            //TODO: Save user to dyn
+            await _Reposetory.SaveUserAsync(_Reposetory.GetUserContactModelFromMaster());
             _MasterRepo.HideLoading();
             _MasterRepo.PopView();
         }
