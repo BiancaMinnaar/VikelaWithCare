@@ -114,5 +114,39 @@ namespace Vikela.Trunk.Service.Implementation
             };
             return await _NetworkInterfaceWithOutput(requestURL, parameters, httpMethod);
         }
+
+        public async Task<T> GetUserWithOIDAsync(RegisterViewModel model)
+        {
+            string requestURL = "/dyn365/api/v1.0/User/" + model.OID;
+            var httpMethod = BaseNetworkAccessEnum.Get;
+            var parameters = new Dictionary<string, ParameterTypedValue>()
+            {
+                {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},
+                {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
+            };
+            return await _NetworkInterfaceWithOutput(requestURL, parameters, httpMethod);
+        }
+
+        public async Task<T> RegisterUserAsync(RegisterViewModel model)
+        {
+            string requestURL = "/dyn365/api/v1.0/User/create";
+            var httpMethod = BaseNetworkAccessEnum.Post;
+            var parameters = new Dictionary<string, ParameterTypedValue>()
+            {
+                {"Ocp-Apim-Subscription-Key", new ParameterTypedValue(Constants.APIM_GUID, ParameterTypeEnum.HeaderParameter)},
+                {"Authorization", new ParameterTypedValue(model.TokenID, ParameterTypeEnum.HeaderParameter)},
+                {"body", new ParameterTypedValue(new
+                {
+                    aadObjectId= model.OID,
+                    eMail= "Edit",
+                    firstName= model.FirstName,
+                    lastName= model.LastName,
+                    idNumber= "Edit",
+                    mobileNumber= model.MobileNumber,
+                    UserPictureURL="edit"
+                }, ParameterTypeEnum.BodyParameter)}
+            };
+            return await _NetworkInterfaceWithOutput(requestURL, parameters, httpMethod);
+        }
     }
 }

@@ -15,7 +15,6 @@ using System.Linq;
 using Vikela.Trunk.Service.ReturnModel;
 using System.Collections.Generic;
 using Vikela.Trunk.ViewModel;
-using Vikela.Trunk.Repository.Implementation.Offline;
 using Vikela.Trunk.Repository;
 
 namespace Vikela.Implementation.Repository
@@ -24,6 +23,7 @@ namespace Vikela.Implementation.Repository
     {
         IRegisterService _Service;
         IDynamixService _DynamixService;
+        IDynamixReturnService<GetUserReturnModel> _DynamixUserReturnService;
         IDynamixReturnService<List<DynamixContact>> _DynamixReturnService;
         IDynamixReturnService<DynamixPolicy> _DynamixPolicyReturnService;
         IDynamixReturnService<DynamixCommunity> _DynamixCommunityReturnService;
@@ -31,10 +31,11 @@ namespace Vikela.Implementation.Repository
         ISelfieRepository _SelfieRepo;
         IAzureBlobStorageRepository BlobStorageRepository;
 
-        public RegisterRepository(IMasterRepository masterRepository, IRegisterService service, IDynamixService dynamix=null, 
-                                  IDynamixReturnService<List<DynamixContact>> dynamixReturn=null,
-                                  IDynamixReturnService<DynamixPolicy> dynasmicPolicyReturn=null,
-                                  IDynamixReturnService<DynamixCommunity> dynamixCommunityReturnService=null)
+        public RegisterRepository(IMasterRepository masterRepository, IRegisterService service, IDynamixService dynamix=null,
+              IDynamixReturnService<List<DynamixContact>> dynamixReturn=null,
+              IDynamixReturnService<DynamixPolicy> dynasmicPolicyReturn=null,
+              IDynamixReturnService<DynamixCommunity> dynamixCommunityReturnService=null,
+              IDynamixReturnService<GetUserReturnModel> dynamixUserReturnService = null)
             : base(masterRepository)
         {
             _Service = service;
@@ -42,6 +43,7 @@ namespace Vikela.Implementation.Repository
             _DynamixReturnService = dynamixReturn;
             _DynamixPolicyReturnService = dynasmicPolicyReturn;
             _DynamixCommunityReturnService = dynamixCommunityReturnService;
+            _DynamixUserReturnService = dynamixUserReturnService;
             _PlatformBonsai = new PlatformBonsai();
             BlobStorageRepository = new AzureBlobStorageRepository(_MasterRepo);
             var platform = new PlatformRepository<RegisterViewModel>(masterRepository, _PlatformBonsai)
@@ -108,17 +110,9 @@ namespace Vikela.Implementation.Repository
             await _Service.RegisterForSASAsync(model);
         }
 
-        public async Task<string[]> RegisterWithD365Async(RegisterViewModel model)
+        public async Task<GetUserReturnModel> RegisterWithD365Async(RegisterViewModel model)
         {
-			if (_DynamixService != null && model.ErrorList.Length == 0)
-			{
-                await _DynamixService.RegisterUserAsync(model);
-				return new string[]{"Success"}; 
-			}
-            else
-			{
-				return model.ErrorList;
-			}
+            return await _DynamixUserReturnService.RegisterUserAsync(model);
         }
 
         public RegisterViewModel GetUserFromARToken(IAuthenticationResult ar)
@@ -166,9 +160,9 @@ namespace Vikela.Implementation.Repository
             return decoded;
         }
 
-        public async Task GetUserWithOIDAsync(RegisterViewModel model)
+        public async Task<GetUserReturnModel> GetUserWithOIDAsync(RegisterViewModel model)
         {
-            await _DynamixService.GetUserWithOIDAsync(model);
+            return await _DynamixUserReturnService.GetUserWithOIDAsync(model);
 
         }
 

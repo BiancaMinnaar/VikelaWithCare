@@ -38,8 +38,10 @@ namespace Vikela.Implementation.ViewController
                                                  ExecuteQueryWithReturnTypeAndNetworkAccessAsync<DynamixPolicy>(U, P, A));
             var _DynamixCommunityReturnService = new DynamixReturnService<DynamixCommunity>((U, P, A) =>
                                                  ExecuteQueryWithReturnTypeAndNetworkAccessAsync<DynamixCommunity>(U, P, A));
+            var _DynamixUserReturnService = new DynamixReturnService<GetUserReturnModel>((U, P, A) =>
+                                                 ExecuteQueryWithReturnTypeAndNetworkAccessAsync<GetUserReturnModel>(U, P, A));
             _RegisterRepo = new RegisterRepository(_MasterRepo, _RegisterService, _DynamixService, _DynamixReturnService, 
-			                                       _DynamixPolicyReturnService, _DynamixCommunityReturnService);
+			                                       _DynamixPolicyReturnService, _DynamixCommunityReturnService, _DynamixUserReturnService);
             _SelfieRepo = new SelfieRepository(_MasterRepo);
             _Reposetory = new WelcomeRepository(_MasterRepo, _RegisterRepo, _SelfieRepo);
         }

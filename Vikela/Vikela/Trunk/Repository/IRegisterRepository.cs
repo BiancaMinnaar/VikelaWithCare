@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Vikela.Implementation.ViewModel;
+using Vikela.Trunk.Service.ReturnModel;
 using Vikela.Trunk.ViewModel.Interfaces;
 using Vikela.Trunk.ViewModel.Offline;
 
@@ -13,10 +14,10 @@ namespace Vikela.Interface.Repository
         void OAuthInstagram(RegisterViewModel model);
         void OAuthGoogle(RegisterViewModel model);
         Task CallForImageBlobStorageSASAsync(RegisterViewModel model);
-        Task<string[]> RegisterWithD365Async(RegisterViewModel model);
+        Task<GetUserReturnModel> RegisterWithD365Async(RegisterViewModel model);
         RegisterViewModel GetUserFromARToken(IAuthenticationResult ar);
         RegisterViewModel GetDyn365RegisterViewModel();
-        Task GetUserWithOIDAsync(RegisterViewModel model);
+        Task<GetUserReturnModel> GetUserWithOIDAsync(RegisterViewModel model);
         Task SetUserWithServerDataAsync(string responseContent);
         Task SetUserContactsFromServerAsync(RegisterViewModel model);
         Task SetUserPoliciesFromServerAsync(RegisterViewModel model);

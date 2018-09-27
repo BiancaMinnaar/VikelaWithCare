@@ -124,7 +124,7 @@ namespace Vikela.Implementation.Repository
 
         public List<ActiveCoverViewModel> GetActiveCoverTileModels(Action<object> OnClick)
         {
-            if (_MasterRepo.DataSource.PolicyList != null)
+            if (_MasterRepo.DataSource.PolicyList != null && _MasterRepo.DataSource.PurchaseHistory != null)
             {
                 var productCover = from policy in _MasterRepo.DataSource.PurchaseHistory
                            group policy.Cover by policy.Product into Transaction

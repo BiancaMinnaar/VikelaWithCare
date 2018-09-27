@@ -29,23 +29,32 @@ namespace Vikela.Implementation.ViewController
                                                  ExecuteQueryWithReturnTypeAndNetworkAccessAsync<List<DynamixContact>>(U, P, A));
             var _DynamixPolicyReturnService = new DynamixReturnService<List<DynamixPolicy>>((U, P, A) =>
                                                  ExecuteQueryWithReturnTypeAndNetworkAccessAsync<List<DynamixPolicy>>(U, P, A));
-            RegisterRepository = new RegisterRepository(_MasterRepo, RegisterService, _DynamixService, _DynamixReturnService);
+            var _DynamixUserReturnService = new DynamixReturnService<GetUserReturnModel>((U, P, A) =>
+                                                 ExecuteQueryWithReturnTypeAndNetworkAccessAsync<GetUserReturnModel>(U, P, A));
+            RegisterRepository = new RegisterRepository(_MasterRepo, RegisterService, _DynamixService, _DynamixReturnService,
+            null, null, _DynamixUserReturnService);
         }
 
         public async Task CompleteRegistrationAsync()
         {
             _MasterRepo.ShowLoading();
             var registerData = RegisterRepository.GetDyn365RegisterViewModel();
-            var errors = await RegisterRepository.RegisterWithD365Async(registerData);
+            var user = await RegisterRepository.RegisterWithD365Async(registerData);
             _MasterRepo.HideLoading();
-            if (errors[0] != "Success")
-            {
-                foreach (var message in errors)
-                    ShowMessage(message);
-            }
+            //if (errors[0] != "Success")
+            //{
+            //    foreach (var message in errors)
+            //        ShowMessage(message);
+            //}
             //else
                 //ShowMessage(_ResponseContent);
                 //_MasterRepo.PushMyCoverView();
+        }
+
+        public async Task RefreshActiveState()
+        {
+            var registerData = RegisterRepository.GetDyn365RegisterViewModel();
+            var dd = await RegisterRepository.GetUserWithOIDAsync(registerData);
         }
 
         public void Logout()

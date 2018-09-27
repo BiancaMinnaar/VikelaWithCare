@@ -24,13 +24,16 @@ namespace Vikela.Implementation.View
         public void SetTableWithItems<M>(List<M> dataSource)
             where M : ITableScrollItemModel
         {
-            Table.Children.Clear();
-            foreach(var item in dataSource)
+            if (dataSource != null)
             {
-                var factory = new TileViewFactory();
-                var tableItem = factory.GetView(item);
-                   
-                Table.Children.Add(tableItem);
+                Table.Children.Clear();
+                foreach (var item in dataSource)
+                {
+                    var factory = new TileViewFactory();
+                    var tableItem = factory.GetView(item);
+
+                    Table.Children.Add(tableItem);
+                }
             }
         }
     }

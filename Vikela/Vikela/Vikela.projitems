@@ -460,6 +460,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\PurchaseHistoryTileView.xaml.cs">
       <DependentUpon>PurchaseHistoryTileView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\GetUserReturnModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />

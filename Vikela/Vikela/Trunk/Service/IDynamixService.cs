@@ -6,8 +6,7 @@ namespace Vikela.Trunk.Service
     public interface IDynamixService
     {
 		Task RegisterUserAsync(RegisterViewModel model);
-        Task GetUserWithOIDAsync(RegisterViewModel model);
-		Task AddTrustedSourceAsync(ContactDetailViewModel model);
+        Task AddTrustedSourceAsync(ContactDetailViewModel model);
 		Task AddBeneficiaryAsync(ContactDetailViewModel model);
         Task UpdateContactAsync(ContactDetailViewModel model);
         Task UpdateCommunityAsync(MyCommunityViewModel model);

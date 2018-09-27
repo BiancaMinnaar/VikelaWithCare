@@ -23,7 +23,7 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label StyleClass="DarkDefaultLabel" Text="Email Address" VerticalOptions="Center" />
-                <Entry Keyboard="Numeric" Text="{Binding EmailAddress}" WidthRequest="200"/>
+                <Entry Keyboard="Email" Text="{Binding EmailAddress}" WidthRequest="200"/>
             </StackLayout>
             <StackLayout>
                 <Button StyleClass="DarkDefaultButton" Text="Next" Clicked="On_UpdateEmail_EventAsync" />
