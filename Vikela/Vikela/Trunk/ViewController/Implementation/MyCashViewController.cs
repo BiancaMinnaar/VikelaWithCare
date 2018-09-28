@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Vikela.Implementation.Repository;
 using Vikela.Implementation.Service;
 using Vikela.Implementation.ViewModel;
@@ -17,13 +16,13 @@ namespace Vikela.Implementation.ViewController
         public override void SetRepositories()
         {
             _Service = new MyCashService((U, C, A) => 
-                                                           ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, C, A));
+                                        ExecuteQueryWithTypedParametersAndNetworkAccessAsync(U, C, A));
             _Reposetory = new MyCashRepository(_MasterRepo, _Service);
         }
 
-        public async Task YourMethodNameAsync()
+        public void PopToCover()
         {
-            
+            _MasterRepo.PopView();
         }
     }
 }

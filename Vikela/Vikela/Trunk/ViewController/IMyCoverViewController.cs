@@ -10,6 +10,7 @@ namespace Vikela.Interface.ViewController
         void Load(Action detailClick, Action<object> trustedSourcesClick);
         void PushEditProfile();
         void PushSendWithCare(object index);
+        void PushMyCash();
         PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnClick);
         TrustedSourcesViewModel GetTrustedSourcesTileViewModel(Action<object> OnClick);
         SiyabongaViewModel GetSiyabongaTileViewModel(Action OnClick);

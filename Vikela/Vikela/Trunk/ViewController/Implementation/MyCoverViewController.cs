@@ -47,6 +47,11 @@ namespace Vikela.Implementation.ViewController
             _MasterRepo.PushSendWithCare(beneficiaryID);
         }
 
+        public void PushMyCash()
+        {
+            _MasterRepo.PushMyCash();
+        }
+
         public PersonalDetailViewModel GetPersonalDetailTileViewModel(Action OnClick)
         {
             return _Reposetory.GetPersonalDetailTileViewModel(OnClick);

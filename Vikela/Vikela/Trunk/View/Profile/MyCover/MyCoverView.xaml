@@ -34,7 +34,7 @@
             </StackLayout>
             <StackLayout VerticalOptions="End" HorizontalOptions="Center" HeightRequest="100" Orientation="Horizontal">
                 <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="My Cover"></Button>
-                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="My Cash"></Button>
+                <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="My Cash" Clicked="OnMyCash_Clicked"></Button>
                 <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="Siyabonga"></Button>
                 <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="Circle" Clicked="OnCircleTapped"></Button>
                 <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="Notifications"></Button>

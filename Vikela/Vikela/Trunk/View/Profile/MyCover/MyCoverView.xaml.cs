@@ -80,6 +80,11 @@ namespace Vikela.Implementation.View
         {
             _ViewController.PushMyCommunity();
         }
+
+        public void OnMyCash_Clicked(object sender, EventArgs e)
+        {
+            _ViewController.PushMyCash();
+        }
     }
 }
 
