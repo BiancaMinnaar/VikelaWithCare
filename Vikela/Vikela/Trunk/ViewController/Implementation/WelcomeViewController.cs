@@ -46,7 +46,7 @@ namespace Vikela.Implementation.ViewController
             _Reposetory = new WelcomeRepository(_MasterRepo, _RegisterRepo, _SelfieRepo);
         }
 
-        private async Task<bool> SetUserWithD365DataAsync(RegisterViewModel model)
+        private async Task<GetUserReturnModel> GetUserWithD365DataAsync(RegisterViewModel model)
         {
             MustShowError = false;
             var user = await _RegisterRepo.GetUserWithOIDAsync(model);
@@ -54,23 +54,22 @@ namespace Vikela.Implementation.ViewController
             if (user != null && user.success)
             {
                 await _RegisterRepo.SetUserWithServerDataAsync(user.data);
-                return true;
+                return user;
             }
-            return false;
+            return user;
         }
 
         public async Task SetUserAsync(AuthenticationResult ar)
         {
-            //await _MasterRepo.RemoveUserRecordAsync(_MasterRepo.DataSource.User);
-            //foreach (var user in App.PCA.Users) { App.PCA.Remove(user); }
+            //foreach (var user1 in App.PCA.Users) { App.PCA.Remove(user1); }
             _MasterRepo.ShowLoading();
             var authResult = new AzureAuthenticationResult() { IdToken = ar.IdToken };
             var registration = _RegisterRepo.GetUserFromARToken(authResult);
 
             await GetUserSelfieAsync(registration);
 
-            var isUser = await RequestUserDateFromDynamixAsync(registration);
-            _Reposetory.RegisterOrShowProfile(isUser);
+            var user = await RequestUserDateFromDynamixAsync(registration);
+            _Reposetory.RegisterOrShowProfile(user);
             _MasterRepo.HideLoading();
         }
 
@@ -82,17 +81,18 @@ namespace Vikela.Implementation.ViewController
             await _Reposetory.GetUserSelfieFromStorageAsync();
         }
 
-        private async Task<bool> RequestUserDateFromDynamixAsync(RegisterViewModel registration)
+        private async Task<GetUserReturnModel> RequestUserDateFromDynamixAsync(RegisterViewModel registration)
         {
-            var isUser = await SetUserWithD365DataAsync(registration);
-            if (isUser)
+            var user = await GetUserWithD365DataAsync(registration);
+            registration.UserID = _MasterRepo.DataSource.User.UserID;
+            if (user != null && user.data.verified)
             {
                 await _RegisterRepo.SetUserContactsFromServerAsync(registration);
                 await _RegisterRepo.SetUserPoliciesFromServerAsync(registration);
                 await _RegisterRepo.SetCommunityValueFromServiceAsync(registration);
             }
 
-            return isUser;
+            return user;
         }
     }
 }

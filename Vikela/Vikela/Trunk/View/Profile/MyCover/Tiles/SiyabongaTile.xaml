@@ -18,7 +18,7 @@
                 <Label Text="{Binding TotalBenefits}" Style="{DynamicResource LargeOrangeLabel}" />
             </StackLayout>
             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
-                <Label Text="Graph" />
+                <Label Text="10 days"  Style="{DynamicResource LargeOrangeLabel}" />
             </StackLayout>
             <StackLayout>
                 <Label Text="Claim Free" Style="{DynamicResource BlackLabel}" />

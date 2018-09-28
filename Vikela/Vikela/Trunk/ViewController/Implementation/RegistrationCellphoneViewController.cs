@@ -29,7 +29,7 @@ namespace Vikela.Implementation.ViewController
         public async Task UpdateCellPhoneAsync()
         {
             await _Reposetory.UpdateCellPhoneAsync(InputObject);
-            _MasterRepo.PushCongratulationsView();
+            _MasterRepo.PushRegistrationIDNumber();
         }
     }
 }

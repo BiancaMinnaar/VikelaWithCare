@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Vikela.Implementation.ViewModel;
 using Vikela.Interface.Repository;
 using Vikela.Root.Repository;
+using Vikela.Trunk.Service.ReturnModel;
 
 namespace Vikela.Implementation.Repository
 {
@@ -46,10 +47,12 @@ namespace Vikela.Implementation.Repository
             return toOverride || isAuthenticated && hasRegistrationRecord && isIn365;
         }
 
-        public void RegisterOrShowProfile(bool isRegistered)
+        public void RegisterOrShowProfile(GetUserReturnModel user)
         {
-            if (isRegistered)
+            if (user != null && user.data.verified)
                 _MasterRepo.PushMyCoverView();
+            else if (user != null && !user.data.verified)
+                _MasterRepo.PushCongratulationsView();
             else
                 _MasterRepo.PushSelfieView();
         }

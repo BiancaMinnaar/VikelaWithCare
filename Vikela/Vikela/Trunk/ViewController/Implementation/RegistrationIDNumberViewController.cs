@@ -22,7 +22,7 @@ namespace Vikela.Implementation.ViewController
         public async Task UpdateIDNumberAsync()
         {
             await _Reposetory.UpdateIDNumberAsync(InputObject);
-            _MasterRepo.PushCongratulationsView();
+            _MasterRepo.PushRegistrationEmailAddress();
         }
     }
 }

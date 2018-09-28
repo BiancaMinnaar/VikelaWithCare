@@ -15,5 +15,6 @@
         public string idNumber { get; set; }
         public string mobileNumber { get; set; }
         public string barcode { get; set; }
+        public bool verified { get; set; }
     }
 }

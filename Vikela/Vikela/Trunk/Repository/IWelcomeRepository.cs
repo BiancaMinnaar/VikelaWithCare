@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Vikela.Implementation.ViewModel;
+using Vikela.Trunk.Service.ReturnModel;
 
 namespace Vikela.Interface.Repository
 {
@@ -8,7 +9,7 @@ namespace Vikela.Interface.Repository
         Task SetAzureCredentialsAsync(RegisterViewModel model, string responseContent);
         Task GetUserSelfieFromStorageAsync();
         bool IsUserImageOnLocalStorage();
-        void RegisterOrShowProfile(bool isRegistered);
+        void RegisterOrShowProfile(GetUserReturnModel user);
         bool IsRegisteredUser(string D365Data, bool toOverride=false);
     }
 }

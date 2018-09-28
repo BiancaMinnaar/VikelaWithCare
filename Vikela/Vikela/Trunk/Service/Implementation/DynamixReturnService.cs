@@ -138,10 +138,10 @@ namespace Vikela.Trunk.Service.Implementation
                 {"body", new ParameterTypedValue(new
                 {
                     aadObjectId= model.OID,
-                    eMail= "Edit",
+                    eMail= model.EmailAddress,
                     firstName= model.FirstName,
                     lastName= model.LastName,
-                    idNumber= "Edit",
+                    idNumber= model.IDNumber,
                     mobileNumber= model.MobileNumber,
                     UserPictureURL="edit"
                 }, ParameterTypeEnum.BodyParameter)}

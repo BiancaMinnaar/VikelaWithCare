@@ -23,6 +23,7 @@ namespace Vikela.Implementation.View
             _ViewController._MasterRepo.ShowLoading();
             base.OnAppearing();
             SetDetailTiles();
+            SetSiyabongaTiles();
             SetActiveCoverTiles();
             _ViewController._MasterRepo.HideLoading();
         }

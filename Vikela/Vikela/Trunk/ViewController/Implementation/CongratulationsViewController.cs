@@ -17,6 +17,8 @@ namespace Vikela.Implementation.ViewController
         ICongratulationsRepository _Reposetory;
         IRegisterRepository RegisterRepository;
         IRegisterService RegisterService;
+        IRegistrationCellphoneRepository _CellReposetory;
+        INIUSSDService<NIUSSDReturnModel> nIUSSDService;
 
         public override void SetRepositories()
         {
@@ -33,30 +35,43 @@ namespace Vikela.Implementation.ViewController
                                                  ExecuteQueryWithReturnTypeAndNetworkAccessAsync<GetUserReturnModel>(U, P, A));
             RegisterRepository = new RegisterRepository(_MasterRepo, RegisterService, _DynamixService, _DynamixReturnService,
             null, null, _DynamixUserReturnService);
+            nIUSSDService = new NIUSSDService<NIUSSDReturnModel>((U, P, A) =>
+                                                             ExecuteQueryWithReturnTypeAndNetworkAccessAsync<NIUSSDReturnModel>(U, P, A));
+            _CellReposetory = new RegistrationCellphoneRepository(_MasterRepo, nIUSSDService);
         }
 
         public async Task CompleteRegistrationAsync()
         {
-            _MasterRepo.ShowLoading();
             var registerData = RegisterRepository.GetDyn365RegisterViewModel();
-            var user = await RegisterRepository.RegisterWithD365Async(registerData);
-            _MasterRepo.HideLoading();
-            //TODO: navigate on success.??
-            //if (user.success)
-                //_MasterRepo.PushMyCoverView();
-            //{
-            //    foreach (var message in errors)
-                    //ShowMessage(user.success.ToString());
-            //}
-            //else
-                //ShowMessage(_ResponseContent);
+            var checkUser = await RegisterRepository.GetUserWithOIDAsync(registerData);
+            if (checkUser.data.userId == null)
+            {
+                var user = await RegisterRepository.RegisterWithD365Async(registerData);
+                if (user != null && user.success && user.data.verified)
+                    _MasterRepo.PushMyCoverView();
+            }
+            else if (!checkUser.data.verified)
+            {
+                var sendModel = new NIUSSDViewModel
+                {
+                    mobileNumber = registerData.MobileNumber,
+                    userId = _MasterRepo.DataSource.User.UserID,
+                    TokenID = _MasterRepo.DataSource.User.TokenID
+                };
+                await _CellReposetory.SendUSSDTestAsync(sendModel);
+            }
+            else
+            {
+                _MasterRepo.PushMyCoverView();
+            }
         }
 
         public async Task RefreshActiveState()
         {
             var registerData = RegisterRepository.GetDyn365RegisterViewModel();
-            var dd = await RegisterRepository.GetUserWithOIDAsync(registerData);
-            //TODO: navigate on success.
+            var user = await RegisterRepository.GetUserWithOIDAsync(registerData);
+            if (user != null && user.success && user.data.verified)
+                _MasterRepo.PushMyCoverView();
         }
 
         public void Logout()

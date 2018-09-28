@@ -139,6 +139,7 @@ namespace Vikela.Implementation.Repository
                 LastName = _MasterRepo.DataSource.User.LastName,
                 MobileNumber = _MasterRepo.DataSource.User.MobileNumber,
                 OID = _MasterRepo.DataSource.User.OID,
+                UserID = _MasterRepo.DataSource.User.UserID,
                 UserPictureURL = "Edit",
 				TokenID = _MasterRepo.DataSource.User.TokenID
             };
@@ -201,7 +202,10 @@ namespace Vikela.Implementation.Repository
         {
             var userModel = _MasterRepo.DataSource.User;
             userModel.UserID = user.userId;
+            userModel.FirstName = user.firstName;
+            userModel.LastName = user.lastName;
             userModel.MobileNumber = user.mobileNumber;
+            userModel.IDNumber = user.idNumber;
             userModel.BarCode = Convert.FromBase64String(FixBase64ForImage(user.barcode));
 
             return userModel;

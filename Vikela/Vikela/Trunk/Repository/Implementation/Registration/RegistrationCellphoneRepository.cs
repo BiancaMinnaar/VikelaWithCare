@@ -23,5 +23,10 @@ namespace Vikela.Implementation.Repository
             _MasterRepo.DataSource.User.MobileNumber = model.CellPhoneNumber;
             await OfflineStorageRepository.Instance.UpdateRecordAsync(_MasterRepo.DataSource.User);
         }
+
+        public async Task SendUSSDTestAsync(NIUSSDViewModel model)
+        {
+            await _ussdService.SendUSSDAsync(model);
+        }
     }
 }
