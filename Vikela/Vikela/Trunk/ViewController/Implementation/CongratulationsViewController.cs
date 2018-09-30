@@ -44,7 +44,7 @@ namespace Vikela.Implementation.ViewController
         {
             var registerData = RegisterRepository.GetDyn365RegisterViewModel();
             var checkUser = await RegisterRepository.GetUserWithOIDAsync(registerData);
-            if (checkUser.data.userId == null)
+            if (checkUser == null ||checkUser.data.userId == null)
             {
                 var user = await RegisterRepository.RegisterWithD365Async(registerData);
                 if (user != null && user.success && user.data.verified)
