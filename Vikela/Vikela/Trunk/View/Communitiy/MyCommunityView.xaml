@@ -26,6 +26,7 @@
             </StackLayout>
             <StackLayout VerticalOptions="FillAndExpand">
                 <Label StyleClass="LargerLabel" Text="Who is your community" />
+                <Button Text="Save" Clicked="OnSave" />
                 <Frame>
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Name :"></Label>
@@ -33,7 +34,9 @@
                     </StackLayout>
                 </Frame>
                 <b:TableScrollView x:Name="DetailTiles" />
-                <Button Text="Save" Clicked="OnSave" />
+                <Label Text="Friends" />
+                <b:TableScrollView x:Name="FriendsTable" />
+                <b:CommunitiesTabView />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

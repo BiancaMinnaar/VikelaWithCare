@@ -10,12 +10,13 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     x:Class="Vikela.Implementation.View.CommunitiesTabView" 
     x:TypeArguments="p:CommunitiesTabViewController, m:CommunitiesTabViewModel">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    <ContentPage.Content>
-        
-    </ContentPage.Content>
+    <StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Send with Care" />
+            <Button Text="Spend with Care" />
+            <Button Text="Wear with Care" />
+            <Button Text="Trust with Care" />
+        </StackLayout>
+        <b:TableScrollView x:Name="CareTable" />
+    </StackLayout>
 </base:ProjectBaseContentView>
