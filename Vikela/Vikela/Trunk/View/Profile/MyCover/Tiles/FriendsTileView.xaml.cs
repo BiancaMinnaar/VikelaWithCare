@@ -8,19 +8,19 @@ using Xamarin.Forms;
 
 namespace Vikela.Trunk.View.Profile.MyCover.Tiles
 {
-    public partial class CareVoucerTileView : ProjectBaseContentView<TableScrollItemViewController, ProjectBaseViewModel>
+    public partial class FriendsTileView : ProjectBaseContentView<TableScrollItemViewController, ProjectBaseViewModel>
     {
         protected ICommand command;
         protected ITableScrollItemModel _Model;
 
-        public CareVoucerTileView()
+        public FriendsTileView()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = _ViewController.InputObject;
         }
 
-        public CareVoucerTileView(ITableScrollItemModel model) : this()
+        public FriendsTileView(ITableScrollItemModel model) : this()
         {
             _ViewController.InputObject = (CareVoucherViewModel)model;
             BindingContext = _ViewController.InputObject;
@@ -31,9 +31,8 @@ namespace Vikela.Trunk.View.Profile.MyCover.Tiles
         {
         }
 
-        public void PushVoucherDetail(object sender, EventArgs e)
+        public async void On_YourMethodName_EventAsync(object sender, EventArgs e)
         {
-            command.Execute(((CareVoucherViewModel)_ViewController.InputObject).Index);
         }
     }
 }

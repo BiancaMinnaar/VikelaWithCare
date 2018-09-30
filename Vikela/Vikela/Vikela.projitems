@@ -134,6 +134,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\FriendsTileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -472,6 +476,12 @@
       <DependentUpon>CareVoucerTileView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Controlls\CareVoucherViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IFriendsTileViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\FriendsTileViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\FriendsTileViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\FriendsTileView.xaml.cs">
+      <DependentUpon>FriendsTileView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />

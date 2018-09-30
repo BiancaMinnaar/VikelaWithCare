@@ -13,16 +13,21 @@ namespace Vikela.Trunk.View.Controls.Factory
 
         public TileViewFactory()
         {
-            var type = typeof(PersonalDetailViewModel);
-            supportedInterfaces = 
-                new Dictionary<Type, Func<ITableScrollItemModel, Xamarin.Forms.View>>
+            supportedInterfaces = SetViewFactoryMap();
+        }
+
+        public Dictionary<Type, Func<ITableScrollItemModel, Xamarin.Forms.View>> SetViewFactoryMap()
+        {
+            return new Dictionary<Type, Func<ITableScrollItemModel, Xamarin.Forms.View>>
             {
-                {type, (model) => new PersonalDetailsTile(model)},
+                {typeof(PersonalDetailViewModel), (model) => new PersonalDetailsTile(model)},
                 {typeof(TrustedSourcesViewModel), (m) => new TrustedSourcesTile(m)},
                 {typeof(SiyabongaViewModel), (m) => new SiyabongaTile(m)},
                 {typeof(ActiveCoverViewModel), (m) => new ActiveCoverTile(m)},
                 {typeof(PurchaseHistoryDetailViewModel), (m) => new PurchaseHistoryTileView(m)},
-                {typeof(CareVoucherViewModel), (m) => new CareVoucerTileView(m)}
+                {typeof(CareVoucherViewModel), (m) => new CareVoucerTileView(m)},
+                {typeof(FriendsTileViewModel), (m) => new FriendsTileView(m)}
+                //BonsaiTileViewMap
             };
         }
 
