@@ -146,6 +146,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Friends\FriendDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -502,6 +506,17 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Communitiy\Tiles\FriendsTileView.xaml.cs">
       <DependentUpon>FriendsTileView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IFriendDetailViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\FriendDetailViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\FriendDetailViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IFriendDetailRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\FriendDetailRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\IFriendDetailService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\FriendDetailService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\FriendDetailReturnModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Friends\FriendDetailView.xaml.cs">
+      <DependentUpon>FriendDetailView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Root\" />
@@ -538,5 +553,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\Images\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Communitiy\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Communitiy\Tiles\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Friends\" />
   </ItemGroup>
 </Project>
