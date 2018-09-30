@@ -94,10 +94,6 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\MyCommunityView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>Generator</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\SendWithCareView.xaml">
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
@@ -134,11 +130,19 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\FriendsTileView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Communitiy\CommunitiesTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\CommunitiesTabView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Communitiy\MyCommunityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Communitiy\Tiles\CommunityTileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Communitiy\Tiles\FriendsTileView.xaml">
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
@@ -366,9 +370,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IContactStorageRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\Offline\ContactStorageRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\MyCommunityViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\MyCommunityView.xaml.cs">
-      <DependentUpon>MyCommunityView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IMyCommunityViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\MyCommunityViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\IMyCommunityRepository.cs" />
@@ -483,14 +484,23 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\IFriendsTileViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\FriendsTileViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\FriendsTileViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\FriendsTileView.xaml.cs">
-      <DependentUpon>FriendsTileView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ICommunitiesTabViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\CommunitiesTabViewController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\CommunitiesTabViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\CommunitiesTabView.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ICommunityTileViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\CommunityTileViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\CommunityTileViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Communitiy\CommunitiesTabView.xaml.cs">
       <DependentUpon>CommunitiesTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Communitiy\MyCommunityView.xaml.cs">
+      <DependentUpon>MyCommunityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Communitiy\Tiles\CommunityTileView.xaml.cs">
+      <DependentUpon>CommunityTileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Communitiy\Tiles\FriendsTileView.xaml.cs">
+      <DependentUpon>FriendsTileView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -526,5 +536,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Graphs\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\Graphs\" />
     <Folder Include="$(MSBuildThisFileDirectory)Trunk\Images\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Communitiy\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Trunk\View\Communitiy\Tiles\" />
   </ItemGroup>
 </Project>

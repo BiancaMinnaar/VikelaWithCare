@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Vikela.Implementation.View;
 using Vikela.Implementation.ViewModel;
 using Vikela.Trunk.View.Profile.MyCover.Tiles;
+using Vikela.Trunk.View.Community.Tiles;
 using Vikela.Trunk.ViewModel.Controlls;
 
 namespace Vikela.Trunk.View.Controls.Factory
@@ -26,7 +27,8 @@ namespace Vikela.Trunk.View.Controls.Factory
                 {typeof(ActiveCoverViewModel), (m) => new ActiveCoverTile(m)},
                 {typeof(PurchaseHistoryDetailViewModel), (m) => new PurchaseHistoryTileView(m)},
                 {typeof(CareVoucherViewModel), (m) => new CareVoucerTileView(m)},
-                {typeof(FriendsTileViewModel), (m) => new FriendsTileView(m)}
+                {typeof(FriendsTileViewModel), (m) => new FriendsTileView(m)},
+                {typeof(CommunityTileViewModel), (m) => new CommunityTileView(m)}
                 //BonsaiTileViewMap
             };
         }

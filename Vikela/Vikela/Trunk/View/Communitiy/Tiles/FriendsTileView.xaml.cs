@@ -6,7 +6,7 @@ using Vikela.Root.ViewModel;
 using Vikela.Trunk.ViewModel.Controlls;
 using Xamarin.Forms;
 
-namespace Vikela.Trunk.View.Profile.MyCover.Tiles
+namespace Vikela.Trunk.View.Community.Tiles
 {
     public partial class FriendsTileView : ProjectBaseContentView<TableScrollItemViewController, ProjectBaseViewModel>
     {
