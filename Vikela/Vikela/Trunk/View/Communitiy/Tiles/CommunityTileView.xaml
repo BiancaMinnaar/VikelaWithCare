@@ -10,14 +10,14 @@
     xmlns:image="clr-namespace:MobileBonsai.View"
     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     x:Class="Vikela.Trunk.View.Community.Tiles.CommunityTileView" 
-    x:TypeArguments="p:TableScrollItemViewController, m:ProjectBaseViewModel" Orientation="Horizontal">
-    <StackLayout>
+    x:TypeArguments="p:TableScrollItemViewController, m:ProjectBaseViewModel" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+    <StackLayout HorizontalOptions="Start">
         <StackLayout>
-            <Label Text="Total Cover" />
-            <Label Text="{Binding TotalCover}" />
+            <Label StyleClass="DarkSmallerLabel" Text="Total Cover" />
+            <Label StyleClass="DarkLargerLabel" Text="{Binding TotalCover}" />
         </StackLayout>
     </StackLayout>
-    <StackLayout>
+    <StackLayout HorizontalOptions="StartAndExpand">
         <controls:CircleImage Source="{Binding Selfie, Converter={StaticResource ByteArrayToImage}}" Aspect="AspectFill">
                 <controls:CircleImage.WidthRequest>
                     <OnPlatform x:TypeArguments="x:Double">
@@ -33,16 +33,16 @@
                 </controls:CircleImage.HeightRequest>
             </controls:CircleImage>
     </StackLayout>
-    <StackLayout>
+    <StackLayout HorizontalOptions="FillAndExpand">
         <StackLayout>
-            <Label Text="{Binding Name}" />
-            <Label Text="{Binding Subscrit}" />
+            <Label StyleClass="DarkLargerLabel" Text="{Binding Name}" />
+            <Label StyleClass="DarkSmallerLabel" Text="{Binding Subscrit}" />
         </StackLayout>
     </StackLayout>
-    <StackLayout>
+    <StackLayout HorizontalOptions="StartAndExpand">
         <StackLayout>
-            <Label Text="Total Claims Paid" />
-            <Label Text="{Binding TotalClaimsPaid}" />
+            <Label StyleClass="DarkSmallerLabel" Text="Total Claims Paid" />
+            <Label StyleClass="DarkLargerLabel" Text="{Binding TotalClaimsPaid}" />
         </StackLayout>
     </StackLayout>
 </base:ProjectBaseStackContentView>

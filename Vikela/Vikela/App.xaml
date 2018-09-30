@@ -54,6 +54,12 @@
                 <Setter Property="Font" Value="Verdana" />
                 <Setter Property="FontSize" Value="9" />
             </Style>
+            <Style TargetType="Button" Class="PictureButtonSmallTextBlueBK">
+                <Setter Property="BackgroundColor" Value="{StaticResource ControlBlue }" />
+                <Setter Property="TextColor" Value="{StaticResource ControlWhite }" />
+                <Setter Property="Font" Value="Verdana" />
+                <Setter Property="FontSize" Value="9" />
+            </Style>
 
             <Style TargetType="Button" Class="DarkDefaultButton">
                 <Setter Property="BackgroundColor" Value="{StaticResource ControlBlue }" />
@@ -105,6 +111,11 @@
             <Style TargetType="Label" Class="DarkSmallLabel">
                 <Setter Property="Font" Value="Verdana" />
                 <Setter Property="FontSize" Value="10" />
+                <Setter Property="TextColor" Value="{StaticResource ControlBlack}" />
+            </Style>
+            <Style TargetType="Label" Class="DarkSmallerLabel">
+                <Setter Property="Font" Value="Verdana" />
+                <Setter Property="FontSize" Value="8" />
                 <Setter Property="TextColor" Value="{StaticResource ControlBlack}" />
             </Style>
             <Style TargetType="Label" Class="DarkLargeLabel">

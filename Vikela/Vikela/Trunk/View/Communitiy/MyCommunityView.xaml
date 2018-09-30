@@ -34,9 +34,19 @@
                     </StackLayout>
                 </Frame>
                 <b:TableScrollView x:Name="DetailTiles" />
-                <Label Text="Friends" />
-                <b:TableScrollView x:Name="FriendsTable" />
-                <b:CommunitiesTabView />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Friends" HorizontalOptions="StartAndExpand" />
+                    <StackLayout Orientation="Horizontal">
+                        <Button StyleClass="PictureButtonSmallTextBlueBK" Text="Register Friends" BorderWidth="1" BorderColor="Teal" />
+                        <Button StyleClass="PictureButtonSmallTextWhiteBK" Text="View All" />
+                    </StackLayout>
+                </StackLayout>
+                <Frame>
+                    <b:TableScrollView x:Name="FriendsTable" />
+                </Frame>
+                <Frame>
+                    <b:CommunitiesTabView />
+                </Frame>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
