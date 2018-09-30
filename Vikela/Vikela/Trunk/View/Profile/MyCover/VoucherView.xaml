@@ -16,6 +16,17 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
+        <StackLayout Spacing="0">
+            <StackLayout HeightRequest="30" BackgroundColor="#47B3E4" />
+            <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Back" FontSize="8" Clicked="Back_Clicked" />
+                    <Label StyleClass="LargerLabel" Text="Care Vouchers" VerticalOptions="Center" HorizontalOptions="Center" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout VerticalOptions="End" HorizontalOptions="Center" HeightRequest="100" Orientation="Horizontal">
+                <Label Text="Your voucher" />
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>

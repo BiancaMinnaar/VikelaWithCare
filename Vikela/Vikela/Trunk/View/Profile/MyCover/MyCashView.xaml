@@ -24,7 +24,9 @@
                     <Label StyleClass="LargerLabel" Text="My Cash" VerticalOptions="Center" HorizontalOptions="Center" />
                 </StackLayout>
             </StackLayout>
-            
+            <StackLayout VerticalOptions="FillAndExpand">
+                <b:TableScrollView x:Name="VoucerTable" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>

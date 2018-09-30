@@ -51,6 +51,7 @@ namespace Vikela.Interface.Repository
         void PushSendWithCare(Guid beneficiaryID);
         void PushPolicyDetail(Guid policyID);
         void PushMyCash();
+        void PushVoucherView();
     }
 }
 
