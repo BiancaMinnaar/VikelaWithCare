@@ -23,6 +23,21 @@ namespace Vikela.Implementation.View
         {
             await _ViewController.YourMethodNameAsync();
         }
+
+        void Back_Clicked(object sender, System.EventArgs e)
+        {
+            //_ViewController.PopToCover();
+        }
+
+        public async void On_Edit_Event(object sender, EventArgs e)
+        {
+            //await _ViewController.UpdateUserDetailAsync();
+        }
+
+        void On_CapturePhoto(object sender, System.EventArgs e)
+        {
+           // _ViewController.CapturePhoto();
+        }
     }
 }
 

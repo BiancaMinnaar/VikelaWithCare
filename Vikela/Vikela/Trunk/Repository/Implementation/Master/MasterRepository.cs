@@ -330,5 +330,10 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _Navigation.PushAsync(new VoucherView());
         }
+
+        public void PushFriendDetail()
+        {
+            _Navigation.PushAsync(new FriendDetailView());
+        }
     }
 }

@@ -52,6 +52,7 @@ namespace Vikela.Interface.Repository
         void PushPolicyDetail(Guid policyID);
         void PushMyCash();
         void PushVoucherView();
+        void PushFriendDetail();
     }
 }
 

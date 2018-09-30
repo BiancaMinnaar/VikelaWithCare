@@ -16,6 +16,25 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
+        <StackLayout Spacing="0">
+            <StackLayout HeightRequest="30" BackgroundColor="#47B3E4" />
+            <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Back" FontSize="8" Clicked="Back_Clicked" />
+                    <Label StyleClass="LargerLabel" Text="{Binding PhotoName}" VerticalOptions="Center" HorizontalOptions="Center" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout>
+                <Image WidthRequest="80" HeightRequest="80" Source="{Binding Selfie, Converter={StaticResource ByteArrayToImage}}" />
+                <Button StyleClass="DefaultButton" Text="Change Picture" Clicked="On_CapturePhoto" />
+            </StackLayout>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="GUID" />
+                    <Entry Text="{Binding PhotoID}" />
+                </StackLayout>
+            </StackLayout>
+            <Button Text="Save" Clicked="On_Save_Event" />
+        </StackLayout>
     </ContentPage.Content>
 </base:ProjectBaseContentPage>
