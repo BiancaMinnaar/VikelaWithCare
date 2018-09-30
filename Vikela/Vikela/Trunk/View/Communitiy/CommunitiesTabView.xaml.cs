@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace Vikela.Implementation.View
 {
-    public partial class CommunitiesTabView : ProjectBaseContentPage<CommunitiesTabViewController, CommunitiesTabViewModel>
+    public partial class CommunitiesTabView : ProjectBaseContentView<CommunitiesTabViewController, CommunitiesTabViewModel>
     {
         public CommunitiesTabView()
         {
