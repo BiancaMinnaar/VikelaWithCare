@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Input;
 using Vikela.Implementation.ViewController;
+using Vikela.Implementation.ViewModel;
 using Vikela.Root.View;
 using Vikela.Root.ViewModel;
 using Vikela.Trunk.ViewModel.Controlls;
@@ -8,7 +9,7 @@ using Xamarin.Forms;
 
 namespace Vikela.Trunk.View.Community.Tiles
 {
-    public partial class FriendsTileView : ProjectBaseContentView<TableScrollItemViewController, ProjectBaseViewModel>
+    public partial class FriendsTileView : ProjectBaseStackContentView<TableScrollItemViewController, ProjectBaseViewModel>
     {
         protected ICommand command;
         protected ITableScrollItemModel _Model;
@@ -22,16 +23,12 @@ namespace Vikela.Trunk.View.Community.Tiles
 
         public FriendsTileView(ITableScrollItemModel model) : this()
         {
-            _ViewController.InputObject = (CareVoucherViewModel)model;
+            _ViewController.InputObject = (FriendsTileViewModel)model;
             BindingContext = _ViewController.InputObject;
             command = model.ItemClickedCommand;
         }
 
         protected override void SetSVGCollection()
-        {
-        }
-
-        public async void On_YourMethodName_EventAsync(object sender, EventArgs e)
         {
         }
     }

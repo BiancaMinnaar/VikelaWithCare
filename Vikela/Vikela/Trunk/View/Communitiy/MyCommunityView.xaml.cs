@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Vikela.Implementation.ViewController;
 using Vikela.Implementation.ViewModel;
@@ -16,6 +17,26 @@ namespace Vikela.Implementation.View
             _ViewController.LoadCommunity();
             BindingContext = _ViewController.InputObject;
             SetDetailTiles();
+            SetFriendsTile();
+        }
+
+        private void SetFriendsTile()
+        {
+            var TileList = new List<ITableScrollItemModel>();
+                TileList.Add(
+                    new FriendsTileViewModel
+                    {
+                        Selfie = _ViewController._MasterRepo.DataSource.DefaultBeneficiary.UserPicture
+                    });
+            foreach (var contact in _ViewController._MasterRepo.DataSource.TrustedSources)
+            {
+                TileList.Add(
+                    new FriendsTileViewModel
+                    {
+                        Selfie = contact.UserPicture
+                    });
+            }
+            FriendsTable.SetTableWithItems(TileList);
         }
 
         protected override void SetSVGCollection()

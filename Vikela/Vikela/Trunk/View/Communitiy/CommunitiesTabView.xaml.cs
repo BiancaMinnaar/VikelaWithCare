@@ -26,6 +26,7 @@ namespace Vikela.Implementation.View
                 new CommunityTileViewModel
                 {
                     TotalCover = "R30 000",
+                    Selfie=_ViewController._MasterRepo.DataSource.User.UserPicture,
                     Name = "Hoenderplaas",
                     Subscrit = "Most Well Cared for",
                     TotalClaimsPaid = "R20 000"
@@ -33,12 +34,14 @@ namespace Vikela.Implementation.View
                 new CommunityTileViewModel
                 {
                     TotalCover = "R22 400",
+                    Selfie=_ViewController._MasterRepo.DataSource.TrustedSources[0].UserPicture,
                     Name = "The Mustangs",
                     TotalClaimsPaid = "R18 930"
                 },
                 new CommunityTileViewModel
                 {
                     TotalCover = "R15 903",
+                    Selfie=_ViewController._MasterRepo.DataSource.TrustedSources[0].UserPicture,
                     Name = "The Hive",
                     TotalClaimsPaid = "R14 900"
                 }

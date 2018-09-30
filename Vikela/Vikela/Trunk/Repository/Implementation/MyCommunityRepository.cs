@@ -25,7 +25,8 @@ namespace Vikela.Implementation.Repository
             var source = _MasterRepo.DataSource.Community;
             return new MyCommunityViewModel
             {
-                CommunityName = source.CommunityName
+                CommunityName = source.CommunityName,
+                Selfie=_MasterRepo.DataSource.User.UserPicture
             };
         }
 

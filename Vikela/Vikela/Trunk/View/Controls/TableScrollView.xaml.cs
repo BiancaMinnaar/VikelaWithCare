@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace Vikela.Implementation.View
 {
-    public partial class TableScrollView : ProjectBaseContentView<TableScrollViewController, TableScrollViewModel>
+    public partial class TableScrollView : ProjectBaseStackContentView<TableScrollViewController, TableScrollViewModel>
     {
         public TableScrollView()
         {
