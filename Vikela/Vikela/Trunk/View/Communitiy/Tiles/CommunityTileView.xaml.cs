@@ -1,4 +1,3 @@
-using System;
 using Vikela.Implementation.ViewController;
 using Vikela.Implementation.ViewModel;
 using Vikela.Root.View;
@@ -8,7 +7,7 @@ using Xamarin.Forms;
 
 namespace Vikela.Trunk.View.Community.Tiles
 {
-    public partial class CommunityTileView : ProjectBaseContentView<TableScrollItemViewController, ProjectBaseViewModel>
+    public partial class CommunityTileView : ProjectBaseStackContentView<TableScrollItemViewController, ProjectBaseViewModel>
     {
         protected ITableScrollItemModel _Model;
 
@@ -26,10 +25,6 @@ namespace Vikela.Trunk.View.Community.Tiles
         }
 
         protected override void SetSVGCollection()
-        {
-        }
-
-        public async void On_YourMethodName_EventAsync(object sender, EventArgs e)
         {
         }
     }

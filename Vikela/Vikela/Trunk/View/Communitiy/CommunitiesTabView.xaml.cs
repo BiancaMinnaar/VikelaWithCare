@@ -26,7 +26,9 @@ namespace Vikela.Implementation.View
                 new CommunityTileViewModel
                 {
                     TotalCover = "R30 000",
-                    Name = "Hoenderplaas"
+                    Name = "Hoenderplaas",
+                    Subscrit = "Most Well Cared for",
+                    TotalClaimsPaid = "R20 000"
                 }
             };
             CareTable.SetTableWithItems(models);
