@@ -9,7 +9,7 @@ namespace Vikela.Trunk.ViewModel.Controlls
         public int Index { get; set; }
         public ICommand ItemClickedCommand { get; set; }
         public string VoucherName { get; set; }
-        public List<byte[]> Images { get; set; }
+        public byte[] Image { get; set; }
         public string DisplayAmount { get; set; }
     }
 }

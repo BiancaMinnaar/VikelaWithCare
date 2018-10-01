@@ -25,9 +25,19 @@ namespace Vikela.Implementation.ViewController
             _MasterRepo.PopView();
         }
 
-        public void PushVoucherDetail()
+        public void PushCareVoucehersView()
+        {
+            _MasterRepo.PushCareVoucehersView();
+        }
+
+        public void PushInfluencerVoucersView()
         {
             _MasterRepo.PushVoucherView();
+        }
+
+        public void PushSiyabongaVoucherView()
+        {
+            _MasterRepo.PushCareVoucehersView();
         }
     }
 }

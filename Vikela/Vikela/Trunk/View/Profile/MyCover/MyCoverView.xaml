@@ -29,7 +29,10 @@
                 <b:TableScrollView x:Name="DetailTiles" />
                 <Label Text="Siyabonga" />
                 <b:TableScrollView x:Name="SiyabongaTiles" />
-                <Label Text="Active Covers" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Vikela my Spend" />
+                    <Label Text="Default Beneficiarties" />
+                </StackLayout>
                 <b:TableScrollView x:Name="ActiveCovers" />
             </StackLayout>
             <StackLayout VerticalOptions="End" HorizontalOptions="Center" HeightRequest="100" Orientation="Horizontal">

@@ -28,7 +28,8 @@ namespace Vikela.Trunk.View.Controls.Factory
                 {typeof(PurchaseHistoryDetailViewModel), (m) => new PurchaseHistoryTileView(m)},
                 {typeof(CareVoucherViewModel), (m) => new CareVoucerTileView(m)},
                 {typeof(FriendsTileViewModel), (m) => new FriendsTileView(m)},
-                {typeof(CommunityTileViewModel), (m) => new CommunityTileView(m)}
+                {typeof(CommunityTileViewModel), (m) => new CommunityTileView(m)},
+                {typeof(CareVouceherDetailTileViewModel), (m) => new CareVouceherDetailTileView(m)}
                 //BonsaiTileViewMap
             };
         }

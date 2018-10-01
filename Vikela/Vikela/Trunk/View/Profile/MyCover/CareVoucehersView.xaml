@@ -8,8 +8,8 @@
     xmlns:b="clr-namespace:Vikela.Implementation.View"
     xmlns:svg="clr-namespace:TwinTechsForms.NControl;assembly=TwinTechsForms.NControl.SvgImageView"
     xmlns:image="clr-namespace:MobileBonsai.View"
-    x:Class="Vikela.Implementation.View.MyCashView" 
-    x:TypeArguments="p:MyCashViewController, m:MyCashViewModel">
+    x:Class="Vikela.Implementation.View.CareVoucehersView" 
+    x:TypeArguments="p:CareVoucehersViewController, m:CareVoucehersViewModel">
     <ContentPage.Resources>
         <ResourceDictionary>
             <image:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
@@ -18,14 +18,14 @@
     <ContentPage.Content>
         <StackLayout Spacing="0">
             <StackLayout HeightRequest="30" BackgroundColor="#47B3E4" />
-            <StackLayout BackgroundColor="#47B3E4" Spacing="0" Orientation="Horizontal" HeightRequest="30">
+            <StackLayout BackgroundColor="#F05F2E" Spacing="0" Orientation="Horizontal" HeightRequest="30">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <Button Text="Back" FontSize="8" Clicked="Back_Clicked" />
-                    <Label StyleClass="LargerLabel" Text="My Cash" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label StyleClass="LargerLabel" Text="Care Voucehers" VerticalOptions="Center" HorizontalOptions="Center" />
                 </StackLayout>
             </StackLayout>
             <StackLayout HorizontalOptions="FillAndExpand">
-                <b:TableScrollView x:Name="VoucerTable" />
+                <b:TableScrollView x:Name="CareTiles" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

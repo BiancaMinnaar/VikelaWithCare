@@ -150,6 +150,14 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\CareVoucehersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\CareVouceherDetailTileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -516,6 +524,23 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\FriendDetailReturnModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Friends\FriendDetailView.xaml.cs">
       <DependentUpon>FriendDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ICareVoucehersViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\CareVoucehersViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\CareVoucehersViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\ICareVoucehersRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Repository\Implementation\CareVoucehersRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ICareVoucehersService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\Implementation\CareVoucehersService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\Service\ReturnModel\CareVoucehersReturnModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\CareVoucehersView.xaml.cs">
+      <DependentUpon>CareVoucehersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ICareVouceherDetailTileViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\CareVouceherDetailTileViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\CareVouceherDetailTileViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\CareVouceherDetailTileView.xaml.cs">
+      <DependentUpon>CareVouceherDetailTileView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

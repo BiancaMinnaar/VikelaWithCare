@@ -335,5 +335,20 @@ namespace Vikela.Trunk.Repository.Implementation
         {
             _Navigation.PushAsync(new FriendDetailView());
         }
+
+        public void PushCareVoucehersView()
+        {
+            _Navigation.PushAsync(new CareVoucehersView());
+        }
+
+        public void PushInfluencerVoucersView()
+        {
+            //_Navigation.PushAsync(new ());
+        }
+
+        public void PushSiyabongaVoucherView()
+        {
+
+        }
     }
 }

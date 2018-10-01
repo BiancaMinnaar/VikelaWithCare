@@ -9,19 +9,7 @@
     xmlns:svg="clr-namespace:TwinTechsForms.NControl;assembly=TwinTechsForms.NControl.SvgImageView"
     xmlns:image="clr-namespace:MobileBonsai.View"
     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
-    x:Class="Vikela.Trunk.View.Profile.MyCover.Tiles.CareVoucerTileView" 
+    x:Class="Vikela.Trunk.View.Profile.MyCover.Tiles.CareVouceherDetailTileView" 
     x:TypeArguments="p:TableScrollItemViewController, m:ProjectBaseViewModel">
-    <Frame>
-        <StackLayout Orientation="Horizontal">
-            <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer
-                    Tapped="PushVoucherDetail" />
-            </StackLayout.GestureRecognizers>
-            <Label Text="{Binding VoucherName}" HorizontalOptions="Start" />
-            <StackLayout HorizontalOptions="CenterAndExpand">
-                
-            </StackLayout>
-            <Label Text="{Binding DisplayAmount}"  Style="{DynamicResource BlackLabel}" />
-        </StackLayout>
-    </Frame>
+    <b:TableScrollView x:Name="CareCoverTable" />
 </base:ProjectBaseContentView>

@@ -30,7 +30,19 @@ namespace Vikela.Implementation.View
                 {
                     VoucherName="Care Vouchers",
                     DisplayAmount="R 1500",
-                    ItemClickedCommand=new Command(PushVoucherView)
+                    ItemClickedCommand=new Command(PushCareVoucherView)
+                },
+                new CareVoucherViewModel
+                {
+                    VoucherName="Infuencer Vouchers",
+                    DisplayAmount="R 4500",
+                    ItemClickedCommand=new Command(PushInfluencerVoucherView)
+                },
+                new CareVoucherViewModel
+                {
+                    VoucherName="Siyabonga",
+                    DisplayAmount="R 2000",
+                    ItemClickedCommand=new Command(PushSiyabongaVoucherView)
                 }
             };
             VoucerTable.SetTableWithItems(TileList);
@@ -41,9 +53,19 @@ namespace Vikela.Implementation.View
             _ViewController.PopToCover();
         }
 
-        void PushVoucherView(object index)
+        void PushCareVoucherView(object index)
         {
-            _ViewController.PushVoucherDetail();
+            _ViewController.PushCareVoucehersView();
+        }
+
+        void PushInfluencerVoucherView(object index)
+        {
+            _ViewController.PushInfluencerVoucersView();
+        }
+
+        void PushSiyabongaVoucherView(object index)
+        {
+            _ViewController.PushSiyabongaVoucherView();
         }
     }
 }

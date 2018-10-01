@@ -53,6 +53,9 @@ namespace Vikela.Interface.Repository
         void PushMyCash();
         void PushVoucherView();
         void PushFriendDetail();
+        void PushCareVoucehersView();
+        void PushInfluencerVoucersView();
+        void PushSiyabongaVoucherView();
     }
 }
 
