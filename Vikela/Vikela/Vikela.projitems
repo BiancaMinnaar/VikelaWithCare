@@ -158,6 +158,10 @@
       <SubType>Designer</SubType>
       <Generator>Generator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\CareVouceherItemDetailTileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>Generator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Root\CheckAndBalance.cs" />
@@ -541,6 +545,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\CareVouceherDetailTileViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\CareVouceherDetailTileView.xaml.cs">
       <DependentUpon>CareVouceherDetailTileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\ICareVouceherItemDetailTileViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewController\Implementation\CareVouceherItemDetailTileViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\ViewModel\CareVouceherItemDetailTileViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trunk\View\Profile\MyCover\Tiles\CareVouceherItemDetailTileView.xaml.cs">
+      <DependentUpon>CareVouceherItemDetailTileView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

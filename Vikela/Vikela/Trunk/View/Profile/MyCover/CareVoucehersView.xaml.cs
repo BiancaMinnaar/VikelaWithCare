@@ -35,11 +35,13 @@ namespace Vikela.Implementation.View
                 {
                     Name="Care Vouchers",
                     CareAmount="R 1500",
+                    Selfie=_ViewController._MasterRepo.DataSource.DefaultBeneficiary.UserPicture
                 },
                 new CareVouceherDetailTileViewModel
                 {
                     Name="Infuencer Vouchers",
                     CareAmount="R 4500",
+                    Selfie=_ViewController._MasterRepo.DataSource.DefaultBeneficiary.UserPicture
                 }
             };
             CareTiles.SetTableWithItems(TileList);
