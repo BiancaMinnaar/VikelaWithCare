@@ -1,0 +1,141 @@
+{
+    "Request": {
+        "UserState": null,
+        "AllowedDecompressionMethods": [
+            0,
+            2,
+            1
+        ],
+        "AlwaysMultipartFormData": false,
+        "JsonSerializer": {
+            "DateFormat": null,
+            "RootElement": null,
+            "Namespace": null,
+            "ContentType": "application/json"
+        },
+        "XmlSerializer": {
+            "RootElement": null,
+            "Namespace": null,
+            "DateFormat": null,
+            "ContentType": "text/xml"
+        },
+        "ResponseWriter": null,
+        "AdvancedResponseWriter": null,
+        "UseDefaultCredentials": false,
+        "Parameters": [
+            {
+                "Name": "Ocp-Apim-Subscription-Key",
+                "Value": "a77f84e222b54957a9c946b99347c1f1",
+                "Type": 3,
+                "ContentType": null
+            },
+            {
+                "Name": "Authorization",
+                "Value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhTmsifQ.eyJleHAiOjE1Mzg1NjcyMzAsIm5iZiI6MTUzODU2MzYzMCwidmVyIjoiMS4wIiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi5taWNyb3NvZnRvbmxpbmUuY29tL2Q5ZGIyMzBiLWU1ZDEtNDU5Ny05MzQ3LTE1MGNmODk4ZWM5YS92Mi4wLyIsInN1YiI6ImQwYjY4MGQ2LTk1YzUtNDNlMy1iMDM2LWM4NTBhMjY5NjY3NCIsImF1ZCI6IjhjMWY3MjIwLTFjYmQtNDVhZC1iNWU1LWIxY2ZkZmNiYjMzZCIsImlhdCI6MTUzODU2MzYzMCwiYXV0aF90aW1lIjoxNTM4NTYzNjMwLCJuYW1lIjoiQmlhbmNhIEtvdXJ0bmV5IE1pbm5hYXIiLCJpZHAiOiJmYWNlYm9vay5jb20iLCJvaWQiOiJkMGI2ODBkNi05NWM1LTQzZTMtYjAzNi1jODUwYTI2OTY2NzQiLCJ0ZnAiOiJCMkNfMV92aWtlbGFfc2lnbl91cF9pbiJ9.B2jUTYlXWjrpauSMqwHzN5rziIGrPtTqQkfsC8yw0UgzAKrOUnU5tLW28EhWl42bWoBptGVwz4gHyjvF6UYxfmL-byQqoZB_lNiPKHXy0qNgDYUZz1wcjHT706-D3SpQdPuo4XyoDx8DcdIoNENUzbtT0LNK1aQbx_VKR6-h4HFDKUv_Am5JazRzGKanz0LgaVhgyoOIk7nDmWnBytLRRENYKvl-Flb8_tNRCRVJBZkDCe0-7wM65O3UZjZJMV828qSQ0e167Tq_VR8Vun7L_RLP3fPXazfqxewje4IBCLSl9kQqvjK-mpvwb7V7vUwoMGrK4JvXxEznFKdfV0AUUA",
+                "Type": 3,
+                "ContentType": null
+            },
+            {
+                "Name": "Accept",
+                "Value": "application/json, application/xml, text/json, text/x-json, text/javascript, text/xml",
+                "Type": 3,
+                "ContentType": null
+            }
+        ],
+        "Files": [],
+        "Method": 2,
+        "Resource": "/tokens/api/v1.0/Tokens/register",
+        "RequestFormat": 1,
+        "RootElement": null,
+        "OnBeforeDeserialization": {
+            "Method": {
+                "Name": "<.ctor>b__1_0",
+                "AssemblyName": "RestSharp, Version=106.4.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75",
+                "ClassName": "RestSharp.RestRequest+<>c",
+                "Signature": "Void <.ctor>b__1_0(RestSharp.IRestResponse)",
+                "Signature2": "System.Void <.ctor>b__1_0(RestSharp.IRestResponse)",
+                "MemberType": 8,
+                "GenericArguments": null
+            },
+            "Target": {}
+        },
+        "DateFormat": null,
+        "XmlNamespace": null,
+        "Credentials": null,
+        "Timeout": 0,
+        "ReadWriteTimeout": 0,
+        "Attempts": 0
+    },
+    "ContentType": "application/json; charset=utf-8",
+    "ContentLength": -1,
+    "ContentEncoding": "",
+    "Content": "\"https://stgvikelaprofilesdev.blob.core.windows.net/00000000-0000-0000-0000-000000000000?sv=2018-03-28&sr=c&si=ImageContainerPolicy&sig=h7DM59NnDGgJEfaATOiKoeLWP7AQ%2BTCn%2Bnqcg8z1DEQ%3D\"",
+    "StatusCode": 200,
+    "IsSuccessful": true,
+    "StatusDescription": "OK",
+    "RawBytes": "Imh0dHBzOi8vc3RndmlrZWxhcHJvZmlsZXNkZXYuYmxvYi5jb3JlLndpbmRvd3MubmV0LzAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMD9zdj0yMDE4LTAzLTI4JnNyPWMmc2k9SW1hZ2VDb250YWluZXJQb2xpY3kmc2lnPWg3RE01OU5uREdnSkVmYUFUT2lLb2VMV1A3QVElMkJUQ24lMkJucWNnOHoxREVRJTNEIg==",
+    "ResponseUri": "https://vikelaservices-dev.azure-api.net/tokens/api/v1.0/Tokens/register",
+    "Server": "",
+    "Cookies": [],
+    "Headers": [
+        {
+            "Name": "Transfer-Encoding",
+            "Value": "chunked",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Content-Type",
+            "Value": "application/json; charset=utf-8",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Vary",
+            "Value": "Accept-Encoding",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Request-Context",
+            "Value": "appId=cid-v1:20b449e6-5423-49d6-88bd-46d3f58b6c5a",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Strict-Transport-Security",
+            "Value": "max-age=2592000",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Set-Cookie",
+            "Value": "ARRAffinity=6428a2577ba5a26980c6997dc1d2fa30ab7da4e32f8ff010f9693142119800fc;Path=/;HttpOnly;Domain=vikela-sec-dev.azurewebsites.net",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "X-Powered-By",
+            "Value": "ASP.NET",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Date",
+            "Value": "Wed, 03 Oct 2018 10:47:14 GMT",
+            "Type": 3,
+            "ContentType": null
+        }
+    ],
+    "ResponseStatus": 1,
+    "ErrorMessage": null,
+    "ErrorException": null,
+    "ProtocolVersion": {
+        "Major": 1,
+        "Minor": 1,
+        "Build": -1,
+        "Revision": -1,
+        "MajorRevision": -1,
+        "MinorRevision": -1
+    }
+}

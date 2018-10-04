@@ -1,0 +1,424 @@
+{
+    "Data": {
+        "Id": 0,
+        "Summary": [
+            {
+                "Id": 0,
+                "ProductName": "Vikela Against Death",
+                "BeneficiaryId": "d7b608e3-e5b0-e811-a956-000d3ab49476",
+                "BeneficiaryName": "TestBen1 4",
+                "EnsuredAmount": 10450000.0,
+                "TotalPolicies": 4,
+                "OverallRAG": 1
+            },
+            {
+                "Id": 0,
+                "ProductName": "Vikela Against Death",
+                "BeneficiaryId": "d7b608e3-e5b0-e811-a956-000d3ab49476",
+                "BeneficiaryName": "TestBen1 4",
+                "EnsuredAmount": 10020000.0,
+                "TotalPolicies": 1,
+                "OverallRAG": 2
+            },
+            {
+                "Id": 0,
+                "ProductName": "Vikela Against Death",
+                "BeneficiaryId": "d7b608e3-e5b0-e811-a956-000d3ab49476",
+                "BeneficiaryName": "TestBen1 4",
+                "EnsuredAmount": 2000000.0,
+                "TotalPolicies": 1,
+                "OverallRAG": 3
+            },
+            {
+                "Id": 0,
+                "ProductName": "Vikela Against Death",
+                "BeneficiaryId": "1b770cdd-e5b0-e811-a956-000d3ab49476",
+                "BeneficiaryName": "Test 3",
+                "EnsuredAmount": 150000000.0,
+                "TotalPolicies": 1,
+                "OverallRAG": 3
+            },
+            {
+                "Id": 0,
+                "ProductName": "Vikela My Money Spend",
+                "BeneficiaryId": "e4310be9-e5b0-e811-a956-000d3ab49476",
+                "BeneficiaryName": "Test 5",
+                "EnsuredAmount": 5550000.0,
+                "TotalPolicies": 1,
+                "OverallRAG": 3
+            }
+        ],
+        "Details": [
+            {
+                "Id": 0,
+                "PolicyId": "b266c791-edb7-e811-a957-000d3ab496ce",
+                "Name": "Policy 3",
+                "StartDate": "2018-09-14T07:12:48Z",
+                "EndDate": "2018-09-29T22:00:00Z",
+                "ExpiresInDays": -4.0,
+                "PremiumAmount": 100000.0,
+                "EnsuredAmount": 4440000.0,
+                "OwnerId": "45c22c37-5d03-465d-9137-192398156eb0",
+                "OwnerProfileImageUrl": "",
+                "PolicyRAG": 1,
+                "Store": {
+                    "Id": 0,
+                    "StoreId": "f04e7b96-ddb4-e811-a956-000d3ab490f3",
+                    "StoreName": "Checkers 3"
+                },
+                "Beneficiary": {
+                    "Id": 0,
+                    "BeneficiaryId": "d7b608e3-e5b0-e811-a956-000d3ab49476",
+                    "BeneficiaryFullName": "TestBen1 4",
+                    "BeneficiaryProfileImageUrl": ""
+                },
+                "Product": {
+                    "Id": 0,
+                    "ProductId": "d09a7c2d-a6b1-e811-a956-000d3ab49476",
+                    "ProductName": "Vikela Against Death"
+                }
+            },
+            {
+                "Id": 0,
+                "PolicyId": "98a284dd-60c1-e811-a95b-000d3ab492e1",
+                "Name": "policy 6",
+                "StartDate": "2018-09-26T07:50:45Z",
+                "EndDate": "2018-09-30T22:00:00Z",
+                "ExpiresInDays": -3.0,
+                "PremiumAmount": 25000.0,
+                "EnsuredAmount": 1000000.0,
+                "OwnerId": "45c22c37-5d03-465d-9137-192398156eb0",
+                "OwnerProfileImageUrl": "",
+                "PolicyRAG": 1,
+                "Store": {
+                    "Id": 0,
+                    "StoreId": "84a09084-ddb4-e811-a956-000d3ab490f3",
+                    "StoreName": "Checkers 1"
+                },
+                "Beneficiary": {
+                    "Id": 0,
+                    "BeneficiaryId": "d7b608e3-e5b0-e811-a956-000d3ab49476",
+                    "BeneficiaryFullName": "TestBen1 4",
+                    "BeneficiaryProfileImageUrl": ""
+                },
+                "Product": {
+                    "Id": 0,
+                    "ProductId": "d09a7c2d-a6b1-e811-a956-000d3ab49476",
+                    "ProductName": "Vikela Against Death"
+                }
+            },
+            {
+                "Id": 0,
+                "PolicyId": "c6c9c197-e9b1-e811-a955-000d3ab496c3",
+                "Name": "Test Policy 1",
+                "StartDate": "2018-09-06T15:29:10Z",
+                "EndDate": "2018-10-08T22:00:00Z",
+                "ExpiresInDays": 5.0,
+                "PremiumAmount": 25000.0,
+                "EnsuredAmount": 1010000.0,
+                "OwnerId": "45c22c37-5d03-465d-9137-192398156eb0",
+                "OwnerProfileImageUrl": "",
+                "PolicyRAG": 1,
+                "Store": {
+                    "Id": 0,
+                    "StoreId": "4760d0c0-49ac-e811-a954-000d3ab490f3",
+                    "StoreName": "Checkers Centurion"
+                },
+                "Beneficiary": {
+                    "Id": 0,
+                    "BeneficiaryId": "d7b608e3-e5b0-e811-a956-000d3ab49476",
+                    "BeneficiaryFullName": "TestBen1 4",
+                    "BeneficiaryProfileImageUrl": ""
+                },
+                "Product": {
+                    "Id": 0,
+                    "ProductId": "d09a7c2d-a6b1-e811-a956-000d3ab49476",
+                    "ProductName": "Vikela Against Death"
+                }
+            },
+            {
+                "Id": 0,
+                "PolicyId": "3268b283-60c1-e811-a95b-000d3ab492e1",
+                "Name": "Policy 5",
+                "StartDate": "2018-09-26T07:48:12Z",
+                "EndDate": "2018-10-30T22:00:00Z",
+                "ExpiresInDays": 27.0,
+                "PremiumAmount": 100000.0,
+                "EnsuredAmount": 4000000.0,
+                "OwnerId": "45c22c37-5d03-465d-9137-192398156eb0",
+                "OwnerProfileImageUrl": "",
+                "PolicyRAG": 1,
+                "Store": {
+                    "Id": 0,
+                    "StoreId": "b8b08b8a-ddb4-e811-a956-000d3ab490f3",
+                    "StoreName": "Checkers 2"
+                },
+                "Beneficiary": {
+                    "Id": 0,
+                    "BeneficiaryId": "d7b608e3-e5b0-e811-a956-000d3ab49476",
+                    "BeneficiaryFullName": "TestBen1 4",
+                    "BeneficiaryProfileImageUrl": ""
+                },
+                "Product": {
+                    "Id": 0,
+                    "ProductId": "d09a7c2d-a6b1-e811-a956-000d3ab49476",
+                    "ProductName": "Vikela Against Death"
+                }
+            },
+            {
+                "Id": 0,
+                "PolicyId": "e822a3df-e9b1-e811-a955-000d3ab496c3",
+                "Name": "Policy 1",
+                "StartDate": "2018-09-06T15:31:13Z",
+                "EndDate": "2018-11-08T22:00:00Z",
+                "ExpiresInDays": 36.0,
+                "PremiumAmount": 25000.0,
+                "EnsuredAmount": 10020000.0,
+                "OwnerId": "45c22c37-5d03-465d-9137-192398156eb0",
+                "OwnerProfileImageUrl": "",
+                "PolicyRAG": 2,
+                "Store": {
+                    "Id": 0,
+                    "StoreId": "4760d0c0-49ac-e811-a954-000d3ab490f3",
+                    "StoreName": "Checkers Centurion"
+                },
+                "Beneficiary": {
+                    "Id": 0,
+                    "BeneficiaryId": "d7b608e3-e5b0-e811-a956-000d3ab49476",
+                    "BeneficiaryFullName": "TestBen1 4",
+                    "BeneficiaryProfileImageUrl": ""
+                },
+                "Product": {
+                    "Id": 0,
+                    "ProductId": "d09a7c2d-a6b1-e811-a956-000d3ab49476",
+                    "ProductName": "Vikela Against Death"
+                }
+            },
+            {
+                "Id": 0,
+                "PolicyId": "f726c147-60c1-e811-a95b-000d3ab492e1",
+                "Name": "Policy 4",
+                "StartDate": "2018-09-26T07:46:32Z",
+                "EndDate": "2018-12-11T22:00:00Z",
+                "ExpiresInDays": 69.0,
+                "PremiumAmount": 50000.0,
+                "EnsuredAmount": 2000000.0,
+                "OwnerId": "45c22c37-5d03-465d-9137-192398156eb0",
+                "OwnerProfileImageUrl": "",
+                "PolicyRAG": 3,
+                "Store": {
+                    "Id": 0,
+                    "StoreId": "84a09084-ddb4-e811-a956-000d3ab490f3",
+                    "StoreName": "Checkers 1"
+                },
+                "Beneficiary": {
+                    "Id": 0,
+                    "BeneficiaryId": "d7b608e3-e5b0-e811-a956-000d3ab49476",
+                    "BeneficiaryFullName": "TestBen1 4",
+                    "BeneficiaryProfileImageUrl": ""
+                },
+                "Product": {
+                    "Id": 0,
+                    "ProductId": "d09a7c2d-a6b1-e811-a956-000d3ab49476",
+                    "ProductName": "Vikela Against Death"
+                }
+            },
+            {
+                "Id": 0,
+                "PolicyId": "dc445d06-fec2-e811-a95c-000d3ab492e1",
+                "Name": "Big 1",
+                "StartDate": "2018-09-28T09:08:21Z",
+                "EndDate": "2018-12-28T09:08:21Z",
+                "ExpiresInDays": 86.0,
+                "PremiumAmount": 25000.0,
+                "EnsuredAmount": 150000000.0,
+                "OwnerId": "45c22c37-5d03-465d-9137-192398156eb0",
+                "OwnerProfileImageUrl": "",
+                "PolicyRAG": 3,
+                "Store": {
+                    "Id": 0,
+                    "StoreId": "84a09084-ddb4-e811-a956-000d3ab490f3",
+                    "StoreName": "Checkers 1"
+                },
+                "Beneficiary": {
+                    "Id": 0,
+                    "BeneficiaryId": "1b770cdd-e5b0-e811-a956-000d3ab49476",
+                    "BeneficiaryFullName": "Test 3",
+                    "BeneficiaryProfileImageUrl": ""
+                },
+                "Product": {
+                    "Id": 0,
+                    "ProductId": "d09a7c2d-a6b1-e811-a956-000d3ab49476",
+                    "ProductName": "Vikela Against Death"
+                }
+            },
+            {
+                "Id": 0,
+                "PolicyId": "aef503b2-4cc5-e811-a95d-000d3ab490f3",
+                "Name": "MMS test",
+                "StartDate": "2018-10-01T07:36:28Z",
+                "EndDate": "2018-12-30T22:00:00Z",
+                "ExpiresInDays": 88.0,
+                "PremiumAmount": 25000.0,
+                "EnsuredAmount": 5550000.0,
+                "OwnerId": "45c22c37-5d03-465d-9137-192398156eb0",
+                "OwnerProfileImageUrl": "",
+                "PolicyRAG": 3,
+                "Store": {
+                    "Id": 0,
+                    "StoreId": "f04e7b96-ddb4-e811-a956-000d3ab490f3",
+                    "StoreName": "Checkers 3"
+                },
+                "Beneficiary": {
+                    "Id": 0,
+                    "BeneficiaryId": "e4310be9-e5b0-e811-a956-000d3ab49476",
+                    "BeneficiaryFullName": "Test 5",
+                    "BeneficiaryProfileImageUrl": ""
+                },
+                "Product": {
+                    "Id": 0,
+                    "ProductId": "c6fc3981-4cc5-e811-a95d-000d3ab490f3",
+                    "ProductName": "Vikela My Money Spend"
+                }
+            }
+        ]
+    },
+    "Request": {
+        "UserState": null,
+        "AllowedDecompressionMethods": [
+            0,
+            2,
+            1
+        ],
+        "AlwaysMultipartFormData": false,
+        "JsonSerializer": {
+            "DateFormat": null,
+            "RootElement": null,
+            "Namespace": null,
+            "ContentType": "application/json"
+        },
+        "XmlSerializer": {
+            "RootElement": null,
+            "Namespace": null,
+            "DateFormat": null,
+            "ContentType": "text/xml"
+        },
+        "ResponseWriter": null,
+        "AdvancedResponseWriter": null,
+        "UseDefaultCredentials": false,
+        "Parameters": [
+            {
+                "Name": "Ocp-Apim-Subscription-Key",
+                "Value": "a77f84e222b54957a9c946b99347c1f1",
+                "Type": 3,
+                "ContentType": null
+            },
+            {
+                "Name": "Authorization",
+                "Value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhTmsifQ.eyJleHAiOjE1Mzg1NjcyMzAsIm5iZiI6MTUzODU2MzYzMCwidmVyIjoiMS4wIiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi5taWNyb3NvZnRvbmxpbmUuY29tL2Q5ZGIyMzBiLWU1ZDEtNDU5Ny05MzQ3LTE1MGNmODk4ZWM5YS92Mi4wLyIsInN1YiI6ImQwYjY4MGQ2LTk1YzUtNDNlMy1iMDM2LWM4NTBhMjY5NjY3NCIsImF1ZCI6IjhjMWY3MjIwLTFjYmQtNDVhZC1iNWU1LWIxY2ZkZmNiYjMzZCIsImlhdCI6MTUzODU2MzYzMCwiYXV0aF90aW1lIjoxNTM4NTYzNjMwLCJuYW1lIjoiQmlhbmNhIEtvdXJ0bmV5IE1pbm5hYXIiLCJpZHAiOiJmYWNlYm9vay5jb20iLCJvaWQiOiJkMGI2ODBkNi05NWM1LTQzZTMtYjAzNi1jODUwYTI2OTY2NzQiLCJ0ZnAiOiJCMkNfMV92aWtlbGFfc2lnbl91cF9pbiJ9.B2jUTYlXWjrpauSMqwHzN5rziIGrPtTqQkfsC8yw0UgzAKrOUnU5tLW28EhWl42bWoBptGVwz4gHyjvF6UYxfmL-byQqoZB_lNiPKHXy0qNgDYUZz1wcjHT706-D3SpQdPuo4XyoDx8DcdIoNENUzbtT0LNK1aQbx_VKR6-h4HFDKUv_Am5JazRzGKanz0LgaVhgyoOIk7nDmWnBytLRRENYKvl-Flb8_tNRCRVJBZkDCe0-7wM65O3UZjZJMV828qSQ0e167Tq_VR8Vun7L_RLP3fPXazfqxewje4IBCLSl9kQqvjK-mpvwb7V7vUwoMGrK4JvXxEznFKdfV0AUUA",
+                "Type": 3,
+                "ContentType": null
+            },
+            {
+                "Name": "userId",
+                "Value": "45c22c37-5d03-465d-9137-192398156eb0",
+                "Type": 1,
+                "ContentType": null
+            },
+            {
+                "Name": "Accept",
+                "Value": "application/json, application/xml, text/json, text/x-json, text/javascript, text/xml",
+                "Type": 3,
+                "ContentType": null
+            }
+        ],
+        "Files": [],
+        "Method": 0,
+        "Resource": "/dyn365/api/v1.0/Policy/getpolicyoverview",
+        "RequestFormat": 1,
+        "RootElement": null,
+        "OnBeforeDeserialization": {
+            "Method": {
+                "Name": "<.ctor>b__1_0",
+                "AssemblyName": "RestSharp, Version=106.4.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75",
+                "ClassName": "RestSharp.RestRequest+<>c",
+                "Signature": "Void <.ctor>b__1_0(RestSharp.IRestResponse)",
+                "Signature2": "System.Void <.ctor>b__1_0(RestSharp.IRestResponse)",
+                "MemberType": 8,
+                "GenericArguments": null
+            },
+            "Target": {}
+        },
+        "DateFormat": null,
+        "XmlNamespace": null,
+        "Credentials": null,
+        "Timeout": 0,
+        "ReadWriteTimeout": 0,
+        "Attempts": 0
+    },
+    "ContentType": "application/json; charset=utf-8",
+    "ContentLength": -1,
+    "ContentEncoding": "",
+    "Content": "{\"summary\":[{\"productName\":\"Vikela Against Death\",\"beneficiaryId\":\"d7b608e3-e5b0-e811-a956-000d3ab49476\",\"beneficiaryName\":\"TestBen1 4\",\"ensuredAmount\":10450000.0,\"totalPolicies\":4,\"overallRAG\":1,\"leastExpiringDays\":-4.0},{\"productName\":\"Vikela Against Death\",\"beneficiaryId\":\"d7b608e3-e5b0-e811-a956-000d3ab49476\",\"beneficiaryName\":\"TestBen1 4\",\"ensuredAmount\":10020000.0,\"totalPolicies\":1,\"overallRAG\":2,\"leastExpiringDays\":36.0},{\"productName\":\"Vikela Against Death\",\"beneficiaryId\":\"d7b608e3-e5b0-e811-a956-000d3ab49476\",\"beneficiaryName\":\"TestBen1 4\",\"ensuredAmount\":2000000.0,\"totalPolicies\":1,\"overallRAG\":3,\"leastExpiringDays\":69.0},{\"productName\":\"Vikela Against Death\",\"beneficiaryId\":\"1b770cdd-e5b0-e811-a956-000d3ab49476\",\"beneficiaryName\":\"Test 3\",\"ensuredAmount\":150000000.0,\"totalPolicies\":1,\"overallRAG\":3,\"leastExpiringDays\":86.0},{\"productName\":\"Vikela My Money Spend\",\"beneficiaryId\":\"e4310be9-e5b0-e811-a956-000d3ab49476\",\"beneficiaryName\":\"Test 5\",\"ensuredAmount\":5550000.0,\"totalPolicies\":1,\"overallRAG\":3,\"leastExpiringDays\":88.0}],\"details\":[{\"policyId\":\"b266c791-edb7-e811-a957-000d3ab496ce\",\"name\":\"Policy 3\",\"startDate\":\"2018-09-14T07:12:48+00:00\",\"endDate\":\"2018-09-29T22:00:00+00:00\",\"expiresInDays\":-4.0,\"premiumAmount\":100000.0,\"ensuredAmount\":4440000.0,\"ownerId\":\"45c22c37-5d03-465d-9137-192398156eb0\",\"ownerProfileImageUrl\":\"\",\"policyRAG\":1,\"store\":{\"storeId\":\"f04e7b96-ddb4-e811-a956-000d3ab490f3\",\"storeName\":\"Checkers 3\"},\"beneficiary\":{\"beneficiaryId\":\"d7b608e3-e5b0-e811-a956-000d3ab49476\",\"beneficiaryFullName\":\"TestBen1 4\",\"beneficiaryProfileImageUrl\":\"\"},\"product\":{\"productId\":\"d09a7c2d-a6b1-e811-a956-000d3ab49476\",\"productName\":\"Vikela Against Death\"}},{\"policyId\":\"98a284dd-60c1-e811-a95b-000d3ab492e1\",\"name\":\"policy 6\",\"startDate\":\"2018-09-26T07:50:45+00:00\",\"endDate\":\"2018-09-30T22:00:00+00:00\",\"expiresInDays\":-3.0,\"premiumAmount\":25000.0,\"ensuredAmount\":1000000.0,\"ownerId\":\"45c22c37-5d03-465d-9137-192398156eb0\",\"ownerProfileImageUrl\":\"\",\"policyRAG\":1,\"store\":{\"storeId\":\"84a09084-ddb4-e811-a956-000d3ab490f3\",\"storeName\":\"Checkers 1\"},\"beneficiary\":{\"beneficiaryId\":\"d7b608e3-e5b0-e811-a956-000d3ab49476\",\"beneficiaryFullName\":\"TestBen1 4\",\"beneficiaryProfileImageUrl\":\"\"},\"product\":{\"productId\":\"d09a7c2d-a6b1-e811-a956-000d3ab49476\",\"productName\":\"Vikela Against Death\"}},{\"policyId\":\"c6c9c197-e9b1-e811-a955-000d3ab496c3\",\"name\":\"Test Policy 1\",\"startDate\":\"2018-09-06T15:29:10+00:00\",\"endDate\":\"2018-10-08T22:00:00+00:00\",\"expiresInDays\":5.0,\"premiumAmount\":25000.0,\"ensuredAmount\":1010000.0,\"ownerId\":\"45c22c37-5d03-465d-9137-192398156eb0\",\"ownerProfileImageUrl\":\"\",\"policyRAG\":1,\"store\":{\"storeId\":\"4760d0c0-49ac-e811-a954-000d3ab490f3\",\"storeName\":\"Checkers Centurion\"},\"beneficiary\":{\"beneficiaryId\":\"d7b608e3-e5b0-e811-a956-000d3ab49476\",\"beneficiaryFullName\":\"TestBen1 4\",\"beneficiaryProfileImageUrl\":\"\"},\"product\":{\"productId\":\"d09a7c2d-a6b1-e811-a956-000d3ab49476\",\"productName\":\"Vikela Against Death\"}},{\"policyId\":\"3268b283-60c1-e811-a95b-000d3ab492e1\",\"name\":\"Policy 5\",\"startDate\":\"2018-09-26T07:48:12+00:00\",\"endDate\":\"2018-10-30T22:00:00+00:00\",\"expiresInDays\":27.0,\"premiumAmount\":100000.0,\"ensuredAmount\":4000000.0,\"ownerId\":\"45c22c37-5d03-465d-9137-192398156eb0\",\"ownerProfileImageUrl\":\"\",\"policyRAG\":1,\"store\":{\"storeId\":\"b8b08b8a-ddb4-e811-a956-000d3ab490f3\",\"storeName\":\"Checkers 2\"},\"beneficiary\":{\"beneficiaryId\":\"d7b608e3-e5b0-e811-a956-000d3ab49476\",\"beneficiaryFullName\":\"TestBen1 4\",\"beneficiaryProfileImageUrl\":\"\"},\"product\":{\"productId\":\"d09a7c2d-a6b1-e811-a956-000d3ab49476\",\"productName\":\"Vikela Against Death\"}},{\"policyId\":\"e822a3df-e9b1-e811-a955-000d3ab496c3\",\"name\":\"Policy 1\",\"startDate\":\"2018-09-06T15:31:13+00:00\",\"endDate\":\"2018-11-08T22:00:00+00:00\",\"expiresInDays\":36.0,\"premiumAmount\":25000.0,\"ensuredAmount\":10020000.0,\"ownerId\":\"45c22c37-5d03-465d-9137-192398156eb0\",\"ownerProfileImageUrl\":\"\",\"policyRAG\":2,\"store\":{\"storeId\":\"4760d0c0-49ac-e811-a954-000d3ab490f3\",\"storeName\":\"Checkers Centurion\"},\"beneficiary\":{\"beneficiaryId\":\"d7b608e3-e5b0-e811-a956-000d3ab49476\",\"beneficiaryFullName\":\"TestBen1 4\",\"beneficiaryProfileImageUrl\":\"\"},\"product\":{\"productId\":\"d09a7c2d-a6b1-e811-a956-000d3ab49476\",\"productName\":\"Vikela Against Death\"}},{\"policyId\":\"f726c147-60c1-e811-a95b-000d3ab492e1\",\"name\":\"Policy 4\",\"startDate\":\"2018-09-26T07:46:32+00:00\",\"endDate\":\"2018-12-11T22:00:00+00:00\",\"expiresInDays\":69.0,\"premiumAmount\":50000.0,\"ensuredAmount\":2000000.0,\"ownerId\":\"45c22c37-5d03-465d-9137-192398156eb0\",\"ownerProfileImageUrl\":\"\",\"policyRAG\":3,\"store\":{\"storeId\":\"84a09084-ddb4-e811-a956-000d3ab490f3\",\"storeName\":\"Checkers 1\"},\"beneficiary\":{\"beneficiaryId\":\"d7b608e3-e5b0-e811-a956-000d3ab49476\",\"beneficiaryFullName\":\"TestBen1 4\",\"beneficiaryProfileImageUrl\":\"\"},\"product\":{\"productId\":\"d09a7c2d-a6b1-e811-a956-000d3ab49476\",\"productName\":\"Vikela Against Death\"}},{\"policyId\":\"dc445d06-fec2-e811-a95c-000d3ab492e1\",\"name\":\"Big 1\",\"startDate\":\"2018-09-28T09:08:21+00:00\",\"endDate\":\"2018-12-28T09:08:21+00:00\",\"expiresInDays\":86.0,\"premiumAmount\":25000.0,\"ensuredAmount\":150000000.0,\"ownerId\":\"45c22c37-5d03-465d-9137-192398156eb0\",\"ownerProfileImageUrl\":\"\",\"policyRAG\":3,\"store\":{\"storeId\":\"84a09084-ddb4-e811-a956-000d3ab490f3\",\"storeName\":\"Checkers 1\"},\"beneficiary\":{\"beneficiaryId\":\"1b770cdd-e5b0-e811-a956-000d3ab49476\",\"beneficiaryFullName\":\"Test 3\",\"beneficiaryProfileImageUrl\":\"\"},\"product\":{\"productId\":\"d09a7c2d-a6b1-e811-a956-000d3ab49476\",\"productName\":\"Vikela Against Death\"}},{\"policyId\":\"aef503b2-4cc5-e811-a95d-000d3ab490f3\",\"name\":\"MMS test\",\"startDate\":\"2018-10-01T07:36:28+00:00\",\"endDate\":\"2018-12-30T22:00:00+00:00\",\"expiresInDays\":88.0,\"premiumAmount\":25000.0,\"ensuredAmount\":5550000.0,\"ownerId\":\"45c22c37-5d03-465d-9137-192398156eb0\",\"ownerProfileImageUrl\":\"\",\"policyRAG\":3,\"store\":{\"storeId\":\"f04e7b96-ddb4-e811-a956-000d3ab490f3\",\"storeName\":\"Checkers 3\"},\"beneficiary\":{\"beneficiaryId\":\"e4310be9-e5b0-e811-a956-000d3ab49476\",\"beneficiaryFullName\":\"Test 5\",\"beneficiaryProfileImageUrl\":\"\"},\"product\":{\"productId\":\"c6fc3981-4cc5-e811-a95d-000d3ab490f3\",\"productName\":\"Vikela My Money Spend\"}}]}",
+    "StatusCode": 200,
+    "IsSuccessful": true,
+    "StatusDescription": "OK",
+    "RawBytes": "eyJzdW1tYXJ5IjpbeyJwcm9kdWN0TmFtZSI6IlZpa2VsYSBBZ2FpbnN0IERlYXRoIiwiYmVuZWZpY2lhcnlJZCI6ImQ3YjYwOGUzLWU1YjAtZTgxMS1hOTU2LTAwMGQzYWI0OTQ3NiIsImJlbmVmaWNpYXJ5TmFtZSI6IlRlc3RCZW4xIDQiLCJlbnN1cmVkQW1vdW50IjoxMDQ1MDAwMC4wLCJ0b3RhbFBvbGljaWVzIjo0LCJvdmVyYWxsUkFHIjoxLCJsZWFzdEV4cGlyaW5nRGF5cyI6LTQuMH0seyJwcm9kdWN0TmFtZSI6IlZpa2VsYSBBZ2FpbnN0IERlYXRoIiwiYmVuZWZpY2lhcnlJZCI6ImQ3YjYwOGUzLWU1YjAtZTgxMS1hOTU2LTAwMGQzYWI0OTQ3NiIsImJlbmVmaWNpYXJ5TmFtZSI6IlRlc3RCZW4xIDQiLCJlbnN1cmVkQW1vdW50IjoxMDAyMDAwMC4wLCJ0b3RhbFBvbGljaWVzIjoxLCJvdmVyYWxsUkFHIjoyLCJsZWFzdEV4cGlyaW5nRGF5cyI6MzYuMH0seyJwcm9kdWN0TmFtZSI6IlZpa2VsYSBBZ2FpbnN0IERlYXRoIiwiYmVuZWZpY2lhcnlJZCI6ImQ3YjYwOGUzLWU1YjAtZTgxMS1hOTU2LTAwMGQzYWI0OTQ3NiIsImJlbmVmaWNpYXJ5TmFtZSI6IlRlc3RCZW4xIDQiLCJlbnN1cmVkQW1vdW50IjoyMDAwMDAwLjAsInRvdGFsUG9saWNpZXMiOjEsIm92ZXJhbGxSQUciOjMsImxlYXN0RXhwaXJpbmdEYXlzIjo2OS4wfSx7InByb2R1Y3ROYW1lIjoiVmlrZWxhIEFnYWluc3QgRGVhdGgiLCJiZW5lZmljaWFyeUlkIjoiMWI3NzBjZGQtZTViMC1lODExLWE5NTYtMDAwZDNhYjQ5NDc2IiwiYmVuZWZpY2lhcnlOYW1lIjoiVGVzdCAzIiwiZW5zdXJlZEFtb3VudCI6MTUwMDAwMDAwLjAsInRvdGFsUG9saWNpZXMiOjEsIm92ZXJhbGxSQUciOjMsImxlYXN0RXhwaXJpbmdEYXlzIjo4Ni4wfSx7InByb2R1Y3ROYW1lIjoiVmlrZWxhIE15IE1vbmV5IFNwZW5kIiwiYmVuZWZpY2lhcnlJZCI6ImU0MzEwYmU5LWU1YjAtZTgxMS1hOTU2LTAwMGQzYWI0OTQ3NiIsImJlbmVmaWNpYXJ5TmFtZSI6IlRlc3QgNSIsImVuc3VyZWRBbW91bnQiOjU1NTAwMDAuMCwidG90YWxQb2xpY2llcyI6MSwib3ZlcmFsbFJBRyI6MywibGVhc3RFeHBpcmluZ0RheXMiOjg4LjB9XSwiZGV0YWlscyI6W3sicG9saWN5SWQiOiJiMjY2Yzc5MS1lZGI3LWU4MTEtYTk1Ny0wMDBkM2FiNDk2Y2UiLCJuYW1lIjoiUG9saWN5IDMiLCJzdGFydERhdGUiOiIyMDE4LTA5LTE0VDA3OjEyOjQ4KzAwOjAwIiwiZW5kRGF0ZSI6IjIwMTgtMDktMjlUMjI6MDA6MDArMDA6MDAiLCJleHBpcmVzSW5EYXlzIjotNC4wLCJwcmVtaXVtQW1vdW50IjoxMDAwMDAuMCwiZW5zdXJlZEFtb3VudCI6NDQ0MDAwMC4wLCJvd25lcklkIjoiNDVjMjJjMzctNWQwMy00NjVkLTkxMzctMTkyMzk4MTU2ZWIwIiwib3duZXJQcm9maWxlSW1hZ2VVcmwiOiIiLCJwb2xpY3lSQUciOjEsInN0b3JlIjp7InN0b3JlSWQiOiJmMDRlN2I5Ni1kZGI0LWU4MTEtYTk1Ni0wMDBkM2FiNDkwZjMiLCJzdG9yZU5hbWUiOiJDaGVja2VycyAzIn0sImJlbmVmaWNpYXJ5Ijp7ImJlbmVmaWNpYXJ5SWQiOiJkN2I2MDhlMy1lNWIwLWU4MTEtYTk1Ni0wMDBkM2FiNDk0NzYiLCJiZW5lZmljaWFyeUZ1bGxOYW1lIjoiVGVzdEJlbjEgNCIsImJlbmVmaWNpYXJ5UHJvZmlsZUltYWdlVXJsIjoiIn0sInByb2R1Y3QiOnsicHJvZHVjdElkIjoiZDA5YTdjMmQtYTZiMS1lODExLWE5NTYtMDAwZDNhYjQ5NDc2IiwicHJvZHVjdE5hbWUiOiJWaWtlbGEgQWdhaW5zdCBEZWF0aCJ9fSx7InBvbGljeUlkIjoiOThhMjg0ZGQtNjBjMS1lODExLWE5NWItMDAwZDNhYjQ5MmUxIiwibmFtZSI6InBvbGljeSA2Iiwic3RhcnREYXRlIjoiMjAxOC0wOS0yNlQwNzo1MDo0NSswMDowMCIsImVuZERhdGUiOiIyMDE4LTA5LTMwVDIyOjAwOjAwKzAwOjAwIiwiZXhwaXJlc0luRGF5cyI6LTMuMCwicHJlbWl1bUFtb3VudCI6MjUwMDAuMCwiZW5zdXJlZEFtb3VudCI6MTAwMDAwMC4wLCJvd25lcklkIjoiNDVjMjJjMzctNWQwMy00NjVkLTkxMzctMTkyMzk4MTU2ZWIwIiwib3duZXJQcm9maWxlSW1hZ2VVcmwiOiIiLCJwb2xpY3lSQUciOjEsInN0b3JlIjp7InN0b3JlSWQiOiI4NGEwOTA4NC1kZGI0LWU4MTEtYTk1Ni0wMDBkM2FiNDkwZjMiLCJzdG9yZU5hbWUiOiJDaGVja2VycyAxIn0sImJlbmVmaWNpYXJ5Ijp7ImJlbmVmaWNpYXJ5SWQiOiJkN2I2MDhlMy1lNWIwLWU4MTEtYTk1Ni0wMDBkM2FiNDk0NzYiLCJiZW5lZmljaWFyeUZ1bGxOYW1lIjoiVGVzdEJlbjEgNCIsImJlbmVmaWNpYXJ5UHJvZmlsZUltYWdlVXJsIjoiIn0sInByb2R1Y3QiOnsicHJvZHVjdElkIjoiZDA5YTdjMmQtYTZiMS1lODExLWE5NTYtMDAwZDNhYjQ5NDc2IiwicHJvZHVjdE5hbWUiOiJWaWtlbGEgQWdhaW5zdCBEZWF0aCJ9fSx7InBvbGljeUlkIjoiYzZjOWMxOTctZTliMS1lODExLWE5NTUtMDAwZDNhYjQ5NmMzIiwibmFtZSI6IlRlc3QgUG9saWN5IDEiLCJzdGFydERhdGUiOiIyMDE4LTA5LTA2VDE1OjI5OjEwKzAwOjAwIiwiZW5kRGF0ZSI6IjIwMTgtMTAtMDhUMjI6MDA6MDArMDA6MDAiLCJleHBpcmVzSW5EYXlzIjo1LjAsInByZW1pdW1BbW91bnQiOjI1MDAwLjAsImVuc3VyZWRBbW91bnQiOjEwMTAwMDAuMCwib3duZXJJZCI6IjQ1YzIyYzM3LTVkMDMtNDY1ZC05MTM3LTE5MjM5ODE1NmViMCIsIm93bmVyUHJvZmlsZUltYWdlVXJsIjoiIiwicG9saWN5UkFHIjoxLCJzdG9yZSI6eyJzdG9yZUlkIjoiNDc2MGQwYzAtNDlhYy1lODExLWE5NTQtMDAwZDNhYjQ5MGYzIiwic3RvcmVOYW1lIjoiQ2hlY2tlcnMgQ2VudHVyaW9uIn0sImJlbmVmaWNpYXJ5Ijp7ImJlbmVmaWNpYXJ5SWQiOiJkN2I2MDhlMy1lNWIwLWU4MTEtYTk1Ni0wMDBkM2FiNDk0NzYiLCJiZW5lZmljaWFyeUZ1bGxOYW1lIjoiVGVzdEJlbjEgNCIsImJlbmVmaWNpYXJ5UHJvZmlsZUltYWdlVXJsIjoiIn0sInByb2R1Y3QiOnsicHJvZHVjdElkIjoiZDA5YTdjMmQtYTZiMS1lODExLWE5NTYtMDAwZDNhYjQ5NDc2IiwicHJvZHVjdE5hbWUiOiJWaWtlbGEgQWdhaW5zdCBEZWF0aCJ9fSx7InBvbGljeUlkIjoiMzI2OGIyODMtNjBjMS1lODExLWE5NWItMDAwZDNhYjQ5MmUxIiwibmFtZSI6IlBvbGljeSA1Iiwic3RhcnREYXRlIjoiMjAxOC0wOS0yNlQwNzo0ODoxMiswMDowMCIsImVuZERhdGUiOiIyMDE4LTEwLTMwVDIyOjAwOjAwKzAwOjAwIiwiZXhwaXJlc0luRGF5cyI6MjcuMCwicHJlbWl1bUFtb3VudCI6MTAwMDAwLjAsImVuc3VyZWRBbW91bnQiOjQwMDAwMDAuMCwib3duZXJJZCI6IjQ1YzIyYzM3LTVkMDMtNDY1ZC05MTM3LTE5MjM5ODE1NmViMCIsIm93bmVyUHJvZmlsZUltYWdlVXJsIjoiIiwicG9saWN5UkFHIjoxLCJzdG9yZSI6eyJzdG9yZUlkIjoiYjhiMDhiOGEtZGRiNC1lODExLWE5NTYtMDAwZDNhYjQ5MGYzIiwic3RvcmVOYW1lIjoiQ2hlY2tlcnMgMiJ9LCJiZW5lZmljaWFyeSI6eyJiZW5lZmljaWFyeUlkIjoiZDdiNjA4ZTMtZTViMC1lODExLWE5NTYtMDAwZDNhYjQ5NDc2IiwiYmVuZWZpY2lhcnlGdWxsTmFtZSI6IlRlc3RCZW4xIDQiLCJiZW5lZmljaWFyeVByb2ZpbGVJbWFnZVVybCI6IiJ9LCJwcm9kdWN0Ijp7InByb2R1Y3RJZCI6ImQwOWE3YzJkLWE2YjEtZTgxMS1hOTU2LTAwMGQzYWI0OTQ3NiIsInByb2R1Y3ROYW1lIjoiVmlrZWxhIEFnYWluc3QgRGVhdGgifX0seyJwb2xpY3lJZCI6ImU4MjJhM2RmLWU5YjEtZTgxMS1hOTU1LTAwMGQzYWI0OTZjMyIsIm5hbWUiOiJQb2xpY3kgMSIsInN0YXJ0RGF0ZSI6IjIwMTgtMDktMDZUMTU6MzE6MTMrMDA6MDAiLCJlbmREYXRlIjoiMjAxOC0xMS0wOFQyMjowMDowMCswMDowMCIsImV4cGlyZXNJbkRheXMiOjM2LjAsInByZW1pdW1BbW91bnQiOjI1MDAwLjAsImVuc3VyZWRBbW91bnQiOjEwMDIwMDAwLjAsIm93bmVySWQiOiI0NWMyMmMzNy01ZDAzLTQ2NWQtOTEzNy0xOTIzOTgxNTZlYjAiLCJvd25lclByb2ZpbGVJbWFnZVVybCI6IiIsInBvbGljeVJBRyI6Miwic3RvcmUiOnsic3RvcmVJZCI6IjQ3NjBkMGMwLTQ5YWMtZTgxMS1hOTU0LTAwMGQzYWI0OTBmMyIsInN0b3JlTmFtZSI6IkNoZWNrZXJzIENlbnR1cmlvbiJ9LCJiZW5lZmljaWFyeSI6eyJiZW5lZmljaWFyeUlkIjoiZDdiNjA4ZTMtZTViMC1lODExLWE5NTYtMDAwZDNhYjQ5NDc2IiwiYmVuZWZpY2lhcnlGdWxsTmFtZSI6IlRlc3RCZW4xIDQiLCJiZW5lZmljaWFyeVByb2ZpbGVJbWFnZVVybCI6IiJ9LCJwcm9kdWN0Ijp7InByb2R1Y3RJZCI6ImQwOWE3YzJkLWE2YjEtZTgxMS1hOTU2LTAwMGQzYWI0OTQ3NiIsInByb2R1Y3ROYW1lIjoiVmlrZWxhIEFnYWluc3QgRGVhdGgifX0seyJwb2xpY3lJZCI6ImY3MjZjMTQ3LTYwYzEtZTgxMS1hOTViLTAwMGQzYWI0OTJlMSIsIm5hbWUiOiJQb2xpY3kgNCIsInN0YXJ0RGF0ZSI6IjIwMTgtMDktMjZUMDc6NDY6MzIrMDA6MDAiLCJlbmREYXRlIjoiMjAxOC0xMi0xMVQyMjowMDowMCswMDowMCIsImV4cGlyZXNJbkRheXMiOjY5LjAsInByZW1pdW1BbW91bnQiOjUwMDAwLjAsImVuc3VyZWRBbW91bnQiOjIwMDAwMDAuMCwib3duZXJJZCI6IjQ1YzIyYzM3LTVkMDMtNDY1ZC05MTM3LTE5MjM5ODE1NmViMCIsIm93bmVyUHJvZmlsZUltYWdlVXJsIjoiIiwicG9saWN5UkFHIjozLCJzdG9yZSI6eyJzdG9yZUlkIjoiODRhMDkwODQtZGRiNC1lODExLWE5NTYtMDAwZDNhYjQ5MGYzIiwic3RvcmVOYW1lIjoiQ2hlY2tlcnMgMSJ9LCJiZW5lZmljaWFyeSI6eyJiZW5lZmljaWFyeUlkIjoiZDdiNjA4ZTMtZTViMC1lODExLWE5NTYtMDAwZDNhYjQ5NDc2IiwiYmVuZWZpY2lhcnlGdWxsTmFtZSI6IlRlc3RCZW4xIDQiLCJiZW5lZmljaWFyeVByb2ZpbGVJbWFnZVVybCI6IiJ9LCJwcm9kdWN0Ijp7InByb2R1Y3RJZCI6ImQwOWE3YzJkLWE2YjEtZTgxMS1hOTU2LTAwMGQzYWI0OTQ3NiIsInByb2R1Y3ROYW1lIjoiVmlrZWxhIEFnYWluc3QgRGVhdGgifX0seyJwb2xpY3lJZCI6ImRjNDQ1ZDA2LWZlYzItZTgxMS1hOTVjLTAwMGQzYWI0OTJlMSIsIm5hbWUiOiJCaWcgMSIsInN0YXJ0RGF0ZSI6IjIwMTgtMDktMjhUMDk6MDg6MjErMDA6MDAiLCJlbmREYXRlIjoiMjAxOC0xMi0yOFQwOTowODoyMSswMDowMCIsImV4cGlyZXNJbkRheXMiOjg2LjAsInByZW1pdW1BbW91bnQiOjI1MDAwLjAsImVuc3VyZWRBbW91bnQiOjE1MDAwMDAwMC4wLCJvd25lcklkIjoiNDVjMjJjMzctNWQwMy00NjVkLTkxMzctMTkyMzk4MTU2ZWIwIiwib3duZXJQcm9maWxlSW1hZ2VVcmwiOiIiLCJwb2xpY3lSQUciOjMsInN0b3JlIjp7InN0b3JlSWQiOiI4NGEwOTA4NC1kZGI0LWU4MTEtYTk1Ni0wMDBkM2FiNDkwZjMiLCJzdG9yZU5hbWUiOiJDaGVja2VycyAxIn0sImJlbmVmaWNpYXJ5Ijp7ImJlbmVmaWNpYXJ5SWQiOiIxYjc3MGNkZC1lNWIwLWU4MTEtYTk1Ni0wMDBkM2FiNDk0NzYiLCJiZW5lZmljaWFyeUZ1bGxOYW1lIjoiVGVzdCAzIiwiYmVuZWZpY2lhcnlQcm9maWxlSW1hZ2VVcmwiOiIifSwicHJvZHVjdCI6eyJwcm9kdWN0SWQiOiJkMDlhN2MyZC1hNmIxLWU4MTEtYTk1Ni0wMDBkM2FiNDk0NzYiLCJwcm9kdWN0TmFtZSI6IlZpa2VsYSBBZ2FpbnN0IERlYXRoIn19LHsicG9saWN5SWQiOiJhZWY1MDNiMi00Y2M1LWU4MTEtYTk1ZC0wMDBkM2FiNDkwZjMiLCJuYW1lIjoiTU1TIHRlc3QiLCJzdGFydERhdGUiOiIyMDE4LTEwLTAxVDA3OjM2OjI4KzAwOjAwIiwiZW5kRGF0ZSI6IjIwMTgtMTItMzBUMjI6MDA6MDArMDA6MDAiLCJleHBpcmVzSW5EYXlzIjo4OC4wLCJwcmVtaXVtQW1vdW50IjoyNTAwMC4wLCJlbnN1cmVkQW1vdW50Ijo1NTUwMDAwLjAsIm93bmVySWQiOiI0NWMyMmMzNy01ZDAzLTQ2NWQtOTEzNy0xOTIzOTgxNTZlYjAiLCJvd25lclByb2ZpbGVJbWFnZVVybCI6IiIsInBvbGljeVJBRyI6Mywic3RvcmUiOnsic3RvcmVJZCI6ImYwNGU3Yjk2LWRkYjQtZTgxMS1hOTU2LTAwMGQzYWI0OTBmMyIsInN0b3JlTmFtZSI6IkNoZWNrZXJzIDMifSwiYmVuZWZpY2lhcnkiOnsiYmVuZWZpY2lhcnlJZCI6ImU0MzEwYmU5LWU1YjAtZTgxMS1hOTU2LTAwMGQzYWI0OTQ3NiIsImJlbmVmaWNpYXJ5RnVsbE5hbWUiOiJUZXN0IDUiLCJiZW5lZmljaWFyeVByb2ZpbGVJbWFnZVVybCI6IiJ9LCJwcm9kdWN0Ijp7InByb2R1Y3RJZCI6ImM2ZmMzOTgxLTRjYzUtZTgxMS1hOTVkLTAwMGQzYWI0OTBmMyIsInByb2R1Y3ROYW1lIjoiVmlrZWxhIE15IE1vbmV5IFNwZW5kIn19XX0=",
+    "ResponseUri": "https://vikelaservices-dev.azure-api.net/dyn365/api/v1.0/Policy/getpolicyoverview?userId=45c22c37-5d03-465d-9137-192398156eb0",
+    "Server": "",
+    "Cookies": [],
+    "Headers": [
+        {
+            "Name": "Transfer-Encoding",
+            "Value": "chunked",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Content-Type",
+            "Value": "application/json; charset=utf-8",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Vary",
+            "Value": "Accept-Encoding",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Request-Context",
+            "Value": "appId=cid-v1:a2cb1e61-6eb4-4e18-9d58-5a6ded4d7836",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Strict-Transport-Security",
+            "Value": "max-age=2592000",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Set-Cookie",
+            "Value": "ARRAffinity=b784f31dc2c7c1f776b53061bb56366b5ddf709af3f125a312dbd1a1a096ab9f;Path=/;HttpOnly;Domain=vikela-dyn365-dev.azurewebsites.net",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "X-Powered-By",
+            "Value": "ASP.NET",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Date",
+            "Value": "Wed, 03 Oct 2018 10:47:46 GMT",
+            "Type": 3,
+            "ContentType": null
+        }
+    ],
+    "ResponseStatus": 1,
+    "ErrorMessage": null,
+    "ErrorException": null,
+    "ProtocolVersion": null
+}

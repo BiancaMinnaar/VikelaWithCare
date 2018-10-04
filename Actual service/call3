@@ -1,0 +1,214 @@
+{
+    "Data": [
+        {
+            "name": "Kourtney Minnaar",
+            "userId": "04f31f5b-e5b0-e811-a956-000d3ab49476",
+            "firstName": "Test11",
+            "lastName": "One",
+            "profileImage": null,
+            "connectionId": "bc22e72b-e9b1-e811-a955-000d3ab496c3",
+            "connectedRole": {
+                "roleId": "b859a993-2da5-e811-a951-000d3ab496ce",
+                "roleName": "Trusted Friend",
+                "ValidationRules": [],
+                "ErrorList": [],
+                "OnError": null
+            },
+            "ValidationRules": [],
+            "ErrorList": [],
+            "OnError": null
+        },
+        {
+            "name": "Kourtney Minnaar",
+            "userId": "659edad6-e5b0-e811-a956-000d3ab49476",
+            "firstName": "Testw2",
+            "lastName": "2",
+            "profileImage": null,
+            "connectionId": "954fdc43-e9b1-e811-a955-000d3ab496c3",
+            "connectedRole": {
+                "roleId": "b859a993-2da5-e811-a951-000d3ab496ce",
+                "roleName": "Trusted Friend",
+                "ValidationRules": [],
+                "ErrorList": [],
+                "OnError": null
+            },
+            "ValidationRules": [],
+            "ErrorList": [],
+            "OnError": null
+        },
+        {
+            "name": "Kourtney Minnaar",
+            "userId": "1b770cdd-e5b0-e811-a956-000d3ab49476",
+            "firstName": "Test",
+            "lastName": "3",
+            "profileImage": null,
+            "connectionId": "f5d7cd55-e9b1-e811-a955-000d3ab496c3",
+            "connectedRole": {
+                "roleId": "b859a993-2da5-e811-a951-000d3ab496ce",
+                "roleName": "Trusted Friend",
+                "ValidationRules": [],
+                "ErrorList": [],
+                "OnError": null
+            },
+            "ValidationRules": [],
+            "ErrorList": [],
+            "OnError": null
+        },
+        {
+            "name": "Kourtney Minnaar",
+            "userId": "d7b608e3-e5b0-e811-a956-000d3ab49476",
+            "firstName": "TestBen1",
+            "lastName": "4",
+            "profileImage": null,
+            "connectionId": "3144ce61-e9b1-e811-a955-000d3ab496c3",
+            "connectedRole": {
+                "roleId": "8e9c996f-2da5-e811-a951-000d3ab496ce",
+                "roleName": "Beneficiary",
+                "ValidationRules": [],
+                "ErrorList": [],
+                "OnError": null
+            },
+            "ValidationRules": [],
+            "ErrorList": [],
+            "OnError": null
+        }
+    ],
+    "Request": {
+        "UserState": null,
+        "AllowedDecompressionMethods": [
+            0,
+            2,
+            1
+        ],
+        "AlwaysMultipartFormData": false,
+        "JsonSerializer": {
+            "DateFormat": null,
+            "RootElement": null,
+            "Namespace": null,
+            "ContentType": "application/json"
+        },
+        "XmlSerializer": {
+            "RootElement": null,
+            "Namespace": null,
+            "DateFormat": null,
+            "ContentType": "text/xml"
+        },
+        "ResponseWriter": null,
+        "AdvancedResponseWriter": null,
+        "UseDefaultCredentials": false,
+        "Parameters": [
+            {
+                "Name": "Ocp-Apim-Subscription-Key",
+                "Value": "a77f84e222b54957a9c946b99347c1f1",
+                "Type": 3,
+                "ContentType": null
+            },
+            {
+                "Name": "Authorization",
+                "Value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhTmsifQ.eyJleHAiOjE1Mzg1NjcyMzAsIm5iZiI6MTUzODU2MzYzMCwidmVyIjoiMS4wIiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi5taWNyb3NvZnRvbmxpbmUuY29tL2Q5ZGIyMzBiLWU1ZDEtNDU5Ny05MzQ3LTE1MGNmODk4ZWM5YS92Mi4wLyIsInN1YiI6ImQwYjY4MGQ2LTk1YzUtNDNlMy1iMDM2LWM4NTBhMjY5NjY3NCIsImF1ZCI6IjhjMWY3MjIwLTFjYmQtNDVhZC1iNWU1LWIxY2ZkZmNiYjMzZCIsImlhdCI6MTUzODU2MzYzMCwiYXV0aF90aW1lIjoxNTM4NTYzNjMwLCJuYW1lIjoiQmlhbmNhIEtvdXJ0bmV5IE1pbm5hYXIiLCJpZHAiOiJmYWNlYm9vay5jb20iLCJvaWQiOiJkMGI2ODBkNi05NWM1LTQzZTMtYjAzNi1jODUwYTI2OTY2NzQiLCJ0ZnAiOiJCMkNfMV92aWtlbGFfc2lnbl91cF9pbiJ9.B2jUTYlXWjrpauSMqwHzN5rziIGrPtTqQkfsC8yw0UgzAKrOUnU5tLW28EhWl42bWoBptGVwz4gHyjvF6UYxfmL-byQqoZB_lNiPKHXy0qNgDYUZz1wcjHT706-D3SpQdPuo4XyoDx8DcdIoNENUzbtT0LNK1aQbx_VKR6-h4HFDKUv_Am5JazRzGKanz0LgaVhgyoOIk7nDmWnBytLRRENYKvl-Flb8_tNRCRVJBZkDCe0-7wM65O3UZjZJMV828qSQ0e167Tq_VR8Vun7L_RLP3fPXazfqxewje4IBCLSl9kQqvjK-mpvwb7V7vUwoMGrK4JvXxEznFKdfV0AUUA",
+                "Type": 3,
+                "ContentType": null
+            },
+            {
+                "Name": "userId",
+                "Value": "45c22c37-5d03-465d-9137-192398156eb0",
+                "Type": 1,
+                "ContentType": null
+            },
+            {
+                "Name": "Accept",
+                "Value": "application/json, application/xml, text/json, text/x-json, text/javascript, text/xml",
+                "Type": 3,
+                "ContentType": null
+            }
+        ],
+        "Files": [],
+        "Method": 0,
+        "Resource": "/dyn365/api/v1.0/Connections/getconnectedcontacts",
+        "RequestFormat": 1,
+        "RootElement": null,
+        "OnBeforeDeserialization": {
+            "Method": {
+                "Name": "<.ctor>b__1_0",
+                "AssemblyName": "RestSharp, Version=106.4.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75",
+                "ClassName": "RestSharp.RestRequest+<>c",
+                "Signature": "Void <.ctor>b__1_0(RestSharp.IRestResponse)",
+                "Signature2": "System.Void <.ctor>b__1_0(RestSharp.IRestResponse)",
+                "MemberType": 8,
+                "GenericArguments": null
+            },
+            "Target": {}
+        },
+        "DateFormat": null,
+        "XmlNamespace": null,
+        "Credentials": null,
+        "Timeout": 0,
+        "ReadWriteTimeout": 0,
+        "Attempts": 0
+    },
+    "ContentType": "application/json; charset=utf-8",
+    "ContentLength": -1,
+    "ContentEncoding": "",
+    "Content": "[{\"name\":\"Kourtney Minnaar\",\"userId\":\"04f31f5b-e5b0-e811-a956-000d3ab49476\",\"firstName\":\"Test11\",\"lastName\":\"One\",\"profileImage\":null,\"mobileNumber\":\"0835554212\",\"connectionId\":\"bc22e72b-e9b1-e811-a955-000d3ab496c3\",\"connectedRole\":{\"roleId\":\"b859a993-2da5-e811-a951-000d3ab496ce\",\"roleName\":\"Trusted Friend\"}},{\"name\":\"Kourtney Minnaar\",\"userId\":\"659edad6-e5b0-e811-a956-000d3ab49476\",\"firstName\":\"Testw2\",\"lastName\":\"2\",\"profileImage\":null,\"mobileNumber\":null,\"connectionId\":\"954fdc43-e9b1-e811-a955-000d3ab496c3\",\"connectedRole\":{\"roleId\":\"b859a993-2da5-e811-a951-000d3ab496ce\",\"roleName\":\"Trusted Friend\"}},{\"name\":\"Kourtney Minnaar\",\"userId\":\"1b770cdd-e5b0-e811-a956-000d3ab49476\",\"firstName\":\"Test\",\"lastName\":\"3\",\"profileImage\":null,\"mobileNumber\":null,\"connectionId\":\"f5d7cd55-e9b1-e811-a955-000d3ab496c3\",\"connectedRole\":{\"roleId\":\"b859a993-2da5-e811-a951-000d3ab496ce\",\"roleName\":\"Trusted Friend\"}},{\"name\":\"Kourtney Minnaar\",\"userId\":\"d7b608e3-e5b0-e811-a956-000d3ab49476\",\"firstName\":\"TestBen1\",\"lastName\":\"4\",\"profileImage\":null,\"mobileNumber\":null,\"connectionId\":\"3144ce61-e9b1-e811-a955-000d3ab496c3\",\"connectedRole\":{\"roleId\":\"8e9c996f-2da5-e811-a951-000d3ab496ce\",\"roleName\":\"Beneficiary\"}}]",
+    "StatusCode": 200,
+    "IsSuccessful": true,
+    "StatusDescription": "OK",
+    "RawBytes": "W3sibmFtZSI6IktvdXJ0bmV5IE1pbm5hYXIiLCJ1c2VySWQiOiIwNGYzMWY1Yi1lNWIwLWU4MTEtYTk1Ni0wMDBkM2FiNDk0NzYiLCJmaXJzdE5hbWUiOiJUZXN0MTEiLCJsYXN0TmFtZSI6Ik9uZSIsInByb2ZpbGVJbWFnZSI6bnVsbCwibW9iaWxlTnVtYmVyIjoiMDgzNTU1NDIxMiIsImNvbm5lY3Rpb25JZCI6ImJjMjJlNzJiLWU5YjEtZTgxMS1hOTU1LTAwMGQzYWI0OTZjMyIsImNvbm5lY3RlZFJvbGUiOnsicm9sZUlkIjoiYjg1OWE5OTMtMmRhNS1lODExLWE5NTEtMDAwZDNhYjQ5NmNlIiwicm9sZU5hbWUiOiJUcnVzdGVkIEZyaWVuZCJ9fSx7Im5hbWUiOiJLb3VydG5leSBNaW5uYWFyIiwidXNlcklkIjoiNjU5ZWRhZDYtZTViMC1lODExLWE5NTYtMDAwZDNhYjQ5NDc2IiwiZmlyc3ROYW1lIjoiVGVzdHcyIiwibGFzdE5hbWUiOiIyIiwicHJvZmlsZUltYWdlIjpudWxsLCJtb2JpbGVOdW1iZXIiOm51bGwsImNvbm5lY3Rpb25JZCI6Ijk1NGZkYzQzLWU5YjEtZTgxMS1hOTU1LTAwMGQzYWI0OTZjMyIsImNvbm5lY3RlZFJvbGUiOnsicm9sZUlkIjoiYjg1OWE5OTMtMmRhNS1lODExLWE5NTEtMDAwZDNhYjQ5NmNlIiwicm9sZU5hbWUiOiJUcnVzdGVkIEZyaWVuZCJ9fSx7Im5hbWUiOiJLb3VydG5leSBNaW5uYWFyIiwidXNlcklkIjoiMWI3NzBjZGQtZTViMC1lODExLWE5NTYtMDAwZDNhYjQ5NDc2IiwiZmlyc3ROYW1lIjoiVGVzdCIsImxhc3ROYW1lIjoiMyIsInByb2ZpbGVJbWFnZSI6bnVsbCwibW9iaWxlTnVtYmVyIjpudWxsLCJjb25uZWN0aW9uSWQiOiJmNWQ3Y2Q1NS1lOWIxLWU4MTEtYTk1NS0wMDBkM2FiNDk2YzMiLCJjb25uZWN0ZWRSb2xlIjp7InJvbGVJZCI6ImI4NTlhOTkzLTJkYTUtZTgxMS1hOTUxLTAwMGQzYWI0OTZjZSIsInJvbGVOYW1lIjoiVHJ1c3RlZCBGcmllbmQifX0seyJuYW1lIjoiS291cnRuZXkgTWlubmFhciIsInVzZXJJZCI6ImQ3YjYwOGUzLWU1YjAtZTgxMS1hOTU2LTAwMGQzYWI0OTQ3NiIsImZpcnN0TmFtZSI6IlRlc3RCZW4xIiwibGFzdE5hbWUiOiI0IiwicHJvZmlsZUltYWdlIjpudWxsLCJtb2JpbGVOdW1iZXIiOm51bGwsImNvbm5lY3Rpb25JZCI6IjMxNDRjZTYxLWU5YjEtZTgxMS1hOTU1LTAwMGQzYWI0OTZjMyIsImNvbm5lY3RlZFJvbGUiOnsicm9sZUlkIjoiOGU5Yzk5NmYtMmRhNS1lODExLWE5NTEtMDAwZDNhYjQ5NmNlIiwicm9sZU5hbWUiOiJCZW5lZmljaWFyeSJ9fV0=",
+    "ResponseUri": "https://vikelaservices-dev.azure-api.net/dyn365/api/v1.0/Connections/getconnectedcontacts?userId=45c22c37-5d03-465d-9137-192398156eb0",
+    "Server": "",
+    "Cookies": [],
+    "Headers": [
+        {
+            "Name": "Transfer-Encoding",
+            "Value": "chunked",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Content-Type",
+            "Value": "application/json; charset=utf-8",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Vary",
+            "Value": "Accept-Encoding",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Request-Context",
+            "Value": "appId=cid-v1:a2cb1e61-6eb4-4e18-9d58-5a6ded4d7836",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Strict-Transport-Security",
+            "Value": "max-age=2592000",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Set-Cookie",
+            "Value": "ARRAffinity=b784f31dc2c7c1f776b53061bb56366b5ddf709af3f125a312dbd1a1a096ab9f;Path=/;HttpOnly;Domain=vikela-dyn365-dev.azurewebsites.net",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "X-Powered-By",
+            "Value": "ASP.NET",
+            "Type": 3,
+            "ContentType": null
+        },
+        {
+            "Name": "Date",
+            "Value": "Wed, 03 Oct 2018 10:47:21 GMT",
+            "Type": 3,
+            "ContentType": null
+        }
+    ],
+    "ResponseStatus": 1,
+    "ErrorMessage": null,
+    "ErrorException": null,
+    "ProtocolVersion": null
+}
